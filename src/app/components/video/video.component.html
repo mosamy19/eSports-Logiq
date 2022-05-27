@@ -1,0 +1,108 @@
+<div class="fullscreen-video">
+  <div class="container">
+    <div class="row">
+      <div class="column main-row">
+        <label>{{"centrum_videa" | translate}}</label>
+        <button (click)="closeVideo()">{{"zavrit" | translate}}</button>
+        <a href="/downloads" target="_blank" class="download-button">{{"sprava_stahovani" | translate}}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-content">
+    <div class="container">
+      <div class="row">
+        <div class="column video-box">
+          <label>{{video_title}}&nbsp;</label>
+          <ng-container *ngIf="is_playing">
+            <div class="video-inner">
+              <iframe [src]='video_url_safe' *ngIf="video_url_safe!=''" width="100%" height="100%"></iframe>
+            </div>
+            <div class="video-slider">
+              <div class="custom-slider">
+                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"
+                  (valueChange)="minValueChange()" (highValueChange)="maxValueChange()"></ng5-slider>
+              </div>
+              <div class="action-time">{{active_video_time}}</div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!is_playing">
+            <div class="video-inner">
+
+            </div>
+          </ng-container>
+        </div>
+        <div class="column aside-box">
+          <div class="row form">
+
+
+            <div class="column order" *ngIf="video_type!='shift'">
+              <label>{{"seradit" | translate}}</label>
+              <select [(ngModel)]="video_orderby" (change)="changeVideoOrderBy()">
+                <option value="time">{{'podle_casu' | translate}}</option>
+                <option value="players">{{'podle_hracu' | translate}}</option>
+              </select>
+            </div>
+
+            <div class="column order" *ngIf="video_type=='shift'">
+              <div class="title">{{"stridani" | translate}}</div>
+            </div>
+
+
+
+            <div class="column select">
+              <label>{{"oznacit_videa" | translate}}</label>
+              <button [class.active]="select_all" (click)="toggleSelectAll()">{{"vse" | translate}}</button>
+            </div>
+            <div class="column before">
+              <label>{{"orez_pred" | translate}}</label>
+              <select [(ngModel)]="video_before" (change)="videoBeforeChange()">
+                <option value="-5">-5</option>
+                <option value="-10">-10</option>
+                <option value="-15">-15</option>
+                <option value="-20">-20</option>
+                <option value="-25">-25</option>
+                <option value="-30">-30</option>
+              </select>
+            </div>
+            <div class="column before">
+              <label>{{"orez_po" | translate}}</label>
+              <select [(ngModel)]="video_after" (change)="videoAfterChange()">
+                <option value="+5">+5</option>
+                <option value="+10">+10</option>
+                <option value="+15">+15</option>
+                <option value="+20">+20</option>
+                <option value="+25">+25</option>
+                <option value="+30">+30</option>
+              </select>
+            </div>
+            <div class="column download">
+              <button [disabled]="isSomeVideoSelected() || download_all_disabled"
+                (click)="downloadAll()">{{'stahnout' | translate}}</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="video-selects">
+              <div class="video-button color-{{video.color}}" *ngFor="let video of videos2"
+                [ngClass]="{'active':video.active==true, 'playing':video.playing==true}">
+                <div class="checkbox" (click)="toggleActiveVideo(video.index)"></div>
+                <div class="desc">{{getPlayerJersey(video.player)}} {{getPlayerName(video.player)}}
+                  <!--{{getShotType(video)}}-->
+                </div>
+                <div class="download" (click)="download(video)" [ngClass]="{'active':video.downloading==true}"></div>
+                <div class="play" (click)="playVideo(video)"></div>
+                <div class="cropped" [ngClass]="{'active':video.before!='-5' || video.after!='+5'}">
+                  <div class="tooltip">{{video.before}} {{video.after}}</div>
+                </div>
+                <div class="time" *ngIf="video_type!='shift'">{{video.time | format_sesonds2}}</div>
+                <div class="time" *ngIf="video_type=='shift'">{{video.start | format_sesonds2}} -
+                  {{video.end | format_sesonds2}}</div>
+                <div class="state">{{video.matchDate | match_date}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

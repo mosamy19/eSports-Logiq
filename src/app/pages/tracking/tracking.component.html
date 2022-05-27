@@ -1,0 +1,410 @@
+<div id="full-content">
+
+  <nav>
+  </nav>
+
+
+  <div class="filter">
+    <div class="container">
+      <div class="row tabs">
+        <div class="column tabs-list">
+          <span class="item" [class.active]="tab=='prehled'" (click)="showTab('prehled')">Přehled</span>
+          <span class="item" [class.active]="tab=='uzivatele'" (click)="showTab('uzivatele')">Uživatelé</span>
+          <span class="item" [class.active]="tab=='prihlasovani'" (click)="showTab('prihlasovani')">Přihlašování</span>
+          <span class="item" [class.active]="tab=='log'" (click)="showTab('log')">Log událostí</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content" style=" margin-bottom: 230px; ">
+
+    <div class="container" *ngIf="tab=='prehled'">
+      <div class="row">
+        <div class="column">
+          <h4>Podíl využití obrazovek</h4>
+        </div>
+      </div>
+
+      <div class="filter">
+        <div class="row">
+          <div class="column form-box">
+            <label for="filter_calendar_from">{{'kalendar_od' | translate}}</label>
+            <input type="date" [(ngModel)]="filter_dateFrom" (ngModelChange)="dateChange($event)">
+          </div>
+          <div class="column form-box">
+            <label for="filter_calendar_from">{{'kalendar_do' | translate}}</label>
+            <input type="date" [(ngModel)]="filter_dateTo" (ngModelChange)="dateChange($event)">
+          </div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+        </div>
+      </div>
+
+
+      <div class="row" *ngIf="data_pages_percentil_total_count">
+        <div class="column percentil">
+          <Label>Hráči</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['hraci']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Spoluhráči</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['spoluhraci']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Formace</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['formace']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Analyzér</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['analyzer']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Brankáři</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['brankari']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Zápasy</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['zapasy']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Týmy</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['tymy']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Gamelog</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['gamelog']))}}%
+          </div>
+        </div>
+        <div class="column percentil">
+          <Label>Trend</Label>
+          <div class="percent">
+            {{roundNumber(100/(data_pages_percentil_total_count/data_pages_percentil['trend']))}}%
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" *ngIf="tab=='uzivatele'">
+      <div class="row">
+        <div class="column">
+          <button class="btn" (click)="addUserModal()">Přidat uživatele</button>
+          <br><br>
+        </div>
+        <div class="column">
+          <button class="btn" style="background-color: orange;" (click)="downloadCSV()">Stáhnout seznam uživatelů</button>
+          <br><br>
+        </div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+
+          <table [mfData]="users_list" #mf1="mfDataTable" [mfSortBy]="['datetime']" [mfSortOrder]="'desc'"
+            [mfRowsOnPage]="1000">
+            <thead>
+              <tr>
+                <th class="center">
+                  <mfDefaultSorter by="id">ID</mfDefaultSorter>
+                </th>
+                <th class="left">
+                  <mfDefaultSorter by="user">Uživatel</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="count_logs">Počet logů celkem</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="log_last_date">Datum posledního logu</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="resolution">Rozlišení</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="active">Aktivní</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="Admin">Admin</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="test">Povolený test</mfDefaultSorter>
+                </th>
+                <th class="center">
+                  <mfDefaultSorter by="">Změnit heslo</mfDefaultSorter>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of mf1.data; let i = index">
+                <td class="td-content center">
+                  {{item.id}}
+                </td>
+                <td class="td-content">
+                  <strong>{{item.user}}</strong>
+                </td>
+                <td class="td-content center">
+                  {{item.count_logs}}
+                </td>
+                <td class="td-content center">
+                  {{formatDate(item.log_last_date)}}
+                </td>
+                <td class="td-content center">
+                  {{item.resolution}}
+                </td>
+                <td class="td-content center">
+                  <button *ngIf="item.active==1" class="active-1" (click)="toggleActiveUser(item.id, 0)">ANO</button>
+                  <button *ngIf="item.active==0" class="active-0" (click)="toggleActiveUser(item.id, 1)">NE</button>
+                </td>
+                <td class="td-content center">
+                  <button *ngIf="item.admin==1" class="active-1" (click)="toggleAdminUser(item.id, 0)">ANO</button>
+                  <button *ngIf="item.admin==0" class="active-0" (click)="toggleAdminUser(item.id, 1)">NE</button>
+                </td>
+                <td class="td-content center">
+                  <button *ngIf="item.enabled_test==1" class="active-1"
+                    (click)="toggleTestUser(item.id, 0)">ANO</button>
+                  <button *ngIf="item.enabled_test==0" class="active-0" (click)="toggleTestUser(item.id, 1)">NE</button>
+                </td>
+                <td class="td-content center">
+                  <button (click)="openPasswordChangeModal(item.id)">Změnit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+      <div class="row" *ngIf="loading">
+        <div class="column">
+          <Loading></Loading>
+        </div>
+      </div>
+
+
+      <div id="myModal" class="my-modal" *ngIf="show_password_change_modal">
+        <div class="modal-content">
+          <span class="close" (click)="closePasswordChangeModal()">&times;</span>
+          <p>Nové heslo:</p>
+          <input type="password" [(ngModel)]="password_change_new_password" placeholder="Heslo"
+            (ngModelChange)="passwordInput($event)">
+          <input type="password" [(ngModel)]="password_change_new_password2" placeholder="Heslo znovu"
+            (ngModelChange)="passwordInput($event)">
+          <button (click)="changePassword()">Změnit heslo</button>
+        </div>
+      </div>
+
+
+
+      <div id="myModal" class="my-modal" *ngIf="show_add_user_modal">
+        <div class="modal-content">
+          <span class="close" (click)="closeAddUserModal()">&times;</span>
+          <p>Vytvořit nového uživatele:</p>
+          <input type="text" [(ngModel)]="new_user_email" placeholder="E-mail"
+            (ngModelChange)="newUserEmailChange($event)">
+          <input type="text" [(ngModel)]="new_user_password" placeholder="Heslo"
+            (ngModelChange)="newUserPasswordChange($event)">
+          <button (click)="addUser()">Přidat uživatele</button>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="container" *ngIf="tab=='prihlasovani'">
+      <div class="row">
+        <div class="column">
+
+          <div class="filter">
+            <div class="row">
+              <div class="column form-box">
+                <label>Vybrat uživatele</label>
+                <select id="filter_user" [(ngModel)]="filter_user" (ngModelChange)="loadLogins()">
+                  <option value="" selected disabled>Vyberte uživatele</option>
+                  <option value="ALL">Všichni uživatelé</option>
+                  <option value="{{user.id}}" *ngFor="let user of users_list">{{user.user}}
+                  </option>
+                </select>
+              </div>
+              <div class="column form-box">
+              </div>
+              <div class="column form-box">
+              </div>
+              <div class="column form-box">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="loading==false && data_loaded==true">
+            <div class="column">
+
+              <table [mfData]="logins_list" #mf1="mfDataTable" [mfSortBy]="['datetime']" [mfSortOrder]="'desc'"
+                [mfRowsOnPage]="1000">
+                <thead>
+                  <tr>
+                    <th class="center">
+                      <mfDefaultSorter by="user_id">Uživatel</mfDefaultSorter>
+                    </th>
+                    <th class="center">
+                      <mfDefaultSorter by="datetime">Datum a čas</mfDefaultSorter>
+                    </th>
+                    <th class="center">
+                      <mfDefaultSorter by="ip">IP</mfDefaultSorter>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of mf1.data; let i = index">
+                    <td class="td-content center">
+                      {{item.user_email}}
+                    </td>
+                    <td class="td-content center">
+                      {{formatDate(item.datetime)}}
+                    </td>
+                    <td class="td-content center">
+                      <a href="https://www.ip-tracker.org/locator/ip-lookup.php?ip={{item.ip}}"
+                        target="_blank">{{item.ip}}</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+
+          <div class="row" *ngIf="loading">
+            <div class="column">
+              <Loading></Loading>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container" *ngIf="tab=='log'">
+      <div class="row">
+        <div class="column">
+
+          <div class="filter">
+            <div class="row">
+              <div class="column form-box">
+                <label>Vybrat uživatele</label>
+                <select id="filter_user_log" [(ngModel)]="filter_user_log" (ngModelChange)="loadLogs()">
+                  <option value="" selected disabled>Vyberte uživatele</option>
+                  <option value="{{user.id}}" *ngFor="let user of users_list">{{user.user}}
+                  </option>
+                </select>
+              </div>
+              <div class="column form-box">
+                <label>Vybrat událost</label>
+                <select id="filter_user_log" [(ngModel)]="filter_type">
+                  <option value="ALL" selected>Všechny události</option>
+                  <option value="2">Otevření obrazovky analyzér.</option>
+                  <option value="3">Otevření obrazovky formace.</option>
+                  <option value="4">Otevření obrazovky gamelog.</option>
+                  <option value="5">Otevření obrazovky zápasy.</option>
+                  <option value="6">Otevření obrazovky brankáři.</option>
+                  <option value="7">Otevření obrazovky hráči.</option>
+                  <option value="8">Otevření obrazovky týmy.</option>
+                  <option value="9">Otevření obrazovky spoluhráči.</option>
+                </select>
+              </div>
+              <div class="column form-box">
+              </div>
+              <div class="column form-box">
+              </div>
+              <div class="column form-box">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="loading==false && data_loaded==true">
+            <div class="column">
+
+              <table [mfData]="logs_list" #mf1="mfDataTable" [mfSortBy]="['datetime']" [mfSortOrder]="'desc'"
+                [mfRowsOnPage]="1000">
+                <thead>
+                  <tr>
+                    <th class="center">
+                      <mfDefaultSorter by="user_email">Uživatel</mfDefaultSorter>
+                    </th>
+                    <th class="center">
+                      <mfDefaultSorter by="datetime">Datum a čas</mfDefaultSorter>
+                    </th>
+                    <th class="center">
+                      <mfDefaultSorter by="type">Typ události</mfDefaultSorter>
+                    </th>
+                    <th class="center">
+                      <mfDefaultSorter by="event_text">Událost</mfDefaultSorter>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let item of mf1.data; let i = index">
+                    <tr *ngIf="filter_type=='ALL' || filter_type==item.type">
+                      <td class="td-content center">
+                        {{item.user_email}}
+                      </td>
+                      <td class="td-content center">
+                        {{formatDate(item.datetime)}}
+                      </td>
+                      <td class="td-content center">
+                        {{item.type}}
+                      </td>
+                      <td class="td-content center">
+                        {{item.event_text}}
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+
+          <div class="row" *ngIf="loading">
+            <div class="column">
+              <Loading></Loading>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<footer-box></footer-box>

@@ -1,0 +1,358 @@
+<div class="container download">
+    <div class="row" style="justify-content: space-between;">
+        <div class="column-aside">
+            <div class="game-type-selects">
+                <button
+                  (click)="mainGamesSelect('ALL')"
+                  *ngIf="checkAllGamesSelected()"
+                >
+                  {{ "vybrat_vsechny_zapasy" | translate }}
+                </button>
+                <button
+                  (click)="mainGamesSelect('')"
+                  *ngIf="!checkAllGamesSelected()"
+                  class="selected"
+                >
+                  {{ "odebrat_vsechny_zapasy" | translate }}
+                </button>
+            </div>
+
+            <div class="games-list-box">
+                <div class="games-list" #games_list >
+                  <ng-container *ngFor="let game of games">
+                    <div class="game" [ngClass]="{ active: game.active == true }">
+                      <div
+                        class="check-indicator"
+                        (click)="toggleGame(game.id)"
+                      ></div>
+                      <div class="title">
+                        <span class="teams"
+                          >{{ getTeamNameShortcut(game.homeTeam) }} -
+                          {{ getTeamNameShortcut(game.awayTeam) }}</span
+                        >
+                        <span class="date">{{ game.matchDate | match_date }}</span>
+                      </div>
+                      <div
+                        class="play-ico"
+                        (click)="playGameVideo(game.circles, 'all', undefined)"
+                      ></div>
+                      <ng-container>
+                        <div class="shots">
+                         <!--  <ng-container *ngFor="let circle of game.circles">
+                            <div
+                              class="circle circle-{{ circle.color }}"
+                              *ngIf="circle.length > 0"
+                              (click)="playGameVideo(game, circle.player, undefined)"
+                            >
+                              {{ circle.length }}
+                            </div>
+                          </ng-container> -->
+                          <div
+                        class="circle circle-0"
+                        *ngIf="game.circles?.length > 0"
+                      >
+                        {{ game.circles?.length }}
+                    </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="all-videos-box">
+                <button
+                  class="all-videos"
+                  [disabled]="isGameChecked()"
+                  (click)="openAllVideos()"
+                >
+                  <span>{{ "prehrat_vybrane_zapasy" | translate }}</span>
+                </button>
+              </div>
+        </div>
+        <div class="column-center" style="width: 66%;">
+            <div class="row" style="justify-content: center;">
+            <img src="../../../assets/branka-n-jezdy.svg">
+
+            <div class="data-holder"></div>
+                <div class="LU big-cell">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                        <div class="cell">
+                            Góly
+                        </div>
+                        <div class="cell">
+                            Sv%
+                        </div>
+                    </div>
+                    <div class="flex value-holder">
+                        <div class="vl cell">
+                            {{getCount('ul')}}
+                        </div>
+                        <div class="vc cell">
+                            {{getGoals('ul')}}
+                        </div>
+                        <div class="vr cell">
+                            {{getPercent('ul')}}%
+                        </div>
+                        <div class="play-button" (click)="playVideo('ul')"></div>
+                    </div>
+                </div>
+                <div class="LD big-cell">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                        <div class="cell">
+                            Góly
+                        </div>
+                        <div class="cell">
+                            Sv%
+                        </div>
+                    </div>
+                    <div class="flex value-holder">
+                        <div class="vl cell">
+                            {{getCount('bl')}}
+                        </div>
+                        <div class="vc cell">
+                            {{getGoals('bl')}}
+                        </div>
+                        <div class="vr cell">
+                            {{getPercent('bl')}}%
+                        </div>
+                        <div class="play-button" (click)="playVideo('bl')"></div>
+                    </div>
+                </div>
+                <div class="CU big-cell" style="width: 60px;">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                    </div>
+                    <div class="flex center-holder">
+                        <div class="vc">
+                            {{getCount('ce')}}
+                        </div>
+                        <div class="play-button" (click)="playVideo('ce')"></div>
+                    </div>
+                </div>
+                <div class="CD big-cell">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                        <div class="cell">
+                            Góly
+                        </div>
+                        <div class="cell">
+                            Sv%
+                        </div>
+                    </div>
+                    <div class="flex value-holder">
+                        <div class="vl cell">
+                            {{getCount('fh')}}
+                        </div>
+                        <div class="vc cell">
+                            {{getGoals('fh')}}
+                        </div>
+                        <div class="vr cell">
+                            {{getPercent('fh')}}%
+                        </div>
+                        <div class="play-button" (click)="playVideo('fh')"></div>
+                    </div>
+                </div>
+                <div class="RU big-cell">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                        <div class="cell">
+                            Góly
+                        </div>
+                        <div class="cell">
+                            Sv%
+                        </div>
+                    </div>
+                    <div class="flex value-holder">
+                        <div class="vl cell">
+                            {{getCount('ur')}}
+                        </div>
+                        <div class="vc cell">
+                            {{getGoals('ur')}}
+                        </div>
+                        <div class="vr cell">
+                            {{getPercent('ur')}}%
+                        </div>
+                        <div class="play-button" (click)="playVideo('ur')"></div>
+                    </div>
+                </div>
+                <div class="RD big-cell">
+                    <div class="flex names">
+                        <div class="cell">
+                            Počet
+                        </div>
+                        <div class="cell">
+                            Góly
+                        </div>
+                        <div class="cell">
+                            Sv%
+                        </div>
+                    </div>
+                    <div class="flex value-holder">
+                        <div class="vl cell">
+                            {{getCount('br')}}
+                        </div>
+                        <div class="vc cell">
+                            {{getGoals('br')}}
+                        </div>
+                        <div class="vr cell">
+                            {{getPercent('br')}}%
+                        </div>
+                        <div class="play-button" (click)="playVideo('br')"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex total-text">
+              {{"celkem" | translate}}
+            </div>
+            <div class="flex name-holder">
+                <div class="big-cell">
+                  <div class="flex names">
+                    {{getPlayerName(goalkeeper)}}
+                  </div>
+                  <div class="flex value-holder">
+                    <div class="vl cell">
+                      {{getCountAll()}}
+                    </div>
+                    <div class="vc cell">
+                      {{getGoalsAll()}}
+                    </div>
+                    <div class="vr cell">
+                      {{getPercentAll()}}%
+                    </div>
+                    <div class="play-button" (click)="playVideo('ALL')"></div>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="column-aside aside-right">
+            <div class="boxes">
+              <div class="box">
+
+                <div class="form-box">
+                  <label>{{ 'vybrat_brankare' | translate}}</label>
+                  <select id="filter_individual_player" class="goalie-select" [(ngModel)]="goalkeeper"
+                    (ngModelChange)="changePlayer()" [disabled]="players == ''">
+                    <option value="" selected disabled>{{'brankar' | translate}}</option>
+                    <option disabled>
+                      ──────────
+                    </option>
+                    <option value="{{player.uuid}}" *ngFor="let player of players">{{player.surname}}
+                      {{player.name[0]}}.</option>
+                  </select>
+                </div>
+
+                <div class="form-box">
+                  <label>{{ "vysledek_zakonceni" | translate }}</label>
+
+                  <div class="btn-box">
+                    <button class="active" [class.active]="end_result== 'ALL'" (click)="setEndResult('ALL')">
+                      {{ "vsechny_pokusy" | translate }}
+                    </button>
+                  </div>
+
+                  <div class="btn-box">
+                    <button [class.active]="end_result == 'goal'" (click)="setEndResult('goal')">
+                      {{ "goly" | translate }}
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-box">
+                  <label>{{ "typ_zakonceni" | translate }}</label>
+
+                  <div class="btn-box">
+                    <button [class.active]="end_type == 'ALL'" (click)="setEndType('ALL')">
+                      {{ "vsechny" | translate }}
+                    </button>
+                  </div>
+
+                  <div class="buttons">
+                    <div class="btn-box">
+                      <button [class.active]="end_type == 'shot'" (click)="setEndType('shot')">
+                        {{ "strela" | translate }}
+                      </button>
+                    </div>
+
+                    <div class="btn-box">
+                      <button [class.active]="end_type == 'trick'" (click)="setEndType('trick')">
+                        {{ "klicka" | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-box">
+                  <label>{{ "strana_zakonceni" | translate }}</label>
+
+                  <div class="btn-box">
+                    <button [class.active]="end_side == 'ALL'" (click)="setEndSide('ALL')">
+                      {{ "vsechny" | translate }}
+                    </button>
+                  </div>
+
+                  <div class="buttons">
+                    <div class="btn-box">
+                      <button [class.active]="end_side == 'FH'" (click)="setEndSide('FH')">
+                        Forehand
+                      </button>
+                    </div>
+
+                    <div class="btn-box">
+                      <button [class.active]="end_side == 'BH'" (click)="setEndSide('BH')">
+                        Backhand
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-box">
+                  <label>{{ "drzeni_hole_soupere" | translate }}</label>
+
+                  <div class="btn-box">
+                    <button [class.active]="end_hockey == 'ALL'" (click)="setEndHockey('ALL')">
+                      {{ "vsechny" | translate }}
+                    </button>
+                  </div>
+
+                  <div class="buttons">
+                    <div class="btn-box">
+                      <button [class.active]="end_hockey == 'right'" (click)="setEndHockey('right')">
+                        {{ "prava" | translate }}
+                      </button>
+                    </div>
+
+                    <div class="btn-box">
+                      <button [class.active]="end_hockey == 'left'" (click)="setEndHockey('left')">
+                        {{ "leva" | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-box">
+                  <div class="btn-box">
+                    <button class="download-map" (click)="downloadMap()">
+                      {{ "ulozit_mapu" | translate }}
+                    </button>
+                  </div>
+                </div>
+                
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

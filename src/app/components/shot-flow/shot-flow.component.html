@@ -1,0 +1,98 @@
+<div class="main-wrapper">
+  <div class="graph-container" id="graph-container">
+
+    <div class="stats-widget-loader" *ngIf="loading==true">
+
+      <span class="stats-widget-info" *ngIf="loading==true && error==false">Loading
+      </span>
+      <span class="stats-widget-alert" *ngIf="error==true">No data available for this game
+      </span>
+      <div class="sk-circle" *ngIf="error!=true">
+        <div class="sk-circle1 sk-child">
+        </div>
+        <div class="sk-circle2 sk-child">
+        </div>
+        <div class="sk-circle3 sk-child">
+        </div>
+        <div class="sk-circle4 sk-child">
+        </div>
+        <div class="sk-circle5 sk-child">
+        </div>
+        <div class="sk-circle6 sk-child">
+        </div>
+        <div class="sk-circle7 sk-child">
+        </div>
+        <div class="sk-circle8 sk-child">
+        </div>
+        <div class="sk-circle9 sk-child">
+        </div>
+        <div class="sk-circle10 sk-child">
+        </div>
+        <div class="sk-circle11 sk-child">
+        </div>
+        <div class="sk-circle12 sk-child">
+        </div>
+      </div>
+    </div>
+
+    <div id="container"></div>
+
+    <div id="tooltip" class="info-tooltip">
+      <div class="tooltip-row">
+        <div class="tooltip-title" id="tooltip_title">0</div>
+      </div>
+
+      <div class="tooltip-row">
+        <div class="tooltip-label">TOI =&nbsp;</div>
+        <div class="tooltip-data" id="tooltip_toigp">0</div>
+      </div>
+
+      <div class="tooltip-row">
+        <div class="tooltip-label">CF% =&nbsp;</div>
+        <div class="tooltip-data" id="tooltip_cfpercent">0</div>
+      </div>
+
+      <div class="tooltip-row">
+        <div class="tooltip-label">CF =&nbsp;</div>
+        <div class="tooltip-data" id="tooltip_cf">0</div>
+      </div>
+
+      <div class="tooltip-row">
+        <div class="tooltip-label">CA =&nbsp;</div>
+        <div class="tooltip-data" id="tooltip_ca">0</div>
+      </div>
+
+    </div>
+
+
+
+    <div class="x-box1">negativní</div>
+    <div class="x-box2">30%</div>
+    <div class="x-box3">40%</div>
+    <div class="x-box4">50%</div>
+
+
+
+    <div class="y-box1">pozitivní</div>
+    <div class="y-box2">70%</div>
+    <div class="y-box3">60%</div>
+
+  </div>
+
+  <div class="x-axis">
+    <div class="title">Střely týmu</div>
+    <div class="number-10">10</div>
+    <div class="number-20">20</div>
+    <div class="number-30">30</div>
+  </div>
+
+  <div class="y-axis">
+    <div class="title">Střely soupeře</div>
+    <div class="number-10">10</div>
+    <div class="number-20">20</div>
+    <div class="number-30">30</div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,1433 @@
+<div id="full-content" #full_content>
+  <nav [tab]="tab_small_viz"></nav>
+
+<!-- horni main filter bez dat -->
+  <div class="filter filter-small" *ngIf="dataLoaded == false">
+    <div class="container">
+      <div class="row">
+        <div class="column form-box"></div>
+        <div class="column form-box">
+          <label for="filter_season"
+            >{{ "sezona" | translate }}
+            <sup>*</sup>
+          </label>
+          <div class="multiselect">
+            <div class="multiselect-text">
+              {{ itemsToString(filter_season) }}
+            </div>
+            <angular2-multiselect
+              [data]="seasons_select_list"
+              [(ngModel)]="filter_season"
+              [settings]="dropdownSettings"
+              (ngModelChange)="getSeasonParts()"
+            ></angular2-multiselect>
+          </div>
+        </div>
+        <div class="column form-box">
+          <label for="filter_seasonPart_nodata"
+            >{{ "cast_sezony" | translate }}
+            <sup>*</sup>
+          </label>
+          <select
+            id="filter_seasonPart_nodata"
+            [(ngModel)]="filter_seasonPart"
+            (ngModelChange)="getTeamsData()"
+          >
+            <option value="" selected disabled>
+              {{ "vyberte_cast" | translate }}
+            </option>
+            <option
+              value="{{ competition.uuids }}"
+              *ngFor="let competition of competitions_list"
+            >
+              {{ competition.name }}
+            </option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_team"
+            >{{ "vybrat_tym" | translate }}
+            <sup>*</sup>
+          </label>
+          <select
+            id="filter_team"
+            [(ngModel)]="filter_team"
+            (ngModelChange)="getPlayerList()"
+          >
+            <option value="" disabled selected>
+              {{ "vyberte_tym" | translate }}
+            </option>
+            <option value="{{ team.uuid }}" *ngFor="let team of teams_list">
+              {{ team.name }}
+            </option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_countOfPlayer">{{
+            "pocet_hracu_na_lede" | translate
+          }}</label>
+          <select id="filter_countOfPlayer" [(ngModel)]="filter_countOfPlayer">
+            <option value="5:5">5/5</option>
+            <option value="5:4">5/4</option>
+            <option value="4:5">4/5</option>
+            <option value="3:3">3/3</option>
+            <option value="ES">{{ "rovnovazny_stav" | translate }}</option>
+            <option value="PP">{{ "presilovky" | translate }}</option>
+            <option value="SH">{{ "oslabeni" | translate }}</option>
+            <!-- <option value="WG" *ngIf="boolProd">
+              {{ "bez_brankare" | translate }}
+            </option> -->
+            <option value="6:5">6/5</option>
+            <option value="5:6">5/6</option>
+            <option value="">{{ "vsechny_situace" | translate }}</option>
+          </select>
+        </div>
+        <div class="column form-box"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- horni main filter s daty -->
+  <div class="filter" *ngIf="dataLoaded == true">
+    <div class="container">
+      <div class="row">
+        <div class="column form-box">
+          <label for="filter_season"
+            >{{ "sezona" | translate }}
+            <sup>*</sup>
+          </label>
+          <div class="multiselect">
+            <div class="multiselect-text">
+              {{ itemsToString(filter_season) }}
+            </div>
+            <angular2-multiselect
+              [data]="seasons_select_list"
+              [(ngModel)]="filter_season"
+              [settings]="dropdownSettings"
+              (ngModelChange)="getSeasonParts()"
+            ></angular2-multiselect>
+          </div>
+        </div>
+        <div class="column form-box">
+          <label for="filter_seasonPart"
+            >{{ "cast_sezony" | translate }}
+            <sup>*</sup>
+          </label>
+          <select
+            id="filter_seasonPart"
+            [(ngModel)]="filter_seasonPart"
+            (ngModelChange)="getTeamsData()"
+          >
+            <option value="" selected disabled>Vyberte část</option>
+            <option
+              value="{{ competition.uuids }}"
+              *ngFor="let competition of competitions_list"
+            >
+              {{ competition.name }}
+            </option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_team"
+            >{{ "vybrat_tym" | translate }}
+            <sup>*</sup>
+          </label>
+          <select
+            id="filter_team"
+            [(ngModel)]="filter_team"
+            (ngModelChange)="getPlayerList()"
+          >
+            <option value="" disabled selected>
+              {{ "vyberte_tym" | translate }}
+            </option>
+            <option value="{{ team.uuid }}" *ngFor="let team of teams_list">
+              {{ team.name }}
+            </option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_countOfPlayer">{{
+            "pocet_hracu_na_lede" | translate
+          }}</label>
+          <select
+            id="filter_countOfPlayer"
+            [(ngModel)]="filter_countOfPlayer"
+            (ngModelChange)="checkReload()"
+          >
+            <option value="5:5">5/5</option>
+            <option value="5:4">5/4</option>
+            <option value="4:5">4/5</option>
+            <option value="3:3">3/3</option>
+            <option value="ES">{{ "rovnovazny_stav" | translate }}</option>
+            <option value="PP">{{ "presilovky" | translate }}</option>
+            <option value="SH">{{ "oslabeni" | translate }}</option>
+            <!-- <option value="WG" *ngIf="boolProd">
+              {{ "bez_brankare" | translate }}
+            </option> -->
+            <option value="6:5">6/5</option>
+            <option value="5:6">5/6</option>
+            <option value="">{{ "vsechny_situace" | translate }}</option>
+          </select>
+        </div>
+
+        <div class="column form-box"></div>
+        <div class="column form-box"></div>
+
+        <div class="column form-box form-box__right" *ngIf="!more_filters">
+          <label>&nbsp;</label>
+          <input
+            type="button"
+            value="{{ 'vice_filtru' | translate }}"
+            class="more-filters"
+            (click)="showMoreFilters()"
+          />
+        </div>
+
+        <div class="column form-box" *ngIf="more_filters == false">
+          <label>&nbsp;</label>
+          <input
+            type="submit"
+            value="{{ 'nahrat_data' | translate }}"
+            (click)="loadData(tab_small_viz, true)"
+            class="load-data"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          />
+        </div>
+        <div class="column form-box" *ngIf="more_filters == true"></div>
+        <div class="column form-box" *ngIf="more_filters == true"></div>
+      </div>
+
+      <div
+        class="row more-filters-row"
+        [class.more-filters-row-active]="more_filters == true"
+      >
+        <div class="column form-box">
+          <label for="filter_lastGame">{{
+            "pocet_poslednich_zapasu" | translate
+          }}</label>
+          <input
+            type="number"
+            id="filter_lastGames"
+            placeholder="{{ 'zadejte_pocet' | translate }}"
+            min="0"
+            max="100"
+            [(ngModel)]="filter_lastGames"
+          />
+        </div>
+        <div class="column form-box">
+          <label for="filter_calendar_from">{{
+            "datum_od_do" | translate
+            }}</label>
+
+          <input
+            placeholder="{{'datum_od_do' | translate}}"
+            id="filter_calendar_from"
+            type="text"
+            ngxDaterangepickerMd
+            [(ngModel)]="selected_daterange"
+            [locale]="locale"
+            (datesUpdated)="dateRangeChange($event)"
+            [showClearButton]="true"
+            class="range-calendar"
+          />
+        </div>
+        <div class="column form-box">
+          <label for="filter_homeAway">{{ "doma_venku" | translate }}</label>
+          <select id="filter_homeAway" [(ngModel)]="filter_homeAway">
+            <option value="">{{ "doma_i_venku" | translate }}</option>
+            <option value="home">{{ "doma" | translate }}</option>
+            <option value="away">{{ "venku" | translate }}</option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_matchState">{{ "stav_utkani" | translate }}</label>
+          <select id="filter_matchState" [(ngModel)]="filter_matchState">
+            <option value="">{{ "vsechny_stavy" | translate }}</option>
+            <option value="lead">{{ "ve_vedeni" | translate }}</option>
+            <option value="trail">{{ "pri_prohravani" | translate }}</option>
+            <option value="tie">{{ "vyrovnany" | translate }}</option>
+          </select>
+        </div>
+        <div class="column form-box">
+          <label for="filter_minutes">{{ "time_in_games" | translate }}</label>
+          <div class="from-to">
+            <input
+              type="number"
+              id="filter_minutes_from"
+              placeholder="{{ 'od' | translate }}"
+              [(ngModel)]="filter_minutes_from"
+            />
+            <input
+              type="number"
+              id="filter_minutes_to"
+              placeholder="{{ 'do' | translate }}"
+              [(ngModel)]="filter_minutes_to"
+            />
+          </div>
+        </div>
+        <div class="column form-box">
+          <label for="">{{ "vyberte_soupere" | translate }}</label>
+          <div class="teams-select">
+            <div class="multiselect">
+              <div class="multiselect-text">
+                {{ itemsToString(selected_teams) }}
+              </div>
+              <angular2-multiselect
+                [data]="teams_list"
+                [(ngModel)]="selected_teams"
+                [settings]="dropdownSettings2"
+                (ngModelChange)="selectTeams()"
+              >
+              </angular2-multiselect>
+            </div>
+          </div>
+        </div>
+
+        <div class="column form-box" *ngIf="more_filters == true">
+          <label>&nbsp;</label>
+          <input
+            type="button"
+            value="{{ 'mene_filtru' | translate }}"
+            class="more-filters active"
+            (click)="showMoreFilters()"
+          />
+        </div>
+        <div class="column form-box" *ngIf="more_filters == true">
+          <label>&nbsp;</label>
+          <input
+            type="submit"
+            value="{{ 'nahrat_data' | translate }}"
+            (click)="loadData(tab_small_viz, true)"
+            class="load-data"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          />
+        </div>
+      </div>
+
+      <!--
+      <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+        <div class="column form-box">
+          <label for="filter_minutes">{{'vyberte_soupere' | translate}}</label>
+        </div>
+      </div>
+      <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+        <div class="column form-box">
+          <div [className]="checkNonselectedOpponent() ? 'btn-opponent btn-opponent__active' : 'btn-opponent'"
+            (click)="setOpponentsAll()">{{'vsichni' | translate}}</div>
+        </div>
+        <div class="column form-box" *ngFor="let team of teams_list">
+          <div *ngIf="filter_team==team.uuid"
+            [className]="filter_opponent==team.uuid ? 'btn-opponent btn-opponent__active' : 'btn-opponent disabled'">
+            {{team.shortcut}}</div>
+          <div *ngIf="filter_team!=team.uuid" class="btn-opponent"
+            [ngClass]="{'btn-opponent__active':checkSelectedOpponent(team.uuid) == true}"
+            (click)="addOpponent(team.uuid)">{{team.shortcut}}</div>
+        </div>
+      </div>
+
+
+      <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+         <div class="column form-box">
+          <label for="filter_situationType">{{'filtr_po_situaci' | translate}}</label>
+          <select id="filter_situationType" [(ngModel)]="filter_situationType">
+            <option value="">{{'vyberte_situaci' | translate}}</option>
+            <option value="wonInDefenseZone">{{'vyhrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+            <option value="wonInOffenseZone">{{'vyhrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+            <option value="lostInDefenseZone">{{'prohrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+            <option value="lostInOffenseZone">{{'prohrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+
+            <ng-container>
+              <option value="successfulZoneEntry">{{'uspesny_vstup_do_pasma' | translate}}</option>
+              <option value="unsuccessfulZoneEntry">{{'neuspesny_vstup_do_pasma' | translate}}</option>
+              <option value="successfulZoneExit">{{'uspesny_vystup_z_pasma' | translate}}</option>
+              <option value="unsuccessfulZoneExit">{{'neuspesny_vystup_z_pasma' | translate}}</option>
+            </ng-container>
+
+          </select>
+        </div> -->
+      <!-- <div class="column form-box">
+          <ng-container *ngIf="filter_situationType!=''">
+            <label for="filter_situationTime">{{'cas_po_situaci' | translate}}</label>
+            <input type="number" id="filter_situationTime" placeholder="{{'zadejte_cas' | translate}}"
+              [(ngModel)]="filter_situationTime">
+          </ng-container>
+        </div> -->
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+    </div>
+  </div>
+</div>
+
+<!-- modre hlavni ikony s akci pro nahrani data -->
+<div class="tab-content" [class.show]="tab == '' && dataLoaded == false">
+  <div class="container selection-dashboard">
+    <div class="row">
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/strely.svg" />
+          <div class="header">{{ "strely" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            VIDEO: Z jakých lokací a do jakých zón branky týmy či hráči střílí?
+            Z jakých akcí a z jakých typů střel?
+          </div>
+          <button
+            (click)="loadData('shots', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/heatmapa.svg" />
+          <div class="header">{{ "heatmapa" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            Odkud vybraný tým či hráč střílí častěji a proměňuje své
+            příležitosti úspěšněji než průměr ligy?
+          </div>
+          <button
+            (click)="loadData('heatmap', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/prihravky.svg" />
+          <div class="header">{{ "prihravky" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            VIDEO: Z jakých lokací hráči přihrávají na střely? Z jakých akcí a
+            na jaké typy střel?
+          </div>
+          <button
+            (click)="loadData('passes', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/vhazovani.svg" />
+          <div class="header">{{ "vhazovani" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            VIDEO: Na jaké straně hřiště a v jakém pásmu jsou hráči úspěšní na
+            vhazování? A proti jakým soupeřům?
+          </div>
+          <button
+            (click)="loadData('faceoffs', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/vstupy.svg" />
+          <div class="header">{{ "vstupy_do_pasma" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            VIDEO: Kudy hráči vstupují do útočného pásma? Které vstupy byly
+            zakončeny střelou, šancí či gólem?
+          </div>
+          <button
+            (click)="loadData('entries', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/vystupy.svg" />
+          <div class="header">{{ "vystupy_z_pasma" | translate }}</div>
+          <div *ngIf="checkLanguage()" class="desc">
+            VIDEO: Kudy hráči vystupují z obranného pásma? Ztratili po výstupu
+            puk nebo byl přechod úspěšný?
+          </div>
+          <button
+            (click)="loadData('exits', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            {{ "nahrat_data" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="dashbox">
+          <img src="/assets/widgets/najezdy.svg" />
+          <div class="header">{{ "najezdy" | translate }}</div>
+          <div class="desc">
+            VIDEO: Jak hráči nejčastěji zakončují samostatné nájezdy? Kličkou?
+            Střelou? A do jaké zóny branky?
+          </div>
+          <button
+            (click)="loadData('shootouts', true)"
+            style="margin-top: 35px"
+            [disabled]="
+              filter_season == '' ||
+              filter_seasonPart == '' ||
+              filter_team == ''
+            "
+          >
+            Nahrát data
+          </button>
+        </div>
+      </div>
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
+  </div>
+</div>
+
+<!-- inner small menu -->
+<div class="nav-content" [class.show]="tab == 'vizualizace'">
+  <div class="container">
+    <div class="row tabs">
+      <div class="column tabs-list">
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'shots' }"
+          (click)="smallTabViz_toggle('shots')"
+          role="link"
+        >
+          {{ "strely" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'heatmap' }"
+          (click)="smallTabViz_toggle('heatmap')"
+        >
+          {{ "heatmapa" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'passes' }"
+          (click)="smallTabViz_toggle('passes')"
+        >
+          {{ "prihravky" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'faceoffs' }"
+          (click)="smallTabViz_toggle('faceoffs')"
+        >
+          {{ "vhazovani" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'entries' }"
+          (click)="smallTabViz_toggle('entries')"
+        >
+          {{ "vstupy_do_pasma" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'exits' }"
+          (click)="smallTabViz_toggle('exits')"
+        >
+          {{ "vystupy_z_pasma" | translate }}
+        </div>
+        <div
+          class="item"
+          [ngClass]="{ active: tab_small_viz == 'shootouts' }"
+          (click)="smallTabViz_toggle('shootouts')"
+        >
+          {{ "najezdy" | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- inner filter barevny background -->
+<div class="tab-content download" [class.show]="tab == 'vizualizace'">
+  <div class="">
+    <div
+      class="row formations-analysis-row"
+      style="height: 65px"
+      *ngIf="
+        filter_season != '' && filter_seasonPart != '' && filter_team != ''
+      "
+    >
+      <div class="cols">
+        <div class="player-box player1">
+          <button
+            class="checkbox"
+            (click)="toggleActivePlayer(1)"
+            [class.active]="active_player1"
+            [class.notext]="filter_playerId_select1 == ''"
+            *ngIf="tab_small_viz != 'shootouts'"
+          >
+            <ng-container *ngIf="active_player1">ON</ng-container>
+            <ng-container *ngIf="!active_player1">OFF</ng-container>
+          </button>
+          <select
+            [(ngModel)]="filter_playerId_select1"
+            (ngModelChange)="changeSelectedPlayersList($event, 1)"
+          >
+            <option value="">{{ "vyberte_hrace" | translate }}</option>
+            <ng-container *ngFor="let item of players_list">
+              <option
+                *ngIf="item.position != 'GK'"
+                value="{{ item.uuid }}"
+                [disabled]="
+                  item.uuid == filter_playerId_select2 ||
+                  item.uuid == filter_playerId_select3 ||
+                  item.uuid == filter_playerId_select4 ||
+                  item.uuid == filter_playerId_select5 ||
+                  item.uuid == filter_playerId_select6
+                "
+              >
+                {{ item.surname }}
+                {{ item.name[0] }}.
+                <span *ngIf="tab_small_viz == 'faceoffs'">{{
+                  getPlayerFaceoffData(item.uuid)
+                }}</span>
+                <span *ngIf="tab_small_viz == 'shootouts'">{{
+                  getPlayerRaidData(item.uuid)
+                }}</span>
+              </option>
+            </ng-container>
+          </select>
+          <button
+            class="cross"
+            *ngIf="filter_playerId_select1 != ''"
+            (click)="clearPlayer(1)"
+          ></button>
+          <div class="on-off">
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-on': filter_selected_players1 === 'on' }"
+                (click)="setPlayerOn(1)"
+              >
+                ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-off': filter_selected_players1 === 'off' }"
+                (click)="setPlayerOff(1)"
+              >
+                OFF
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-box player2">
+          <button
+            class="checkbox"
+            (click)="toggleActivePlayer(2)"
+            [class.active]="active_player2"
+            [class.notext]="filter_playerId_select2 == ''"
+            [class.notext]="filter_playerId_select2 == ''"
+            *ngIf="tab_small_viz != 'shootouts'"
+          >
+            <ng-container *ngIf="active_player2">ON</ng-container>
+            <ng-container *ngIf="!active_player2">OFF</ng-container>
+          </button>
+          <select
+            [(ngModel)]="filter_playerId_select2"
+            (ngModelChange)="changeSelectedPlayersList($event, 2)"
+          >
+            <option value="">{{ "vyberte_hrace" | translate }}</option>
+            <ng-container *ngFor="let item of players_list">
+              <option
+                *ngIf="item.position != 'GK'"
+                value="{{ item.uuid }}"
+                [disabled]="
+                  item.uuid == filter_playerId_select1 ||
+                  item.uuid == filter_playerId_select3 ||
+                  item.uuid == filter_playerId_select4 ||
+                  item.uuid == filter_playerId_select5 ||
+                  item.uuid == filter_playerId_select6
+                "
+              >
+                {{ item.surname }}
+                {{ item.name[0] }}.
+                <span *ngIf="tab_small_viz == 'faceoffs'">{{
+                  getPlayerFaceoffData(item.uuid)
+                }}</span>
+                <span *ngIf="tab_small_viz == 'shootouts'">{{
+                  getPlayerRaidData(item.uuid)
+                }}</span>
+              </option>
+            </ng-container>
+          </select>
+          <button
+            class="cross"
+            *ngIf="filter_playerId_select2 != ''"
+            (click)="clearPlayer(2)"
+          ></button>
+          <div class="on-off">
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-on': filter_selected_players2 === 'on' }"
+                (click)="setPlayerOn(2)"
+              >
+                ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-off': filter_selected_players2 === 'off' }"
+                (click)="setPlayerOff(2)"
+              >
+                OFF
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-box player3">
+          <button
+            class="checkbox"
+            (click)="toggleActivePlayer(3)"
+            [class.active]="active_player3"
+            [class.notext]="filter_playerId_select3 == ''"
+            [class.notext]="filter_playerId_select3 == ''"
+            *ngIf="tab_small_viz != 'shootouts'"
+          >
+            <ng-container *ngIf="active_player3">ON</ng-container>
+            <ng-container *ngIf="!active_player3">OFF</ng-container>
+          </button>
+          <select
+            [(ngModel)]="filter_playerId_select3"
+            (ngModelChange)="changeSelectedPlayersList($event, 3)"
+          >
+            <option value="">{{ "vyberte_hrace" | translate }}</option>
+            <ng-container *ngFor="let item of players_list">
+              <option
+                *ngIf="item.position != 'GK'"
+                value="{{ item.uuid }}"
+                [disabled]="
+                  item.uuid == filter_playerId_select1 ||
+                  item.uuid == filter_playerId_select2 ||
+                  item.uuid == filter_playerId_select4 ||
+                  item.uuid == filter_playerId_select5 ||
+                  item.uuid == filter_playerId_select6
+                "
+              >
+                {{ item.surname }}
+                {{ item.name[0] }}.
+                <span *ngIf="tab_small_viz == 'faceoffs'">{{
+                  getPlayerFaceoffData(item.uuid)
+                }}</span>
+                <span *ngIf="tab_small_viz == 'shootouts'">{{
+                  getPlayerRaidData(item.uuid)
+                }}</span>
+              </option>
+            </ng-container>
+          </select>
+          <button
+            class="cross"
+            *ngIf="filter_playerId_select3 != ''"
+            (click)="clearPlayer(3)"
+          ></button>
+          <div class="on-off">
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-on': filter_selected_players3 === 'on' }"
+                (click)="setPlayerOn(3)"
+              >
+                ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-off': filter_selected_players3 === 'off' }"
+                (click)="setPlayerOff(3)"
+              >
+                OFF
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-box player4">
+          <button
+            class="checkbox"
+            (click)="toggleActivePlayer(4)"
+            [class.active]="active_player4"
+            [class.notext]="filter_playerId_select4 == ''"
+            [class.notext]="filter_playerId_select4 == ''"
+            *ngIf="tab_small_viz != 'shootouts'"
+          >
+            <ng-container *ngIf="active_player4">ON</ng-container>
+            <ng-container *ngIf="!active_player4">OFF</ng-container>
+          </button>
+          <select
+            [(ngModel)]="filter_playerId_select4"
+            (ngModelChange)="changeSelectedPlayersList($event, 4)"
+          >
+            <option value="">{{ "vyberte_hrace" | translate }}</option>
+            <ng-container *ngFor="let item of players_list">
+              <option
+                *ngIf="item.position != 'GK'"
+                value="{{ item.uuid }}"
+                [disabled]="
+                  item.uuid == filter_playerId_select1 ||
+                  item.uuid == filter_playerId_select2 ||
+                  item.uuid == filter_playerId_select3 ||
+                  item.uuid == filter_playerId_select5 ||
+                  item.uuid == filter_playerId_select6
+                "
+              >
+                {{ item.surname }}
+                {{ item.name[0] }}.
+                <span *ngIf="tab_small_viz == 'faceoffs'">{{
+                  getPlayerFaceoffData(item.uuid)
+                }}</span>
+                <span *ngIf="tab_small_viz == 'shootouts'">{{
+                  getPlayerRaidData(item.uuid)
+                }}</span>
+              </option>
+            </ng-container>
+          </select>
+          <button
+            class="cross"
+            *ngIf="filter_playerId_select4 != ''"
+            (click)="clearPlayer(4)"
+          ></button>
+          <div class="on-off">
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-on': filter_selected_players4 === 'on' }"
+                (click)="setPlayerOn(4)"
+              >
+                ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-off': filter_selected_players4 === 'off' }"
+                (click)="setPlayerOff(4)"
+              >
+                OFF
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="player-box player5">
+          <button
+            class="checkbox"
+            (click)="toggleActivePlayer(5)"
+            [class.active]="active_player5"
+            [class.notext]="filter_playerId_select5 == ''"
+            [class.notext]="filter_playerId_select5 == ''"
+            *ngIf="tab_small_viz != 'shootouts'"
+          >
+            <ng-container *ngIf="active_player5">ON</ng-container>
+            <ng-container *ngIf="!active_player5">OFF</ng-container>
+          </button>
+          <button
+            class="cross"
+            *ngIf="filter_playerId_select5 != ''"
+            (click)="clearPlayer(5)"
+          ></button>
+          <select
+            [(ngModel)]="filter_playerId_select5"
+            (ngModelChange)="changeSelectedPlayersList($event, 5)"
+          >
+            <option value="">{{ "vyberte_hrace" | translate }}</option>
+            <ng-container *ngFor="let item of players_list">
+              <option
+                *ngIf="item.position != 'GK'"
+                value="{{ item.uuid }}"
+                [disabled]="
+                  item.uuid == filter_playerId_select1 ||
+                  item.uuid == filter_playerId_select2 ||
+                  item.uuid == filter_playerId_select3 ||
+                  item.uuid == filter_playerId_select4 ||
+                  item.uuid == filter_playerId_select6
+                "
+              >
+                {{ item.surname }}
+                {{ item.name[0] }}.
+                <span *ngIf="tab_small_viz == 'faceoffs'">{{
+                  getPlayerFaceoffData(item.uuid)
+                }}</span>
+                <span *ngIf="tab_small_viz == 'shootouts'">{{
+                  getPlayerRaidData(item.uuid)
+                }}</span>
+              </option>
+            </ng-container>
+          </select>
+          <div class="on-off">
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-on': filter_selected_players5 === 'on' }"
+                (click)="setPlayerOn(5)"
+              >
+                ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div
+                class="btn"
+                [ngClass]="{ 'btn-off': filter_selected_players5 === 'off' }"
+                (click)="setPlayerOff(5)"
+              >
+                OFF
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+        <div class="player-box">
+          <select [(ngModel)]="filter_playerId_select6" (ngModelChange)="changeSelectedPlayersList($event, 6)">
+            <option value="">{{'vyberte_hrace' | translate}}</option>
+            <option *ngFor="let item of players_list" value="{{item.uuid}}"
+              [disabled]="item.uuid==filter_playerId_select1 || item.uuid==filter_playerId_select2 || item.uuid==filter_playerId_select3 || item.uuid==filter_playerId_select4 || item.uuid==filter_playerId_select5">
+              {{item.surname}}
+              {{item.name[0]}}.</option>
+          </select>
+          <div class="on-off">
+            <div class="btn-box">
+              <div class="btn" [ngClass]="{'btn-on':filter_selected_players6 === 'on'}" (click)="setPlayerOn(6)">ON
+              </div>
+            </div>
+            <div class="btn-box">
+              <div class="btn" [ngClass]="{'btn-off':filter_selected_players6 === 'off'}" (click)="setPlayerOff(6)">OFF
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+    </div>
+
+    <div class="container" *ngIf="loading">
+      <Loading></Loading>
+    </div>
+
+<!-- heat mapy graficke zobrazeni -->
+    <div class="heatmaps">
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'shots' && loading == false && shots.for"
+      >
+        <shotmap
+          [players]="showDots"
+          [shots]="shots"
+          [shots_team]="shots_team"
+          [gameslist]="gameslist"
+          [teams_list_input]="teams_list"
+          (onInvertChanged)="invertChanged($event)"
+          [pro_proti_shots]="pro_proti_shots"
+          (onLoadAgainst)="onLoadAgainstShots($event)"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+          (loadShots)="loadShots($event)"
+          (_downloadMap)="exportShotmap($event)"
+          [filter_team]="filter_team"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          [toi]="toi"
+          (onSelectedGame)="onSelectedGame($event)"
+          [selected_games]="selected_games"
+        >
+        </shotmap>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'heatmap' && loading == false"
+      >
+        <heatmap
+          [players]="showDots"
+          [shots_team]="shots_team"
+          [shots]="shots"
+          [gameslist]="gameslist"
+          [teams_list_input]="teams_list"
+          [filter_seasonPart]="filter_seasonPart"
+          [filter_team]="filter_team"
+          [filter_dateFrom]="filter_dateFrom"
+          [filter_dateTo]="filter_dateTo"
+          [filter_lastGames]="filter_lastGames"
+          [filter_situationType]="filter_situationType"
+          [filter_situationTime]="filter_situationTime"
+          [filter_countOfPlayer]="filter_countOfPlayer"
+          [filter_matchState]="filter_matchState"
+          [filter_homeAway]="filter_homeAway"
+          [filter_opponents]="filter_opponents"
+          [filter_minutes_from]="filter_minutes_from"
+          [filter_minutes_to]="filter_minutes_to"
+          [filter_minTOI]="filter_minTOI"
+          (onInvertChanged)="invertChanged($event)"
+          [toi]="toi"
+          [xG]="xG"
+          [g]="g"
+        ></heatmap>
+
+        <div class="old" style="display: none">
+          <div class="filter">
+            <div class="row">
+              <div class="column form-box" *ngIf="isSelectedMinOnePlayerHeat">
+                <label>Zapojení hráče</label>
+                <select
+                  id="filter_zapojeni_hrace"
+                  [(ngModel)]="filter_zapojeni_hrace"
+                  (ngModelChange)="load_heatmap()"
+                >
+                  <option value="" selected disabled>Vyberte</option>
+                  <option value="on-ice">
+                    ON-ICE, střely týmu s hráčem na ledě
+                  </option>
+                  <option value="individual">
+                    INDIVIDUAL, střely samotného hráče
+                  </option>
+                </select>
+              </div>
+
+              <div class="column form-box">
+                <label>{{ "kategorie_strel" | translate }}y</label>
+                <select
+                  id="filter_shoot_category_heat"
+                  [(ngModel)]="filter_shoot_category_heat"
+                  (ngModelChange)="load_heatmap()"
+                >
+                  <option value="gf60">{{ "goly" | translate }}</option>
+                  <option value="sogf60">
+                    {{ "strely_na_branku" | translate }}
+                  </option>
+                  <option value="ff60">
+                    {{ "nezblokovane_strely" | translate }}
+                  </option>
+                  <option value="cf60">
+                    {{ "strelecke_pokusy" | translate }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+
+              <div
+                class="column form-box"
+                *ngIf="isSelectedMinOnePlayerHeat == false"
+              ></div>
+
+              <div class="column form-box form-box__check" style="width: 250%">
+                <span
+                  *ngIf="
+                    filter_zapojeni_hrace != 'individual' &&
+                    isSelectedMinOnePlayerHeat == true
+                  "
+                >
+                  <label>{{ "porovnat_s" | translate }} </label>
+                  <div class="check-boxes">
+                    <button
+                      [ngClass]="{ checked: heatmap_compare == 'team' }"
+                      (click)="heatmapCompare('team')"
+                    >
+                      Průměrem týmu
+                    </button>
+                    <button
+                      [ngClass]="{ checked: heatmap_compare == 'league' }"
+                      (click)="heatmapCompare('league')"
+                    >
+                      Průměrem TELH
+                    </button>
+                  </div>
+                </span>
+
+                <span
+                  *ngIf="
+                    (filter_zapojeni_hrace == 'on-ice' ||
+                      filter_zapojeni_hrace == '') &&
+                    isSelectedMinOnePlayerHeat == false
+                  "
+                >
+                  <label>{{ "porovnat_s" | translate }} </label>
+                  <div class="check-boxes">
+                    <button
+                      [ngClass]="{ checked: heatmap_compare == 'league' }"
+                      (click)="heatmapCompare('league')"
+                    >
+                      Průměrem TELH
+                    </button>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="isLoadingHeatmap">
+            <Loading></Loading>
+          </div>
+
+          <div
+            *ngIf="
+              !is_relative_heatmap &&
+              !isLoadingHeatmap &&
+              normal_heatmap_pro_url == ''
+            "
+          >
+            <div class="nodata">
+              <div class="row">
+                <div class="column">
+                  <img src="./assets/hockey-sticks.svg" />
+                  <h3>Vyberte z filtrů</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="row playgrounds"
+            *ngIf="
+              !is_relative_heatmap &&
+              !isLoadingHeatmap &&
+              normal_heatmap_pro_url != ''
+            "
+          >
+            <div class="column playground">
+              <img
+                src="{{ normal_heatmap_pro_url }}"
+                width="100%"
+                class="playground-image"
+              />
+              <!--<textarea style="height:400px">{{stringy(heatpro_data)}}</textarea>-->
+              <div class="playground-desc playground-desc__white">
+                {{ "strely_pro" | translate }}
+              </div>
+            </div>
+            <div
+              class="column playground"
+              *ngIf="filter_zapojeni_hrace != 'individual'"
+            >
+              <img
+                src="{{ normal_heatmap_proti_url }}"
+                width="100%"
+                class="playground-image"
+              />
+              <!--<textarea style="height:400px">{{stringy(heatpro_data)}}</textarea>-->
+              <div class="playground-desc playground-desc__white">
+                {{ "strely_proti" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="isLoadingRelativeHeatmap">
+            <Loading></Loading>
+          </div>
+
+          <div *ngIf="!isLoadingRelativeHeatmap">
+            <div
+              class="row playgrounds playgrounds__white"
+              *ngIf="is_relative_heatmap"
+            >
+              <div
+                class="column playground"
+                *ngIf="relative_heatmap_pro_url != ''"
+              >
+                <img
+                  src="{{ relative_heatmap_pro_url }}"
+                  width="100%"
+                  class="playground-image"
+                />
+                <!--<textarea style="height:400px">{{stringy(rel_heatpro_data)}}</textarea>-->
+                <div class="playground-desc">
+                  {{ "strely_pro" | translate }}
+                </div>
+              </div>
+
+              <div
+                class="column playground"
+                *ngIf="relative_heatmap_pro_url != ''"
+              >
+                <img
+                  src="{{ relative_heatmap_proti_url }}"
+                  width="100%"
+                  class="playground-image"
+                />
+                <!--<textarea style="height:400px">{{stringy(rel_heatpro_data)}}</textarea>-->
+                <div class="playground-desc">
+                  {{ "strely_proti" | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'passes' && loading == false"
+      >
+        <assistmap
+          [players]="showDots"
+          [assists]="assists"
+          [assists_team]="shots_team"
+          [gameslist]="gameslist"
+          [teams_list]="teams_list"
+          (onInvertChanged)="invertChanged($event)"
+          [pro_proti_assists]="pro_proti_assists"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          (onLoadAgainst)="onLoadAgainstAssist($event)"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+          [toi]="toi"
+          (onSelectedGame)="onSelectedGame($event)"
+          [selected_games]="selected_games"
+          (badLoad)="smallTabViz_toggle($event)"
+        >
+        </assistmap>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'faceoffs' && loading == false"
+      >
+        <bulymap
+          [filter_seasonPart]="filter_seasonPart"
+          [gameslist]="gameslist"
+          [filter_team]="filter_team"
+          [filter_dateFrom]="filter_dateFrom"
+          [filter_dateTo]="filter_dateTo"
+          [filter_lastGames]="filter_lastGames"
+          [filter_situationType]="filter_situationType"
+          [filter_situationTime]="filter_situationTime"
+          [filter_countOfPlayer]="filter_countOfPlayer"
+          [filter_matchState]="filter_matchState"
+          [filter_homeAway]="filter_homeAway"
+          [filter_opponents]="filter_opponents"
+          [filter_minutes_from]="filter_minutes_from"
+          [filter_minutes_to]="filter_minutes_to"
+          [filter_minTOI]="filter_minTOI"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          [filter_playerId_select6]="filter_playerId_select6"
+          [filter_selected_players1]="filter_selected_players1"
+          [filter_selected_players2]="filter_selected_players2"
+          [filter_selected_players3]="filter_selected_players3"
+          [filter_selected_players4]="filter_selected_players4"
+          [filter_selected_players5]="filter_selected_players5"
+          [filter_selected_players6]="filter_selected_players6"
+          [players]="showDots"
+          [shots_team]="shots_team"
+          [teams_list_input]="teams_list"
+          [selected_teams_against]="selected_teams"
+          (onInvertChanged)="invertChanged($event)"
+          (loadFaceoffDataClick)="loadFaceoffData($event)"
+          (loadAllFaceoffDataClick)="loadAllFaceoffData($event)"
+          (loadAllFaceoffDataByPosClick)="loadAllFaceoffDataByPos($event)"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+          (onSelectedGame)="onSelectedGame($event)"
+          [selected_games]="selected_games"
+        >
+        </bulymap>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'entries' && loading == false"
+        style="padding-bottom: 20px"
+      >
+        <vstupy
+          [gameslist]="gameslist"
+          [players]="showDots"
+          [shots_team]="shots_team"
+          [teams_list_input]="teams_list"
+          [filter_seasonPart]="filter_seasonPart"
+          [filter_team]="filter_team"
+          [filter_dateFrom]="filter_dateFrom"
+          [filter_dateTo]="filter_dateTo"
+          [filter_lastGames]="filter_lastGames"
+          [filter_situationType]="filter_situationType"
+          [filter_situationTime]="filter_situationTime"
+          [filter_countOfPlayer]="filter_countOfPlayer"
+          [filter_matchState]="filter_matchState"
+          [filter_homeAway]="filter_homeAway"
+          [filter_opponents]="filter_opponents"
+          [filter_minutes_from]="filter_minutes_from"
+          [filter_minutes_to]="filter_minutes_to"
+          [filter_minTOI]="filter_minTOI"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          [filter_playerId_select6]="filter_playerId_select6"
+          [filter_selected_players1]="filter_selected_players1"
+          [filter_selected_players2]="filter_selected_players2"
+          [filter_selected_players3]="filter_selected_players3"
+          [filter_selected_players4]="filter_selected_players4"
+          [filter_selected_players5]="filter_selected_players5"
+          [filter_selected_players6]="filter_selected_players6"
+          [toi]="toi"
+          (onInvertChanged)="invertChanged($event)"
+          (_loadAllVstupyData)="loadAllVstupyData($event)"
+          (_loadAllVstupyDataProti)="loadAllVstupyDataProti($event)"
+          (_loadVstupyProPlayer)="loadVstupyProPlayer($event)"
+          (_loadVstupyProTeam)="loadVstupyProTeam($event)"
+          (_loadVstupyProtiPlayer)="loadVstupyProtiPlayer($event)"
+          (_loadVstupyProtiTeam)="loadVstupyProtiTeam($event)"
+          (_downloadMap)="exportShotmap()"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+        >
+        </vstupy>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'exits' && loading == false"
+        style="padding-bottom: 20px"
+      >
+        <vystupy
+          [gameslist]="gameslist"
+          [players]="showDots"
+          [shots_team]="shots_team"
+          [teams_list_input]="teams_list"
+          [filter_seasonPart]="filter_seasonPart"
+          [filter_team]="filter_team"
+          [filter_dateFrom]="filter_dateFrom"
+          [filter_dateTo]="filter_dateTo"
+          [filter_lastGames]="filter_lastGames"
+          [filter_situationType]="filter_situationType"
+          [filter_situationTime]="filter_situationTime"
+          [filter_countOfPlayer]="filter_countOfPlayer"
+          [filter_matchState]="filter_matchState"
+          [filter_homeAway]="filter_homeAway"
+          [filter_opponents]="filter_opponents"
+          [filter_minutes_from]="filter_minutes_from"
+          [filter_minutes_to]="filter_minutes_to"
+          [filter_minTOI]="filter_minTOI"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          [filter_playerId_select6]="filter_playerId_select6"
+          [filter_selected_players1]="filter_selected_players1"
+          [filter_selected_players2]="filter_selected_players2"
+          [filter_selected_players3]="filter_selected_players3"
+          [filter_selected_players4]="filter_selected_players4"
+          [filter_selected_players5]="filter_selected_players5"
+          [filter_selected_players6]="filter_selected_players6"
+          [toi]="toi"
+          (onInvertChanged)="invertChanged($event)"
+          (_loadAllVystupyData)="loadAllVystupyData($event)"
+          (_loadAllVystupyDataProti)="loadAllVystupyDataProti($event)"
+          (_loadVystupyProPlayer)="loadVystupyProPlayer($event)"
+          (_loadVystupyProTeam)="loadVystupyProTeam($event)"
+          (_loadVystupyProtiPlayer)="loadVystupyProtiPlayer($event)"
+          (_loadVystupyProtiTeam)="loadVystupyProtiTeam($event)"
+          (_downloadMap)="exportShotmap()"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+        >
+        </vystupy>
+      </div>
+
+      <div
+        class="small-tab-content"
+        *ngIf="tab_small_viz == 'shootouts' && loading == false"
+        style="padding-bottom: 20px"
+      >
+        <video-raids
+          [raids]="raids"
+          [gameslist]="gameslist"
+          [teams_list_input]="teams_list"
+          [selected_games]="selected_games"
+          [filter_team]="filter_team"
+          [filter_playerId_select1]="filter_playerId_select1"
+          [filter_playerId_select2]="filter_playerId_select2"
+          [filter_playerId_select3]="filter_playerId_select3"
+          [filter_playerId_select4]="filter_playerId_select4"
+          [filter_playerId_select5]="filter_playerId_select5"
+          (_downloadMap)="exportShotmap($event)"
+          (onOpenVideoPlayer)="openVideoPlayer($event)"
+        >
+        </video-raids>
+      </div>
+    </div>
+  </div>
+</div>
+
+<settings-canvas
+  *ngIf="toggle_table_settings"
+  (toggleTableSettings_)="toggleTableSettings()"
+  [table_settings_data]="table_settings"
+  (apply_selected_attributes)="onChangedAttributes($event)"
+>
+</settings-canvas>
+
+<videobox
+  *ngIf="show_video_player"
+  (onVideoClose)="closeVideo()"
+  [videos]="videos_data"
+  [players_list]="showDots"
+  [active_type]="tab_small_viz"
+  [teams_list]="teams_list"
+>
+</videobox>
+
+<footer-box></footer-box>

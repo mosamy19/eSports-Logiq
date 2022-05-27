@@ -1,0 +1,149 @@
+<header>
+  <div class="brand">
+    <a routerLink="/dashboard">
+      <div class="brand-ico"></div>
+    </a>
+  </div>
+  <div class="nav">
+    <a routerLink="/individual-stats" class="item" target="_blank"
+      [class.active]="urlContains('individual-stats')">{{"hraci" | translate}}</a>
+    <!--
+    <a routerLink="/wowy" class="item" [class.active]="urlContains('wowy')">{{"spoluhraci" | translate}}</a>
+    -->
+    <a routerLink="/formations-overview" class="item" target="_blank"
+      [class.active]="urlContains('formations-overview')">{{"formace" | translate}}</a>
+    <a routerLink="/formations-analysis" class="item" target="_blank"
+      [class.active]="urlContains('formations-analysis')">{{"videomapy" | translate}}</a>
+    <a routerLink="/goalkeepers" class="item" target="_blank"
+     [class.active]="urlContains('goalkeepers')">{{"brankari" | translate}}</a>
+    <a routerLink="/games" class="item" target="_blank"
+     [class.active]="urlContains('games')">{{"zapasy" | translate}}</a>
+    <a routerLink="/teams" class="item" [class.active]="urlContains('teams')" 
+      target="_blank">{{"tymy" | translate}}</a>
+    <a routerLink="/downloads" class="item" target="_blank"
+     [class.active]="urlContains('downloads')" *ngIf="user_admin==1">
+      {{"sprava_videa" | translate}}</a>
+    <a routerLink="/tracking" class="item tracking-item" target="_blank"
+     [class.active]="urlContains('tracking')" *ngIf="user_admin==1">
+      Tracking</a>
+  </div>
+  <div class="buttons">
+    <div class="nav-button" (click)="openPasswordChangeModal()">
+      <div class="icon-blue user"></div>
+      <div class="button-text">{{"ucet" | translate}}</div>
+    </div>
+    <div class="nav-button" (click)="logout()">
+      <div class="icon-blue logout"></div>
+      <div class="button-text">{{"odhlasit_se" | translate}}</div>
+    </div>
+    <div class="nav-button" *ngIf="!urlContains('dashboard') && tab != ''" (click)="show_help = true">
+      <div class="icon-blue help-button"></div>
+      <div class="button-text">{{"napoveda" | translate}}</div>
+    </div>
+  </div>
+</header>
+
+
+<div id="myModal" class="my-modal" *ngIf="show_password_change_modal">
+  <div class="modal-content">
+    <span class="close" (click)="closePasswordChangeModal()">&times;</span>
+    <p>Nové heslo:</p>
+    <input type="password" [(ngModel)]="password_change_new_password" placeholder="Heslo"
+      (ngModelChange)="passwordInput($event)">
+    <input type="password" [(ngModel)]="password_change_new_password2" placeholder="Heslo znovu"
+      (ngModelChange)="passwordInput($event)">
+    <button (click)="changePassword()">Změnit heslo</button>
+  </div>
+</div>
+
+<div *ngIf=(show_help) class="help">
+  <div class="control margin-big">
+    <div class="close-help" (click)="show_help = false">
+      {{'zavrit_napovedu' | translate}}
+      <div class="close-img img"></div>
+    </div>
+  </div>
+  <div class="main margin-big">
+    <div class="header margin-small">
+      {{getMain(true)}}
+    </div>
+    <div [innerHTML]="getMain(false)" class="text">
+    </div>
+  </div>
+  <div class="tips margin-big">
+    <div class="header margin-medium">
+      {{'vybrane_tipy' | translate}}
+    </div>
+    <ng-container *ngFor="let item of help[tab]['tips']">
+      <div [ngStyle]="{'background-image': item.show ? 'url(/assets/minus_active.svg)' : 'url(/assets/plus_active.svg)'}" class="header-small" (click)="item.show = !item.show">
+        {{getTips(item,true)}}
+      </div>
+      <div *ngIf="item.show" [innerHTML]="getTips(item,false)" class="text">
+      </div>
+      <div class="line"></div>
+    </ng-container>
+    
+  </div>
+  <div class="functions">
+    
+    <ng-container *ngFor="let item of help[tab]['functions']">
+      <div class="margin-big">
+        <div class="header-small margin-small">
+          <div class="flex">
+            <div class="img image-info"></div>
+            {{getFunctions(item,true)}}
+          </div>
+        </div>
+        <ng-container *ngFor="let item2 of item['functions']">
+          <div [innerHTML]="getFunctions(item2,false)" class="text">
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<!--  -->
+<div class="news" *ngIf="tab != '' && help[tab]['news']['show'] && show_news">
+  <div class="news-holder">
+
+    <div class="image-main">
+      <img src="../../../assets/popup-alert.svg" >
+    </div>
+    <div class="header">
+      {{help[tab]['news']['title']}}
+    </div>
+
+    <ng-container *ngFor="let news of help[tab]['news']['news']">
+      <div class="texts">
+        <div class="row">
+          <div class="arrow">
+            <img src="../../../assets/popup-arrow.svg">
+          </div>
+          <div class="text-header">
+            {{news.title}}
+          </div>
+        </div>
+        <div class="text" [innerHTML]="news.text">
+        </div>
+        
+        <div class="text"></div>
+      </div>
+    </ng-container>
+
+    <div class="center" style="text-align: center; margin-bottom: 19px;">
+        <button class="dont-show" [ngClass]="confirmed ? 'checked' : ''" (click)="confirmed = !confirmed">
+        </button>
+
+
+        {{"priste_jiz_nezobrazovat" | translate}}
+    </div>
+    
+    <div class="center">
+      <button class="confirm" (click)="closeNews(tab)">
+        {{"rozumim" | translate}}
+      </button>
+    </div>
+    
+    
+  </div>
+</div>

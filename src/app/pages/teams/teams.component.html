@@ -1,0 +1,1174 @@
+<div
+  class="canvas-tooltip"
+  [style.left.px]="canvas_tooltip_left"
+  [style.top.px]="canvas_tooltip_top"
+  *ngIf="show_canvas_tooltip == true"
+>
+  <div class="date">{{ tooltip_date | format_date }}</div>
+  <div class="game">{{ tooltip_match }}</div>
+  <div class="value">
+    {{ getAttributeName(filter_graph_attribute) }} = {{ tooltip_value }}
+  </div>
+</div>
+
+<nav [tab]="tab" #help></nav>
+
+<div class="filter filter-small">
+  <div class="container">
+    <div class="row" *ngIf="tab == ''">
+      <div class="column form-box"></div>
+
+      <div class="column form-box">
+        <label for="filter_season"
+          >{{ "sezona" | translate }}
+          <sup>*</sup>
+        </label>
+        <div class="multiselect">
+          <div class="multiselect-text">{{ itemsToString(filter_season) }}</div>
+          <angular2-multiselect
+            [data]="seasons_select_list"
+            [(ngModel)]="filter_season"
+            [settings]="dropdownSettings"
+            (ngModelChange)="getSeasonParts()"
+          ></angular2-multiselect>
+        </div>
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_seasonPart"
+          >{{ "cast_sezony" | translate }}
+          <sup>*</sup>
+        </label>
+        <select
+          id="filter_seasonPart"
+          [(ngModel)]="filter_seasonPart"
+          (ngModelChange)="getTeamsData()"
+        >
+          <option value="" selected disabled>
+            [['vyberte_cast' | translate]]
+          </option>
+          <option
+            value="{{ competition.uuids }}"
+            *ngFor="let competition of competitions_list"
+          >
+            {{ competition.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_team"
+          >{{ "vybrat_tym" | translate }}
+          <sup>*</sup>
+        </label>
+        <select
+          id="filter_team"
+          [(ngModel)]="filter_team"
+          (ngModelChange)="getEnemyList()"
+        >
+          <option value="" disabled selected>
+            {{ "vyberte_tym" | translate }}
+          </option>
+          <option value="{{ team.uuid }}" *ngFor="let team of teams_list">
+            {{ team.name }}
+          </option>
+          <option disabled>──────────</option>
+          <option value="ALL">{{ "vsechny_tymy" | translate }}</option>
+        </select>
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_countOfPlayer">{{
+          "pocet_hracu_na_lede" | translate
+        }}</label>
+        <select id="filter_countOfPlayer" [(ngModel)]="filter_countOfPlayer">
+          <option value="5:5">5/5</option>
+          <option value="5:4">5/4</option>
+          <option value="4:5">4/5</option>
+          <option value="3:3">3/3</option>
+          <option value="ES">{{ "rovnovazny_stav" | translate }}</option>
+          <option value="PP">{{ "presilovky" | translate }}</option>
+          <option value="SH">{{ "oslabeni" | translate }}</option>
+          <!-- <option value="WG" *ngIf="boolProd">{{'bez_brankare' | translate}}</option> -->
+          <option value="6:5">6/5</option>
+          <option value="5:6">5/6</option>
+          <option value="">{{ "vsechny_situace" | translate }}</option>
+        </select>
+      </div>
+
+      <div class="column form-box"></div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="tab != ''">
+    <div class="row">
+      <div class="column form-box">
+        <label for="filter_season"
+          >{{ "sezona" | translate }}
+          <sup>*</sup>
+        </label>
+        <div class="multiselect">
+          <div class="multiselect-text">{{ itemsToString(filter_season) }}</div>
+          <angular2-multiselect
+            [data]="seasons_select_list"
+            [(ngModel)]="filter_season"
+            [settings]="dropdownSettings"
+            (ngModelChange)="getSeasonParts()"
+          ></angular2-multiselect>
+        </div>
+      </div>
+      <div class="column form-box">
+        <label for="filter_seasonPart"
+          >{{ "cast_sezony" | translate }}
+          <sup>*</sup>
+        </label>
+        <select
+          id="filter_seasonPart"
+          [(ngModel)]="filter_seasonPart"
+          (ngModelChange)="getTeamsData()"
+        >
+          <option value="" selected disabled>Vyberte část</option>
+          <option
+            value="{{ competition.uuids }}"
+            *ngFor="let competition of competitions_list"
+          >
+            {{ competition.name }}
+          </option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_team"
+          >{{ "vybrat_tym" | translate }}
+          <sup>*</sup>
+        </label>
+        <select id="filter_team" [(ngModel)]="filter_team">
+          <option value="" disabled selected>
+            {{ "vyberte_tym" | translate }}
+          </option>
+          <option value="{{ team.uuid }}" *ngFor="let team of teams_list">
+            {{ team.name }}
+          </option>
+          <option disabled>──────────</option>
+          <option value="ALL">{{ "vsechny_tymy" | translate }}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_countOfPlayer">{{
+          "pocet_hracu_na_lede" | translate
+        }}</label>
+        <select id="filter_countOfPlayer" [(ngModel)]="filter_countOfPlayer">
+          <option value="5:5">5/5</option>
+          <option value="5:4">5/4</option>
+          <option value="4:5">4/5</option>
+          <option value="3:3">3/3</option>
+          <option value="ES">{{ "rovnovazny_stav" | translate }}</option>
+          <option value="PP">{{ "presilovky" | translate }}</option>
+          <option value="SH">{{ "oslabeni" | translate }}</option>
+          <!-- <option value="WG" *ngIf="boolProd">{{'bez_brankare' | translate}}</option> -->
+          <option value="6:5">6/5</option>
+          <option value="5:6">5/6</option>
+          <option value="">{{ "vsechny_situace" | translate }}</option>
+        </select>
+      </div>
+
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <!-- <div class="column form-box">
+        <label for="filter_minTOI">{{"minimalni_toi" | translate}} (min.)</label>
+        <input type="number" id="filter_minTOI" placeholder="{{'zadejte_cas' | translate}}" min="0" max="60"
+          [(ngModel)]="filter_minTOI">
+      </div> -->
+
+      <div class="column form-box form-box__right" *ngIf="!more_filters">
+        <label>&nbsp;</label>
+        <input
+          type="button"
+          value="{{ 'vice_filtru' | translate }}"
+          class="more-filters"
+          (click)="showMoreFilters()"
+        />
+      </div>
+
+      <div class="column form-box" *ngIf="!more_filters">
+        <label>&nbsp;</label>
+        <input
+          type="submit"
+          value="{{ 'nahrat_data' | translate }}"
+          (click)="loadData(tab)"
+          [className]="
+            filter_season != '' && filter_seasonPart != '' && filter_team != ''
+              ? 'load-data'
+              : 'load-data load-data__disabled'
+          "
+          [disabled]="loading"
+        />
+      </div>
+
+      <div class="column form-box" *ngIf="more_filters"></div>
+      <div class="column form-box" *ngIf="more_filters"></div>
+    </div>
+
+    <div
+      class="row more-filters-row"
+      [class.more-filters-row-active]="more_filters == true"
+    >
+      <div class="column form-box">
+        <label for="filter_lastGame">{{
+          "pocet_poslednich_zapasu" | translate
+        }}</label>
+        <input
+          type="number"
+          id="filter_lastGames"
+          placeholder="{{ 'zadejte_pocet' | translate }}"
+          min="0"
+          max="100"
+          [(ngModel)]="filter_lastGames"
+        />
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_calendar_from">{{
+          "datum_od_do" | translate
+        }}</label>
+
+        <input
+          type="text"
+          ngxDaterangepickerMd
+          [(ngModel)]="selected_daterange"
+          [locale]="locale"
+          (datesUpdated)="dateRangeChange($event)"
+          [showClearButton]="true"
+          class="range-calendar"
+          placeholder="{{ 'vybrat_z_kaledare' | translate }}"
+        />
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_homeAway">{{ "doma_venku" | translate }}</label>
+        <select id="filter_homeAway" [(ngModel)]="filter_homeAway">
+          <option value="">{{ "doma_i_venku" | translate }}</option>
+          <option value="home">{{ "doma" | translate }}</option>
+          <option value="away">{{ "venku" | translate }}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_matchState">{{ "stav_utkani" | translate }}</label>
+        <select id="filter_matchState" [(ngModel)]="filter_matchState">
+          <option value="">{{ "vsechny_stavy" | translate }}</option>
+          <option value="lead">{{ "ve_vedeni" | translate }}</option>
+          <option value="trail">{{ "pri_prohravani" | translate }}</option>
+          <option value="tie">{{ "vyrovnany" | translate }}</option>
+        </select>
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_minutes">{{ "time_in_games" | translate }}</label>
+        <div class="from-to">
+          <input
+            type="number"
+            id="filter_minutes_from"
+            placeholder="{{ 'od' | translate }}"
+            [(ngModel)]="filter_minutes_from"
+          />
+          <span>-</span>
+          <input
+            type="number"
+            id="filter_minutes_to"
+            placeholder="{{ 'do' | translate }}"
+            [(ngModel)]="filter_minutes_to"
+          />
+        </div>
+      </div>
+
+      <div class="column form-box">
+        <label for="">{{ "vyberte_soupere" | translate }}</label>
+        <div class="teams-select">
+          <div class="multiselect">
+            <div class="multiselect-text">
+              {{ itemsToString(selected_teams) }}
+            </div>
+            <angular2-multiselect
+              [data]="team_list_filter"
+              [(ngModel)]="selected_teams"
+              [settings]="dropdownSettings2"
+              (ngModelChange)="selectTeams()"
+            >
+            </angular2-multiselect>
+          </div>
+        </div>
+      </div>
+
+      <div class="column form-box form-box__right">
+        <label>&nbsp;</label>
+        <input
+          type="button"
+          value="{{ 'mene_filtru' | translate }}"
+          class="more-filters active"
+          *ngIf="more_filters == true"
+          (click)="showMoreFilters()"
+        />
+      </div>
+
+      <div class="column form-box">
+        <label>&nbsp;</label>
+        <input
+          type="submit"
+          value="{{ 'nahrat_data' | translate }}"
+          (click)="loadData(tab)"
+          [className]="
+            filter_season != '' && filter_seasonPart != '' && filter_team != ''
+              ? 'load-data'
+              : 'load-data load-data__disabled'
+          "
+          [disabled]="loading"
+        />
+      </div>
+    </div>
+
+    <div [className]="true ? 'row tabs' : 'row tabs tabs__disabled'">
+      <div class="column tabs-list">
+        <span
+          class="item"
+          [class.active]="tab == 'tabs'"
+          (click)="showTab('tabs')"
+          >{{ "tabulky" | translate }}</span
+        >
+        <span
+          class="item"
+          [class.active]="tab == 'gamelog'"
+          (click)="showTab('gamelog')"
+          >{{ "gamelog" | translate }}</span
+        >
+        <span
+          class="item"
+          [class.active]="tab == 'trend'"
+          (click)="showTab('trend')"
+          >{{ "trend" | translate }}</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="tab-content show" *ngIf="tab == ''">
+    <div class="container selection-dashboard">
+      <div class="row">
+        <div class="column">
+          <div class="dashbox">
+            <img src="/assets/widgets/tabulky.svg" />
+            <div class="header">{{ "tabulky" | translate }}</div>
+            <div *ngIf="checkLanguage()" class="desc">
+              Jak si vedou jednotlivé týmy během sezóny? A jak jsou na tom ve
+              srovnání s ostatními týmy ligy?
+            </div>
+            <button
+              (click)="loadData('tabs')"
+              style="margin-top: 35px"
+              [disabled]="
+                filter_season == '' ||
+                filter_seasonPart == '' ||
+                filter_team == ''
+              "
+            >
+              {{ "nahrat_data" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="dashbox">
+            <img src="/assets/widgets/gamelog.svg" />
+            <div class="header">Gamelog</div>
+            <div *ngIf="checkLanguage()" class="desc">
+              Jaký výkon podával vybraný tým zápas po zápase? V jakých zápasech
+              se mu dařilo a v jakých naopak ne?
+            </div>
+            <div class="player-load">
+              <div class="player-select">
+                <label>{{ "vyberte_tym" | translate }}</label>
+                <select id="filter_individual_player" [(ngModel)]="filter_team">
+                  <option value="" disabled selected>
+                    {{ "vyberte_tym" | translate }}
+                  </option>
+                  <option
+                    value="{{ team.uuid }}"
+                    *ngFor="let team of teams_list"
+                  >
+                    {{ team.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="load-button">
+                <button
+                  (click)="loadData('gamelog')"
+                  [disabled]="filter_team == '' || filter_team == 'ALL'"
+                >
+                  {{ "nahrat_data" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="dashbox">
+            <img src="/assets/widgets/trend.svg" />
+            <div class="header">Trend</div>
+            <div *ngIf="checkLanguage()" class="desc">
+              Jak se vyvíjel výkon týmu během sezóny? V jakých obdobích byl
+              lepší a kdy naopak horší?
+            </div>
+            <div class="player-load">
+              <div class="player-select">
+                <label>{{ "vyberte_tym" | translate }}</label>
+                <select id="filter_individual_player" [(ngModel)]="filter_team">
+                  <option value="" disabled selected>
+                    {{ "vyberte_tym" | translate }}
+                  </option>
+                  <option
+                    value="{{ team.uuid }}"
+                    *ngFor="let team of teams_list"
+                  >
+                    {{ team.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="load-button">
+                <button
+                  (click)="loadData('trend')"
+                  [disabled]="filter_team == '' || filter_team == 'ALL'"
+                >
+                  {{ "nahrat_data" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content show" *ngIf="tab == 'tabs'">
+    <div class="container">
+      <div class="table-teams">
+        <div class="filter">
+          <div class="row">
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div
+                class="toggle-table-data"
+                (click)="toggleTableSettings('shoda', '')"
+              >
+                {{ "vybrat_vlastni_data" | translate }}
+              </div>
+            </div>
+
+            <div class="column form-box">
+              <label for="datove_sety">{{ "datove_sety" | translate }}</label>
+              <select
+                id="datove_sety"
+                [(ngModel)]="filter_dataSet"
+                (ngModelChange)="toggleDataSets()"
+              >
+                <option value="ALL">{{ "zakladni_set" | translate }}</option>
+                <option value="{{ set.id }}" *ngFor="let set of dataSets">
+                  {{ set.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <button
+                class="ligovy-percentil"
+                (click)="toggleLigovePoradie()"
+                [class.active]="ligovy_poradi_active"
+              >
+                <div
+                  *ngIf="skala_loading && ligovy_poradi_active"
+                  class="loading-percentil"
+                >
+                  <img src="/assets/loading.gif" width="20" />
+                </div>
+                <div class="text">
+                  {{ "ligove_poradi" | translate }}
+                </div>
+              </button>
+            </div>
+
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div class="switch-wrapper">
+                <div
+                  class="switch-button"
+                  (click)="scroll_prev()"
+                  style="
+                    background: url(/assets/arrow-switch.svg);
+                    transform: rotateY(180deg);
+                  "
+                ></div>
+                <div
+                  class="switch-button"
+                  (click)="scroll_next()"
+                  style="background: url(/assets/arrow-switch.svg)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Loading *ngIf="!dataLoaded"></Loading>
+
+        <div class="table-shoda-box" *ngIf="dataLoaded">
+          <div class="table-shoda-inner">
+            <div class="box-center">
+              <div class="scroll" #scroll>
+                <div class="scroll-inner">
+                  <table
+                    [mfData]="data"
+                    #mf1="mfDataTable"
+                    [mfRowsOnPage]="1000"
+                    class="filter-{{ filter_posts }} table-formation-center"
+                    [mfSortOrder]="shodaSort_value"
+                    [mfSortBy]="[shoda_sortby]"
+                    (mfSortOrderChange)="shodaSort($event)"
+                    (mfSortByChange)="changedOrder2($event)"
+                    [ngStyle]="{
+                      'border-right-width':
+                        ligovy_poradi_active && show_skala ? '120px' : '0px'
+                    }"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          *ngFor="let attribute of table_settings"
+                          class="center"
+                          style="max-width: 120px"
+                        >
+                          <div class="on-ice">
+                            <!-- <div *ngIf="!attribute['onIce']" class="on-ice-true" style="background-color: #EE4F96;">H</div> -->
+                            <div
+                              *ngIf="true"
+                              class="on-ice-true"
+                              style="background-color: #12bdba"
+                            >
+                              T
+                            </div>
+                          </div>
+                          <mfDefaultSorter by="{{ attribute['type'] }}">{{
+                            attribute["name"]
+                          }}</mfDefaultSorter>
+                          <div
+                            class="attribute-line attribute-line_{{
+                              getAttributeColour(attribute['colour'])
+                            }}"
+                          ></div>
+                          <div class="attribute-table-tooltip">
+                            <div class="attribute-table-tooltip-title">
+                              {{ getAttributeText(attribute["origin"], 1) }}
+                            </div>
+                            <div class="attribute-table-tooltip-desc">
+                              {{ getAttributeText(attribute["origin"], 2) }}
+                            </div>
+                            <div
+                              class="attribute-table-tooltip-desc"
+                              *ngFor="let type_text of attribute.parameters"
+                            >
+                              {{ type_text }}
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of mf1.data; let i = index">
+                        <td
+                          class="center td-content"
+                          *ngFor="let attribute of table_settings"
+                        >
+                          <div class="tr">
+                            <div class="td">
+                              <span
+                                class="normal-cell"
+                                [ngClass]="{
+                                  bold: filterby2 == attribute['type']
+                                }"
+                              >
+                                {{
+                                  item[attribute["type"]]
+                                    | checkAttributeValue: attribute["type"]
+                                }}
+                              </span>
+                            </div>
+                            <div
+                              *ngIf="ligovy_poradi_active && show_skala"
+                              style="width: 46%"
+                            >
+                              <!-- <span class="average-cell"
+                          [ngClass]="getSkalaColour(item['uuid'], attribute['type'])">
+                            {{getSkalaNumber(item['uuid'], attribute['type'])}}
+                          </span> -->
+                              <span
+                                class="average-cell"
+                                [ngClass]="
+                                  getSkalaColour(
+                                    item['uuid'],
+                                    attribute['type']
+                                  )
+                                "
+                              >
+                                {{
+                                  getSkalaNumber(
+                                    item["uuid"],
+                                    attribute["type"]
+                                  )
+                                }}
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot *ngIf="averages_loaded">
+                      <tr>
+                        <td
+                          *ngFor="let attribute of table_settings"
+                          class="td-content center"
+                        >
+                          {{
+                            data_averages[attribute["type"]]
+                              | checkAttributeValue: attribute["type"]
+                          }}
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="left-right-box">
+              <div class="box-left table-formation-left">
+                <table
+                  [mfData]="data"
+                  #mf1="mfDataTable"
+                  [mfRowsOnPage]="1000"
+                  class="filter-{{ filter_posts }}"
+                  style="border-right: none"
+                  (mfSortByChange)="changedOrder2($event)"
+                  [mfSortBy]="[shoda_sortby]"
+                  [mfSortOrder]="shodaSort_value"
+                  (mfSortOrderChange)="shodaSort($event)"
+                  [mfSortBy]="['toi']"
+                >
+                  <thead>
+                    <tr>
+                      <th class="center"></th>
+                      <th class="center width-fix-1">P</th>
+                      <th></th>
+                      <th class="left padding-fix-1">
+                        {{ "tym" | translate }}
+                      </th>
+                      <th class="center">GP</th>
+                      <th class="center">
+                        <mfDefaultSorter by="toi">TOI</mfDefaultSorter>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of mf1.data; let i = index">
+                      <td class="eye">
+                        <div class="eye-dropdown">
+                          <div class="eye-dropdown-menu">
+                            <ul>
+                              <li></li>
+                              <li>
+                                <a
+                                  href="{{
+                                    teamsLink(item['uuid'], 'gamelog')
+                                  }}"
+                                  target="_blank"
+                                  >Game log</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="{{ teamsLink(item['uuid'], 'trend') }}"
+                                  target="_blank"
+                                  >Trend</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="td-content center td-content__players">
+                        {{ i + 1 }}.
+                      </td>
+                      <td class="td-content center img-holder">
+                        <img
+                          src="{{ getTeamLogo(item.uuid) }}"
+                          class="team-logo"
+                          width="35"
+                        />
+                      </td>
+                      <td
+                        class="td-content center td-content__players team-holder"
+                      >
+                        <div class="sticker sticker__grey">
+                          {{ getTeamNameShort(item["uuid"]) }}
+                        </div>
+                      </td>
+                      <td class="td-content center">
+                        <span class="average-cell">{{ item.gp }}</span>
+                      </td>
+                      <td class="td-content center bold">
+                        <span class="average-cell">{{
+                          item.toi | format_sesonds
+                        }}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot *ngIf="averages_loaded">
+                    <tr style="height: 40px">
+                      <td>
+                        <img
+                          class="team-logo league-logo"
+                          width="70"
+                          src="/assets/telh_logo.png"
+                        />
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td class="td-content">
+                        <div class="sticker sticker__grey">
+                          Tipsport Extraliga
+                        </div>
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <div class="box-right" *ngIf="ligovy_poradi_active && show_skala">
+                <table
+                  [mfData]="data"
+                  #mf1="mfDataTable"
+                  (mfSortByChange)="changedOrder2($event)"
+                  [mfSortBy]="[shoda_sortby]"
+                  [mfSortOrder]="shodaSort_value"
+                  (mfSortOrderChange)="shodaSort($event)"
+                  [mfRowsOnPage]="1000"
+                  class="table-main sticky-header"
+                >
+                  <thead>
+                    <tr>
+                      <th class="center" style="min-width: 120px">
+                        <mfDefaultSorter by="gp">∅ PCT</mfDefaultSorter>
+                        <div class="attribute-table-tooltip">
+                          <div class="attribute-table-tooltip-title">
+                            Summary percentile %
+                          </div>
+                          <div class="attribute-table-tooltip-desc">
+                            Souhrný percentil všech statistik týmu
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of mf1.data">
+                      <td class="td-content center">
+                        <div
+                          class="box bold"
+                          [ngClass]="
+                            getSkalaColour(item['uuid'], 'summaryIndex')
+                          "
+                        >
+                          {{ getSkalaNumber(item["uuid"], "summaryIndex") }}
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="download-box">
+            <div class="btn btn-download" (click)="downloadCSV()">
+              {{ "export_dat" | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content show" *ngIf="tab == 'gamelog'">
+    <div class="info-box" *ngIf="filter_team == 'ALL'">Je nutné vybrat tým</div>
+    <div class="container" *ngIf="filter_team != 'ALL'">
+      <div class="table-gamelog">
+        <Loading *ngIf="loading"></Loading>
+        <!-- <no-data *ngIf="data == '' && !loading"></no-data> -->
+        <div class="filter" *ngIf="dataLoaded && data != ''">
+          <div class="row">
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div
+                class="toggle-table-data"
+                (click)="toggleTableSettings('gamelog', '')"
+              >
+                {{ "vybrat_vlastni_data" | translate }}
+              </div>
+            </div>
+
+            <div class="column form-box">
+              <label for="datove_sety">{{ "datove_sety" | translate }}</label>
+              <select
+                id="datove_sety"
+                [(ngModel)]="filter_dataSet"
+                (ngModelChange)="toggleDataSets()"
+              >
+                <option value="ALL">{{ "zakladni_set" | translate }}</option>
+                <option value="{{ set.id }}" *ngFor="let set of dataSets">
+                  {{ set.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="column form-box" style="max-width: 250px">
+              <label for="hrac">{{ "tym" | translate }}</label>
+              <div class="selected-player">
+                <div class="selected-player-inner">
+                  {{ getTeamNameShort(filter_team) }}
+                </div>
+              </div>
+            </div>
+
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box"></div>
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div class="switch-wrapper">
+                <div
+                  class="switch-button"
+                  (click)="scroll_prev()"
+                  style="
+                    background: url(/assets/arrow-switch.svg);
+                    transform: rotateY(180deg);
+                  "
+                ></div>
+                <div
+                  class="switch-button"
+                  (click)="scroll_next()"
+                  style="background: url(/assets/arrow-switch.svg)"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-shoda-box" *ngIf="dataLoaded && data != ''">
+          <div class="table-shoda-inner">
+            <div class="box-center">
+              <div class="scroll" #scroll>
+                <div class="scroll-inner">
+                  <table
+                    [mfData]="data"
+                    #mf1="mfDataTable"
+                    [mfRowsOnPage]="1000"
+                    class="filter-{{ filter_posts }}"
+                    [mfSortOrder]="shodaSort_value"
+                    [mfSortBy]="[shoda_sortby]"
+                    (mfSortOrderChange)="shodaSort($event)"
+                    (mfSortByChange)="changedOrder2($event)"
+                    [ngStyle]="{
+                      'border-right-width':
+                        ligovy_poradi_active && show_skala ? '120px' : '0px'
+                    }"
+                  >
+                    <thead>
+                      <tr>
+                        <th
+                          *ngFor="let attribute of table_settings_gamelog"
+                          class="center"
+                          style="min-width: 120px"
+                        >
+                          <div class="on-ice">
+                            <!-- <div *ngIf="!attribute['onIce']" class="on-ice-true" style="background-color: #EE4F96;">H</div> -->
+                            <div
+                              *ngIf="true"
+                              class="on-ice-true"
+                              style="background-color: #12bdba"
+                            >
+                              T
+                            </div>
+                          </div>
+                          <mfDefaultSorter by="{{ attribute['type'] }}">{{
+                            attribute["name"]
+                          }}</mfDefaultSorter>
+                          <div
+                            class="attribute-line attribute-line_{{
+                              getAttributeColour(attribute['colour'])
+                            }}"
+                          ></div>
+                          <div class="attribute-table-tooltip">
+                            <div class="attribute-table-tooltip-title">
+                              {{ getAttributeText(attribute["origin"], 1) }}
+                            </div>
+                            <div class="attribute-table-tooltip-desc">
+                              {{ getAttributeText(attribute["origin"], 2) }}
+                            </div>
+                            <div
+                              class="attribute-table-tooltip-desc"
+                              *ngFor="let type_text of attribute.parameters"
+                            >
+                              {{ type_text }}
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of mf1.data; let i = index">
+                        <td
+                          class="center td-content"
+                          *ngFor="let attribute of table_settings_gamelog"
+                        >
+                          <div class="tr">
+                            <div class="td">
+                              <span
+                                class="normal-cell"
+                                [ngClass]="{
+                                  bold: filterby2 == attribute['type']
+                                }"
+                              >
+                                {{
+                                  item.stats[attribute["type"]]
+                                    | checkAttributeValue: attribute["type"]
+                                }}
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="left-right-box">
+              <div class="box-left">
+                <table
+                  [mfData]="data"
+                  #mf1="mfDataTable"
+                  [mfRowsOnPage]="1000"
+                  class="filter-{{ filter_posts }}"
+                  style="border-right: none"
+                  (mfSortByChange)="changedOrder2($event)"
+                  [mfSortBy]="[shoda_sortby]"
+                  [mfSortOrder]="shodaSort_value"
+                  (mfSortOrderChange)="shodaSort($event)"
+                  [mfSortBy]="['toi']"
+                >
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th class="center">{{ "zapas" | translate }}</th>
+                      <th></th>
+                      <th>{{ "datum" | translate }}</th>
+                      <th>{{ "skore" | translate }}</th>
+                      <th class="center {{ getTableToggleAttributes('toi') }}">
+                        <mfDefaultSorter by="toi">TOI</mfDefaultSorter>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of mf1.data; let i = index">
+                      <td class="td-content center img-holder">
+                        <img
+                          src="assets/logos/{{ item.info.homeTeamUuid }}.png"
+                          class="team-logo"
+                          width="35"
+                        />
+                      </td>
+                      <td
+                        class="td-content td-content__players"
+                        title="{{ item.uuid }}"
+                      >
+                        <div class="sticker sticker__grey">
+                          {{ getTeamName(item.info.homeTeamUuid) }} -
+                          {{ getTeamName(item.info.awayTeamUuid) }}
+                        </div>
+                      </td>
+                      <td class="td-content center img-holder">
+                        <img
+                          src="assets/logos/{{ item.info.awayTeamUuid }}.png"
+                          class="team-logo"
+                          width="35"
+                        />
+                      </td>
+                      <td class="td-content center">
+                        {{ item.info.date | format_date }}
+                      </td>
+                      <td class="td-content center">
+                        {{ item.info.score.home }}:{{ item.info.score.away
+                        }}{{ getGameState(item.info.score.state) }}
+                      </td>
+                      <td
+                        class="td-content center"
+                        [ngClass]="{ bold: filterby2 == 'toi' }"
+                      >
+                        <span class="average-cell">{{
+                          item.stats.toi | format_sesonds
+                        }}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="download-box">
+            <div class="btn btn-download" (click)="downloadCSVGamelog()">
+              {{ "export_dat" | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="container" *ngIf="filter_team == ''">
+          <div class="info-box">
+            {{ "je_nutne_vybrat_team" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content show" *ngIf="tab == 'trend'">
+    <div class="info-box" *ngIf="filter_team == 'ALL'">Je nutné vybrat tým</div>
+
+    <div class="container" *ngIf="filter_team != 'ALL'">
+      <Loading *ngIf="loading"></Loading>
+
+      <div class="table-trend-stats show" *ngIf="!loading">
+        <div class="filter">
+          <div class="row">
+            <div class="column form-box">
+              <label for="filter_graph_attribute">{{
+                "ukazatel" | translate
+              }}</label>
+              <select
+                id="filter_graph_attribute"
+                [(ngModel)]="filter_graph_attribute"
+                (ngModelChange)="renderGraph()"
+              >
+                <option
+                  value="{{ item.type }}"
+                  *ngFor="let item of table_settings"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="column form-box">
+              <label for="hrac">{{ "tym" | translate }}</label>
+              <div class="selected-player" *ngIf="filter_team != ''">
+                <div class="selected-player-inner">
+                  {{ getTeamNameShort(filter_team) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart" *ngIf="loading == false && data != ''">
+          <canvas
+            baseChart
+            [chartType]="'line'"
+            [datasets]="lineChartData"
+            [options]="lineChartOptions"
+            [labels]="lineChartLabels"
+            [colors]="lineChartColors"
+            width="1020px"
+            height="300px"
+            style="position: relative; z-index: 10"
+            #chart
+          ></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container" style="margin-top: 50px;" *ngIf="filter_team != 'ALL'">
+    <div class="table-trend-stats show">
+      <div class="filter filter-sub">
+        <div class="row">
+    
+          <div class="column form-box">
+            <label>&nbsp;</label>
+            <div class="toggle-table-data" (click)="toggleTableSettings('normal', '')">
+              {{'vybrat_vlastni_data' | translate}}
+            </div>
+          </div>
+    
+          <div class="column form-box">
+            <label for="datove_sety">{{'datove_sety' | translate}}</label>
+            <select id="datove_sety" [(ngModel)]="filter_dataSet" (ngModelChange)="toggleDataSets()">
+              <option value="ALL">{{'zakladni_set' | translate}}</option>
+              <option value="{{set.id}}" *ngFor="let set of dataSets">{{set.name}}</option>
+            </select>
+          </div>
+    
+    
+          <div class="column form-box" style=" max-width: 240px; ">
+            <label for="filter_vyber_dat_dle">{{'vyber_dat_dle' | translate}}</label>
+    
+            <button class="toggle-button" [class.active]="filter_vyber_dat_dle" (click)="filterVyberDatDle(true)">
+              <div class="text">
+                {{'zapasu' | translate}}
+              </div>
+            </button>
+    
+          </div>
+    
+          <div class="column form-box">
+            <label for="filter_vyber_dat_dle">&nbsp;</label>
+    
+            <button class="toggle-button" [class.active]="!filter_vyber_dat_dle" (click)="filterVyberDatDle(false)">
+              <div class="text">
+                {{'kalendare' | translate}}
+              </div>
+            </button>
+          </div>
+    
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+          <div class="column form-box"></div>
+    
+        </div>
+      </div>
+    </div>
+    </div> -->
+  </div>
+
+  <settings-canvas
+    *ngIf="toggle_table_settings"
+    (toggleTableSettings_)="toggleTableSettings()"
+    (openHelp)="openHelp($event)"
+    [table_settings_data]="selected_table_settings"
+    (apply_selected_attributes)="onChangedAttributes($event)"
+    [canvas_type_setting]="canvas_type"
+    [page]="page"
+  >
+  </settings-canvas>
+
+  <footer-box></footer-box>
+</div>

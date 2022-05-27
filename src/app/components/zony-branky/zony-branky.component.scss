@@ -1,0 +1,184 @@
+.row.filter {
+  padding: 0;
+  margin: 0 !important;
+  width: calc(100% + 2rem) !important;
+  //width: 100% !important;
+}
+
+.skala-value {
+  border-top: 1px solid #adb5bd;
+}
+
+.skala {
+  padding-top: 6px !important;
+}
+
+.net-row{
+  flex-direction: row !important;
+  width: calc(100% + 2rem) !important;
+}
+
+.zona-branky {
+  position: relative;
+
+  loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+
+    .loading {
+      padding: 0;
+    }
+  }
+
+  .percent {
+    position: relative;
+
+    &.dark {
+      .percent_circle {
+        background-color: #151d22;
+        color: #fff;
+      }
+    }
+
+    .percent_circle {
+      width: 68px;
+      height: 59px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #151d22;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gabr_percent {
+      top: 150px;
+      left: 33px;
+    }
+
+    .gabl_percent {
+      top: 150px;
+      right: 33px;
+    }
+
+    .gaur_percent {
+      top: 38px;
+      left: 220px;
+    }
+
+    .gaul_percent {
+      top: 38px;
+      left: 60px;
+    }
+
+    .gafh_percent {
+      top: 170px;
+      left: 140px;
+    }
+  }
+}
+.value-wrapper {
+  width: 56px;
+  height: 47px;
+  border: 1px solid #adb5bd;
+  border-radius: 8px;
+  padding-top: 13px;
+}
+
+/* .cell-10 {
+  fill: #f94d56;
+}
+
+.cell-9 {
+  fill: #f94d56;
+}
+
+.cell-8 {
+  fill: #fe8389;
+}
+
+.cell-7 {
+  fill: #ffb3b8;
+}
+
+.cell-6 {
+  fill: #ffd7d9;
+}
+
+.cell-5 {
+  fill: #fff1f1;
+}
+
+.cell-4 {
+  fill: #defbe6;
+}
+
+.cell-3 {
+  fill: #a7f1ba;
+}
+
+.cell-2 {
+  fill: #6fdd8c;
+}
+
+.cell-1 {
+  fill: #42bf65;
+}
+
+.cell-0 {
+  fill: #24a248;
+} */
+
+.cell-0 {
+  fill: #f94d56;
+}
+
+.cell-1 {
+  fill: #f94d56;
+}
+
+.cell-2 {
+  fill: #fe8389;
+}
+
+.cell-3 {
+  fill: #ffb3b8;
+}
+
+.cell-4 {
+  fill: #ffd7d9;
+}
+
+.cell-5 {
+  fill: #fff1f1;
+}
+
+.cell-6 {
+  fill: #defbe6;
+}
+
+.cell-7 {
+  fill: #a7f1ba;
+}
+
+.cell-8 {
+  fill: #6fdd8c;
+}
+
+.cell-9 {
+  fill: #42bf65;
+}
+
+.cell-10 {
+  fill: #24a248;
+}

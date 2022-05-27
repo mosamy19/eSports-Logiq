@@ -1,0 +1,3987 @@
+[
+  
+{
+	"name": "C",
+	 "type": "c",
+	 "colour": "green",
+	 "eng": "Shots",
+	 "desc": "Střely hráče",
+	 "data": "count"
+},
+{
+	"name": "C/60",
+	 "type": "c60",
+	 "colour": "green",
+	 "eng": "Shots per 60",
+	 "desc": "Střely hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "CSh%",
+	 "type": "csh_percent",
+	 "colour": "green",
+	 "eng": "Shot Attempt Shooting %",
+	 "desc": "Podíl vstřelených gólů ze všech střeleckých pokusů hráče",
+	 "data": "percent"
+},
+{
+	"name": "C/CF [%]",
+	 "type": "ccf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots when on-ice",
+	 "desc": "Podíl střel hráče ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "MS",
+	 "type": "ms",
+	 "colour": "green",
+	 "eng": "Missed Shots",
+	 "desc": "Střely hráče mimo branku",
+	 "data": "count"
+},
+{
+	"name": "BS",
+	 "type": "bs",
+	 "colour": "green",
+	 "eng": "Blocked shots (by opponent)",
+	 "desc": "Střely hráče zblokované soupeřem",
+	 "data": "count"
+},
+{
+	"name": "SOG",
+	 "type": "sog",
+	 "colour": "green",
+	 "eng": "Shots On Goal",
+	 "desc": "Střely na branku hráče",
+	 "data": "count"
+},
+{
+	"name": "SOG/60",
+	 "type": "sog60",
+	 "colour": "green",
+	 "eng": "Shots On Goal per 60",
+	 "desc": "Střely na branku hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Sh%",
+	 "type": "sh_percent",
+	 "colour": "green",
+	 "eng": "Shooting %",
+	 "desc": "Podíl vstřelených gólů hráče ze všech jeho střel na branku (střelecká úspěšnost)",
+	 "data": "percent"
+},
+{
+	"name": "SOG/C [%]",
+	 "type": "sogc_percent",
+	 "colour": "green",
+	 "eng": "% of Shots On Goal of all Shots",
+	 "desc": "Podíl střel na branku ze všech střel hráče",
+	 "data": "percent"
+},
+{
+	"name": "xG",
+	 "type": "xg",
+	 "colour": "green",
+	 "eng": "Expected Goals",
+	 "desc": "Očekávané góly hráče",
+	 "data": "count"
+},
+{
+	"name": "xG/60",
+	 "type": "xg60",
+	 "colour": "green",
+	 "eng": "Expected Goals per 60",
+	 "desc": "Očekávané góly hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "G - xG",
+	 "type": "gxg",
+	 "colour": "green",
+	 "eng": "Goals vs. Expected Goals",
+	 "desc": "Rozdíl vstřelených gólů a očekávaných gólů hráče",
+	 "data": "count"
+},
+{
+	"name": "G - xG/60",
+	 "type": "gxg60",
+	 "colour": "green",
+	 "eng": "Goals vs. Expected Goals per 60",
+	 "desc": "Rozdíl vstřelených gólů a očekávaných gólů hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xG ∅ [%]",
+	 "type": "xg_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals per Shot",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jedné střely hráče",
+	 "data": "percent"
+},
+{
+	"name": "xG/xGF [%]",
+	 "type": "xgxgf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Expected Goals when on-ice",
+	 "desc": "Podíl očekávaných gólů hráče ze všech očekávaných gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "G",
+	 "type": "g",
+	 "colour": "green",
+	 "eng": "Goals Scored",
+	 "desc": "Góly vstřelené hráčem",
+	 "data": "count"
+},
+{
+	"name": "G/60",
+	 "type": "g60",
+	 "colour": "green",
+	 "eng": "Goals Scored per 60",
+	 "desc": "Góly vstřelené hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "G/GF [%]",
+	 "type": "ggf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Goals Scored when on-ice",
+	 "desc": "Podíl gólů vstřelených hráčem ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "BLK",
+	 "type": "blk",
+	 "colour": "red",
+	 "eng": "Opponent's Shots Blocked",
+	 "desc": "Zblokované střely soupeře",
+	 "data": "count"
+},
+{
+	"name": "BLK/60",
+	 "type": "blk60",
+	 "colour": "red",
+	 "eng": "Opponent's Shots Blocked per 60",
+	 "desc": "Zblokované střely soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "BLK/CA [%]",
+	 "type": "blkca_percent",
+	 "colour": "red",
+	 "eng": "% of Opponent's Shots Blocked of all Shots Against",
+	 "desc": "Podíl zblokovaných střel soupeře ze všech střeleckých pokusů soupeře",
+	 "data": "percent"
+},
+{
+	"name": "CF",
+	 "type": "cf",
+	 "colour": "green",
+	 "eng": "Shots For",
+	 "desc": "Střely týmu",
+	 "data": "count"
+},
+{
+	"name": "CA",
+	 "type": "ca",
+	 "colour": "red",
+	 "eng": "Shots Against",
+	 "desc": "Střely soupeře",
+	 "data": "count"
+},
+{
+	"name": "C+-",
+	 "type": "c_pm",
+	 "colour": "green",
+	 "eng": "Shots Plus Minus",
+	 "desc": "Rozdíl mezi střelami týmu a střelami soupeře",
+	 "data": "count"
+},
+{
+	"name": "CF/60",
+	 "type": "cf60",
+	 "colour": "green",
+	 "eng": "Shots For per 60",
+	 "desc": "Střely týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "CA/60",
+	 "type": "ca60",
+	 "colour": "red",
+	 "eng": "Shots Against per 60",
+	 "desc": "Střely soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "C+-/60",
+	 "type": "c_pm60",
+	 "colour": "green",
+	 "eng": "Shots Plus Minus per 60",
+	 "desc": "Rozdíl mezi střelami týmu a střelami soupeře ze 60 minut",
+	 "data": "60"
+},
+{
+	"name": "CF%",
+	 "type": "cf_percent",
+	 "colour": "green",
+	 "eng": "Shots For %",
+	 "desc": "Podíl střel týmu ze součtu střel týmu i soupeře",
+	 "data": "percent"
+},
+{
+	"name": "CF/60 Rel",
+	 "type": "cf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Shots For per 60",
+	 "desc": "Rozdíl mezi střelami týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "CA/60 Rel",
+	 "type": "ca60_rel",
+	 "colour": "red",
+	 "eng": "Relative Shots Against per 60",
+	 "desc": "Rozdíl mezi střelami soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "CF% Rel",
+	 "type": "cf_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Shots For %",
+	 "desc": "Rozdíl mezi podílem střel týmu ze střel týmu i soupeře s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "SOGF",
+	 "type": "sogf",
+	 "colour": "green",
+	 "eng": "Shots On Goal For",
+	 "desc": "Střely na branku týmu",
+	 "data": "count"
+},
+{
+	"name": "SOGA",
+	 "type": "soga",
+	 "colour": "red",
+	 "eng": "Shots On Goal Against",
+	 "desc": "Střely na branku soupeře",
+	 "data": "count"
+},
+{
+	"name": "SOG+-",
+	 "type": "sog_pm",
+	 "colour": "green",
+	 "eng": "Shots On Goal Plus Minus",
+	 "desc": "Rozdíl mezi střelami na branku týmu a střelami na branku soupeře",
+	 "data": "count"
+},
+{
+	"name": "SOGF/60",
+	 "type": "sogf60",
+	 "colour": "green",
+	 "eng": "Shots On Goal For per 60",
+	 "desc": "Střely na branku týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "SOGA/60",
+	 "type": "soga60",
+	 "colour": "red",
+	 "eng": "Shots On Goal Against per 60",
+	 "desc": "Střely na branku soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "SOG+-/60",
+	 "type": "sog_pm60",
+	 "colour": "green",
+	 "eng": "Shots On Goal Plus Minus per 60",
+	 "desc": "Rozdíl mezi střelami na branku týmu a střelami na branku soupeře ze 60 minut",
+	 "data": "60"
+},
+{
+	"name": "SOGF%",
+	 "type": "sogf_percent",
+	 "colour": "green",
+	 "eng": "Shots On Goal For %",
+	 "desc": "Podíl střel na branku týmu ze součtu střel na branku týmu i soupeře",
+	 "data": "percent"
+},
+{
+	"name": "ON.Sh%",
+	 "type": "on.sh_percent",
+	 "colour": "green",
+	 "eng": "ON-ICE Shooting %",
+	 "desc": "Podíl vstřelených gólů ze všech střel na branku týmu",
+	 "data": "percent"
+},
+{
+	"name": "ON.Sv%",
+	 "type": "on.sv_percent",
+	 "colour": "green",
+	 "eng": "ON-ICE Save %",
+	 "desc": "Podíl obdržených gólů ze všech střel na branku soupeře",
+	 "data": "percent"
+},
+{
+	"name": "SOGF/60 Rel",
+	 "type": "sogf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Shots On Goal For per 60",
+	 "desc": "Rozdíl mezi střelami na branku týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "SOGA/60 Rel",
+	 "type": "soga60_rel",
+	 "colour": "red",
+	 "eng": "Relative Shots On Goal Against per 60",
+	 "desc": "Rozdíl mezi střelami na branku soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "SOGF% Rel",
+	 "type": "sogf_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Shots On Goal For %",
+	 "desc": "Rozdíl mezi podíly střel na branku týmu ze všech střel na branku týmu i soupeře s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "SOGF/CF [%]",
+	 "type": "sogfcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots On Goal For from all Shots For",
+	 "desc": "Podíl střel na branku týmu ze všech střel týmu",
+	 "data": "percent"
+},
+{
+	"name": "xGF",
+	 "type": "xgf",
+	 "colour": "green",
+	 "eng": "Expected Goals For",
+	 "desc": "Očekávané góly týmu",
+	 "data": "count"
+},
+{
+	"name": "xGA",
+	 "type": "xga",
+	 "colour": "red",
+	 "eng": "Expected Goals Against",
+	 "desc": "Očekávané góly soupeře",
+	 "data": "count"
+},
+{
+	"name": "xG+-",
+	 "type": "xg_pm",
+	 "colour": "green",
+	 "eng": "Expected Goals Plus Minus",
+	 "desc": "Rozdíl mezi očekávanými góly týmu a očekávanými góly soupeře",
+	 "data": "count"
+},
+{
+	"name": "xGF/60",
+	 "type": "xgf60",
+	 "colour": "green",
+	 "eng": "Expected Goals For per 60",
+	 "desc": "Očekávané góly týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA/60",
+	 "type": "xga60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against per 60",
+	 "desc": "Očekávané góly soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xG+-/60",
+	 "type": "xg_pm60",
+	 "colour": "green",
+	 "eng": "Expected Goals Plus Minus per 60",
+	 "desc": "Rozdíl mezi očekávanými góly týmu a očekávanými góly soupeře ze 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF%",
+	 "type": "xgf_percent",
+	 "colour": "green",
+	 "eng": "Expected Goals For %",
+	 "desc": "Podíl očekávaných gólů týmu ze součtu očekávaných gólů týmu i soupeře",
+	 "data": "percent"
+},
+{
+	"name": "xGF ∅ [%]",
+	 "type": "xgf_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jedné střely týmu",
+	 "data": "percent"
+},
+{
+	"name": "xGA ∅ [%]",
+	 "type": "xga_avg_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against per Shot Against",
+	 "desc": "Průměrná pravděpodobnost obržení gólu z jedné střely soupeře",
+	 "data": "percent"
+},
+{
+	"name": "xGF/60 Rel",
+	 "type": "xgf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Expected Goals For per 60",
+	 "desc": "Rozdíl mezi očekávanými góly týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "xGA/60 Rel",
+	 "type": "xga60_rel",
+	 "colour": "red",
+	 "eng": "Relative Expected Goals Against per 60",
+	 "desc": "Rozdíl mezi očekávanými góly soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "xGF% Rel",
+	 "type": "xgf_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Expected Goals For %",
+	 "desc": "Rozdíl mezi podíly očekávaných gólů týmu ze všech očekávaných gólů týmu i soupeře s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "GF",
+	 "type": "gf",
+	 "colour": "green",
+	 "eng": "Goals For",
+	 "desc": "Góly týmu",
+	 "data": "count"
+},
+{
+	"name": "GA",
+	 "type": "ga",
+	 "colour": "red",
+	 "eng": "Goals Against",
+	 "desc": "Góly soupeře",
+	 "data": "count"
+},
+{
+	"name": "G+-",
+	 "type": "g_pm",
+	 "colour": "green",
+	 "eng": "Goals Plus Minus",
+	 "desc": "Rozdíl mezi góly týmu a góly soupeře",
+	 "data": "count"
+},
+{
+	"name": "GF/60",
+	 "type": "gf60",
+	 "colour": "green",
+	 "eng": "Goals For per 60",
+	 "desc": "Góly týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "GA/60",
+	 "type": "ga60",
+	 "colour": "red",
+	 "eng": "Goals Against per 60",
+	 "desc": "Góly soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "G+-/60",
+	 "type": "g_pm60",
+	 "colour": "green",
+	 "eng": "Goals Plus Minus per 60",
+	 "desc": "Rozdíl mezi góly týmu a góly soupeře ze 60 minut",
+	 "data": "60"
+},
+{
+	"name": "GF%",
+	 "type": "gf_percent",
+	 "colour": "green",
+	 "eng": "Goals For %",
+	 "desc": "Podíl gólů týmu ze součtu gólů týmu i soupeře",
+	 "data": "percent"
+},
+{
+	"name": "GF/60 Rel",
+	 "type": "gf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Goals For per 60",
+	 "desc": "Rozdíl mezi góly týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "GA/60 Rel",
+	 "type": "ga60_rel",
+	 "colour": "red",
+	 "eng": "Relative Goals Against per 60",
+	 "desc": "Rozdíl mezi góly soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "GF% Rel",
+	 "type": "gf_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Goals For %",
+	 "desc": "Rozdíl mezi podíly gólů týmu ze všech gólů týmu i soupeře s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "G",
+	 "type": "g",
+	 "colour": "green",
+	 "eng": "Goals Scored",
+	 "desc": "Góly vstřelené hráčem",
+	 "data": "count"
+},
+{
+	"name": "G/60",
+	 "type": "g60",
+	 "colour": "green",
+	 "eng": "Goals Scored per 60",
+	 "desc": "Góly vstřelené hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "G/GF [%]",
+	 "type": "ggf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Goals Scored when on-ice",
+	 "desc": "Podíl gólů vstřelených hráčem ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "A",
+	 "type": "a",
+	 "colour": "green",
+	 "eng": "Assists",
+	 "desc": "Asistence",
+	 "data": "count"
+},
+{
+	"name": "A/60",
+	 "type": "a60",
+	 "colour": "green",
+	 "eng": "Assists per 60",
+	 "desc": "Asistence za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "A/GF [%]",
+	 "type": "agf_percent",
+	 "colour": "green",
+	 "eng": "% of Assists of all Goals For",
+	 "desc": "Podíl asistencí ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "A1",
+	 "type": "a1",
+	 "colour": "green",
+	 "eng": "Primary Assists",
+	 "desc": "Primární asistence",
+	 "data": "count"
+},
+{
+	"name": "A1/60",
+	 "type": "a160",
+	 "colour": "green",
+	 "eng": "Primary Assists per 60",
+	 "desc": "Primární asistence za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "A1/GF [%]",
+	 "type": "a1gf_percent",
+	 "colour": "green",
+	 "eng": "% of Primary Assists of all Goals For",
+	 "desc": "Podíl primárních asistencí ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "P",
+	 "type": "p",
+	 "colour": "green",
+	 "eng": "Points",
+	 "desc": "Kanadské body",
+	 "data": "count"
+},
+{
+	"name": "P/60",
+	 "type": "p60",
+	 "colour": "green",
+	 "eng": "Points per 60",
+	 "desc": "Kanadské body za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "P/GF [%]",
+	 "type": "pgf_percent",
+	 "colour": "green",
+	 "eng": "% of Points of all Goals For",
+	 "desc": "Podíl kanadských bodů ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "P1",
+	 "type": "p1",
+	 "colour": "green",
+	 "eng": "Primary Points",
+	 "desc": "Primární kanadské body",
+	 "data": "count"
+},
+{
+	"name": "P1/60",
+	 "type": "p160",
+	 "colour": "green",
+	 "eng": "Primary Points per 60",
+	 "desc": "Primární kanadské body za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "P1/GF [%]",
+	 "type": "p1gf_percent",
+	 "colour": "green",
+	 "eng": "% of Primary Points of all Goals For",
+	 "desc": "Podíl primárních kanadských bodů ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "SA",
+	 "type": "sa",
+	 "colour": "green",
+	 "eng": "Shot Assists",
+	 "desc": "Přihrávky na střely",
+	 "data": "count"
+},
+{
+	"name": "cr.SA",
+	 "type": "cr.sa",
+	 "colour": "green",
+	 "eng": "Cross-Ice Shot Assists ",
+	 "desc": "Křižné přihrávky na střely",
+	 "data": "count"
+},
+{
+	"name": "bn.SA",
+	 "type": "bn.sa",
+	 "colour": "green",
+	 "eng": "Behind-The-Net Shot Assists",
+	 "desc": "Přihrávky zpoza branky na střely",
+	 "data": "count"
+},
+{
+	"name": "1T.SA",
+	 "type": "1t.sa",
+	 "colour": "green",
+	 "eng": "One-Timer Shot Assists",
+	 "desc": "Přihrávky na střely z první",
+	 "data": "count"
+},
+{
+	"name": "SA/60",
+	 "type": "sa60",
+	 "colour": "green",
+	 "eng": "Shot Assists per 60",
+	 "desc": "Přihrávky na střely za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "cr.SA/60",
+	 "type": "cr.sa60",
+	 "colour": "green",
+	 "eng": "Cross-Ice Shot Assists per 60",
+	 "desc": "Křižné přihrávky na střely za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "bn.SA/60",
+	 "type": "bn.sa60",
+	 "colour": "green",
+	 "eng": "Behind-The-Net Shot Assists per 60",
+	 "desc": "Přihrávky zpoza branky na střely za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "1T.SA/60",
+	 "type": "1t.sa60",
+	 "colour": "green",
+	 "eng": "One-Timer Shot Assists per 60",
+	 "desc": "Přihrávky na střely z první za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "SA/SAF [%]",
+	 "type": "sasaf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Shot Assists when on-ice",
+	 "desc": "Podíl přihrávek na střely hráče ze všech přihrávek na střely týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "cr.SA [%]",
+	 "type": "cr.sa_percent",
+	 "colour": "green",
+	 "eng": "% of Cross-Ice Shot Assists ",
+	 "desc": "Podíl křižných přihrávek na střely ze všech přihrávek na střely",
+	 "data": "percent"
+},
+{
+	"name": "bn.SA [%]",
+	 "type": "bn.sa_percent",
+	 "colour": "green",
+	 "eng": "% of Behind-The-Net Shot Assists",
+	 "desc": "Podíl přihrávek zpoza branky na střely ze všech přihrávek na střely",
+	 "data": "percent"
+},
+{
+	"name": "1T.SA [%]",
+	 "type": "1t.sa_percent",
+	 "colour": "green",
+	 "eng": "% of One-Timer Shot Assists",
+	 "desc": "Podíl přihrávek na střely z první ze všech přihrávek na střely",
+	 "data": "percent"
+},
+{
+	"name": "SA/CF [%]",
+	 "type": "sacf_percent",
+	 "colour": "green",
+	 "eng": "% of Shot Assists of all Shots For",
+	 "desc": "Podíl přihrávek na střely ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "xGF_SA",
+	 "type": "xgf_sa",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Shot Assists",
+	 "desc": "Očekávané góly týmu z přihrávek na střelu hráče",
+	 "data": "count"
+},
+{
+	"name": "xGF_cr.SA",
+	 "type": "xgf_cr.sa",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Cross-Ice Shot Assists ",
+	 "desc": "Očekávané góly týmu z křižných přihrávek na střelu hráče",
+	 "data": "count"
+},
+{
+	"name": "xGF_bn.SA",
+	 "type": "xgf_bn.sa",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Behind-The-Net Shot Assists",
+	 "desc": "Očekávané góly týmu z přihrávek zpoza branky na střelu hráče",
+	 "data": "count"
+},
+{
+	"name": "xGF_1T.SA",
+	 "type": "xgf_1t.sa",
+	 "colour": "green",
+	 "eng": "Expected Goals For from One-Timer Shot Assists",
+	 "desc": "Očekávané góly týmu z přihrávek na střelu z první hráče",
+	 "data": "count"
+},
+{
+	"name": "xGF_SA/60",
+	 "type": "xgf_sa60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Shot Assists per 60",
+	 "desc": "Očekávané góly týmu z přihrávek na střelu hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_cr.SA/60",
+	 "type": "xgf_cr.sa60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Cross-Ice Shot Assists per 60",
+	 "desc": "Očekávané góly týmu z křižných přihrávek na střelu hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_bn.SA/60",
+	 "type": "xgf_bn.sa60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Behind-The-Net Shot Assists per 60",
+	 "desc": "Očekávané góly týmu z přihrávek zpoza branky na střelu hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_1T.SA/60",
+	 "type": "xgf_1t.sa60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from One-Timer Shot Assists per 60",
+	 "desc": "Očekávané góly týmu z přihrávek na střelu z první hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_SA ∅ [%]",
+	 "type": "xgf_sa_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Shot Assist",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jedné přihrávky na střelu hráče",
+	 "data": "percent"
+},
+{
+	"name": "SAF",
+	 "type": "saf",
+	 "colour": "green",
+	 "eng": "Shot Assists For",
+	 "desc": "Přihrávky na střelecké pokusy týmu",
+	 "data": "count"
+},
+{
+	"name": "cr.SAF",
+	 "type": "cr.saf",
+	 "colour": "green",
+	 "eng": "Cross-Ice Shot Assists For",
+	 "desc": "Křižné přihrávky na střelecké pokusy týmu",
+	 "data": "count"
+},
+{
+	"name": "bn.SAF",
+	 "type": "bn.saf",
+	 "colour": "green",
+	 "eng": "Behind-The-Net Shot Assists For",
+	 "desc": "Přihrávky zpoza branky na střelecké pokusy týmu",
+	 "data": "count"
+},
+{
+	"name": "1T.SAF",
+	 "type": "1t.saf",
+	 "colour": "green",
+	 "eng": "One-Timer Shot Assists For",
+	 "desc": "Přihrávky na střelecké pokusy z první týmu",
+	 "data": "count"
+},
+{
+	"name": "SAF/60",
+	 "type": "saf60",
+	 "colour": "green",
+	 "eng": "Shot Assists For per 60",
+	 "desc": "Přihrávky na střelecké pokusy týmu za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "cr.SAF/60",
+	 "type": "cr.saf60",
+	 "colour": "green",
+	 "eng": "Cross-Ice Shot Assists For per 60",
+	 "desc": "Křižné přihrávky na střelecké pokusy týmu za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "bn.SAF/60",
+	 "type": "bn.saf60",
+	 "colour": "green",
+	 "eng": "Behind-The-Net Shot Assists For per 60",
+	 "desc": "Přihrávky zpoza branky na střelecké pokusy týmu za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "1T.SAF/60",
+	 "type": "1t.saf60",
+	 "colour": "green",
+	 "eng": "One-Timer Shot Assists For per 60",
+	 "desc": "Přihrávky na střelecké pokusy z první týmu za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "SAF/CF [%]",
+	 "type": "safcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shot Assists For of all Shots For",
+	 "desc": "Podíl přihrávek na střely týmu ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "SAA",
+	 "type": "saa",
+	 "colour": "red",
+	 "eng": "Shot Assists Against",
+	 "desc": "Přihrávky na střelecké pokusy soupeře",
+	 "data": "count"
+},
+{
+	"name": "cr.SAA",
+	 "type": "cr.saa",
+	 "colour": "red",
+	 "eng": "Cross-Ice Shot Assists Against",
+	 "desc": "Křižné přihrávky na střelecké pokusy soupeře",
+	 "data": "count"
+},
+{
+	"name": "bn.SAA",
+	 "type": "bn.saa",
+	 "colour": "red",
+	 "eng": "Behind-The-Net Shot Assists Against",
+	 "desc": "Přihrávky zpoza branky na střelecké pokusy soupeře",
+	 "data": "count"
+},
+{
+	"name": "1T.SAA",
+	 "type": "1t.saa",
+	 "colour": "red",
+	 "eng": "One-Timer Shot Assists Against",
+	 "desc": "Přihrávky na střelecké pokusy z první soupeře",
+	 "data": "count"
+},
+{
+	"name": "SAA/60",
+	 "type": "saa60",
+	 "colour": "red",
+	 "eng": "Shot Assists Against per 60",
+	 "desc": "Přihrávky na střelecké pokusy soupeře za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "cr.SAA/60",
+	 "type": "cr.saa60",
+	 "colour": "red",
+	 "eng": "Cross-Ice Shot Assists Against per 60",
+	 "desc": "Křižné přihrávky na střelecké pokusy soupeře za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "bn.SAA/60",
+	 "type": "bn.saa60",
+	 "colour": "red",
+	 "eng": "Behind-The-Net Shot Assists Against per 60",
+	 "desc": "Přihrávky zpoza branky na střelecké pokusy soupeře za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "1T.SAA/60",
+	 "type": "1t.saa60",
+	 "colour": "red",
+	 "eng": "One-Timer Shot Assists Against per 60",
+	 "desc": "Přihrávky na střelecké pokusy z první soupeře za 60 minut ",
+	 "data": "60"
+},
+{
+	"name": "SAA/CA [%]",
+	 "type": "saaca_percent",
+	 "colour": "red",
+	 "eng": "% of Shot Assists Against of all Shots Against",
+	 "desc": "Podíl přihrávek na střely soupeře ze všech střel soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "FO",
+	 "type": "fo",
+	 "colour": "green",
+	 "eng": "Faceoffs",
+	 "desc": "Účasti na vhazování",
+	 "data": "count"
+},
+{
+	"name": "DZ.FO",
+	 "type": "dz.fo",
+	 "colour": "red",
+	 "eng": "Defensive Zone Faceoffs",
+	 "desc": "Účasti na vhazováních v obranném pásmu",
+	 "data": "count"
+},
+{
+	"name": "NZ.FO",
+	 "type": "nz.fo",
+	 "colour": "white",
+	 "eng": "Neutral Zone Faceoffs",
+	 "desc": "Účasti na vhazováních ve středním pásmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.FO",
+	 "type": "oz.fo",
+	 "colour": "green",
+	 "eng": "Offensive Zone Faceoffs",
+	 "desc": "Účasti na vhazováních v útočném pásmu",
+	 "data": "count"
+},
+{
+	"name": "DZ.FO [%]",
+	 "type": "dz.fo_percent",
+	 "colour": "red",
+	 "eng": "% of Defensive Zone Faceoffs",
+	 "desc": "Podíl účastí na vhazováních v obranném pásmu ze všech účastí na vhazování",
+	 "data": "percent"
+},
+{
+	"name": "NZ.FO [%]",
+	 "type": "nz.fo_percent",
+	 "colour": "white",
+	 "eng": "% of Neutral Zone Faceoffs",
+	 "desc": "Podíl účastí na vhazováních ve středním pásmu ze všech účastí na vhazování",
+	 "data": "percent"
+},
+{
+	"name": "OZ.FO [%]",
+	 "type": "oz.fo_percent",
+	 "colour": "green",
+	 "eng": "% of Offensive Zone Faceoffs",
+	 "desc": "Podíl účastí na vhazováních v útočném pásmu ze všech účastí na vhazování",
+	 "data": "percent"
+},
+{
+	"name": "FOW",
+	 "type": "fow",
+	 "colour": "green",
+	 "eng": "Faceoffs Won",
+	 "desc": "Vyhraná vhazování",
+	 "data": "count"
+},
+{
+	"name": "DZ.FOW",
+	 "type": "dz.fow",
+	 "colour": "red",
+	 "eng": "Defensive Zone Faceoffs Won",
+	 "desc": "Vyhraná vhazování v obranném pásmu",
+	 "data": "count"
+},
+{
+	"name": "NZ.FOW",
+	 "type": "nz.fow",
+	 "colour": "white",
+	 "eng": "Neutral Zone Faceoffs Won",
+	 "desc": "Vyhraná vhazování ve středním pásmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.FOW",
+	 "type": "oz.fow",
+	 "colour": "green",
+	 "eng": "Offensive Zone Faceoffs Won",
+	 "desc": "Vyhraná vhazování v útočném pásmu",
+	 "data": "count"
+},
+{
+	"name": "FOW%",
+	 "type": "fow_percent",
+	 "colour": "green",
+	 "eng": "Faceoffs Won %",
+	 "desc": "Podíl Účasti vhazování ze všech účastí na vhazování",
+	 "data": "percent"
+},
+{
+	"name": "DZ.FOW%",
+	 "type": "dz.fow_percent",
+	 "colour": "red",
+	 "eng": "Defensive Zone Faceoffs Won %",
+	 "desc": "Podíl Účasti vhazování v obranném pásmu ze všech účastí na vhazováních v obranném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "NZ.FOW%",
+	 "type": "nz.fow_percent",
+	 "colour": "white",
+	 "eng": "Neutral Zone Faceoffs Won %",
+	 "desc": "Podíl Účasti vhazování ve středním pásmu ze všech účastí na vhazováních ve středním pásmu",
+	 "data": "percent"
+},
+{
+	"name": "OZ.FOW%",
+	 "type": "oz.fow_percent",
+	 "colour": "green",
+	 "eng": "Offensive Zone Faceoffs Won %",
+	 "desc": "Podíl Účasti vhazování v útočném pásmu ze všech účastí na vhazováních v útočném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "OZS",
+	 "type": "ozs",
+	 "colour": "green",
+	 "eng": "Ofensive Zone Starts",
+	 "desc": "Počet účastí na ledě při vhazováních v útočném pásmu",
+	 "data": "count"
+},
+{
+	"name": "DZS",
+	 "type": "dzs",
+	 "colour": "red",
+	 "eng": "Defensive Zone Starts",
+	 "desc": "Počet účastí na ledě při vhazováních v obranném pásmu",
+	 "data": "count"
+},
+{
+	"name": "ZSR%",
+	 "type": "zsr_percent",
+	 "colour": "green",
+	 "eng": "Zone Starts Ratio %",
+	 "desc": "Podíl účastí na ledě při vhazováních v útočném pásmu ze součtu účastí na ledě při vhazováních v útočném a obranném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "DZS%",
+	 "type": "dzs_percent",
+	 "colour": "red",
+	 "eng": "Defensive Zone Starts %",
+	 "desc": "Podíl účastí na ledě při vhazováních v obranném pásmu z celkového počtu účastí na ledě při všech vhazováních",
+	 "data": "percent"
+},
+{
+	"name": "OZS%",
+	 "type": "ozs_percent",
+	 "colour": "green",
+	 "eng": "Ofensive Zone Starts %",
+	 "desc": "Podíl účastí na ledě při vhazováních v útočném pásmu z celkového počtu účastí na ledě při všech vhazováních",
+	 "data": "percent"
+},
+{
+	"name": "OZ.FOW→CF",
+	 "type": "oz.fowcf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Faceoffs Won leading to Shot For",
+	 "desc": "Vyhraná vhazování v útočném pásmu vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.FOW→GF",
+	 "type": "oz.fowgf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Faceoffs Won leading to Goal For",
+	 "desc": "Vyhraná vhazování v útočném pásmu vedoucí ke vstřelenému gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "DZ.FOL→CA",
+	 "type": "dz.folca",
+	 "colour": "red",
+	 "eng": "Defensive Zone Faceoffs Lost leading to Shot Against",
+	 "desc": "Prohraná vhazování v obranném pásmu vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "DZ.FOL→GA",
+	 "type": "dz.folga",
+	 "colour": "red",
+	 "eng": "Defensive Zone Faceoffs Lost leading to Goal Against",
+	 "desc": "Prohraná vhazování v obranném pásmu vedoucí ke vstřelenému gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "OZ.FOW→CF [%]",
+	 "type": "oz.fowcf_percent",
+	 "colour": "green",
+	 "eng": "% of Offensive Zone Faceoffs Won leading to Shot For",
+	 "desc": "Podíl Účasti vhazování v útočném pásmu vedoucí ke střele týmu na všech Účasti vhazování v útočném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "OZ.FOW→GF [%]",
+	 "type": "oz.fowgf_percent",
+	 "colour": "green",
+	 "eng": "% of Offensive Zone Faceoffs Won leading to Goal For",
+	 "desc": "Podíl Účasti vhazování v útočném pásmu vedoucí ke vstřelenému gólu týmu na všech Účasti vhazování v útočném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "DZ.FOL→CA [%]",
+	 "type": "dz.folca_percent",
+	 "colour": "red",
+	 "eng": "% of Defensive Zone Faceoffs Lost leading to Shot Against",
+	 "desc": "Podíl prohraných vhazování v obranném pásmu vedoucí ke střele soupeře na všech prohraných vhazování v obranném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "DZ.FOL→GA [%]",
+	 "type": "dz.folga_percent",
+	 "colour": "red",
+	 "eng": "% of Defensive Zone Faceoffs Lost leading to Goal Against",
+	 "desc": "Podíl prohraných vhazování v obranném pásmu vedoucí ke vstřelenému gólu soupeře na všech prohraných vhazování v obranném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "xGF_OZ.FOW",
+	 "type": "xgf_oz.fow",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Offensive Zone Faceoffs Won",
+	 "desc": "Očekávané góly týmu z Účasti vhazování",
+	 "data": "count"
+},
+{
+	"name": "xGA_DZ.FOL",
+	 "type": "xga_dz.fol",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Defensive Zone Faceoffs Lost",
+	 "desc": "Očekávané góly soupeře z prohraných vhazování",
+	 "data": "count"
+},
+{
+	"name": "pW→CF",
+	 "type": "pwcf",
+	 "colour": "green",
+	 "eng": "Pucks Won leading to Shot For",
+	 "desc": "Zisky puku vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.pW→CF",
+	 "type": "oz.pwcf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won leading to Shot For",
+	 "desc": "Zisky puku v útočném pásmu vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_pW",
+	 "type": "xgf_pw",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Pucks Won",
+	 "desc": "Očekávané góly týmu ze zisků puku",
+	 "data": "count"
+},
+{
+	"name": "pW→CF/60",
+	 "type": "pwcf60",
+	 "colour": "green",
+	 "eng": "Pucks Won leading to Shot For per 60",
+	 "desc": "Zisky puku vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.pW→CF/60",
+	 "type": "oz.pwcf60",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won leading to Shot For per 60",
+	 "desc": "Zisky puku v útočném pásmu vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_pW/60",
+	 "type": "xgf_pw60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Pucks Won per 60",
+	 "desc": "Očekávané góly týmu ze zisků puku za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pW→CF [%]",
+	 "type": "pwcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots For from Pucks Won of all Goals For",
+	 "desc": "Podíl střel týmu ze zisku puku ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pW→CF [%]",
+	 "type": "oz.pwcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots For from Offensive Zone Pucks Won of all Shots For",
+	 "desc": "Podíl střel týmu ze zisku puku v útočném pásmu ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "xGF_pW [%]",
+	 "type": "xgf_pw_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For from Pucks Won of all Expected Goals For",
+	 "desc": "Podíl očekávaných gólů týmu ze zisku puku ze všech očekávaných gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pW→GF",
+	 "type": "pwgf",
+	 "colour": "green",
+	 "eng": "Pucks Won leading to Goal For",
+	 "desc": "Zisky puku vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.pW→GF",
+	 "type": "oz.pwgf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won leading to Goal For",
+	 "desc": "Zisky puku v útočném pásmu vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "pW→GF/60",
+	 "type": "pwgf60",
+	 "colour": "green",
+	 "eng": "Pucks Won leading to Goal For per 60",
+	 "desc": "Zisky puku vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.pW→GF/60",
+	 "type": "oz.pwgf60",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won leading to Goal For per 60",
+	 "desc": "Zisky puku v útočném pásmu vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pW→GF [%]",
+	 "type": "pwgf_percent",
+	 "colour": "green",
+	 "eng": "% of Goals For from Pucks Won of all Shots For",
+	 "desc": "Podíl gólů týmu ze zisku puku ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pW→GF [%]",
+	 "type": "oz.pwgf_percent",
+	 "colour": "green",
+	 "eng": "% of Goals For from Offensive Zone Pucks Won of all Goals For",
+	 "desc": "Podíl gólů týmu ze zisku puku v útočném pásmu ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pL→CA",
+	 "type": "plca",
+	 "colour": "red",
+	 "eng": "Puck Lost leading to Shot Against",
+	 "desc": "Ztráty puku vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "DZ.pL→CA",
+	 "type": "dz.plca",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost leading to Shot Against",
+	 "desc": "Ztráty puku v obranném pásmu vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "xGA_pL",
+	 "type": "xga_pl",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Pucks Lost",
+	 "desc": "Očekávané góly soupeře ze ztrát puku",
+	 "data": "count"
+},
+{
+	"name": "pL→CA/60",
+	 "type": "plca60",
+	 "colour": "red",
+	 "eng": "Puck Lost leading to Shot Against per 60",
+	 "desc": "Ztráty puku vedoucí ke střele soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DZ.pL→CA/60",
+	 "type": "dz.plca60",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost leading to Shot Against per 60",
+	 "desc": "Ztráty puku v obranném pásmu vedoucí ke střele soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_pL/60",
+	 "type": "xga_pl60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Pucks Lost per 60",
+	 "desc": "Očekávané góly soupeře ze ztrát puku za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pL→CA [%]",
+	 "type": "plca_percent",
+	 "colour": "red",
+	 "eng": "% of Shots Against from Pucks Won of all Goals Against",
+	 "desc": "Podíl střel soupeře ze zisku puku ze všech střel soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pL→CA [%]",
+	 "type": "dz.plca_percent",
+	 "colour": "red",
+	 "eng": "% of Shots Against from Defensive Zone Pucks Won of all Shots Against",
+	 "desc": "Podíl střel soupeře ze zisku puku v obranném pásmu ze všech střel soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "xGA_pL [%]",
+	 "type": "xga_pl_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against from Pucks Won of all Expected Goals Against",
+	 "desc": "Podíl očekávaných gólů soupeře ze zisku puku ze všech očekávaných gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pL→GA",
+	 "type": "plga",
+	 "colour": "red",
+	 "eng": "Puck Lost leading to Goal Against",
+	 "desc": "Ztráty puku vedoucí ke gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "DZ.pL→GA",
+	 "type": "dz.plga",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost leading to Goal Against",
+	 "desc": "Ztráty puku v obranném pásmu vedoucí ke gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "pL→GA/60",
+	 "type": "plga60",
+	 "colour": "red",
+	 "eng": "Puck Lost leading to Goal Against per 60",
+	 "desc": "Ztráty puku vedoucí ke gólu soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DZ.pL→GA/60",
+	 "type": "dz.plga60",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost leading to Goal Against per 60",
+	 "desc": "Ztráty puku v obranném pásmu vedoucí ke gólu soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pL→GA [%]",
+	 "type": "plga_percent",
+	 "colour": "red",
+	 "eng": "% of Puck Lost leading to Goal Against of all Shots Against",
+	 "desc": "Podíl gólů soupeře ze ztráty puku ze všech gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pL→GA [%]",
+	 "type": "dz.plga_percent",
+	 "colour": "red",
+	 "eng": "% of Defensive Zone Puck Lost leading to Goal Against of all Shots Against",
+	 "desc": "Podíl gólů soupeře ze ztráty puku v obranném pásmu ze všech gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pWF→CF",
+	 "type": "pwfcf",
+	 "colour": "green",
+	 "eng": "Pucks Won For leading to Shot For",
+	 "desc": "Zisky puku týmu vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.pWF→CF",
+	 "type": "oz.pwfcf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won For leading to Shot For",
+	 "desc": "Zisky puku týmu v útočném pásmu vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_pWF",
+	 "type": "xgf_pwf",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Pucks Won For",
+	 "desc": "Očekávané góly týmu ze zisků puku týmu",
+	 "data": "count"
+},
+{
+	"name": "pWF→CF/60",
+	 "type": "pwfcf60",
+	 "colour": "green",
+	 "eng": "Pucks Won For leading to Shot For per 60",
+	 "desc": "Zisky puku týmu vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.pWF→CF/60",
+	 "type": "oz.pwfcf60",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won For leading to Shot For per 60",
+	 "desc": "Zisky puku týmu v útočném pásmu vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_pWF/60",
+	 "type": "xgf_pwf60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Pucks Won For per 60",
+	 "desc": "Očekávané góly týmu ze zisků puku týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pWF→CF [%]",
+	 "type": "pwfcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots For from Pucks Won For of all Goals For",
+	 "desc": "Podíl střel týmu ze zisku puku týmu ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pWF→CF [%]",
+	 "type": "oz.pwfcf_percent",
+	 "colour": "green",
+	 "eng": "% of Shots For from Offensive Zone Pucks Won For of all Shots For",
+	 "desc": "Podíl střel týmu ze zisku puku týmu v útočném pásmu ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "xGF_pWF [%]",
+	 "type": "xgf_pwf_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For from Pucks Won For of all Expected Goals For",
+	 "desc": "Podíl očekávaných gólů týmu ze zisku puku týmu ze všech očekávaných gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pWF→CF/60 Rel",
+	 "type": "pwfcf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Pucks Won For leading to Shot For per 60",
+	 "desc": "Rozdíl mezi zisky puku týmu vedoucí ke střele týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "OZ.pWF→CF/60 Rel",
+	 "type": "oz.pwfcf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Offensive Zone Pucks Won For leading to Shot For per 60",
+	 "desc": "Rozdíl mezi zisky puku týmu v útočném pásmu vedoucí ke střele týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "xGF_pWF/60 Rel",
+	 "type": "xgf_pwf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Expected Goals For from Pucks Won For per 60",
+	 "desc": "Rozdíl mezi očekávanými góly týmu ze zisků puku týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "pWF→GF",
+	 "type": "pwfgf",
+	 "colour": "green",
+	 "eng": "Pucks Won For leading to Goal For",
+	 "desc": "Zisky puku týmu vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.pWF→GF",
+	 "type": "oz.pwfgf",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won For leading to Goal For",
+	 "desc": "Zisky puku týmu v útočném pásmu vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "pWF→GF/60",
+	 "type": "pwfgf60",
+	 "colour": "green",
+	 "eng": "Pucks Won For leading to Goal For per 60",
+	 "desc": "Zisky puku týmu vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.pWF→GF/60",
+	 "type": "oz.pwfgf60",
+	 "colour": "green",
+	 "eng": "Offensive Zone Pucks Won For leading to Goal For per 60",
+	 "desc": "Zisky puku týmu v útočném pásmu vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pWF→GF [%]",
+	 "type": "pwfgf_percent",
+	 "colour": "green",
+	 "eng": "% of Goals For from Pucks Won For of all Shots For",
+	 "desc": "Podíl gólů týmu ze zisku puku týmu ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pWF→GF [%]",
+	 "type": "oz.pwfgf_percent",
+	 "colour": "green",
+	 "eng": "% of Goals For from Offensive Zone Pucks Won For of all Goals For",
+	 "desc": "Podíl gólů týmu ze zisku puku týmu v útočném pásmu ze všech gólů týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pWF→GF/60 Rel",
+	 "type": "pwfgf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Pucks Won For leading to Goal For per 60",
+	 "desc": "Rozdíl mezi zisky puku týmu vedoucí ke gólu týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "OZ.pWF→GF/60 Rel",
+	 "type": "oz.pwfgf60_rel",
+	 "colour": "green",
+	 "eng": "Relative Offensive Zone Pucks Won For leading to Goal For per 60",
+	 "desc": "Rozdíl mezi zisky puku týmu v útočném pásmu vedoucí ke gólu týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "pLF→CA",
+	 "type": "plfca",
+	 "colour": "red",
+	 "eng": "Puck Lost For leading to Shot Against",
+	 "desc": "Ztráty puku týmu vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "DZ.pLF→CA",
+	 "type": "dz.plfca",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost For leading to Shot Against",
+	 "desc": "Ztráty puku týmu v obranném pásmu vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "xGA_pLF",
+	 "type": "xga_plf",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Pucks Lost For",
+	 "desc": "Očekávané góly soupeře ze ztrát puku týmu",
+	 "data": "count"
+},
+{
+	"name": "pLF→CA/60",
+	 "type": "plfca60",
+	 "colour": "red",
+	 "eng": "Puck Lost For leading to Shot Against per 60",
+	 "desc": "Ztráty puku týmu vedoucí ke střele soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DZ.pLF→CA/60",
+	 "type": "dz.plfca60",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost For leading to Shot Against per 60",
+	 "desc": "Ztráty puku týmu v obranném pásmu vedoucí ke střele soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_pLF/60",
+	 "type": "xga_plf60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Pucks Lost For per 60",
+	 "desc": "Očekávané góly soupeře ze ztrát puku týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pLF→CA [%]",
+	 "type": "plfca_percent",
+	 "colour": "red",
+	 "eng": "% of Shots Against from Pucks Won For of all Goals Against",
+	 "desc": "Podíl střel soupeře ze zisku puku týmu ze všech střel soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pLF→CA [%]",
+	 "type": "dz.plfca_percent",
+	 "colour": "red",
+	 "eng": "% of Shots Against from Defensive Zone Pucks Won For of all Shots Against",
+	 "desc": "Podíl střel soupeře ze zisku puku týmu v obranném pásmu ze všech střel soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "xGA_pLF [%]",
+	 "type": "xga_plf_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against from Pucks Won For of all Expected Goals Against",
+	 "desc": "Podíl očekávaných gólů soupeře ze zisku puku týmu ze všech očekávaných gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pLF→CA/60 Rel",
+	 "type": "plfca60_rel",
+	 "colour": "red",
+	 "eng": "Relative Puck Lost For leading to Shot Against per 60",
+	 "desc": "Rozdíl mezi ztrátami puku týmu vedoucí ke střele soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "DZ.pLF→CA/60 Rel",
+	 "type": "dz.plfca60_rel",
+	 "colour": "red",
+	 "eng": "Relative Defensive Zone Puck Lost For leading to Shot Against per 60",
+	 "desc": "Rozdíl mezi ztrátami puku týmu v obranném pásmu vedoucí ke střele soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "xGA_pLF/60 Rel",
+	 "type": "xga_plf60_rel",
+	 "colour": "red",
+	 "eng": "Relative Expected Goals Against from Pucks Lost For per 60",
+	 "desc": "Rozdíl mezi očekávanými góly soupeře ze ztrát puku týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "pLF→GA",
+	 "type": "plfga",
+	 "colour": "red",
+	 "eng": "Puck Lost For leading to Goal Against",
+	 "desc": "Ztráty puku týmu vedoucí ke gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "DZ.pLF→GA",
+	 "type": "dz.plfga",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost For leading to Goal Against",
+	 "desc": "Ztráty puku týmu v obranném pásmu vedoucí ke gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "pLF→GA/60",
+	 "type": "plfga60",
+	 "colour": "red",
+	 "eng": "Puck Lost For leading to Goal Against per 60",
+	 "desc": "Ztráty puku týmu vedoucí ke gólu soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DZ.pLF→GA/60",
+	 "type": "dz.plfga60",
+	 "colour": "red",
+	 "eng": "Defensive Zone Puck Lost For leading to Goal Against per 60",
+	 "desc": "Ztráty puku týmu v obranném pásmu vedoucí ke gólu soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "pLF→GA [%]",
+	 "type": "plfga_percent",
+	 "colour": "red",
+	 "eng": "% of Puck Lost For leading to Goal Against of all Shots Against",
+	 "desc": "Podíl gólů soupeře ze ztráty puku týmu ze všech gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pLF→GA [%]",
+	 "type": "dz.plfga_percent",
+	 "colour": "red",
+	 "eng": "% of Defensive Zone Puck Lost For leading to Goal Against of all Shots Against",
+	 "desc": "Podíl gólů soupeře ze ztráty puku týmu v obranném pásmu ze všech gólů soupeře s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "pLF→GA/60 Rel",
+	 "type": "plfga60_rel",
+	 "colour": "red",
+	 "eng": "Relative Puck Lost For leading to Goal Against per 60",
+	 "desc": "Rozdíl mezi ztrátami puku týmu vedoucí ke gólu soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "DZ.pLF→GA/60 Rel",
+	 "type": "dz.plfga60_rel",
+	 "colour": "red",
+	 "eng": "Relative Defensive Zone Puck Lost For leading to Goal Against per 60",
+	 "desc": "Rozdíl mezi ztrátami puku týmu v obranném pásmu vedoucí ke gólu soupeře za 60 minut s hráčem na ledě a bez hráče na ledě",
+	 "data": "60"
+},
+{
+	"name": "pTOI",
+	 "type": "ptoi",
+	 "colour": "green",
+	 "eng": "Team Possession Time",
+	 "desc": "Celkový čas držení puku týmem",
+	 "data": "count"
+},
+{
+	"name": "pTOI [%]",
+	 "type": "ptoi_percent",
+	 "colour": "green",
+	 "eng": "% of Team Possession Time",
+	 "desc": "Podíl času držení puku týmem z celkového odehraného času týmem",
+	 "data": "percent"
+},
+{
+	"name": "pTOI [%] Rel",
+	 "type": "ptoi_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative % of Team Possession Time",
+	 "desc": "Rozdíl mezi podíly času držení puku týmem z celkového odehraného času týmem s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.TOI",
+	 "type": "oz.toi",
+	 "colour": "green",
+	 "eng": "Team Offensive Zone Time",
+	 "desc": "Čas odehraný v útočném pásmu ",
+	 "data": "count"
+},
+{
+	"name": "DZ.TOI",
+	 "type": "dz.toi",
+	 "colour": "red",
+	 "eng": "Team Defensive Zone Time",
+	 "desc": "Čas odehraný v obranném pásmu ",
+	 "data": "count"
+},
+{
+	"name": "OZ.TOI [%]",
+	 "type": "oz.toi_percent",
+	 "colour": "green",
+	 "eng": "% of Team Offensive Zone Time",
+	 "desc": "Podíl času odehraného v útočném pásmu z celkového odehraného času",
+	 "data": "percent"
+},
+{
+	"name": "DZ.TOI [%]",
+	 "type": "dz.toi_percent",
+	 "colour": "red",
+	 "eng": "% of Team Defensive Zone Time",
+	 "desc": "Podíl času odehraného v obranném pásmu z celkového odehraného času",
+	 "data": "percent"
+},
+{
+	"name": "OZ.TOI [%] Rel",
+	 "type": "oz.toi_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative % of Team Offensive Zone Time",
+	 "desc": "Rozdíl mezi podíly času odehraného v útočném pásmu z celkového odehraného času s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.TOI [%] Rel",
+	 "type": "dz.toi_percent_rel",
+	 "colour": "red",
+	 "eng": "Relative % of Team Defensive Zone Time",
+	 "desc": "Rozdíl mezi podíly času odehraného v obranném pásmu z celkového odehraného času s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pTOI",
+	 "type": "oz.ptoi",
+	 "colour": "green",
+	 "eng": "Team Possession Time in Offensive Zone",
+	 "desc": "Čas držení puku týmem v útočném pásmu",
+	 "data": "count"
+},
+{
+	"name": "DZ.pTOI",
+	 "type": "dz.ptoi",
+	 "colour": "green",
+	 "eng": "Team Possession Time in Defensive Zone",
+	 "desc": "Čas držení puku týmem v obranném pásmu",
+	 "data": "count"
+},
+{
+	"name": "OPP DZ.pTOI",
+	 "type": "oppdz.ptoi",
+	 "colour": "red",
+	 "eng": "Opposition Possession Time in Defensive Zone",
+	 "desc": "Čas držení puku soupeřem v obranném pásmu týmu",
+	 "data": "count"
+},
+{
+	"name": "OZ.pTOI [%]",
+	 "type": "oz.ptoi_percent",
+	 "colour": "green",
+	 "eng": "% of Team Possession Time in Offensive Zone",
+	 "desc": "Podíl času držení puku týmem v útočném pásmu z celkového času odehraného v útočném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pTOI [%]",
+	 "type": "dz.ptoi_percent",
+	 "colour": "green",
+	 "eng": "% of Team Possession Time in Defensive Zone",
+	 "desc": "Podíl času držení puku týmem v obranném pásmu z celkového času odehraného v obranném pásmu",
+	 "data": "percent"
+},
+{
+	"name": "OPP DZ.pTOI [%]",
+	 "type": "oppdz.ptoi_percent",
+	 "colour": "red",
+	 "eng": "% of Opposition Possession Time in Defensive Zone",
+	 "desc": "Podíl času držení puku soupeřem v obranném pásmu týmu z celkového času odehraného v obranném pásmu týmu",
+	 "data": "percent"
+},
+{
+	"name": "OZ.pTOI [%] Rel",
+	 "type": "oz.ptoi_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative % of Team Possession Time in Offensive Zone",
+	 "desc": "Rozdíl mezi podíly času držení puku týmem v útočném pásmu z celkového času odehraného v útočném pásmu s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DZ.pTOI [%] Rel",
+	 "type": "dz.ptoi_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative % of Team Possession Time in Defensive Zone",
+	 "desc": "Rozdíl mezi podíly času držení puku týmem v obranném pásmu z celkového času odehraného v obranném pásmu s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "OPP DZ.pTOI [%] Rel",
+	 "type": "oppdz.ptoi_percent_rel",
+	 "colour": "red",
+	 "eng": "Relative % of Opposition Possession Time in Defensive Zone",
+	 "desc": "Rozdíl mezi podíly času držení puku soupeřem v obranném pásmu týmu z celkového času odehraného v obranném pásmu s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "En",
+	 "type": "en",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries",
+	 "desc": "Kontrolované vstupy do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnW",
+	 "type": "enw",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Entries",
+	 "desc": "Úspěšné kontrolované vstupy do pásma",
+	 "data": "count"
+},
+{
+	"name": "En/60",
+	 "type": "en60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries per 60",
+	 "desc": "Kontrolované vstupy do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnW/60",
+	 "type": "enw60",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Entries per 60",
+	 "desc": "Úspěšné kontrolované vstupy do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnW [%]",
+	 "type": "enw_percent",
+	 "colour": "green",
+	 "eng": "% of Successful Controlled Zone Entries",
+	 "desc": "Podíl úspěšných kontrolovaných vstupy do pásma ze všech kontrolovaných vstupů do pásma",
+	 "data": "percent"
+},
+{
+	"name": "En/EnF [%]",
+	 "type": "enenf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Controlled Zone Entries when on-ice",
+	 "desc": "Podíl kontrolovaných vstupů do pásma ze všech kontrolovaných vstupů týmu do pásma s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "EnR%",
+	 "type": "enr_percent",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entry Ratio %",
+	 "desc": "Podíl kontrolovaných vstupů do pásma ze všech pokusů hráče o vstup do pásma (kontrolovaných vstupů a nahození)",
+	 "data": "percent"
+},
+{
+	"name": "En→C",
+	 "type": "enc",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Shot",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke střele hráče",
+	 "data": "count"
+},
+{
+	"name": "En→CF",
+	 "type": "encf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Shot For",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "En→GF",
+	 "type": "engf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Goal For",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_En",
+	 "type": "xgf_en",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Entries",
+	 "desc": "Očekávané góly týmu z kontrolovaných vstupů do pásma",
+	 "data": "count"
+},
+{
+	"name": "En→C/60",
+	 "type": "enc60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Shot per 60",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke střele hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "En→CF/60",
+	 "type": "encf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Shot For per 60",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "En→GF/60",
+	 "type": "engf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries leading to Goal For per 60",
+	 "desc": "Kontrolované vstupy do pásma vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_En/60",
+	 "type": "xgf_en60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Entries per 60",
+	 "desc": "Očekávané góly týmu z kontrolovaných vstupů do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "En→C [%]",
+	 "type": "enc_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Entries leading to Shot",
+	 "desc": "Podíl kontrolovaných vstupů do pásma vedoucích ke střele hráče ze všech kontrolovaných vstupů do pásma vedoucí ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "En→CF [%]",
+	 "type": "encf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Entries leading to Shot For",
+	 "desc": "Podíl kontrolovaných vstupů do pásma vedoucích ke střele týmu ze všech kontrolovaných vstupů do pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGF_En ∅ [%]",
+	 "type": "xgf_en_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Controlled Zone Entry leading to Shot",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného vstupu do pásma vedoucího ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "FTR%",
+	 "type": "ftr_percent",
+	 "colour": "green",
+	 "eng": "Fast Transition Play Ratio %",
+	 "desc": "Podíl kontrolovaných vstupů do pásma a nahození hráče vedoucích ke střele týmu ze všech střel týmu s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DI",
+	 "type": "di",
+	 "colour": "green",
+	 "eng": "Dump-Ins",
+	 "desc": "Nahození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DIB",
+	 "type": "dib",
+	 "colour": "green",
+	 "eng": "Dump-In Battles",
+	 "desc": "Souboje po nahození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DIBW",
+	 "type": "dibw",
+	 "colour": "green",
+	 "eng": "Dump-In Battles Won",
+	 "desc": "Vyhrané souboje po nahození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DIR",
+	 "type": "dir",
+	 "colour": "green",
+	 "eng": "Dump-In Recoveries",
+	 "desc": "Nahození puku hráčem se ziskem puku týmu bez souboje",
+	 "data": "count"
+},
+{
+	"name": "DI/60",
+	 "type": "di60",
+	 "colour": "green",
+	 "eng": "Dump-Ins per 60",
+	 "desc": "Nahození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIB/60",
+	 "type": "dib60",
+	 "colour": "green",
+	 "eng": "Dump-In Battles per 60",
+	 "desc": "Souboje po nahození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBW/60",
+	 "type": "dibw60",
+	 "colour": "green",
+	 "eng": "Dump-In Battles Won per 60",
+	 "desc": "Vyhrané souboje po nahození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIR/60",
+	 "type": "dir60",
+	 "colour": "green",
+	 "eng": "Dump-In Recoveries per 60",
+	 "desc": "Nahození puku hráčem se ziskem puku týmu bez souboje za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIB [%]",
+	 "type": "dib_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-In Battles",
+	 "desc": "Podíl soubojů po nahození puku hráčem ze všech nahození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DIBW [%]",
+	 "type": "dibw_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-In Battles Won",
+	 "desc": "Podíl Účasti soubojů po nahození puku hráčem ze všech soubojů po nahození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DIR [%]",
+	 "type": "dir_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-In Recoveries",
+	 "desc": "Podíl nahození puku hráčem se ziskem puku týmu bez souboje ze všech nahození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DIW [%]",
+	 "type": "diw_percent",
+	 "colour": "green",
+	 "eng": "% of Succesful Dump-Ins",
+	 "desc": "Podíl nahození puku hráčem se ziskem puku týmu bez souboje nebo s vyhraným soubojem ze všech nahození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DI→CF",
+	 "type": "dicf",
+	 "colour": "green",
+	 "eng": "Dump-Ins leading to Shot For",
+	 "desc": "Nahození hráče vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "DI→GF",
+	 "type": "digf",
+	 "colour": "green",
+	 "eng": "Dump-Ins leading to Goals For",
+	 "desc": "Nahození hráče vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_DI",
+	 "type": "xgf_di",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Ins",
+	 "desc": "Očekávané góly týmu z nahození hráče",
+	 "data": "count"
+},
+{
+	"name": "DI→CF/60",
+	 "type": "dicf60",
+	 "colour": "green",
+	 "eng": "Dump-Ins leading to Shot For per 60",
+	 "desc": "Nahození hráče vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DI→GF/60",
+	 "type": "digf60",
+	 "colour": "green",
+	 "eng": "Dump-Ins leading to Goals For per 60",
+	 "desc": "Nahození hráče vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_DI/60",
+	 "type": "xgf_di60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Ins per 60",
+	 "desc": "Očekávané góly týmu z nahození hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DI→CF [%]",
+	 "type": "dicf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Ins leading to Shot For",
+	 "desc": "Podíl nahození hráče vedoucích ke střele týmu ze všech nahození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "xGF_DI ∅ [%]",
+	 "type": "xgf_di_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Dump-In leading to Shot",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho nahození hráče vedoucí ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "EnD",
+	 "type": "end",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entry Denials",
+	 "desc": "Zamezení kontrolovaných vstupů do pásma hráčem",
+	 "data": "count"
+},
+{
+	"name": "EnD/60",
+	 "type": "end60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entry Denials per 60",
+	 "desc": "Zamezení kontrolovaných vstupů do pásma hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnD [%]",
+	 "type": "end_percent",
+	 "colour": "red",
+	 "eng": "% of Controlled Zone Entry Denials",
+	 "desc": "Podíl zamezení kontrolovaných vstupů do pásma hráčem ze všech lontrolovaných vstupů do pásma soupeře",
+	 "data": "percent"
+},
+{
+	"name": "EnD/EnDF [%]",
+	 "type": "endendf_percent",
+	 "colour": "red",
+	 "eng": "% of individual Controlled Zone Entry Denials when on-ice",
+	 "desc": "Podíl zamezení kontrolovaných vstupů do pásma hráčem ze všech zamezení kontrolovaných vstupů do pásma s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "EnF",
+	 "type": "enf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For",
+	 "desc": "Kontrolované vstupy týmu do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnWF",
+	 "type": "enwf",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Entries For",
+	 "desc": "Úspěšné kontrolované vstupy týmu do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnA",
+	 "type": "ena",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against",
+	 "desc": "Kontrolované vstupy soupeře do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnWA",
+	 "type": "enwa",
+	 "colour": "red",
+	 "eng": "Successful Controlled Zone Entries Against",
+	 "desc": "Úspěšné kontrolované vstupy soupeře do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnF/60",
+	 "type": "enf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For per 60",
+	 "desc": "Kontrolované vstupy týmu do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnWF/60",
+	 "type": "enwf60",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Entries For per 60",
+	 "desc": "Úspěšné kontrolované vstupy týmu do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnA/60",
+	 "type": "ena60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against per 60",
+	 "desc": "Kontrolované vstupy soupeře do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnWA/60",
+	 "type": "enwa60",
+	 "colour": "red",
+	 "eng": "Successful Controlled Zone Entries Against per 60",
+	 "desc": "Úspěšné kontrolované vstupy soupeře do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnWF [%]",
+	 "type": "enwf_percent",
+	 "colour": "green",
+	 "eng": "% of Successful Controlled Zone Entries For",
+	 "desc": "Podíl Úspěšné kontrolované vstupy týmu do pásma ze všech Kontrolované vstupy týmu do pásma",
+	 "data": "percent"
+},
+{
+	"name": "EnWA [%]",
+	 "type": "enwa_percent",
+	 "colour": "red",
+	 "eng": "% of Successful Controlled Zone Entries Against",
+	 "desc": "Podíl Úspěšné kontrolované vstupy soupeře do pásma ze všech Kontrolované vstupy soupeře do pásma",
+	 "data": "percent"
+},
+{
+	"name": "EnFR%",
+	 "type": "enfr_percent",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entry For Ratio %",
+	 "desc": "Podíl kontrolovaných vstupů týmu do pásma ze všech pokusů týmu o vstup do pásma (kontrolovaných vstupů a nahození)",
+	 "data": "percent"
+},
+{
+	"name": "EnAR%",
+	 "type": "enar_percent",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entry Against Ratio %",
+	 "desc": "Podíl kontrolovaných vstupů soupeře do pásma ze všech pokusů soupeře o vstup do pásma (kontrolovaných vstupů a nahození)",
+	 "data": "percent"
+},
+{
+	"name": "EnFR% Rel",
+	 "type": "enfr_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Controlled Zone Entry For Ratio %",
+	 "desc": "Rozdíl mezi podíly kontrolovaných vstupů týmu do pásma ze všech pokusů týmu o vstup do pásma (kontrolovaných vstupů a nahození) s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "EnF→CF",
+	 "type": "enfcf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For leading to Shot For",
+	 "desc": "Kontrolované vstupy týmu do pásma vedoucí ke střele",
+	 "data": "count"
+},
+{
+	"name": "EnF→GF",
+	 "type": "enfgf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For leading to Goal For",
+	 "desc": "Kontrolované vstupy týmu do pásma vedoucí ke gólu",
+	 "data": "count"
+},
+{
+	"name": "xGF_EnF",
+	 "type": "xgf_enf",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Entries For",
+	 "desc": "Očekávané góly z kontrolovaných vstupů týmu do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnA→CA",
+	 "type": "enaca",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against leading to Shot Against",
+	 "desc": "Kontrolované vstupy soupeře do pásma vedoucí ke střele",
+	 "data": "count"
+},
+{
+	"name": "EnA→GA",
+	 "type": "enaga",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against leading to Goal Against",
+	 "desc": "Kontrolované vstupy soupeře do pásma vedoucí ke gólu",
+	 "data": "count"
+},
+{
+	"name": "xGA_EnA",
+	 "type": "xga_ena",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Controlled Zone Entries Against",
+	 "desc": "Očekávané góly z kontrolovaných vstupů soupeře do pásma",
+	 "data": "count"
+},
+{
+	"name": "EnF→CF/60",
+	 "type": "enfcf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For leading to Shot For per 60",
+	 "desc": "Kontrolované vstupy týmu do pásma vedoucí ke střele za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnF→GF/60",
+	 "type": "enfgf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entries For leading to Goal For per 60",
+	 "desc": "Kontrolované vstupy týmu do pásma vedoucí ke gólu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_EnF/60",
+	 "type": "xgf_enf60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Entries For per 60",
+	 "desc": "Očekávané góly z kontrolovaných vstupů týmu do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnA→CA/60",
+	 "type": "enaca60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against leading to Shot Against per 60",
+	 "desc": "Kontrolované vstupy soupeře do pásma vedoucí ke střele za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnA→GA/60",
+	 "type": "enaga60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entries Against leading to Goal Against per 60",
+	 "desc": "Kontrolované vstupy soupeře do pásma vedoucí ke gólu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_EnA/60",
+	 "type": "xga_ena60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Controlled Zone Entries Against per 60",
+	 "desc": "Očekávané góly z kontrolovaných vstupů soupeře do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnF→CF [%]",
+	 "type": "enfcf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Entries For leading to Shot For",
+	 "desc": "Podíl kontrolovaných vstupů týmu do pásma vedoucích ke střele ze všech kontrolovaných vstupů týmu do pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGF_EnF ∅ [%]",
+	 "type": "xgf_enf_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Controlled Zone Entry For leading to Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného vstupu týmu do pásma vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "EnA→CA [%]",
+	 "type": "enaca_percent",
+	 "colour": "red",
+	 "eng": "% of Controlled Zone Entries Against leading to Shot Against",
+	 "desc": "Podíl kontrolovaných vstupů soupeře do pásma vedoucích ke střele ze všech kontrolovaných vstupů soupeře do pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGA_EnA ∅ [%]",
+	 "type": "xga_ena_avg_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against per Controlled Zone Entry Against leading to Shot Against",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného vstupu soupeře do pásma vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "FTRF%",
+	 "type": "ftrf_percent",
+	 "colour": "green",
+	 "eng": "Fast Transition Play For Ratio %",
+	 "desc": "Podíl kontrolovaných vstupů do pásma a nahození týmu vedoucích ke střele týmu ze všech střel týmu",
+	 "data": "percent"
+},
+{
+	"name": "FTRF% Rel",
+	 "type": "ftrf_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Fast Transition Play For Ratio %",
+	 "desc": "Rozdíl mezi podíly kontrolovaných vstupů do pásma a nahození týmu vedoucích ke střele týmu ze všech střel týmu s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DIF",
+	 "type": "dif",
+	 "colour": "green",
+	 "eng": "Dump-Ins For",
+	 "desc": "Nahození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DIBF",
+	 "type": "dibf",
+	 "colour": "green",
+	 "eng": "Dump-In Battles For",
+	 "desc": "Souboje po nahození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DIBFW",
+	 "type": "dibfw",
+	 "colour": "green",
+	 "eng": "Dump-In Battles For Won",
+	 "desc": "Vyhrané souboje po nahození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DIA",
+	 "type": "dia",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against",
+	 "desc": "Nahození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DIBA",
+	 "type": "diba",
+	 "colour": "red",
+	 "eng": "Dump-In Battles Against",
+	 "desc": "Souboje po nahození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DIF/60",
+	 "type": "dif60",
+	 "colour": "green",
+	 "eng": "Dump-Ins For per 60",
+	 "desc": "Nahození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBF/60",
+	 "type": "dibf60",
+	 "colour": "green",
+	 "eng": "Dump-In Battles For per 60",
+	 "desc": "Souboje po nahození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBFW/60",
+	 "type": "dibfw60",
+	 "colour": "green",
+	 "eng": "Dump-In Battles For Won per 60",
+	 "desc": "Vyhrané souboje po nahození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIA/60",
+	 "type": "dia60",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against per 60",
+	 "desc": "Nahození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBA/60",
+	 "type": "diba60",
+	 "colour": "red",
+	 "eng": "Dump-In Battles Against per 60",
+	 "desc": "Souboje po nahození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBF [%]",
+	 "type": "dibf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-In Battles For",
+	 "desc": "Podíl soubojů po nahození puku týmem ze všech nahození puku týmem",
+	 "data": "percent"
+},
+{
+	"name": "DIBFW [%]",
+	 "type": "dibfw_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-In Battles For Won",
+	 "desc": "Podíl Účasti soubojů po nahození puku týmem ze všech soubojů po nahození puku týmem",
+	 "data": "percent"
+},
+{
+	"name": "DIBA [%]",
+	 "type": "diba_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-In Battles Against",
+	 "desc": "Podíl soubojů po nahození puku soupeřem ze všech nahození puku soupeřem",
+	 "data": "percent"
+},
+{
+	"name": "DIBFW [%] Rel",
+	 "type": "dibfw_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative % of Dump-In Battles For Won",
+	 "desc": "Rozdíl mezi podíly Účasti soubojů po nahození puku týmem ze všech soubojů po nahození puku týmem s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DIF→CF",
+	 "type": "difcf",
+	 "colour": "green",
+	 "eng": "Dump-Ins For leading to Shot For",
+	 "desc": "Nahození puku týmem vedoucí ke střele",
+	 "data": "count"
+},
+{
+	"name": "DIF→GF",
+	 "type": "difgf",
+	 "colour": "green",
+	 "eng": "Dump-Ins For leading to Goal For",
+	 "desc": "Nahození puku týmem vedoucí ke gólu",
+	 "data": "count"
+},
+{
+	"name": "xGF_DIF",
+	 "type": "xgf_dif",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Ins For",
+	 "desc": "Očekávané góly týmu z nahození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DIA→CA",
+	 "type": "diaca",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against leading to Shot Against",
+	 "desc": "Nahození puku soupeřem vedoucí ke střele",
+	 "data": "count"
+},
+{
+	"name": "DIA→GA",
+	 "type": "diaga",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against leading to Goal Against",
+	 "desc": "Nahození puku soupeřem vedoucí ke gólu",
+	 "data": "count"
+},
+{
+	"name": "xGA_DIA",
+	 "type": "xga_dia",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Dump-Ins Against",
+	 "desc": "Očekávané góly týmu z nahození puku soupeřem do pásma",
+	 "data": "count"
+},
+{
+	"name": "DIF→CF/60",
+	 "type": "difcf60",
+	 "colour": "green",
+	 "eng": "Dump-Ins For leading to Shot For per 60",
+	 "desc": "Nahození puku týmem vedoucí ke střele za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIF→GF/60",
+	 "type": "difgf60",
+	 "colour": "green",
+	 "eng": "Dump-Ins For leading to Goal For per 60",
+	 "desc": "Nahození puku týmem vedoucí ke gólu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_DIF/60",
+	 "type": "xgf_dif60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Ins For per 60",
+	 "desc": "Očekávané góly týmu z nahození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIA→CA/60",
+	 "type": "diaca60",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against leading to Shot Against per 60",
+	 "desc": "Nahození puku soupeřem vedoucí ke střele za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIA→GA/60",
+	 "type": "diaga60",
+	 "colour": "red",
+	 "eng": "Dump-Ins Against leading to Goal Against per 60",
+	 "desc": "Nahození puku soupeřem vedoucí ke gólu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_DIA/60",
+	 "type": "xga_dia60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Dump-Ins Against per 60",
+	 "desc": "Očekávané góly týmu z nahození puku soupeřem do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIF→CF [%]",
+	 "type": "difcf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Ins For leading to Shot For",
+	 "desc": "Podíl nahození puku týmu vedoucích ke střele ze všech nahození puku týmu",
+	 "data": "percent"
+},
+{
+	"name": "xGF_DIF ∅ [%]",
+	 "type": "xgf_dif_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Dump-In For leading to Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho nahození puku týmu vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "DIA→CA [%]",
+	 "type": "diaca_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-Ins Against leading to Shot Against",
+	 "desc": "Podíl nahození puku soupeře vedoucích ke střele ze všech nahození puku soupeře",
+	 "data": "percent"
+},
+{
+	"name": "xGA_DIA ∅ [%]",
+	 "type": "xga_dia_avg_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against per Dump-In Against leading to Shot Against",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednohonahození puku soupeře vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "EnDF",
+	 "type": "endf",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entry Denials For",
+	 "desc": "Zamezení kontrolovaných vstupů soupeře do pásma týmem",
+	 "data": "count"
+},
+{
+	"name": "EnDA",
+	 "type": "enda",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entry Denials Against",
+	 "desc": "Zamezení kontrolovaných vstupů týmu do pásma soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DIBAW",
+	 "type": "dibaw",
+	 "colour": "red",
+	 "eng": "Dump-In Battles Against Won",
+	 "desc": "Vyhrané souboje týmu po nahození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "EnDF/60",
+	 "type": "endf60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Entry Denials For per 60",
+	 "desc": "Zamezení kontrolovaných vstupů soupeře do pásma týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnDA/60",
+	 "type": "enda60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entry Denials Against per 60",
+	 "desc": "Zamezení kontrolovaných vstupů týmu do pásma soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DIBAW/60",
+	 "type": "dibaw60",
+	 "colour": "red",
+	 "eng": "Dump-In Battles Against Won per 60",
+	 "desc": "Vyhrané souboje týmu po nahození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "EnDF [%]",
+	 "type": "endf_percent",
+	 "colour": "red",
+	 "eng": "% of Controlled Zone Entry Denials For",
+	 "desc": "Podíl zamezení kontrolovaných vstupů soupeře do pásma týmem ze všech kontrolovaných vstupů soupeře do pásma",
+	 "data": "percent"
+},
+{
+	"name": "EnDA [%]",
+	 "type": "enda_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Entry Denials Against",
+	 "desc": "Podíl zamezení kontrolovaných vstupů týmu do pásma soupeřem ze všech kontrolovaných vstupů týmu do pásma",
+	 "data": "percent"
+},
+{
+	"name": "DIBAW [%]",
+	 "type": "dibaw_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-In Battles Against Won",
+	 "desc": "Podíl Účasti soubojů týmu po nahození puku soupeřem ze všech soubojů po nahození puku soupeřem",
+	 "data": "percent"
+},
+{
+	"name": "EnDF [%] Rel",
+	 "type": "endf_percent_rel",
+	 "colour": "red",
+	 "eng": "Relative % of Controlled Zone Entry Denials For",
+	 "desc": "Rozdíl mezi podíly zamezení kontrolovaných vstupů soupeře do pásma týmem ze všech kontrolovaných vstupů soupeře do pásma s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "EnDA [%] Rel",
+	 "type": "enda_percent_rel",
+	 "colour": "red",
+	 "eng": "Relative % of Controlled Zone Entry Denials Against",
+	 "desc": "Rozdíl mezi podíly zamezení kontrolovaných vstupů týmu do pásma soupeřem ze všech kontrolovaných vstupů týmu do pásma s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "DIBAW [%] Rel",
+	 "type": "dibaw_percent_rel",
+	 "colour": "red",
+	 "eng": "Relative % of Dump-In Battles Against Won",
+	 "desc": "Rozdíl mezi podíly Účasti soubojů týmu po nahození puku soupeřem ze všech soubojů po nahození puku soupeřem s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "Ex",
+	 "type": "ex",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits",
+	 "desc": "Kontrolované výstupy z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExW",
+	 "type": "exw",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Exits",
+	 "desc": "Úspěšné kontrolované výstupy z pásma",
+	 "data": "count"
+},
+{
+	"name": "Ex/60",
+	 "type": "ex60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits per 60",
+	 "desc": "Kontrolované výstupy z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExW/60",
+	 "type": "exw60",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Exits per 60",
+	 "desc": "Úspěšné kontrolované výstupy z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExW [%]",
+	 "type": "exw_percent",
+	 "colour": "green",
+	 "eng": "% of Successful Controlled Zone Exits",
+	 "desc": "Podíl úspěšných kontrolovaných výstupů z pásma ze všech kontrolovaných výstupů z pásma",
+	 "data": "percent"
+},
+{
+	"name": "Ex/ExF [%]",
+	 "type": "exexf_percent",
+	 "colour": "green",
+	 "eng": "% of individual Controlled Zone Exits when on-ice",
+	 "desc": "Podíl kontrolovaných výstupů z pásma ze všech kontrolovaných výstupů týmu z pásma s hráčem na ledě",
+	 "data": "percent"
+},
+{
+	"name": "ExR%",
+	 "type": "exr_percent",
+	 "colour": "green",
+	 "eng": "Controlled Zone Entry Ratio %",
+	 "desc": "Podíl kontrolovaných výstupů z pásma ze všech pokusů hráče o výstup z pásma (kontrolovaných výstupů a vyhození)",
+	 "data": "percent"
+},
+{
+	"name": "Ex→En",
+	 "type": "exen",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Controlled Zone Entry",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke kontrolovanému vstupu hráče do pásma",
+	 "data": "count"
+},
+{
+	"name": "Ex→EnF",
+	 "type": "exenf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Controlled Zone Entry For",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke kontrolovanému vstupu týmu do pásma",
+	 "data": "count"
+},
+{
+	"name": "Ex→En/60",
+	 "type": "exen60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Controlled Zone Entry per 60",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke kontrolovanému vstupu hráče do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Ex→EnF/60",
+	 "type": "exenf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Controlled Zone Entry For per 60",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke kontrolovanému vstupu týmu do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Ex→En [%]",
+	 "type": "exen_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Exits leading to Controlled Zone Entry",
+	 "desc": "Podíl kontrolovaných výstupů z pásma vedoucích ke kontrolovanému vstupu hráče do pásma ze všech kontrolovaných výstupů z pásma",
+	 "data": "percent"
+},
+{
+	"name": "Ex→EnF [%]",
+	 "type": "exenf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Exits leading to Controlled Zone Entry For",
+	 "desc": "Podíl kontrolovaných výstupů z pásma vedoucích ke kontrolovanému vstupu týmu do pásma ze všech kontrolovaných výstupů z pásma",
+	 "data": "percent"
+},
+{
+	"name": "Ex→CF",
+	 "type": "excf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Shot For",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_Ex",
+	 "type": "xgf_ex",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Exits For",
+	 "desc": "Očekávané góly týmu z kontrolovaných výstupů z pásma",
+	 "data": "count"
+},
+{
+	"name": "Ex→CF/60",
+	 "type": "excf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits leading to Shot For per 60",
+	 "desc": "Kontrolované výstupy z pásma vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_Ex/60",
+	 "type": "xgf_ex60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Exits For per 60",
+	 "desc": "Očekávané góly týmu z kontrolovaných výstupů z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Ex→CF [%]",
+	 "type": "excf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Exits leading to Shot For",
+	 "desc": "Podíl kontrolovaných výstupů z pásma vedoucích ke střele týmu ze všech kontrolovaných výstupů z pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGF_Ex ∅ [%]",
+	 "type": "xgf_ex_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Controlled Zone Exit leading to Shot",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného výstupu z pásma vedoucího ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "DO",
+	 "type": "do",
+	 "colour": "green",
+	 "eng": "Dump-Outs",
+	 "desc": "Vyhození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DOB",
+	 "type": "dob",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles",
+	 "desc": "Souboje po vyhození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DOBW",
+	 "type": "dobw",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles Won",
+	 "desc": "Vyhrané souboje po vyhození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DO/60",
+	 "type": "do60",
+	 "colour": "green",
+	 "eng": "Dump-Outs per 60",
+	 "desc": "Vyhození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOB/60",
+	 "type": "dob60",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles per 60",
+	 "desc": "Souboje po vyhození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBW/60",
+	 "type": "dobw60",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles Won per 60",
+	 "desc": "Vyhrané souboje po vyhození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOB [%]",
+	 "type": "dob_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Out Battles",
+	 "desc": "Podíl soubojů po vyhození puku hráčem ze všech vyhození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DOBW [%]",
+	 "type": "dobw_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Out Battles Won",
+	 "desc": "Podíl Účasti soubojů po vyhození puku hráčem ze všech soubojů po vyhození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "DO→CF",
+	 "type": "docf",
+	 "colour": "green",
+	 "eng": "Dump-Outs leading to Shot For",
+	 "desc": "Vyhození puku hráčem vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_DO",
+	 "type": "xgf_do",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Outs",
+	 "desc": "Očekávané góly týmu z vyhození puku hráčem",
+	 "data": "count"
+},
+{
+	"name": "DO→CF/60",
+	 "type": "docf60",
+	 "colour": "green",
+	 "eng": "Dump-Outs leading to Shot For per 60",
+	 "desc": "Vyhození puku hráčem vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_DO/60",
+	 "type": "xgf_do60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Outs per 60",
+	 "desc": "Očekávané góly týmu z vyhození puku hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DO→CF [%]",
+	 "type": "docf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Outs leading to Shot For",
+	 "desc": "Podíl vyhození puku hráčem vedoucích ke střele týmu ze všech vyhození puku hráčem",
+	 "data": "percent"
+},
+{
+	"name": "xGF_DO ∅ [%]",
+	 "type": "xgf_do_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Dump-Out leading to Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho vyhození puku hráčem vedoucího ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "ExF",
+	 "type": "exf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For",
+	 "desc": "Kontrolované výstupy týmu z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExWF",
+	 "type": "exwf",
+	 "colour": "green",
+	 "eng": "Successful Controlled Zone Exits For",
+	 "desc": "Úspěšné kontrolované výstupy týmu z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExA",
+	 "type": "exa",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against",
+	 "desc": "Kontrolované výstupy soupeře z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExWA",
+	 "type": "exwa",
+	 "colour": "red",
+	 "eng": "Successful Controlled Zone Exits Against",
+	 "desc": "Úspěšné kontrolované výstupy soupeře z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExF/60",
+	 "type": "exf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For per 60",
+	 "desc": "Kontrolované výstupy týmu z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExWF/60",
+	 "type": "exwf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For per 60",
+	 "desc": "Úspěšné kontrolované výstupy týmu z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExA/60",
+	 "type": "exa60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against per 60",
+	 "desc": "Kontrolované výstupy soupeře z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExWA/60",
+	 "type": "exwa60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against per 60",
+	 "desc": "Úspěšné kontrolované výstupy soupeře z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExWF [%]",
+	 "type": "exwf_percent",
+	 "colour": "green",
+	 "eng": "% of Successful Controlled Zone Exits For",
+	 "desc": "Podíl úspěšných kontrolovaných výstupů týmu z pásma ze všech kontrolovaných výstupů týmu z pásma",
+	 "data": "percent"
+},
+{
+	"name": "ExWA [%]",
+	 "type": "exwa_percent",
+	 "colour": "red",
+	 "eng": "% of Successful Controlled Zone Exits Against",
+	 "desc": "Podíl úspěšných kontrolovaných výstupů soupeře z pásma ze všech kontrolovaných výstupů soupeře z pásma",
+	 "data": "percent"
+},
+{
+	"name": "ExFR%",
+	 "type": "exfr_percent",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exit For Ratio %",
+	 "desc": "Podíl kontrolovaných výstupů týmu z pásma ze všech pokusů týmu o výstup z pásma (kontrolovaných výstupů a vyhození)",
+	 "data": "percent"
+},
+{
+	"name": "ExAR%",
+	 "type": "exar_percent",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exit Against Ratio %",
+	 "desc": "Podíl kontrolovaných výstupů soupeře z pásma ze všech pokusů soupeře o výstup z pásma (kontrolovaných výstupů a vyhození)",
+	 "data": "percent"
+},
+{
+	"name": "ExFR% Rel",
+	 "type": "exfr_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative Controlled Zone Exit For Ratio %",
+	 "desc": "Rozdíl mezi podíly kontrolovaných výstupů týmu z pásma ze všech pokusů týmu o výstup z pásma (kontrolovaných výstupů a vyhození) s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+},
+{
+	"name": "ExF→EnF",
+	 "type": "exfenf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For leading to Controlled Zone Entry For",
+	 "desc": "Kontrolované výstupy týmu z pásma vedoucí ke kontrolovanému vstupu týmu do pásma",
+	 "data": "count"
+},
+{
+	"name": "ExA→EnA",
+	 "type": "exaena",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against leading to Controlled Zone Entry Against",
+	 "desc": "Kontrolované výstupy soupeře z pásma vedoucí ke kontrolovanému vstupu soupeře do pásma",
+	 "data": "count"
+},
+{
+	"name": "ExF→EnF/60",
+	 "type": "exfenf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For leading to Controlled Zone Entry For per 60",
+	 "desc": "Kontrolované výstupy týmu z pásma vedoucí ke kontrolovanému vstupu týmu do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExA→EnA/60",
+	 "type": "exaena60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against leading to Controlled Zone Entry Against per 60",
+	 "desc": "Kontrolované výstupy soupeře z pásma vedoucí ke kontrolovanému vstupu soupeře do pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExF→EnF [%]",
+	 "type": "exfenf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Exits For leading to Controlled Zone Entry For",
+	 "desc": "Podíl kontrolovaných výstupů týmu z pásma vedoucích ke kontrolovanému vstupu týmu do pásma ze všech kontrolovaných výstupů týmu z pásma",
+	 "data": "percent"
+},
+{
+	"name": "ExA→EnA [%]",
+	 "type": "exaena_percent",
+	 "colour": "red",
+	 "eng": "% of Controlled Zone Exits Against leading to Controlled Zone Entry Against",
+	 "desc": "Podíl kontrolovaných výstupů soupeře z pásma vedoucích ke kontrolovanému vstupu soupeře do pásma ze všech kontrolovaných výstupů soupeře z pásma",
+	 "data": "percent"
+},
+{
+	"name": "ExF→CF",
+	 "type": "exfcf",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For leading to Shot For",
+	 "desc": "Kontrolované výstupy týmu z pásma vedoucí ke střele týmu",
+	 "data": "count"
+},
+{
+	"name": "xGF_ExF",
+	 "type": "xgf_exf",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Exits For",
+	 "desc": "Očekávané góly týmu z kontrolovaných výstupů týmu z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExA→CA",
+	 "type": "exaca",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against leading to Shot Against",
+	 "desc": "Kontrolované výstupy soupeře z pásma vedoucí ke střele soupeře",
+	 "data": "count"
+},
+{
+	"name": "xGA_ExA",
+	 "type": "xga_exa",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Controlled Zone Exits Against",
+	 "desc": "Očekávané góly soupeře z kontrolovaných výstupů soupeře z pásma",
+	 "data": "count"
+},
+{
+	"name": "ExF→CF/60",
+	 "type": "exfcf60",
+	 "colour": "green",
+	 "eng": "Controlled Zone Exits For leading to Shot For per 60",
+	 "desc": "Kontrolované výstupy týmu z pásma vedoucí ke střele týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_ExF/60",
+	 "type": "xgf_exf60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Controlled Zone Exits For per 60",
+	 "desc": "Očekávané góly týmu z kontrolovaných výstupů týmu z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExA→CA/60",
+	 "type": "exaca60",
+	 "colour": "red",
+	 "eng": "Controlled Zone Exits Against leading to Shot Against per 60",
+	 "desc": "Kontrolované výstupy soupeře z pásma vedoucí ke střele soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_ExA/60",
+	 "type": "xga_exa60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Controlled Zone Exits Against per 60",
+	 "desc": "Očekávané góly soupeře z kontrolovaných výstupů soupeře z pásma za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "ExF→CF [%]",
+	 "type": "exfcf_percent",
+	 "colour": "green",
+	 "eng": "% of Controlled Zone Exits For leading to Shot For",
+	 "desc": "Podíl kontrolovaných výstupů týmu z pásma vedoucích ke střele týmu ze všech kontrolovaných výstupů týmu z pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGF_ExF ∅ [%]",
+	 "type": "xgf_exf_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Controlled Zone Exit For leading to Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného výstupu týmu z pásma vedoucího ke střele týmu",
+	 "data": "percent"
+},
+{
+	"name": "ExA→CA [%]",
+	 "type": "exaca_percent",
+	 "colour": "red",
+	 "eng": "% of Controlled Zone Exits Against leading to Shot Against",
+	 "desc": "Podíl kontrolovaných výstupů soupeře z pásma vedoucích ke střele soupeře ze všech kontrolovaných výstupů soupeře z pásma",
+	 "data": "percent"
+},
+{
+	"name": "xGA_ExA ∅ [%]",
+	 "type": "xga_exa_avg_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against per Controlled Zone Exit Against leading to Shot Against",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho kontrolovaného výstupu soupeře z pásma vedoucího ke střele soupeře",
+	 "data": "percent"
+},
+{
+	"name": "DOF",
+	 "type": "dof",
+	 "colour": "green",
+	 "eng": "Dump-Outs For",
+	 "desc": "Vyhození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DOBF",
+	 "type": "dobf",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles For",
+	 "desc": "Souboje po vyhození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DOBFW",
+	 "type": "dobfw",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles For Won",
+	 "desc": "Vyhrané souboje po vyhození puku týmem",
+	 "data": "count"
+},
+{
+	"name": "DOA",
+	 "type": "doa",
+	 "colour": "red",
+	 "eng": "Dump-Outs Against",
+	 "desc": "Vyhození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DOBA",
+	 "type": "doba",
+	 "colour": "red",
+	 "eng": "Dump-Out Battles Against",
+	 "desc": "Souboje po vyhození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DOBAW",
+	 "type": "dobaw",
+	 "colour": "red",
+	 "eng": "Dump-Out Battles Against Won ",
+	 "desc": "Vyhrané souboje po vyhození puku soupeřem",
+	 "data": "count"
+},
+{
+	"name": "DOF/60",
+	 "type": "dof60",
+	 "colour": "green",
+	 "eng": "Dump-Outs For per 60",
+	 "desc": "Vyhození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBF/60",
+	 "type": "dobf60",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles For per 60",
+	 "desc": "Souboje po vyhození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBFW/60",
+	 "type": "dobfw60",
+	 "colour": "green",
+	 "eng": "Dump-Out Battles For Won per 60",
+	 "desc": "Vyhrané souboje po vyhození puku týmem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOA/60",
+	 "type": "doa60",
+	 "colour": "red",
+	 "eng": "Dump-Outs Against per 60",
+	 "desc": "Vyhození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBA/60",
+	 "type": "doba60",
+	 "colour": "red",
+	 "eng": "Dump-Out Battles Against per 60",
+	 "desc": "Souboje po vyhození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBAW/60",
+	 "type": "dobaw60",
+	 "colour": "red",
+	 "eng": "Dump-Out Battles Against Won per 60",
+	 "desc": "Vyhrané souboje po vyhození puku soupeřem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOBF [%]",
+	 "type": "dobf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Out Battles For",
+	 "desc": "Podíl soubojů po vyhození puku týmem ze všech vyhození puku týmem",
+	 "data": "percent"
+},
+{
+	"name": "DOBWF [%]",
+	 "type": "dobwf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Out Battles For Won",
+	 "desc": "Podíl Účasti soubojů po vyhození puku týmem ze všech soubojů po vyhození puku týmem",
+	 "data": "percent"
+},
+{
+	"name": "DOBA [%]",
+	 "type": "doba_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-Out Battles Against",
+	 "desc": "Podíl soubojů po vyhození puku soupeřem ze všech vyhození puku soupeřem",
+	 "data": "percent"
+},
+{
+	"name": "DOBAW [%]",
+	 "type": "dobaw_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-Out Battles Against Won ",
+	 "desc": "Podíl Účasti soubojů po vyhození puku soupeřem ze všech soubojů po vyhození puku soupeřem",
+	 "data": "percent"
+},
+{
+	"name": "DOF→CF",
+	 "type": "dofcf",
+	 "colour": "green",
+	 "eng": "Dump-Outs For leading to Shot For",
+	 "desc": "Vyhození týmu s následným střeleckým pokusem týmu s hráčem na ledě ",
+	 "data": "count"
+},
+{
+	"name": "xGF_DOF",
+	 "type": "xgf_dof",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Outs For",
+	 "desc": "Očekávané góly týmu po vyhození týmu s následným střeleckým pokusem týmu",
+	 "data": "count"
+},
+{
+	"name": "DOA→CA",
+	 "type": "doaca",
+	 "colour": "red",
+	 "eng": "Dump-Outs Against leading to Shot Against",
+	 "desc": "Vyhození soupeře do pásma s následným střeleckým pokusem soupeře s hráčem na ledě",
+	 "data": "count"
+},
+{
+	"name": "xGA_DOA",
+	 "type": "xga_doa",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Dump-Outs Against",
+	 "desc": "Očekávané góly soupeře po vyhození soupeře s následným střeleckým pokusem soupeře",
+	 "data": "count"
+},
+{
+	"name": "DOF→CF/60",
+	 "type": "dofcf60",
+	 "colour": "green",
+	 "eng": "Dump-Outs For leading to Shot For per 60",
+	 "desc": "Vyhození týmu s následným střeleckým pokusem týmu s hráčem na ledě za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGF_DOF/60",
+	 "type": "xgf_dof60",
+	 "colour": "green",
+	 "eng": "Expected Goals For from Dump-Outs For per 60",
+	 "desc": "Očekávané góly týmu po vyhození týmu s následným střeleckým pokusem týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOA→CA/60",
+	 "type": "doaca60",
+	 "colour": "red",
+	 "eng": "Dump-Outs Against leading to Shot Against per 60",
+	 "desc": "Vyhození soupeře do pásma s následným střeleckým pokusem soupeře s hráčem na ledě za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "xGA_DOA/60",
+	 "type": "xga_doa60",
+	 "colour": "red",
+	 "eng": "Expected Goals Against from Dump-Outs Against per 60",
+	 "desc": "Očekávané góly soupeře po vyhození soupeře s následným střeleckým pokusem soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "DOF→CF [%]",
+	 "type": "dofcf_percent",
+	 "colour": "green",
+	 "eng": "% of Dump-Outs For leading to Shot For",
+	 "desc": "Podíl vyhození puku týmu vedoucích ke střele ze všech vyhození puku týmu",
+	 "data": "percent"
+},
+{
+	"name": "xGF_DOF ∅ [%]",
+	 "type": "xgf_dof_avg_percent",
+	 "colour": "green",
+	 "eng": "% of Expected Goals For per Dump-Out For leading to Shot For",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho vyhození puku týmu vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "DOA→CA [%]",
+	 "type": "doaca_percent",
+	 "colour": "red",
+	 "eng": "% of Dump-Outs Against leading to Shot Against",
+	 "desc": "Podíl vyhození puku soupeře vedoucích ke střele ze všech vyhození puku soupeře",
+	 "data": "percent"
+},
+{
+	"name": "xGA_DOA ∅ [%]",
+	 "type": "xga_doa_avg_percent",
+	 "colour": "red",
+	 "eng": "% of Expected Goals Against per Dump-Out Against leading to Shot Against",
+	 "desc": "Průměrná pravděpodobnost vstřelení gólu z jednoho vyhození puku soupeře vedoucího ke střele",
+	 "data": "percent"
+},
+{
+	"name": "SO",
+	 "type": "so",
+	 "colour": "green",
+	 "eng": "Shootout Attempts",
+	 "desc": "Samostatné nájezdy",
+	 "data": "count"
+},
+{
+	"name": "GSO",
+	 "type": "gso",
+	 "colour": "green",
+	 "eng": "Shootout Goals",
+	 "desc": "Proměněné samostatné nájezdy",
+	 "data": "count"
+},
+{
+	"name": "GSO%",
+	 "type": "gso_percent",
+	 "colour": "green",
+	 "eng": "Shootout Goals %",
+	 "desc": "Úspěšnost samostatných nájezdů",
+	 "data": "percent"
+},
+{
+	"name": "D.SO",
+	 "type": "d.so",
+	 "colour": "green",
+	 "eng": "Shootout Dekes",
+	 "desc": "Samostatné nájezdy zakončené kličkou",
+	 "data": "count"
+},
+{
+	"name": "D.GSO",
+	 "type": "d.gso",
+	 "colour": "green",
+	 "eng": "Shootout Goals from Dekes",
+	 "desc": "Proměněné samostatné nájezdy zakončené kličkou",
+	 "data": "count"
+},
+{
+	"name": "D.SO [%]",
+	 "type": "d.so_percent",
+	 "colour": "green",
+	 "eng": "% of Shootout Dekes",
+	 "desc": "Podíl samostatných nájezdů zakončených kličkou ze všech samostatných nájezdů",
+	 "data": "percent"
+},
+{
+	"name": "D.GSO%",
+	 "type": "d.gso_percent",
+	 "colour": "green",
+	 "eng": "Shootout Goals from Dekes %",
+	 "desc": "Úspěšnost samostatných nájezdů zakončených kličkou",
+	 "data": "percent"
+},
+{
+	"name": "S.SO",
+	 "type": "s.so",
+	 "colour": "green",
+	 "eng": "Shootout Shots",
+	 "desc": "Samostatné nájezdy zakončené střelou",
+	 "data": "count"
+},
+{
+	"name": "S.GSO",
+	 "type": "s.gso",
+	 "colour": "green",
+	 "eng": "Shootout Goals from Shots",
+	 "desc": "Proměněné samostatné nájezdy zakončené střelou",
+	 "data": "count"
+},
+{
+	"name": "S.SO [%]",
+	 "type": "s.so_percent",
+	 "colour": "green",
+	 "eng": "% of Shootout Shots",
+	 "desc": "Podíl samostatných nájezdů zakončených střelou ze všech samostatných nájezdů",
+	 "data": "percent"
+},
+{
+	"name": "S.GSO%",
+	 "type": "s.gso_percent",
+	 "colour": "green",
+	 "eng": "Shootout Goals from Shots %",
+	 "desc": "Úspěšnost samostatných nájezdů zakončených střelou",
+	 "data": "percent"
+},
+{
+	"name": "QT_F.TOI",
+	 "type": "qt_f.toi",
+	 "colour": "green",
+	 "eng": "Qualtiy of Teammate Forwards",
+	 "desc": "Kvalita spoluhráčů útočníků podle odehraného času na ledě",
+	 "data": "count"
+},
+{
+	"name": "QT_D.TOI",
+	 "type": "qt_d.toi",
+	 "colour": "green",
+	 "eng": "Qualtiy of Teammate Defencemen",
+	 "desc": "Kvalita spoluhráčů obránců podle odehraného času na ledě",
+	 "data": "count"
+},
+{
+	"name": "QO_F.TOI",
+	 "type": "qo_f.toi",
+	 "colour": "red",
+	 "eng": "Qualtiy of Opponent Forwards",
+	 "desc": "Kvalita protihráčů útočníků podle odehraného času na ledě",
+	 "data": "count"
+},
+{
+	"name": "QO_D.TOI",
+	 "type": "qo_d.toi",
+	 "colour": "red",
+	 "eng": "Qualtiy of Opponent Defencemen",
+	 "desc": "Kvalita protihráčů obránců podle odehraného času na ledě",
+	 "data": "count"
+},
+{
+	"name": "PIM",
+	 "type": "pim",
+	 "colour": "red",
+	 "eng": "Penalty Minutes",
+	 "desc": "Trestné minuty udělené hráči",
+	 "data": "count"
+},
+{
+	"name": "Pen2",
+	 "type": "pen2",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties",
+	 "desc": "Menší dvouminutové tresty hráče",
+	 "data": "count"
+},
+{
+	"name": "OZ.Pen2",
+	 "type": "oz.pen2",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties in Offensive Zone",
+	 "desc": "Menší dvouminutové tresty hráče v útočném pásmu",
+	 "data": "count"
+},
+{
+	"name": "Pen5",
+	 "type": "pen5",
+	 "colour": "red",
+	 "eng": "5-Minute Major Penalties",
+	 "desc": "Větší pětiminutové tresty hráče",
+	 "data": "count"
+},
+{
+	"name": "Pen10",
+	 "type": "pen10",
+	 "colour": "red",
+	 "eng": "10-Minute Misconduct Penalties",
+	 "desc": "Osobní desetiminutové tresty hráče",
+	 "data": "count"
+},
+{
+	"name": "Pen/60",
+	 "type": "pen60",
+	 "colour": "red",
+	 "eng": "Penalty Minutes per 60",
+	 "desc": "Trestné minuty udělené hráči za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2/60",
+	 "type": "pen260",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties per 60",
+	 "desc": "Menší dvouminutové tresty hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.Pen2/60",
+	 "type": "oz.pen260",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties in Offensive Zone per 60",
+	 "desc": "Menší dvouminutové tresty hráče v útočném pásmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen5/60",
+	 "type": "pen560",
+	 "colour": "red",
+	 "eng": "5-Minute Major Penalties per 60",
+	 "desc": "Větší pětiminutové tresty hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen10/60",
+	 "type": "pen1060",
+	 "colour": "red",
+	 "eng": "10-Minute Misconduct Penalties per 60",
+	 "desc": "Osobní desetiminutové tresty hráče za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "OZ.Pen2 [%]",
+	 "type": "oz.pen2_percent",
+	 "colour": "red",
+	 "eng": "% of 2-Minute Minor Penalties in Offensive Zone",
+	 "desc": "Podíl menších dvouminutových trestů v útočném pásmu ze všech menších dvouminutových trestů hráče",
+	 "data": "percent"
+},
+{
+	"name": "PIMD",
+	 "type": "pimd",
+	 "colour": "green",
+	 "eng": "Drawn Penalty Minutes",
+	 "desc": "Trestné minuty získané hráčem",
+	 "data": "count"
+},
+{
+	"name": "Pen2D",
+	 "type": "pen2d",
+	 "colour": "green",
+	 "eng": "Drawn 2-Minute Minor Penalties",
+	 "desc": "Menší dvouminutové tresty získané hráčem",
+	 "data": "count"
+},
+{
+	"name": "Pen5D",
+	 "type": "pen5d",
+	 "colour": "green",
+	 "eng": "Drawn 5-Minute Major Penalties",
+	 "desc": "Větší pětiminutové tresty získané hráčem",
+	 "data": "count"
+},
+{
+	"name": "PenD/60",
+	 "type": "pend60",
+	 "colour": "green",
+	 "eng": "Drawn Penalty Minutes per 60",
+	 "desc": "Trestné minuty získané hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2D/60",
+	 "type": "pen2d60",
+	 "colour": "green",
+	 "eng": "Drawn 2-Minute Minor Penalties per 60",
+	 "desc": "Menší dvouminutové tresty získané hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen5D/60",
+	 "type": "pen5d60",
+	 "colour": "green",
+	 "eng": "Drawn 5-Minute Major Penalties per 60",
+	 "desc": "Větší pětiminutové tresty získané hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "PIM+-",
+	 "type": "pim_pm",
+	 "colour": "green",
+	 "eng": "Penalty Minutes Plus Minus",
+	 "desc": "Rozdíl mezi trestnými minutami udělenými hráči a získanými hráčem",
+	 "data": "count"
+},
+{
+	"name": "Pen2+-",
+	 "type": "pen2_pm",
+	 "colour": "green",
+	 "eng": "2-Minute Minor Penalties Plus Minus",
+	 "desc": "Rozdíl mezi menšími dvouminutovými tresty hráče a získanými hráčem",
+	 "data": "count"
+},
+{
+	"name": "Pen5+-",
+	 "type": "pen5_pm",
+	 "colour": "green",
+	 "eng": "5-Minute Major Penalties Plus Minus",
+	 "desc": "Rozdíl mezi většími pětiminutovými tresty hráče a získanými hráčem",
+	 "data": "count"
+},
+{
+	"name": "Pen+-/60",
+	 "type": "pen_pm60",
+	 "colour": "green",
+	 "eng": "Penalty Minutes Plus Minus per 60",
+	 "desc": "Rozdíl mezi trestnými minutami udělenými hráči a získanými hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2+-/60",
+	 "type": "pen2_pm60",
+	 "colour": "green",
+	 "eng": "2-Minute Minor Penalties Plus Minus per 60",
+	 "desc": "Rozdíl mezi menšími dvouminutovými tresty hráče a získanými hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen5+-/60",
+	 "type": "pen5_pm60",
+	 "colour": "green",
+	 "eng": "5-Minute Major Penalties Plus Minus per 60",
+	 "desc": "Rozdíl mezi většími pětiminutovými tresty hráče a získanými hráčem za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen→GA",
+	 "type": "penga",
+	 "colour": "red",
+	 "eng": "Penalties leading to Goal Against",
+	 "desc": "Tresty hráče vedoucí ke gólu soupeře",
+	 "data": "count"
+},
+{
+	"name": "PenD→GF",
+	 "type": "pendgf",
+	 "colour": "green",
+	 "eng": "Drawn Penalties leading to Goal For",
+	 "desc": "Tresty získané hráčem vedoucí ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "Pen→G+-",
+	 "type": "peng_pm",
+	 "colour": "green",
+	 "eng": "Penalties leading to Goal Plus Minut",
+	 "desc": "Rozdíl mezi tresty hráče vedoucími ke gólu soupeře a tresty získané hráčem vedoucími ke gólu týmu",
+	 "data": "count"
+},
+{
+	"name": "Pen→GA/60",
+	 "type": "penga60",
+	 "colour": "red",
+	 "eng": "Penalties leading to Goal Against per 60",
+	 "desc": "Tresty hráče vedoucí ke gólu soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "PenD→GF/60",
+	 "type": "pendgf60",
+	 "colour": "green",
+	 "eng": "Drawn Penalties leading to Goal For per 60",
+	 "desc": "Tresty získané hráčem vedoucí ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen→G+-/60",
+	 "type": "peng_pm60",
+	 "colour": "green",
+	 "eng": "Penalties leading to Goal Plus Minut per 60",
+	 "desc": "Rozdíl mezi tresty hráče vedoucími ke gólu soupeře a tresty získané hráčem vedoucími ke gólu týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2F",
+	 "type": "pen2f",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties For",
+	 "desc": "Menší dvouminutové tresty týmu",
+	 "data": "count"
+},
+{
+	"name": "Pen2F/60",
+	 "type": "pen2f60",
+	 "colour": "red",
+	 "eng": "2-Minute Minor Penalties For per 60",
+	 "desc": "Menší dvouminutové tresty týmu za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2A",
+	 "type": "pen2a",
+	 "colour": "green",
+	 "eng": "2-Minute Minor Penalties Against",
+	 "desc": "Menší dvouminutové tresty soupeře",
+	 "data": "count"
+},
+{
+	"name": "Pen2A/60",
+	 "type": "pen2a60",
+	 "colour": "green",
+	 "eng": "2-Minute Minor Penalties Against per 60",
+	 "desc": "Menší dvouminutové tresty soupeře za 60 minut",
+	 "data": "60"
+},
+{
+	"name": "Pen2A%",
+	 "type": "pen2a_percent",
+	 "colour": "green",
+	 "eng": "2-Minute Minor Penalties Against %",
+	 "desc": "Podíl menších dvouminutových trestů soupeře ze součtu menších dvouminutových trestů pro tým a pro soupeře",
+	 "data": "percent"
+},
+{
+	"name": "Pen2A% Rel",
+	 "type": "pen2a_percent_rel",
+	 "colour": "green",
+	 "eng": "Relative 2-Minute Minor Penalties Against %",
+	 "desc": "Rozdíl mezi podíly menších dvouminutových trestů soupeře ze součtu menších dvouminutových trestů pro tým a pro soupeře s hráčem na ledě a bez hráče na ledě",
+	 "data": "percent"
+}
+]

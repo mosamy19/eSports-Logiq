@@ -1,0 +1,282 @@
+<nav></nav>
+<div class="filter">
+  <div class="container">
+    <div class="row">
+      <div class="column form-box">
+        <label for="filter_season">{{"sezona" | translate}}
+          <sup>*</sup>
+        </label>
+        <div class="multiselect">
+          <div class="multiselect-text">{{itemsToString(filter_season)}}</div>
+          <angular2-multiselect [data]="seasons_select_list" [(ngModel)]="filter_season" [settings]="dropdownSettings"
+            (ngModelChange)="getSeasonParts()"></angular2-multiselect>
+        </div>
+      </div>
+      <div class="column form-box">
+        <label for="filter_seasonPart">{{"cast_sezony" | translate}}
+          <sup>*</sup>
+        </label>
+        <select id="filter_seasonPart" [(ngModel)]="filter_seasonPart" (ngModelChange)="getTeamsData()">
+          <option value="" selected disabled>Vyberte část</option>
+          <option value="{{competition.uuids}}" *ngFor="let competition of competitions_list">{{competition.name}}
+          </option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_team">{{"vybrat_tym" | translate}}
+          <sup>*</sup>
+        </label>
+        <select id="filter_team" [(ngModel)]="filter_team" (ngModelChange)="vybratTeamCheck()">
+          <option value="" disabled selected>{{'vyberte_tym' | translate}}</option>
+          <option value="{{team.uuid}}" *ngFor="let team of teams_list">{{team.name}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_countOfPlayer">{{"pocet_hracu_na_lede" | translate}}</label>
+        <select id="filter_countOfPlayer" [(ngModel)]="filter_countOfPlayer">
+          <option value="5:5">{{'5_5_vsichni' | translate}}</option>
+          <option value="5:5-FO">{{'5_5_utoky' | translate}}</option>
+          <option value="5:5-DE">{{'5_5_obrany' | translate}}</option>
+          <option value="5:4">5/4</option>
+          <option value="4:5">4/5</option>
+          <option value="3:3">3/3</option>
+          <option value="ES">{{'rovnovazny_stav' | translate}}</option>
+          <option value="PP">{{'presilovky' | translate}}</option>
+          <option value="SH">{{'oslabeni' | translate}}</option>
+          <!-- <option value="WG" *ngIf="boolProd">{{'bez_brankare' | translate}}</option> -->
+          <option value="6:5">6/5</option>
+          <option value="5:6">5/6</option>
+          <option value="">{{'vsechny_situace' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_minTOI">{{"minimalni_toi" | translate}} (min.)</label>
+        <input type="number" id="filter_minTOI" placeholder="{{'zadejte_cas' | translate}}" min="0" max="60"
+          [(ngModel)]="filter_minTOI">
+      </div>
+      <div class="column form-box">
+        <label>&nbsp;</label>
+        <input type="submit" value="{{'nahrat_data' | translate}}" (click)="loadData()"
+          [className]="(filter_season!='' && filter_seasonPart!='' && filter_team!='') ? 'load-data' : 'load-data load-data__disabled'">
+      </div>
+
+      <div class="column form-box form-box__right">
+        <label>&nbsp;</label>
+        <input type="button" value="{{'vice_filtru' | translate}}" class="more-filters" *ngIf="more_filters==false"
+          (click)="showMoreFilters()">
+        <input type="button" value="{{'mene_filtru' | translate}}" class="more-filters active"
+          *ngIf="more_filters==true" (click)="showMoreFilters()">
+      </div>
+    </div>
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_lastGame">{{'poslednich_utkani' | translate}}</label>
+        <input type="number" id="filter_lastGames" placeholder="{{'zadejte_pocet' | translate}}" min="0" max="100"
+          [(ngModel)]="filter_lastGames">
+      </div>
+      <div class="column form-box">
+        <label for="filter_calendar_from">{{'kalendar_od' | translate}}</label>
+        <input type="date" [(ngModel)]="filter_dateFrom" (ngModelChange)="dateFromChange($event)">
+      </div>
+      <div class="column form-box">
+        <label for="filter_calendar_from">{{'kalendar_do' | translate}}</label>
+        <input type="date" [(ngModel)]="filter_dateTo" (ngModelChange)="dateToChange($event)">
+      </div>
+
+      <div class="column form-box">
+        <label for="filter_homeAway">{{'doma_venku' | translate}}</label>
+        <select id="filter_homeAway" [(ngModel)]="filter_homeAway">
+          <option value="">{{'doma_i_venku' | translate}}</option>
+          <option value="home">{{'doma' | translate}}</option>
+          <option value="away">{{'venku' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_matchState">{{'stav_utkani' | translate}}</label>
+        <select id="filter_matchState" [(ngModel)]="filter_matchState">
+          <option value="">{{'vsechny_stavy' | translate}}</option>
+          <option value="lead">{{'ve_vedeni' | translate}}</option>
+          <option value="trail">{{'pri_prohravani' | translate}}</option>
+          <option value="tie">{{'vyrovnany' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_minutes">{{'time_in_games' | translate}}</label>
+        <div class="from-to">
+          <input type="number" id="filter_minutes_from" placeholder="{{'od' | translate}}"
+            [(ngModel)]="filter_minutes_from">
+          <span>-</span>
+          <input type="number" id="filter_minutes_to" placeholder="{{'do' | translate}}"
+            [(ngModel)]="filter_minutes_to">
+        </div>
+      </div>
+      <div class="column form-box">
+        <!--
+        <label for="filter_born">Ročník narození</label>
+        <div class="from-to">
+          <input type="number" id="filter_born_from" placeholder="{{'do' | translate}}" [(ngModel)]="filter_born_from">
+          <span>-</span>
+          <input type="number" id="filter_born_to" placeholder="{{'do' | translate}}" [(ngModel)]="filter_born_to">
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_minutes">{{'vyberte_soupere' | translate}}</label>
+      </div>
+    </div>
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <div [className]="checkNonselectedOpponent() ? 'btn-opponent btn-opponent__active' : 'btn-opponent'"
+          (click)="setOpponentsAll()">{{'vsichni' | translate}}</div>
+      </div>
+      <div class="column form-box" *ngFor="let team of teams_list">
+        <div *ngIf="filter_team==team.uuid"
+          [className]="filter_opponent==team.uuid ? 'btn-opponent btn-opponent__active' : 'btn-opponent disabled'">
+          {{team.shortcut}}</div>
+        <div *ngIf="filter_team!=team.uuid" class="btn-opponent"
+          [ngClass]="{'btn-opponent__active':checkSelectedOpponent(team.uuid) == true}"
+          (click)="addOpponent(team.uuid)">{{team.shortcut}}</div>
+      </div>
+    </div>
+
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_situationType">{{'filtr_po_situaci' | translate}}</label>
+        <select id="filter_situationType" [(ngModel)]="filter_situationType">
+          <option value="">{{'vyberte_situaci' | translate}}</option>
+          <option value="wonInDefenseZone">{{'vyhrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+          <option value="wonInOffenseZone">{{'vyhrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+          <option value="lostInDefenseZone">{{'prohrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+          <option value="lostInOffenseZone">{{'prohrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+
+          <ng-container>
+            <option value="successfulZoneEntry">{{'uspesny_vstup_do_pasma' | translate}}</option>
+            <option value="unsuccessfulZoneEntry">{{'neuspesny_vstup_do_pasma' | translate}}</option>
+            <option value="successfulZoneExit">{{'uspesny_vystup_z_pasma' | translate}}</option>
+            <option value="unsuccessfulZoneExit">{{'neuspesny_vystup_z_pasma' | translate}}</option>
+          </ng-container>
+
+        </select>
+      </div>
+      <div class="column form-box">
+        <ng-container *ngIf="filter_situationType!=''">
+          <label for="filter_situationTime">{{'cas_po_situaci' | translate}} </label>
+          <input type="number" id="filter_situationTime" placeholder="{{'zadejte_cas' | translate}}"
+            [(ngModel)]="filter_situationTime">
+        </ng-container>
+      </div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+    </div>
+
+
+    <div [className]="dataLoaded ? 'row tabs' : 'row tabs tabs__disabled'">
+      <div class="column tabs-list">
+        <span class="item" [class.active]="tab=='gamelog'" (click)="showTab('gamelog')">Gamelog</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="tab-content" [class.show]="tab=='gamelog'">
+  <div class="container">
+    <Loading *ngIf="loading"></Loading>
+
+    <div class="table-individual-stats" [style.visibility]="!loading ? 'visible' : 'hidden'">
+
+      <caption class="table-caption">
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select1!=''">
+          {{getPlayerName(filter_playerId_select1)}}</div>
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select2!=''">
+          {{getPlayerName(filter_playerId_select2)}}</div>
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select3!=''">
+          {{getPlayerName(filter_playerId_select3)}}</div>
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select4!=''">
+          {{getPlayerName(filter_playerId_select4)}}</div>
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select5!=''">
+          {{getPlayerName(filter_playerId_select5)}}</div>
+        <div class="sticker sticker__whtie" *ngIf="filter_playerId_select6!=''">
+          {{getPlayerName(filter_playerId_select6)}}</div>
+      </caption>
+      <table [mfData]="data" #mf1="mfDataTable" (mfSortByChange)="changedOrder($event)" [mfRowsOnPage]="1000"
+        class="filter-{{filter_posts}}">
+        <thead>
+          <tr>
+            <th class="select-data">
+              <div class="toggle-table-data" (click)="toggleTableSettings()">
+                <img src="/assets/ico-data.svg" class="ico"> {{'vybrat_vlastni_data' | translate}}
+              </div>
+            </th>
+
+            <th class="center {{getTableToggleAttributes('toi')}}">
+              <mfDefaultSorter by="toi">TOI</mfDefaultSorter>
+            </th>
+
+            <th *ngFor="let attribute of table_settings" class="center {{getTableToggleAttributes(attribute['type'])}}">
+              <mfDefaultSorter by="{{attribute['type']}}">{{attribute['name']}}</mfDefaultSorter>
+              <div class="attribute-line attribute-line_{{getAttributeColour(attribute['type'])}}"></div>
+              <div class="attribute-table-tooltip">
+                <div class="attribute-table-tooltip-title">{{getAttributeText(attribute['type'],1)}}</div>
+                <div class="attribute-table-tooltip-desc">{{getAttributeText(attribute['type'],2)}}</div>
+              </div>
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf1.data">
+
+            <td class="td-content td-content__players" title="{{item.uuid}}">
+              <div class="sticker sticker__grey"><img src="assets/logos/{{item.homeTeamUuid}}.png" class="team-logo"
+                  width="15"> {{getTeamName(item.homeTeamUuid)}} - {{getTeamName(item.awayTeamUuid)}} <img
+                  src="assets/logos/{{item.awayTeamUuid}}.png" class="team-logo" width="15"></div>
+              <div class="sticker sticker__grey">{{item.date | format_date}}</div>
+              <div class="sticker sticker__grey">
+                {{item.home_score}}:{{item.away_score}}{{getGameState(item.state_score)}}</div>
+            </td>
+
+            <td class="td-content center {{getTableToggleAttributes('toi')}}" [ngClass]="{'bold':filterby == 'toi'}">
+              <span class="average-cell">{{item.toi | format_sesonds}}</span>
+            </td>
+
+
+            <td *ngFor="let attribute of table_settings"
+              class="td-content center {{getTableToggleAttributes(attribute['type'])}}"
+              [ngClass]="{'bold':filterby == attribute['type']}">
+              <span class="average-cell">{{item[attribute['type']] | checkAttributeValue: attribute['type']}}</span>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="download-box">
+        <div class="btn btn-download" (click)="downloadCSV()">{{'export_dat' | translate}}</div>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+</div>
+
+<settings-canvas *ngIf="toggle_table_settings" (toggleTableSettings_)="toggleTableSettings()"
+  [table_settings_data]="table_settings" (apply_selected_attributes)="onChangedAttributes($event)"
+  [canvas_type_setting]="canvas_type"></settings-canvas>
+
+
+<footer-box></footer-box>

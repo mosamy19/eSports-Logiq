@@ -1,0 +1,173 @@
+<div class="canvas-settings">
+  <div class="container">
+    <div class="canvas-tabs" *ngIf="canvas_type_setting=='normal'">
+      <div class="canvas-tab" [ngClass]="{'active':getActualTab() == 'individualni-data'}"
+        (click)="changeTab('individualni-data')">Individuální
+        data
+        <div class="canvas-tooltip">
+          Udávají hodnoty dosažené samotným hráčem či formací hráčů.
+        </div>
+      </div>
+      <div class="canvas-tab" [ngClass]="{'active':getActualTab() == 'on-ice-data'}" (click)="changeTab('on-ice-data')">
+        On-ice
+        data
+        <div class="canvas-tooltip">
+          Udávají hodnoty dosažené týmem s daným hráčem či formací hráčů na ledě.
+        </div>
+      </div>
+      <div class="canvas-close" (click)="toggleTableSettings()">Zavřít</div>
+    </div>
+
+    <div class="canvas-tabs" *ngIf="canvas_type_setting=='teams'">
+      <div class="canvas-tab active">Týmová data
+        <div class="canvas-tooltip">
+          Udávají hodnoty dosažené týmem
+        </div>
+      </div>
+      <div class="canvas-close" (click)="toggleTableSettings()">Zavřít</div>
+    </div>
+
+  </div>
+
+
+  <div class="container">
+    <div class="filter canvas-filters">
+      <div class="form-box__check">
+        <div class="check-boxes">
+          <button [ngClass]="{'checked':checkbox_pocet == true}" (click)="toggle_checkbox_pocet()">Počet</button>
+          <button [ngClass]="{'checked':checkbox_60 == true}" (click)="toggle_checkbox_60()">/60</button>
+          <button [ngClass]="{'checked':checkbox_percent == true}" (click)="toggle_checkbox_percent()">%</button>
+        </div>
+      </div>
+      <div class="canvas-help">
+        <div class="help">Nápověda</div>
+        <div class="offense">Ofenzivní data</div>
+        <div class="defense">Defenzivní data</div>
+      </div>
+    </div>
+
+    <div class="canvas-settings-wide">
+
+
+      <!--!!!!!!!individualni data-->
+      <div class="canvas-settings-boxes" *ngIf="getActualTab() == 'individualni-data' && canvas_type_setting!='teams'">
+
+        <div class="canvas-row">
+
+
+          <!-- prodktivita -->
+          <div class="canvas-settings-box">
+            <label>Produktivita
+              <div class="canvas-tooltip">
+                <strong>Individual production</strong>
+              </div>
+            </label>
+            <select [(ngModel)]="filter_produktivita">
+              <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}</option>
+            </select>
+            <div class="canvas-settings-box-buttons">
+
+
+
+
+              <button class="btn-green" *ngIf="checkbox_pocet==true"
+                (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+'g',action_types[filter_produktivita]['prefix']+'G','green')"
+                [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+'g')">{{action_types[filter_produktivita]['prefix']}}G
+                <div class="canvas-tooltip">
+                  <strong>Goals</strong><br>
+                  Individuální vstřelené góly
+                </div>
+              </button>
+
+
+
+
+
+            </div>
+          </div>
+          <!--/ produktivita -->
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+      <!--!!!!!!!onice data-->
+      <div class="canvas-settings-boxes" *ngIf="getActualTab() == 'on-ice-data' && canvas_type_setting!='teams'">
+
+
+        <div class="canvas-row">
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <!--!!!!!!!teams data-->
+      <div class="canvas-settings-boxes" *ngIf="canvas_type_setting=='teams'">
+
+
+        <div class="canvas-row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="canvas-settings-selected-box">
+        <Label tooltip="{{'vyber_atributu' | translate}}, které mají tvořit tabulku dat" theme="light" show-delay="500"
+          placement="left">Vybraná
+          data</Label>
+        <div class="canvas-choose-data">
+          <button class="delete-button" (click)="deleteAllAttributes()">Smazat vše</button>
+
+          <ng-container *ngFor="let attribute of selected_attributes">
+
+            <button *ngIf="attribute.type!=null" class="btn-{{attribute.colour}} active"
+              (click)="removeAttribute(attribute.type)">{{attribute.name}}</button>
+
+            <div *ngIf="attribute.type==null" class="choose-box"></div>
+
+          </ng-container>
+
+        </div>
+        <div class="load-data" (click)="applySelectedAttributes()">{{'nahrat_data' | translate}}</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!--
+  <settings-canvas *ngIf="toggle_table_settings" (toggleTableSettings_)="toggleTableSettings()"></settings-canvas>
+  -->

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="622px" viewBox="0 0 24 622" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>skala</title>
+    <g id="3.-Videomapy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="skala" fill-rule="nonzero">
+            <path d="M16,0 C20.418278,0 24,3.581722 24,8 L24,614 C24,618.418278 20.418278,622 16,622 L8,622 C3.581722,622 0,618.418278 0,614 L0,8 C0,3.581722 3.581722,0 8,0 L16,0 Z M16,1 L8,1 C4.21454828,1 1.13090132,4.00478338 1.00405902,7.75935025 L1,8 L1,614 C1,617.785452 4.00478338,620.869099 7.75935025,621 L8,621 L16,621 C19.7854517,621 22.8690987,617.995217 22.995941,614.24065 L23,614 L23,8 C23,4.21454828 19.9952166,1.13090132 16.2406498,1 L16,1 Z" id="Background" fill="#C1C7CD" transform="translate(12.000000, 311.000000) rotate(-180.000000) translate(-12.000000, -311.000000) "></path>
+            <path d="M10,567 L14,567 C17.3137085,567 20,569.686292 20,573 L20,618 L20,618 L4,618 L4,573 C4,569.686292 6.6862915,567 10,567 Z" id="Rectangle" fill="#0E3CCE" transform="translate(12.000000, 592.500000) rotate(-180.000000) translate(-12.000000, -592.500000) "></path>
+            <rect id="Rectangle" fill="#1D5CFF" transform="translate(12.000000, 541.500000) rotate(-180.000000) translate(-12.000000, -541.500000) " x="4" y="516" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#4985FF" transform="translate(12.000000, 490.500000) rotate(-180.000000) translate(-12.000000, -490.500000) " x="4" y="465" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#7AA7FF" transform="translate(12.000000, 439.500000) rotate(-180.000000) translate(-12.000000, -439.500000) " x="4" y="414" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#A7C7FF" transform="translate(12.000000, 388.500000) rotate(-180.000000) translate(-12.000000, -388.500000) " x="4" y="363" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" transform="translate(12.000000, 337.500000) rotate(-180.000000) translate(-12.000000, -337.500000) " x="4" y="312" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" transform="translate(12.000000, 284.500000) rotate(-180.000000) translate(-12.000000, -284.500000) " x="4" y="259" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#FFD7D9" transform="translate(12.000000, 233.500000) rotate(-180.000000) translate(-12.000000, -233.500000) " x="4" y="208" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#FFB3B8" transform="translate(12.000000, 182.500000) rotate(-180.000000) translate(-12.000000, -182.500000) " x="4" y="157" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#FE8389" transform="translate(12.000000, 131.500000) rotate(-180.000000) translate(-12.000000, -131.500000) " x="4" y="106" width="16" height="51"></rect>
+            <rect id="Rectangle" fill="#F94D56" transform="translate(12.000000, 80.500000) rotate(-180.000000) translate(-12.000000, -80.500000) " x="4" y="55" width="16" height="51"></rect>
+            <path d="M4,4 L20,4 L20,49 C20,52.3137085 17.3137085,55 14,55 L10,55 C6.6862915,55 4,52.3137085 4,49 L4,4 L4,4 Z" id="Rectangle" fill="#D91E28" transform="translate(12.000000, 29.500000) rotate(-180.000000) translate(-12.000000, -29.500000) "></path>
+        </g>
+    </g>
+</svg>

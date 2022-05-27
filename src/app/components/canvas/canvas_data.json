@@ -1,0 +1,3124 @@
+{
+  "individual": [{
+    "productivity": [{
+      "name": "Produktivita",
+      "name_en": "Individual production",
+      "type": "individual_productivity",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "G",
+          "type": "g",
+          "colour": "green",
+          "eng": "Goals",
+          "desc": "Individuální vstřelené góly",
+          "data": "count"
+        },
+        {
+          "name": "sG",
+          "type": "sg",
+          "colour": "green",
+          "eng": "Slot Goals",
+          "desc": "Individuální vstřelené góly ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "A1",
+          "type": "a1",
+          "colour": "green",
+          "eng": "Primary Assists",
+          "desc": "Primární asistence",
+          "data": "count"
+        },
+        {
+          "name": "A",
+          "type": "a",
+          "colour": "green",
+          "eng": "Assists",
+          "desc": "Asistence",
+          "data": "count"
+        },
+        {
+          "name": "P1",
+          "type": "p1",
+          "colour": "green",
+          "eng": "Primary Points",
+          "desc": "Primární body (G + A1)",
+          "data": "count"
+        },
+        {
+          "name": "P",
+          "type": "p",
+          "colour": "green",
+          "eng": "Points",
+          "desc": "Body (G + A)",
+          "data": "count"
+        },
+        {
+          "name": "G/60",
+          "type": "g60",
+          "colour": "green",
+          "eng": "Goals per 60",
+          "desc": "Individuální vstřelené góly za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sG/60",
+          "type": "sg60",
+          "colour": "green",
+          "eng": "Slot Goals per 60",
+          "desc": "Individuální vstřelené góly ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "A1/60",
+          "type": "a1_60",
+          "colour": "green",
+          "eng": "Primary Assists per 60",
+          "desc": "Primární asistence dosažené za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "A/60",
+          "type": "a60",
+          "colour": "green",
+          "eng": "Assists per 60",
+          "desc": "Asistence dosažené za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "P1/60",
+          "type": "p1_60",
+          "colour": "green",
+          "eng": "Primary Points per 60",
+          "desc": "Primární body (G + A1) dosažené za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "P/60",
+          "type": "p60",
+          "colour": "green",
+          "eng": "Points per 60",
+          "desc": "Body (G + A) dosažené za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "G/GF",
+          "type": "ggf",
+          "colour": "green",
+          "eng": "Individual Goals Production",
+          "desc": "Podíl individuálních vstřelených gólů ze všech gólů pro tým s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "sG/sGF",
+          "type": "sgsgf",
+          "colour": "green",
+          "eng": "Individual Slot Goals Production",
+          "desc": "Podíl individuálních vstřelených gólů ze slotu ze všech gólů ze slotu pro tým s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "A1/A1F",
+          "type": "a1a1f",
+          "colour": "green",
+          "eng": "Individual Primary Assists Production",
+          "desc": "Podíl individuálních prvních asistencí ze všech prvních asisteních zaznamenaných týmem s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "P/PF",
+          "type": "ppf",
+          "colour": "green",
+          "eng": "Individual Points Production",
+          "desc": "Podíl individuálních bodů ze všech bodů zaznamenaných týmem s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "P1/P1F",
+          "type": "p1p1f",
+          "colour": "green",
+          "eng": "Individual Primary Points Production",
+          "desc": "Podíl individuálních primárních bodů ze všech primárních bodů zaznamenaných týmem s hráčem na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "allShots": [{
+      "name": "Všechny střely",
+      "name_en": "All individual shots",
+      "type": "individual_allShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "C",
+          "type": "c",
+          "colour": "green",
+          "eng": "Individual Corsi",
+          "desc": "Všechny individuální střely",
+          "data": "count"
+        },
+        {
+          "name": "C/60",
+          "type": "c60",
+          "colour": "green",
+          "eng": "Individual Corsi per 60",
+          "desc": "Všechny individuální střely za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "CSh%",
+          "type": "csh_percent",
+          "colour": "green",
+          "eng": "Individual Corsi Shooting %",
+          "desc": "Podíl individuálních vstřelených gólů ze všech individuálních střel",
+          "data": "percent"
+        },
+        {
+          "name": "C/CF",
+          "type": "ccf",
+          "colour": "green",
+          "eng": "Individual Corsi Production",
+          "desc": "Podíl všech individuálních střel ze všech střel pro tým s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "MS",
+          "type": "ms",
+          "colour": "green",
+          "eng": "Missed Shots",
+          "desc": "Individuální střely mimo branku",
+          "data": "count"
+        },
+        {
+          "name": "BS",
+          "type": "bs",
+          "colour": "green",
+          "eng": "Blocked shots (by opponent)",
+          "desc": "Individuální střely zblokované soupeřem",
+          "data": "count"
+        },
+        {
+          "name": "MS/60",
+          "type": "ms60",
+          "colour": "green",
+          "eng": "Missed Shots per 60",
+          "desc": "Individuální střely mimo branku za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "BS/60",
+          "type": "bs60",
+          "colour": "green",
+          "eng": "Blocked shots (by opponent) per 60",
+          "desc": "Individuální střely zblokované soupeřem za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "BLK",
+          "type": "blk",
+          "colour": "red",
+          "eng": "Opponent´s Shots Blocked",
+          "desc": "Zblokované střely soupeře",
+          "data": "count"
+        },
+        {
+          "name": "BLK/60",
+          "type": "blk60",
+          "colour": "red",
+          "eng": "Opponent´s Shots Blocked per 60",
+          "desc": "Zblokované střely soupeře za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "unblockedShots": [{
+        "name": "Nezblokované střely",
+        "name_en": "Individual unblocked shots",
+        "type": "individual_unblockedShots",
+        "select_type": 1,
+        "enabled": true,
+        "attributes": [
+          {
+            "name": "F",
+            "type": "f",
+            "colour": "green",
+            "eng": "Individual Fenwick",
+            "desc": "Individuální nezblokované střely",
+            "data": "count"
+          },
+          {
+            "name": "F/60",
+            "type": "f60",
+            "colour": "green",
+            "eng": "Individual Fenwick per 60",
+            "desc": "Individuální nezblokované střely za 60 minut",
+            "data": "60"
+          },
+          {
+            "name": "FSh%",
+            "type": "fsh_percent",
+            "colour": "green",
+            "eng": "Individual Fenwick Shooting %",
+            "desc": "Podíl vstřelených gólů ze všech individuálních nezblokovaných střel",
+            "data": "percent"
+          },
+          {
+            "name": "F/FF",
+            "type": "fff",
+            "colour": "green",
+            "eng": "Individual Fenwick Production",
+            "desc": "Podíl individuálních nezblokovaných střel ze všech nezblokovaných střel týmu s hráčem na ledě",
+            "data": "percent"
+          }        
+        ]
+    }],
+    "shotsOnGoal": [{
+      "name": "Střely na branku",
+      "name_en": "Shots on goal",
+      "type": "individual_shotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "SOG",
+          "type": "sog",
+          "colour": "green",
+          "eng": "Individual Shots On Goal",
+          "desc": "Individuální střely na branku",
+          "data": "count"
+        },
+        {
+          "name": "SOG/60",
+          "type": "sog60",
+          "colour": "green",
+          "eng": "Individual Shots On Goal per 60",
+          "desc": "Individuální střely na branku za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "Sh%",
+          "type": "sh_percent",
+          "colour": "green",
+          "eng": "Individual Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech individuálních střel na branku",
+          "data": "percent"
+        },
+        {
+          "name": "SOG/C",
+          "type": "sogc",
+          "colour": "green",
+          "eng": "Percentage of Shots On Goal",
+          "desc": "Podíl individuálních střel na branku ze všech individuálních střel",
+          "data": "percent"
+        },
+        {
+          "name": "SOG/FOGF",
+          "type": "sogfogf",
+          "colour": "green",
+          "eng": "Individual Shots On Goal Production",
+          "desc": "Podíl individuálních střel na branku ze všech střel na branku pro tým s hráčem na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShots": [{
+      "name": "Všechny střely ze slotu",
+      "name_en": "All slot shots",
+      "type": "individual_slotShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sC",
+          "type": "sc",
+          "colour": "green",
+          "eng": "Individual Slot Shots",
+          "desc": "Všechny individuální střely ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "sC/60",
+          "type": "sc60",
+          "colour": "green",
+          "eng": "Individual Slot Shots per 60",
+          "desc": "Všechny individuální střely ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sCSh%",
+          "type": "scsh_percent",
+          "colour": "green",
+          "eng": "Individual Slot Shots Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech individuálních střel ze slotu",
+          "data": "percent"
+        },
+        {
+          "name": "sC/C",
+          "type": "scc",
+          "colour": "green",
+          "eng": "Percentage of Slot Shots",
+          "desc": "Podíl všech individuálních střel ze slotu ze všech individuálních střel",
+          "data": "percent"
+        },
+        {
+          "name": "sC/sCF",
+          "type": "scscf",
+          "colour": "green",
+          "eng": "Individual Slot Shots Production",
+          "desc": "Podíl všech individuálních střel ze slotu ze všech střel ze slotu pro tým s hráčem na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShotsOnGoal": [{
+      "name": "Všechny střely na branku ze slotu",
+      "name_en": "All slot shots on goal",
+      "type": "individual_slotShotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sSOG",
+          "type": "ssog",
+          "colour": "green",
+          "eng": "Individual Slot Shots On Goal",
+          "desc": "Individuální střely na branku ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "sSOG/60",
+          "type": "ssog60",
+          "colour": "green",
+          "eng": "Individual Slot Shots On Goal per 60",
+          "desc": "Individuální střely na branku ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSh%",
+          "type": "ssh_percent",
+          "colour": "green",
+          "eng": "Individual Slot Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech individuálních střel na branku ze slotu",
+          "data": "percent"
+        },
+        {
+          "name": "sSOG/sSOGF",
+          "type": "ssogssogf",
+          "colour": "green",
+          "eng": "Individual Slot Shots On Goal Production",
+          "desc": "Podíl individuálních střel na branku ze slotu ze všech střel na branku ze slotu pro tým s hráčem na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "zoneStarts": [{
+      "name": "Starty v pásmech",
+      "name_en": "Zone starts",
+      "type": "individual_zoneStarts",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "DZS",
+          "type": "dzs",
+          "colour": "red",
+          "eng": "Defensive Zone Starts",
+          "desc": "Počet účastí na ledě při vhazováních v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZS",
+          "type": "ozs",
+          "colour": "green",
+          "eng": "Ofensive Zone Starts",
+          "desc": "Počet účastí na ledě při vhazováních v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZS%",
+          "type": "dzs_percent",
+          "colour": "red",
+          "eng": "Defensive Zone Starts %",
+          "desc": "Podíl účastí na ledě při vhazováních v obranném pásmu z celkového počtu účastí na ledě při všech vhazováních",
+          "data": "percent"
+        },
+        {
+          "name": "OZS%",
+          "type": "ozs_percent",
+          "colour": "green",
+          "eng": "Ofensive Zone Starts %",
+          "desc": "Podíl účastí na ledě při vhazováních v útočném pásmu z celkového počtu účastí na ledě při všech vhazováních",
+          "data": "percent"
+        },
+        {
+          "name": "ZSR%",
+          "type": "zsr_percent",
+          "colour": "red",
+          "eng": "Zone Starts Ratio %",
+          "desc": "Podíl účastí na ledě při vhazováních v útočném pásmu ze součtu účastí na ledě při vhazováních v útočném a obranném pásmu",
+          "data": "percent"
+        }
+      ]
+    }],
+    "faceOffs": [{
+      "name": "Vhazování",
+      "name_en": "Faceoffs",
+      "type": "individual_faceOffs",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "FO",
+          "type": "fo",
+          "colour": "white",
+          "eng": "Faceoffs",
+          "desc": "Účasti na vhazování",
+          "data": "count"
+        },
+        {
+          "name": "FOW",
+          "type": "fow",
+          "colour": "white",
+          "eng": "Faceoffs Won",
+          "desc": "Vyhraná vhazování",
+          "data": "count"
+        },
+        {
+          "name": "FOW%",
+          "type": "fow_percent",
+          "colour": "white",
+          "eng": "Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování ze všech účastí na vhazování",
+          "data": "percent"
+        },
+        {
+          "name": "DZFO",
+          "type": "dzfo",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs",
+          "desc": "Účasti na vhazováních v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZFOW",
+          "type": "dzfow",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZFOW%",
+          "type": "dzfow_percent",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování v obranném pásmu ze všech účastí na vhazováních v obranném pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "NZFO",
+          "type": "nzfo",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs",
+          "desc": "Účasti na vhazováních ve středním pásmu",
+          "data": "count"
+        },
+        {
+          "name": "NZFOW",
+          "type": "nzfow",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování ve středním pásmu",
+          "data": "count"
+        },
+        {
+          "name": "NZFOW%",
+          "type": "nzfow_percent",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování ve středním pásmu ze všech účastí na vhazováních ve středním pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "OZFO",
+          "type": "ozfo",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs",
+          "desc": "Účasti na vhazováních v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZFOW",
+          "type": "ozfow",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZFOW%",
+          "type": "ozfow_percent",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování v útočném pásmu ze všech účastí na vhazováních v útočném pásmu",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotPasses": [{
+      "name": "Přihrávky do slotu",
+      "name_en": "Slot passes",
+      "type": "individual_slotPasses",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "sP",
+          "type": "sp",
+          "colour": "green",
+          "eng": "Slot Passes",
+          "desc": "Přihrávky do slotu",
+          "data": "count"
+        },
+        {
+          "name": "sP/60",
+          "type": "sp60",
+          "colour": "green",
+          "eng": "Slot Passes per 60",
+          "desc": "Přihrávky do slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPC",
+          "type": "spc",
+          "colour": "green",
+          "eng": "Slot Passes Complete",
+          "desc": "Zkompletované přihrávky do slotu",
+          "data": "count"
+        },
+        {
+          "name": "sPC/60",
+          "type": "spc60",
+          "colour": "green",
+          "eng": "Slot Passes Complete per 60",
+          "desc": "Zkompletované přihrávky do slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPC/sP",
+          "type": "spcsp",
+          "colour": "green",
+          "eng": "Percentage of Complete Slot Passes",
+          "desc": "Podíl zkompletovaných přihrávek do slotu ze všech zkompletovaných přihrávek do slotu vyslaných týmem s hráčem na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "sPN",
+          "type": "spn",
+          "colour": "green",
+          "eng": "Slot Passes Non-Complete",
+          "desc": "Nezkompletovanépřihrávky do slotu",
+          "data": "count"
+        },
+        {
+          "name": "sPN/60",
+          "type": "spn60",
+          "colour": "green",
+          "eng": "Slot Passes Non-Complete per 60",
+          "desc": "Nezkompletované přihrávky do slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "BLK.sP",
+          "type": "blksp",
+          "colour": "red",
+          "eng": "Opponent´s Slot Passes Blocked",
+          "desc": "Zblokované přihrávky soupeře do slotu",
+          "data": "count"
+        },
+        {
+          "name": "BLK.sP/60",
+          "type": "blksp60",
+          "colour": "red",
+          "eng": "Opponent´s Slot Passes Blocked per 60",
+          "desc": "Zblokované přihrávky soupeře do slotu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "shotsAssists": [{
+      "name": "Přihrávky na střely",
+      "name_en": "All shots assists",
+      "type": "individual_shotsAssists",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "SA",
+          "type": "sa",
+          "colour": "green",
+          "eng": "Shot Assists",
+          "desc": "Přihrávky na střelecké pokusy",
+          "data": "count"
+        },
+        {
+          "name": "SA/60",
+          "type": "sa60",
+          "colour": "green",
+          "eng": "Shot Assists per 60",
+          "desc": "Přihrávky na střelecké pokusy za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.SA",
+          "type": "crsa",
+          "colour": "green",
+          "eng": "Cross-ice Shot Assists",
+          "desc": "Křižné přihrávky na střelecké pokusy",
+          "data": "count"
+        },
+        {
+          "name": "cr.SA/60",
+          "type": "crsa60",
+          "colour": "green",
+          "eng": "Cross-ice Shot Assists per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "bn.SA",
+          "type": "bnsa",
+          "colour": "green",
+          "eng": "Behind-the-net Shot Assists",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy",
+          "data": "count"
+        },
+        {
+          "name": "bn.SA/60",
+          "type": "bnasa60",
+          "colour": "green",
+          "eng": "Behind-the-net Shot Assists per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.SA",
+          "type": "1tsa",
+          "colour": "green",
+          "eng": "One-timer Shot Assists",
+          "desc": "Přihrávky na střelecké pokusy z první",
+          "data": "count"
+        },
+        {
+          "name": "1T.SA/60",
+          "type": "1tsa60",
+          "colour": "green",
+          "eng": "One-timer Shot Assists per 60",
+          "desc": "Přihrávky na střelecké pokusy z první za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "slotShotsAssists": [{
+      "name": "Přihrávky na střely ze slotu",
+      "name_en": "All slot shots assists",
+      "type": "individual_slotShotsAssists",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "sSA",
+          "type": "ssa",
+          "colour": "green",
+          "eng": "Slot Shot Assists",
+          "desc": "Přihrávky na střelecké pokusy ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "sSA/60",
+          "type": "ssa60",
+          "colour": "green",
+          "eng": "Slot Shot Assists per 60",
+          "desc": "Přihrávky na střelecké pokusy ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.sSA",
+          "type": "crssa",
+          "colour": "green",
+          "eng": "Cross-ice Slot Shot Assists",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "cr.sSA/60",
+          "type": "crssa60",
+          "colour": "green",
+          "eng": "Cross-ice Slot Shot Assists per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "bn.sSA",
+          "type": "bnssa",
+          "colour": "green",
+          "eng": "Behind-the-net Slot Shot Assists",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "bn.sSA/60",
+          "type": "bnssa60",
+          "colour": "green",
+          "eng": "Behind-the-net Slot Shot Assists per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.sSA",
+          "type": "1tssa",
+          "colour": "green",
+          "eng": "One-timer Slot Shot Assists",
+          "desc": "Přihrávky na střelecké pokusy z první ze slotu",
+          "data": "count"
+        },
+        {
+          "name": "1T.sSA/60",
+          "type": "1tssa60",
+          "colour": "green",
+          "eng": "One-timer Slot Shot Assists per 60",
+          "desc": "Přihrávky na střelecké pokusy z první ze slotu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "shotType": [{
+      "name": "Typ střely",
+      "name_en": "Shot type",
+      "type": "individual_shotType",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "R",
+          "type": "r",
+          "colour": "green",
+          "eng": "Rebound shots",
+          "desc": "Dorážky",
+          "data": "count"
+        },
+        {
+          "name": "R/60",
+          "type": "r60",
+          "colour": "green",
+          "eng": "Rebound shots per 60",
+          "desc": "Dorážky za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "RC",
+          "type": "rc",
+          "colour": "green",
+          "eng": "Rebounds Created",
+          "desc": "Střely přímo předcházející dorážce",
+          "data": "count"
+        },
+        {
+          "name": "RC/60",
+          "type": "rc60",
+          "colour": "green",
+          "eng": "Rebounds Created per 60",
+          "desc": "Střely přímo předcházející dorážce za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T",
+          "type": "1t",
+          "colour": "green",
+          "eng": "One-timer",
+          "desc": "Střelecké pokusy z první",
+          "data": "count"
+        },
+        {
+          "name": "1T/60",
+          "type": "1t60",
+          "colour": "green",
+          "eng": "One-timer per 60",
+          "desc": "Střelecké pokusy z první za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "zoneEntries": [{
+      "name": "Kontrolované vstupy do pásma",
+      "name_en": "Controlled zone entries",
+      "type": "individual_zoneEntries",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "EN",
+          "type": "en",
+          "colour": "green",
+          "eng": "Controlled Zone Entries",
+          "desc": "Kontrolované vstupy do pásma",
+          "data": "count"
+        },
+        {
+          "name": "EN/60",
+          "type": "en60",
+          "colour": "green",
+          "eng": "Controlled Zone Entries per 60",
+          "desc": "Kontrolované vstupy do pásma za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EN.W",
+          "type": "enw",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries",
+          "desc": "Úspěšné kontrolované vstupy do pásma",
+          "data": "count"
+        },
+        {
+          "name": "EN.W/60",
+          "type": "enw60",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries per 60",
+          "desc": "Úspěšné kontrolované vstupy do pásma za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EN.W/EN",
+          "type": "enwen",
+          "colour": "green",
+          "eng": "% of Successful Controlled Zone Entries",
+          "desc": "Podíl úspěšných kontrolovaných vstupů do pásma ze všech kontrolovaných vstupů do pásma.",
+          "data": "percent"
+        },
+        {
+          "name": "ENC",
+          "type": "enc",
+          "colour": "green",
+          "eng": "Controlled Zone Entries by Carry",
+          "desc": "Kontrolované vstupy do pásma zavezením",
+          "data": "count"
+        },
+        {
+          "name": "ENC/60",
+          "type": "enc60",
+          "colour": "green",
+          "eng": "Controlled Zone Entries by Carry per 60",
+          "desc": "Kontrolované vstupy do pásma zavezením za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "ENP",
+          "type": "enp",
+          "colour": "green",
+          "eng": "Controlled Zone Entries by Pass",
+          "desc": "Kontrolované vstupy do pásma přihrávkou",
+          "data": "count"
+        },
+        {
+          "name": "ENP/60",
+          "type": "enp60",
+          "colour": "green",
+          "eng": "Controlled Zone Entries by Pass per 60",
+          "desc": "Kontrolované vstupy do pásma přihrávkou za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EN-DN",
+          "type": "endn",
+          "colour": "red",
+          "eng": "Zone Entries Denials",
+          "desc": "Zamezení kontrolovaného vstupu do pásma",
+          "data": "count"
+        },
+        {
+          "name": "EN-DN/60",
+          "type": "endn60",
+          "colour": "red",
+          "eng": "Zone Entries Denials per 60",
+          "desc": "Zamezení kontrolovaného vstupu do pásma za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "zoneExits": [{
+      "name": "Kontrolované výstupy z pásma",
+      "name_en": "Controlled zone exits",
+      "type": "individual_zoneExits",
+      "select_type": 2,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "EX",
+          "type": "ex",
+          "colour": "red",
+          "eng": "Controlled Zone Exits",
+          "desc": "Kontrolované výstupy z pásma",
+          "data": "count"
+        },
+        {
+          "name": "EX/60",
+          "type": "ex60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits per 60",
+          "desc": "Kontrolované výstupy z pásma za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EX.W",
+          "type": "exw",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits",
+          "desc": "Úspěšné kontrolované výstupy z pásma",
+          "data": "count"
+        },
+        {
+          "name": "EX.W/60",
+          "type": "exw60",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits per 60",
+          "desc": "Úspěšné kontrolované výstupy z pásma za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EX.W/EX",
+          "type": "exwex",
+          "colour": "red",
+          "eng": "% of Successful Controlled Zone Exits",
+          "desc": "Podíl úspěšných kontrolovaných výstupů z pásma ze všech kontrolovaných výstupů z pásma. ",
+          "data": "percent"
+        },
+        {
+          "name": "EXC",
+          "type": "exc",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Carry-in",
+          "desc": "Kontrolované výstupy z pásma vyvezením",
+          "data": "count"
+        },
+        {
+          "name": "EXC/60",
+          "type": "exc60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Carry-in per 60",
+          "desc": "Kontrolované výstupy z pásma vyvezením za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EXP",
+          "type": "exp",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Pass",
+          "desc": "Kontrolované výstupy z pásma přihrávkou",
+          "data": "count"
+        },
+        {
+          "name": "EXP/60",
+          "type": "exp60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Pass per 60",
+          "desc": "Kontrolované výstupy z pásma přihrávkou za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EXstP",
+          "type": "exstp",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Strech Pass",
+          "desc": "Kontrolované výstupy z pásma přihrávkou za červenou čáru",
+          "data": "count"
+        },
+        {
+          "name": "EXstP/60",
+          "type": "exstp60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits by Strech Pass per 60",
+          "desc": "Kontrolované výstupy z pásma přihrávkou za červenou čáru za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "penaltiesDrawn": [{
+      "name": "Získané početní výhody",
+      "name_en": "Penalties drawn",
+      "type": "individual_penaltiesDrawn",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "PIM",
+          "type": "pim",
+          "colour": "white",
+          "eng": "Penalty Minutes Taken",
+          "desc": "Trestné minuty udělené hráči",
+          "data": "count"
+        },
+        {
+          "name": "PIM/60",
+          "type": "pim60",
+          "colour": "white",
+          "eng": "Penalty Minutes Taken per 60",
+          "desc": "Trestné minuty udělené hráči za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "PIMD",
+          "type": "pimd",
+          "colour": "white",
+          "eng": "Penalty Minutes Drawn",
+          "desc": "Trestné minuty získané hráčem",
+          "data": "count"
+        },
+        {
+          "name": "PIMD/60",
+          "type": "pimd60",
+          "colour": "white",
+          "eng": "Penalty Minutes Drawn per 60",
+          "desc": "Trestné minuty získané hráčem za 60 minut",
+          "data": "60"
+        }
+      ]
+    }]
+  }],
+  "onIce": [{
+    "allShots": [{
+      "name": "Střelecké pokusy",
+      "name_en": "All shot attempts",
+      "type": "onice_allShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "CF",
+          "type": "cf",
+          "colour": "green",
+          "eng": "Corsi For",
+          "desc": "Střelecké pokusy pro tým",
+          "data": "count"
+        },
+        {
+          "name": "CA",
+          "type": "ca",
+          "colour": "red",
+          "eng": "Corsi Against",
+          "desc": "Střelecké pokusy proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "CF/60",
+          "type": "cf60",
+          "colour": "green",
+          "eng": "Corsi For per 60",
+          "desc": "Střelecké pokusy pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "CA/60",
+          "type": "ca60",
+          "colour": "red",
+          "eng": "Corsi Against per 60",
+          "desc": "Střelecké pokusy proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "CF%",
+          "type": "cf_percent",
+          "colour": "green",
+          "eng": "Corsi For %",
+          "desc": "Podíl střeleckých pokusů pro tým ze součtu střeleckých pokusů pro a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.CSh%",
+          "type": "oncsh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Corsi Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střeleckých pokusů pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.CSv%",
+          "type": "oncsv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Corsi Save %",
+          "desc": "Podíl obdržených gólů ze všech střeleckých pokusů proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "CF/60 Rel",
+          "type": "cf60_rel",
+          "colour": "green",
+          "eng": "Corsi For per 60 Relative",
+          "desc": "Rozdíl mezi střelami pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "CA/60 Rel",
+          "type": "ca60_rel",
+          "colour": "red",
+          "eng": "Corsi Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "CF% Rel",
+          "type": "cf_percent_rel",
+          "colour": "green",
+          "eng": "Corsi For % Relative",
+          "desc": "Rozdíl mezi podíly všech střel pro tým ze všech střel pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "unblockedShots": [{
+      "name": "Nezblokované střely",
+      "name_en": "All unblocked shots",
+      "type": "onice_unblockedShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "FF",
+          "type": "ff",
+          "colour": "green",
+          "eng": "Fenwick For",
+          "desc": "Nezblokované střely pro tým",
+          "data": "count"
+        },
+        {
+          "name": "FA",
+          "type": "fa",
+          "colour": "red",
+          "eng": "Fenwick Against",
+          "desc": "Nezblokované střely proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "FF/60",
+          "type": "ff60",
+          "colour": "green",
+          "eng": "Fenwick For per 60",
+          "desc": "Nezblokované střely pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "FA/60",
+          "type": "fa60",
+          "colour": "red",
+          "eng": "Fenwick Against per 60",
+          "desc": "Nezblokované střely proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "FF%",
+          "type": "ff_percent",
+          "colour": "green",
+          "eng": "Fenwick For %",
+          "desc": "Podíl nezblokovaných střel pro tým ze součtu nezblokovaných střel pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.FSv%",
+          "type": "onfsv_percent",
+          "colour": "green",
+          "eng": "ON-ICE Fenwick Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech nezblokovaných střel pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.FSh%",
+          "type": "onfsh_percent",
+          "colour": "red",
+          "eng": "ON-ICE Fenwick Save %",
+          "desc": "Podíl obdržených gólů ze všech nezblokovaných střel proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "FF/60 Rel",
+          "type": "ff60_rel",
+          "colour": "green",
+          "eng": "Fenwick For per 60 Relative",
+          "desc": "Rozdíl mezi nezblokovanými střelami pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "FA/60 Rel",
+          "type": "fa60_rel",
+          "colour": "red",
+          "eng": "Fenwick Against per 60 Relative",
+          "desc": "Rozdíl mezi nezblokovanými střelami proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "FF% Rel",
+          "type": "ff_percent_rel",
+          "colour": "green",
+          "eng": "Fenwick For % Relative",
+          "desc": "Rozdíl mezi podíly nezblokovaných střel pro tým ze všech nezblokovaných střel pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "shotsOnGoal": [{
+      "name": "Střely na branku",
+      "name_en": "Shots on goal",
+      "type": "onice_shotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "SOGF",
+          "type": "sogf",
+          "colour": "green",
+          "eng": "Shots On Goal For",
+          "desc": "Střely na branku pro tým",
+          "data": "count"
+        },
+        {
+          "name": "SOGA",
+          "type": "soga",
+          "colour": "red",
+          "eng": "Shots On Goal Against",
+          "desc": "Střely na branku proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "SOGF/60",
+          "type": "sogf60",
+          "colour": "green",
+          "eng": "Shots On Goal For per 60",
+          "desc": "Střely na branku pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "SOGA/60",
+          "type": "soga60",
+          "colour": "red",
+          "eng": "Shots On Goal Against per 60",
+          "desc": "Střely na branku proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "SOGF%",
+          "type": "sogf_percent",
+          "colour": "green",
+          "eng": "Shots On Goal For %",
+          "desc": "Podíl střel na branku pro tým ze součtu střel na branku pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.Sh%",
+          "type": "onsh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střel na branku pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.Sv%",
+          "type": "onsv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Save %",
+          "desc": "Podíl obdržených gólů ze všech střel na branku proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "SOGF/60 Rel",
+          "type": "sogf60_rel",
+          "colour": "green",
+          "eng": "Shots On Goal For per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "SOGA/60 Rel",
+          "type": "soga60_rel",
+          "colour": "red",
+          "eng": "Shots On Goal Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "SOGF% Rel",
+          "type": "sogf_percent_rel",
+          "colour": "green",
+          "eng": "Shots On Goal For % Relative",
+          "desc": "Rozdíl mezi podíly střel na branku pro tým ze všech střel na branku pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShots": [{
+      "name": "Střelecké pokusy ze slotu",
+      "name_en": "Slot shot attempts (scoring chances)",
+      "type": "onice_slotShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sCF",
+          "type": "scf",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For ",
+          "desc": "Střelecké pokusy ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sCA",
+          "type": "sca",
+          "colour": "red",
+          "eng": "Slot Shot Attempts Against",
+          "desc": "Střelecké pokusy ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sCF/60",
+          "type": "scf60",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For per 60",
+          "desc": "Střelecké pokusy ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sCA/60",
+          "type": "sca60",
+          "colour": "red",
+          "eng": "Slot Shot Attempts Against per 60",
+          "desc": "Střelecké pokusy ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sCF%",
+          "type": "scf_percent",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For %",
+          "desc": "Podíl střeleckých pokusů ze slotu pro tým ze součtu střeleckých pokusů ze slotu pro a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sCh%",
+          "type": "onsch_percent",
+          "colour": "green",
+          "eng": "ON-ICE Slot Shot Attempts Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střeleckých pokusů ze slotu pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sCv%",
+          "type": "onscv_precent",
+          "colour": "red",
+          "eng": "ON-ICE Slot Shot Attempts Save %",
+          "desc": "Podíl obdržených gólů ze všech střeleckých pokusů ze slotu proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sCF/60 Rel",
+          "type": "scf60_rel",
+          "colour": "green",
+          "eng": "All Slot Shots For per 60 Relative",
+          "desc": "Rozdíl mezi střelami ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sCA/60 Rel",
+          "type": "sca60_rel",
+          "colour": "red",
+          "eng": "All Slot Shots Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sCF% Rel",
+          "type": "scf_percent_rel",
+          "colour": "red",
+          "eng": "All Slot Shots For % Relative",
+          "desc": "Rozdíl mezi podíly střel ze slotu pro tým ze všech střel ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShotsOnGoal": [{
+      "name": "Střely na branku ze slotu",
+      "name_en": "Slot shots on goal",
+      "type": "onice_slotShotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sSOGF",
+          "type": "ssogf",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For",
+          "desc": "Střely na branku ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sSOGA",
+          "type": "ssoga",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against",
+          "desc": "Střely na branku ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sSOGF/60",
+          "type": "ssogf60",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For per 60",
+          "desc": "Střely na branku ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSOGA/60",
+          "type": "ssoga60",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against per 60",
+          "desc": "Střely na branku ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSOGF%",
+          "type": "ssogf_percent",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For %",
+          "desc": "Podíl střel na branku ze slotu pro tým ze součtu všech střel na branku ze slotu pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sSh%",
+          "type": "onssh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Slot Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střel na branku ze slotu pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sSv%",
+          "type": "onssv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Slot Save %",
+          "desc": "Podíl obdržených gólů ze všech střel na branku ze slotu proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sSOGF/60 Rel",
+          "type": "ssogf60_rel",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sSOGA/60 Rel",
+          "type": "ssoga60_rel",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sSOGF% Rel",
+          "type": "ssogf_percent_rel",
+          "colour": "red",
+          "eng": "Slot Shots On Goal For % Relative",
+          "desc": "Rozdíl mezi podíly střel na branku ze slotu pro tým ze všech střel na branku ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "goals": [{
+      "name": "Góly",
+      "name_en": "Goals",
+      "type": "onice_goals",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "GF",
+          "type": "gf",
+          "colour": "green",
+          "eng": "Goals For",
+          "desc": "Góly pro tým",
+          "data": "count"
+        },
+        {
+          "name": "GA",
+          "type": "ga",
+          "colour": "red",
+          "eng": "Goals Against",
+          "desc": "Góly proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "GF/60",
+          "type": "gf60",
+          "colour": "green",
+          "eng": "Goals For per 60",
+          "desc": "Góly pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "GA/60",
+          "type": "ga60",
+          "colour": "red",
+          "eng": "Goals Against per 60",
+          "desc": "Góly proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "GF%",
+          "type": "gf_percent",
+          "colour": "green",
+          "eng": "Goals For %",
+          "desc": "Podíl gólů pro tým ze součtu gólů pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "GF/60 Rel",
+          "type": "gf60_rel",
+          "colour": "green",
+          "eng": "Goals For per 60 Relative",
+          "desc": "Rozdíl mezi góly pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "GA/60 Rel",
+          "type": "ga60_rel",
+          "colour": "red",
+          "eng": "Goals Against per 60 Relative",
+          "desc": "Rozdíl mezi góly proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "GF% Rel",
+          "type": "gf_percent_rel",
+          "colour": "green",
+          "eng": "Goals For % Relative",
+          "desc": "Rozdíl mezi podíly gólů pro tým ze všech gólů pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotGoals": [{
+      "name": "Góly ze slotu",
+      "name_en": "Slot goals",
+      "type": "onice_slotGoals",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sGF",
+          "type": "sgf",
+          "colour": "green",
+          "eng": "Slot Goals For",
+          "desc": "Góly ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sGA",
+          "type": "sga",
+          "colour": "red",
+          "eng": "Slot Goals Against",
+          "desc": "Góly ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sGF/60",
+          "type": "sgf60",
+          "colour": "green",
+          "eng": "Slot Goals For per 60",
+          "desc": "Góly ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sGA/60",
+          "type": "sga60",
+          "colour": "red",
+          "eng": "Slot Goals Against per 60",
+          "desc": "Góly ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sGF%",
+          "type": "sgf_percent",
+          "colour": "green",
+          "eng": "Slot Goals For %",
+          "desc": "Podíl gólů ze slotu pro tým ze součtu gólů ze slotu pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sGF/60 Rel",
+          "type": "sgf60_rel",
+          "colour": "green",
+          "eng": "Slot Goals For per 60 Relative",
+          "desc": "Rozdíl mezi góly ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sGA/60 Rel",
+          "type": "sga60_rel",
+          "colour": "red",
+          "eng": "Slot Goals Against per 60 Relative",
+          "desc": "Rozdíl mezi góly ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sGF% Rel",
+          "type": "sgf_percent_rel",
+          "colour": "red",
+          "eng": "Slot Goals For % Relative",
+          "desc": "Rozdíl mezi podíly gólů ze slotu pro tým ze všech gólů ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotPasses": [{
+      "name": "Přihrávky do slotu",
+      "name_en": "Slot passes",
+      "type": "onice_slotPasses",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "sPF",
+          "type": "spf",
+          "colour": "green",
+          "eng": "Slot Passes For",
+          "desc": "Přihrávky do slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sPF/60",
+          "type": "spf60",
+          "colour": "green",
+          "eng": "Slot Passes For per 60",
+          "desc": "Přihrávky do slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPA",
+          "type": "spa",
+          "colour": "red",
+          "eng": "Slot Passes Against",
+          "desc": "Přihrávky do slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sPA/60",
+          "type": "spa60",
+          "colour": "red",
+          "eng": "Slot Passes Against per 60",
+          "desc": "Přihrávky do slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPCF",
+          "type": "spcf",
+          "colour": "green",
+          "eng": "Completed Slot Passes For",
+          "desc": "Zkompletované přihrávky do slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sPCF/60",
+          "type": "spcf60",
+          "colour": "green",
+          "eng": "Completed Slot Passes For per 60",
+          "desc": "Zkompletované přihrávky do slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPCA",
+          "type": "spca",
+          "colour": "red",
+          "eng": "Completed Slot Passes Against",
+          "desc": "Zkompletované přihrávky do slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sPCA/60",
+          "type": "spca60",
+          "colour": "red",
+          "eng": "Completed Shot Passes Against per 60",
+          "desc": "Zkompletované přihrávky do slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sPNA",
+          "type": "spna",
+          "colour": "red",
+          "eng": "Non completed Slot Passes Against",
+          "desc": "Soupeřovy nezkompletované přihrávky do slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sPNA/60",
+          "type": "spna60",
+          "colour": "red",
+          "eng": "Non completed Slot Passes Against per 60",
+          "desc": "Soupeřovy nezkompletované přihrávky do slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "BLK.sPA",
+          "type": "blkspa",
+          "colour": "red",
+          "eng": "Blocked Slot Passes Against",
+          "desc": "Soupeřovy zblokované přihrávky do slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "BLK.sPA/60",
+          "type": "blkspa60",
+          "colour": "red",
+          "eng": "Blocked Slot Passes Against per 60",
+          "desc": "Soupeřovy zblokované přihrávky do slotu proti týmu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "shotsAssists": [{
+      "name": "Přihrávky na střely",
+      "name_en": "Slot passes",
+      "type": "onice_shotsAssists",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "SAF",
+          "type": "saf",
+          "colour": "green",
+          "eng": "Shot Assists For",
+          "desc": "Přihrávky na střelecké pokusy pro tým",
+          "data": "count"
+        },
+        {
+          "name": "SAF/60",
+          "type": "saf60",
+          "colour": "green",
+          "eng": "Shot Assists For per 60",
+          "desc": "Přihrávky na střelecké pokusy pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "SAA",
+          "type": "saa",
+          "colour": "red",
+          "eng": "Shot Assists Against",
+          "desc": "Přihrávky na střelecké pokusy proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "SAA/60",
+          "type": "saa60",
+          "colour": "red",
+          "eng": "Shot Assists Against 60",
+          "desc": "Přihrávky na střelecké pokusy proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.SAF",
+          "type": "crsaf",
+          "colour": "green",
+          "eng": "Cross-ice Shot Assists For",
+          "desc": "Křižné přihrávky na střelecké pokusy pro tým",
+          "data": "count"
+        },
+        {
+          "name": "cr.SAF/60",
+          "type": "crsaf60",
+          "colour": "green",
+          "eng": "Cross-ice Shot Assists For per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.SAA",
+          "type": "crsaa",
+          "colour": "red",
+          "eng": "Cross-ice Shot Assists Against",
+          "desc": "Křižné přihrávky na střelecké pokusy proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "cr.SAA/60",
+          "type": "crsaa60",
+          "colour": "red",
+          "eng": "Cross-ice Shot Assists Against per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "bn.SAF",
+          "type": "bnsaf",
+          "colour": "green",
+          "eng": "Behind-the-net Shot Assists For",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy pro tým",
+          "data": "count"
+        },
+        {
+          "name": "bn.SAF/60",
+          "type": "bnsaf60",
+          "colour": "green",
+          "eng": "Behind-the-net Shot Assists For per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "bn.SAA",
+          "type": "bnsaa",
+          "colour": "red",
+          "eng": "Behind-the-net Shot Assists Against",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "bn.SAA/60",
+          "type": "bnsaa60",
+          "colour": "red",
+          "eng": "Behind-the-net Shot Assists Against per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.SAF",
+          "type": "1tsaf",
+          "colour": "green",
+          "eng": "One-timer Shot Assists For",
+          "desc": "Přihrávky na střelecké pokusy z první pro tým",
+          "data": "count"
+        },
+        {
+          "name": "1T.SAF/60",
+          "type": "1tsaf60",
+          "colour": "green",
+          "eng": "One-timer Shot Assists For per 60",
+          "desc": "Přihrávky na střelecké pokusy z první pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.SAA",
+          "type": "1tsaa",
+          "colour": "red",
+          "eng": "One-timer Shot Assists Against",
+          "desc": "Přihrávky na střelecké pokusy z první proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "1T.SAA/60",
+          "type": "1tsaa60",
+          "colour": "red",
+          "eng": "One-timer Shot Assists Against per 60",
+          "desc": "Přihrávky na střelecké pokusy z první proti týmu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "slotShotsAssists": [{
+      "name": "Přihrávky na střely ze slotu",
+      "name_en": "All slot shots assists",
+      "type": "onice_slotShotsAssists",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "sSAF",
+          "type": "ssaf",
+          "colour": "green",
+          "eng": "Slot Shot Assists For",
+          "desc": "Přihrávky na střelecké pokusy ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sSAF/60",
+          "type": "ssaf60",
+          "colour": "green",
+          "eng": "Slot Shot Assists For per 60",
+          "desc": "Přihrávky na střelecké pokusy ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSAA",
+          "type": "ssaa",
+          "colour": "red",
+          "eng": "Slot Shot Assists Against",
+          "desc": "Přihrávky na střelecké pokusy ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sSAA/60",
+          "type": "ssaa60",
+          "colour": "red",
+          "eng": "Slot Shot Assists Against 60",
+          "desc": "Přihrávky na střelecké pokusy ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.sSAF",
+          "type": "crssaf",
+          "colour": "green",
+          "eng": "Cross-ice Slot Shot Assists For",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "cr.sSAF/60",
+          "type": "crssaf60",
+          "colour": "green",
+          "eng": "Cross-ice Slot Shot Assists For per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "cr.sSAA",
+          "type": "crssaa",
+          "colour": "red",
+          "eng": "Cross-ice Slot Shot Assists Against",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "cr.sSAA/60",
+          "type": "crssaa60",
+          "colour": "red",
+          "eng": "Cross-ice Slot Shot Assists Against per 60",
+          "desc": "Křižné přihrávky na střelecké pokusy ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "bn.sSAF",
+          "type": "bnssaf",
+          "colour": "green",
+          "eng": "Behind-the-net Slot Shot Assists For",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "bn.sSAF/60",
+          "type": "bnssaf60",
+          "colour": "green",
+          "eng": "Behind-the-net Slot Shot Assists For per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu pro tým za 60 minut ",
+          "data": "60"
+        },
+        {
+          "name": "bn.sSAA",
+          "type": "bnssaa",
+          "colour": "red",
+          "eng": "Behind-the-net Slot Shot Assists Against",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "bn.sSAA/60",
+          "type": "bnssaa60",
+          "colour": "red",
+          "eng": "Behind-the-net Slot Shot Assists Against per 60",
+          "desc": "Přihrávky zpoza branky na střelecké pokusy ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.sSAF",
+          "type": "1tssaf",
+          "colour": "green",
+          "eng": "One-timer Slot Shot Assists For",
+          "desc": "Přihrávky na střelecké pokusy ze slotu z první pro tým",
+          "data": "count"
+        },
+        {
+          "name": "1T.sSAF/60",
+          "type": "1tssaf60",
+          "colour": "green",
+          "eng": "One-timer Slot Shot Assists For per 60",
+          "desc": "Přihrávky na střelecké pokusy ze slotu z první pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "1T.sSAA",
+          "type": "1tssaa",
+          "colour": "red",
+          "eng": "One-timer Slot Shot Assists Against",
+          "desc": "Přihrávky na střelecké pokusy ze slotu z první proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "1T.sSAA/60",
+          "type": "1tssaa60",
+          "colour": "red",
+          "eng": "One-timer Slot Shot Assists Against per 60",
+          "desc": "Přihrávky na střelecké pokusy ze slotu z první proti týmu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "zoneEntries": [{
+      "name": "Kontrolované vstupy do pásma",
+      "name_en": "Controlled zone entries",
+      "type": "onice_zoneEntries",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "ENF",
+          "type": "enf",
+          "colour": "green",
+          "eng": "Controlled Zone Entries For",
+          "desc": "Kontrolované vstupy do pásma pro tým",
+          "data": "count"
+        },
+        {
+          "name": "ENF/60",
+          "type": "enf60",
+          "colour": "green",
+          "eng": "Controlled Zone Entries For per 60",
+          "desc": "Kontrolované vstupy do pásma pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "ENA",
+          "type": "ena",
+          "colour": "green",
+          "eng": "Controlled Zone Entries Against",
+          "desc": "Kontrolované vstupy do pásma proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "ENA/60",
+          "type": "ena60",
+          "colour": "green",
+          "eng": "Controlled Zone Entries Against per 60",
+          "desc": "Kontrolované vstupy do pásma proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "ENF.W",
+          "type": "enfw",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries For",
+          "desc": "Úspěšné kontrolované vstupy do pásma pro tým",
+          "data": "count"
+        },
+        {
+          "name": "ENF.W/60",
+          "type": "enfw60",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries For per 60",
+          "desc": "Úspěšné kontrolované vstupy do pásma pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "ENA.W",
+          "type": "enaw",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries Against",
+          "desc": "Úspěšné kontrolované vstupy do pásma proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "ENA.W/60",
+          "type": "enaw60",
+          "colour": "green",
+          "eng": "Successful Controlled Zone Entries Against per 60",
+          "desc": "Úspěšné kontrolované vstupy do pásma proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "ENA-DN",
+          "type": "enadn",
+          "colour": "red",
+          "eng": "Zone Entries Against - Denials",
+          "desc": "Zamezení soupeřových kontrolovaných vstupů do pásma proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "ENA-DN/60",
+          "type": "enadn60",
+          "colour": "red",
+          "eng": "Zone Entries Against - Denials per 60",
+          "desc": "Zamezení soupeřových kontrolovaných vstupů do pásma proti týmu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "zoneExits": [{
+      "name": "Kontrolované výstupy z pásma",
+      "name_en": "Controlled zone exits",
+      "type": "onice_zoneExits",
+      "select_type": 2,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "EXF",
+          "type": "exf",
+          "colour": "red",
+          "eng": "Controlled Zone Exits For",
+          "desc": "Kontrolované výstupy z pásma pro tým",
+          "data": "count"
+        },
+        {
+          "name": "EXF/60",
+          "type": "exf60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits For per 60",
+          "desc": "Kontrolované výstupy z pásma pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EXA",
+          "type": "exa",
+          "colour": "red",
+          "eng": "Controlled Zone Exits Against",
+          "desc": "Soupeřovy kontrolované výstupy z pásma proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "EXA/60",
+          "type": "exa60",
+          "colour": "red",
+          "eng": "Controlled Zone Exits Against per 60",
+          "desc": "Kontrolované výstupy z pásma proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EXF.W",
+          "type": "exfw",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits For",
+          "desc": "Úspěšné kontrolované výstupy z pásma pro tým",
+          "data": "count"
+        },
+        {
+          "name": "EXF.W/60",
+          "type": "exfw60",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits For per 60",
+          "desc": "Úspěšné kontrolované výstupy z pásma pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "EXA.W",
+          "type": "exaw",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits Against",
+          "desc": "Úspěšné kontrolované výstupy z pásma proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "EXA.W/60",
+          "type": "exaw60",
+          "colour": "red",
+          "eng": "Successful Controlled Zone Exits Against per 60",
+          "desc": "Úspěšné kontrolované výstupy z pásma proti týmu za 60 minut",
+          "data": "60"
+        }
+      ]
+    }],
+    "puckPossession": [{
+      "name": "Držení puku",
+      "name_en": "Puck possession (by team)",
+      "type": "onice_puckPossession",
+      "select_type": 1,
+      "enabled": false,
+      "attributes": [
+        {
+          "name": "possTOI",
+          "type": "posstoi",
+          "colour": "white",
+          "eng": "Possession Time",
+          "desc": "Celkový čas držení puku týmem s hráčem na ledě",
+          "data": "count"
+        },
+        {
+          "name": "possTOI%",
+          "type": "posstoi_percent",
+          "colour": "white",
+          "eng": "Possession Time %",
+          "desc": "Podíl držení puku týmem s hráčem na ledě z celkového času hráče na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "OZ.possTOI",
+          "type": "ozposstoi",
+          "colour": "green",
+          "eng": "Offensive Zone Possession Time",
+          "desc": "Čas držení puku týmem s hráčem na ledě v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZ.possTOI%",
+          "type": "ozposstoi_percent",
+          "colour": "green",
+          "eng": "Offensive Zone Possession Time %",
+          "desc": "Čas držení puku týmem s hráčem na ledě v útočném pásmuPodíl držení puku týmem s hráčem na ledě v útočném pásmu z celkového času hráče na ledě",
+          "data": "percent"
+        },
+        {
+          "name": "DZ.possTOI",
+          "type": "dzposstoi",
+          "colour": "red",
+          "eng": "Defensive Zone Possession Time",
+          "desc": "Čas držení puku týmem s hráčem na ledě v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZ.possTOI%",
+          "type": "dzposstoi_percent",
+          "colour": "red",
+          "eng": "Defensive Zone Possession Time %",
+          "desc": "Čas držení puku týmem s hráčem na ledě v obranném pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "possTOI.ZR%",
+          "type": "posstoizr_percent",
+          "colour": "green",
+          "eng": "Defensive Zone Possession Time %",
+          "desc": "Čas držení puku týmem s hráčem na ledě v obranném pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "poss.W",
+          "type": "possw",
+          "colour": "green",
+          "eng": "Possessions Gained",
+          "desc": "Získaná držení puku",
+          "data": "count"
+        },
+        {
+          "name": "poss.W/60",
+          "type": "possw60",
+          "colour": "green",
+          "eng": "Possessions Gained per 60",
+          "desc": "Získaná držení puku za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "OZ.poss.W",
+          "type": "ozpossw",
+          "colour": "green",
+          "eng": "Offensive Zone Possessions Gained",
+          "desc": "Získaná držení puku v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZ.poss.W/60",
+          "type": "ozpossw60",
+          "colour": "green",
+          "eng": "Offensive Zone Possessions Gained per 60",
+          "desc": "Offensive Zone Possessions Gained per 60",
+          "data": "60"
+        },
+        {
+          "name": "OZ.poss.W%",
+          "type": "ozpossw_percent",
+          "colour": "green",
+          "eng": "% of Offensive Zone Possessions Gained",
+          "desc": "Podíl získaných držení puku v útočném pásmu ze všech získaných držení puku",
+          "data": "percent"
+        },
+        {
+          "name": "DZ.poss.W",
+          "type": "dzpossw",
+          "colour": "red",
+          "eng": "Defensive Zone Possessions Gained",
+          "desc": "Získaná držení puku v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZ.poss.W/60",
+          "type": "dzpossw60",
+          "colour": "red",
+          "eng": "Defensive Zone Possessions Gained per 60",
+          "desc": "Získaná držení puku v obranném pásmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "DZ.poss.W%",
+          "type": "dzpossw_percent",
+          "colour": "red",
+          "eng": "% of Defensive Zone Possessions Gained",
+          "desc": "Podíl získaných držení puku v obranném pásmu ze všech získaných držení puku",
+          "data": "percent"
+        },
+        {
+          "name": "poss.L",
+          "type": "possl",
+          "colour": "red",
+          "eng": "Possessions Lost",
+          "desc": "Ztracená držení puku",
+          "data": "count"
+        },
+        {
+          "name": "poss.L/60",
+          "type": "possl60",
+          "colour": "red",
+          "eng": "Possession Lost per 60",
+          "desc": "Ztracená držení puku za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "OZ.poss.L",
+          "type": "ozpossl",
+          "colour": "red",
+          "eng": "Offensive Zone Possessions Lost",
+          "desc": "Ztracená držení puku v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZ.poss.L/60",
+          "type": "ozpossl60",
+          "colour": "red",
+          "eng": "Offensive Zone Possessions Lost per 60",
+          "desc": "Ztracená držení puku v útočném pásmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "OZ.poss.L%",
+          "type": "ozpossl_percent",
+          "colour": "red",
+          "eng": "% of Offensive Zone Possessions Lost",
+          "desc": "Podíl ztracených držení puku v útočném pásmu ze všech ztracených držení puku",
+          "data": "percent"
+        },
+        {
+          "name": "DZ.poss.L",
+          "type": "dzpossl",
+          "colour": "red",
+          "eng": "Defensive Zone Possessions Lost",
+          "desc": "Ztracená držení puku v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZ.poss.L/60",
+          "type": "dzpossl60",
+          "colour": "red",
+          "eng": "Defensive Zone Possessions Lost per 60",
+          "desc": "Ztracená držení puku v obranném pásmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "DZ.poss.L%",
+          "type": "dzpossl_percent",
+          "colour": "red",
+          "eng": "% of Defensive Zone Possessions Lost",
+          "desc": "Podíl ztracených držení puku v obranném pásmu ze všech ztracených držení puku",
+          "data": "percent"
+        },
+        {
+          "name": "poss.W%",
+          "type": "possw_percent",
+          "colour": "red",
+          "eng": "% of Gained Possessions",
+          "desc": "Podíl získaných a ztracených držení puku",
+          "data": "percent"
+        }
+      ]
+    }]
+  }],
+  "teamsData": [{
+    "allShots": [{
+      "name": "Střelecké pokusy",
+      "name_en": "All shot attempts",
+      "type": "teams_allShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "CF",
+          "type": "cf",
+          "colour": "green",
+          "eng": "Corsi For",
+          "desc": "Střelecké pokusy pro tým",
+          "data": "count"
+        },
+        {
+          "name": "CA",
+          "type": "ca",
+          "colour": "red",
+          "eng": "Corsi Against",
+          "desc": "Střelecké pokusy proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "CF/60",
+          "type": "cf60",
+          "colour": "green",
+          "eng": "Corsi For per 60",
+          "desc": "Střelecké pokusy pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "CA/60",
+          "type": "ca60",
+          "colour": "red",
+          "eng": "Corsi Against per 60",
+          "desc": "Střelecké pokusy proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "CF%",
+          "type": "cf_percent",
+          "colour": "green",
+          "eng": "Corsi For %",
+          "desc": "Podíl střeleckých pokusů pro tým ze součtu střeleckých pokusů pro a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.CSh%",
+          "type": "oncsh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Corsi Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střeleckých pokusů pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.CSv%",
+          "type": "oncsv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Corsi Save %",
+          "desc": "Podíl obdržených gólů ze všech střeleckých pokusů proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "CF/60 Rel",
+          "type": "cf60_rel",
+          "colour": "green",
+          "eng": "Corsi For per 60 Relative",
+          "desc": "Rozdíl mezi střelami pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "CA/60 Rel",
+          "type": "ca60_rel",
+          "colour": "red",
+          "eng": "Corsi Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "CF% Rel",
+          "type": "cf_percent_rel",
+          "colour": "green",
+          "eng": "Corsi For % Relative",
+          "desc": "Rozdíl mezi podíly všech střel pro tým ze všech střel pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "unblockedShots": [{
+      "name": "Nezblokované střely",
+      "name_en": "All unblocked shots",
+      "type": "teams_unblockedShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "FF",
+          "type": "ff",
+          "colour": "green",
+          "eng": "Fenwick For",
+          "desc": "Nezblokované střely pro tým",
+          "data": "count"
+        },
+        {
+          "name": "FA",
+          "type": "fa",
+          "colour": "red",
+          "eng": "Fenwick Against",
+          "desc": "Nezblokované střely proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "FF/60",
+          "type": "ff60",
+          "colour": "green",
+          "eng": "Fenwick For per 60",
+          "desc": "Nezblokované střely pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "FA/60",
+          "type": "fa60",
+          "colour": "red",
+          "eng": "Fenwick Against per 60",
+          "desc": "Nezblokované střely proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "FF%",
+          "type": "ff_percent",
+          "colour": "green",
+          "eng": "Fenwick For %",
+          "desc": "Podíl nezblokovaných střel pro tým ze součtu nezblokovaných střel pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.FSv%",
+          "type": "onfsv_percent",
+          "colour": "green",
+          "eng": "ON-ICE Fenwick Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech nezblokovaných střel pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.FSh%",
+          "type": "onfsh_percent",
+          "colour": "red",
+          "eng": "ON-ICE Fenwick Save %",
+          "desc": "Podíl obdržených gólů ze všech nezblokovaných střel proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "FF/60 Rel",
+          "type": "ff60_rel",
+          "colour": "green",
+          "eng": "Fenwick For per 60 Relative",
+          "desc": "Rozdíl mezi nezblokovanými střelami pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "FA/60 Rel",
+          "type": "fa60_rel",
+          "colour": "red",
+          "eng": "Fenwick Against per 60 Relative",
+          "desc": "Rozdíl mezi nezblokovanými střelami proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "FF% Rel",
+          "type": "ff_percent_rel",
+          "colour": "green",
+          "eng": "Fenwick For % Relative",
+          "desc": "Rozdíl mezi podíly nezblokovaných střel pro tým ze všech nezblokovaných střel pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "shotsOnGoal": [{
+      "name": "Střely na branku",
+      "name_en": "Shots on goal",
+      "type": "teams_shotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "SOGF",
+          "type": "sogf",
+          "colour": "green",
+          "eng": "Shots On Goal For",
+          "desc": "Střely na branku pro tým",
+          "data": "count"
+        },
+        {
+          "name": "SOGA",
+          "type": "soga",
+          "colour": "red",
+          "eng": "Shots On Goal Against",
+          "desc": "Střely na branku proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "SOGF/60",
+          "type": "sogf60",
+          "colour": "green",
+          "eng": "Shots On Goal For per 60",
+          "desc": "Střely na branku pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "SOGA/60",
+          "type": "soga60",
+          "colour": "red",
+          "eng": "Shots On Goal Against per 60",
+          "desc": "Střely na branku proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "SOGF%",
+          "type": "sogf_percent",
+          "colour": "green",
+          "eng": "Shots On Goal For %",
+          "desc": "Podíl střel na branku pro tým ze součtu střel na branku pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.Sh%",
+          "type": "onsh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střel na branku pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.Sv%",
+          "type": "onsv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Save %",
+          "desc": "Podíl obdržených gólů ze všech střel na branku proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "SOGF/60 Rel",
+          "type": "sogf60_rel",
+          "colour": "green",
+          "eng": "Shots On Goal For per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "SOGA/60 Rel",
+          "type": "soga60_rel",
+          "colour": "red",
+          "eng": "Shots On Goal Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "SOGF% Rel",
+          "type": "sogf_percent_rel",
+          "colour": "green",
+          "eng": "Shots On Goal For % Relative",
+          "desc": "Rozdíl mezi podíly střel na branku pro tým ze všech střel na branku pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShots": [{
+      "name": "Střelecké pokusy ze slotu",
+      "name_en": "Slot shot attempts (scoring chances)",
+      "type": "teams_slotShots",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sCF",
+          "type": "scf",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For ",
+          "desc": "Střelecké pokusy ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sCA",
+          "type": "sca",
+          "colour": "red",
+          "eng": "Slot Shot Attempts Against",
+          "desc": "Střelecké pokusy ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sCF/60",
+          "type": "scf60",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For per 60",
+          "desc": "Střelecké pokusy ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sCA/60",
+          "type": "sca60",
+          "colour": "red",
+          "eng": "Slot Shot Attempts Against per 60",
+          "desc": "Střelecké pokusy ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sCF%",
+          "type": "scf_percent",
+          "colour": "green",
+          "eng": "Slot Shot Attempts For %",
+          "desc": "Podíl střeleckých pokusů ze slotu pro tým ze součtu střeleckých pokusů ze slotu pro a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sCh%",
+          "type": "onsch_percent",
+          "colour": "green",
+          "eng": "ON-ICE Slot Shot Attempts Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střeleckých pokusů ze slotu pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sCv%",
+          "type": "onscv_precent",
+          "colour": "red",
+          "eng": "ON-ICE Slot Shot Attempts Save %",
+          "desc": "Podíl obdržených gólů ze všech střeleckých pokusů ze slotu proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sCF/60 Rel",
+          "type": "scf60_rel",
+          "colour": "green",
+          "eng": "All Slot Shots For per 60 Relative",
+          "desc": "Rozdíl mezi střelami ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sCA/60 Rel",
+          "type": "sca60_rel",
+          "colour": "red",
+          "eng": "All Slot Shots Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sCF% Rel",
+          "type": "scf_percent_rel",
+          "colour": "red",
+          "eng": "All Slot Shots For % Relative",
+          "desc": "Rozdíl mezi podíly střel ze slotu pro tým ze všech střel ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotShotsOnGoal": [{
+      "name": "Střely na branku ze slotu",
+      "name_en": "Slot shots on goal",
+      "type": "teams_slotShotsOnGoal",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sSOGF",
+          "type": "ssogf",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For",
+          "desc": "Střely na branku ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sSOGA",
+          "type": "ssoga",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against",
+          "desc": "Střely na branku ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sSOGF/60",
+          "type": "ssogf60",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For per 60",
+          "desc": "Střely na branku ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSOGA/60",
+          "type": "ssoga60",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against per 60",
+          "desc": "Střely na branku ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sSOGF%",
+          "type": "ssogf_percent",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For %",
+          "desc": "Podíl střel na branku ze slotu pro tým ze součtu všech střel na branku ze slotu pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sSh%",
+          "type": "onssh_percent",
+          "colour": "green",
+          "eng": "ON-ICE Slot Shooting %",
+          "desc": "Podíl vstřelených gólů ze všech střel na branku ze slotu pro tým",
+          "data": "percent"
+        },
+        {
+          "name": "ON.sSv%",
+          "type": "onssv_percent",
+          "colour": "red",
+          "eng": "ON-ICE Slot Save %",
+          "desc": "Podíl obdržených gólů ze všech střel na branku ze slotu proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sSOGF/60 Rel",
+          "type": "ssogf60_rel",
+          "colour": "green",
+          "eng": "Slot Shots On Goal For per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sSOGA/60 Rel",
+          "type": "ssoga60_rel",
+          "colour": "red",
+          "eng": "Slot Shots On Goal Against per 60 Relative",
+          "desc": "Rozdíl mezi střelami na branku ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sSOGF% Rel",
+          "type": "ssogf_percent_rel",
+          "colour": "red",
+          "eng": "Slot Shots On Goal For % Relative",
+          "desc": "Rozdíl mezi podíly střel na branku ze slotu pro tým ze všech střel na branku ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "goals": [{
+      "name": "Góly",
+      "name_en": "Goals",
+      "type": "teams_goals",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "GF",
+          "type": "gf",
+          "colour": "green",
+          "eng": "Goals For",
+          "desc": "Góly pro tým",
+          "data": "count"
+        },
+        {
+          "name": "GA",
+          "type": "ga",
+          "colour": "red",
+          "eng": "Goals Against",
+          "desc": "Góly proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "GF/60",
+          "type": "gf60",
+          "colour": "green",
+          "eng": "Goals For per 60",
+          "desc": "Góly pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "GA/60",
+          "type": "ga60",
+          "colour": "red",
+          "eng": "Goals Against per 60",
+          "desc": "Góly proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "GF%",
+          "type": "gf_percent",
+          "colour": "green",
+          "eng": "Goals For %",
+          "desc": "Podíl gólů pro tým ze součtu gólů pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "GF/60 Rel",
+          "type": "gf60_rel",
+          "colour": "green",
+          "eng": "Goals For per 60 Relative",
+          "desc": "Rozdíl mezi góly pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "GA/60 Rel",
+          "type": "ga60_rel",
+          "colour": "red",
+          "eng": "Goals Against per 60 Relative",
+          "desc": "Rozdíl mezi góly proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "GF% Rel",
+          "type": "gf_percent_rel",
+          "colour": "green",
+          "eng": "Goals For % Relative",
+          "desc": "Rozdíl mezi podíly gólů pro tým ze všech gólů pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "slotGoals": [{
+      "name": "Góly ze slotu",
+      "name_en": "Slot goals",
+      "type": "teams_slotGoals",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "sGF",
+          "type": "sgf",
+          "colour": "green",
+          "eng": "Slot Goals For",
+          "desc": "Góly ze slotu pro tým",
+          "data": "count"
+        },
+        {
+          "name": "sGA",
+          "type": "sga",
+          "colour": "red",
+          "eng": "Slot Goals Against",
+          "desc": "Góly ze slotu proti týmu",
+          "data": "count"
+        },
+        {
+          "name": "sGF/60",
+          "type": "sgf60",
+          "colour": "green",
+          "eng": "Slot Goals For per 60",
+          "desc": "Góly ze slotu pro tým za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sGA/60",
+          "type": "sga60",
+          "colour": "red",
+          "eng": "Slot Goals Against per 60",
+          "desc": "Góly ze slotu proti týmu za 60 minut",
+          "data": "60"
+        },
+        {
+          "name": "sGF%",
+          "type": "sgf_percent",
+          "colour": "green",
+          "eng": "Slot Goals For %",
+          "desc": "Podíl gólů ze slotu pro tým ze součtu gólů ze slotu pro tým a proti týmu",
+          "data": "percent"
+        },
+        {
+          "name": "sGF/60 Rel",
+          "type": "sgf60_rel",
+          "colour": "green",
+          "eng": "Slot Goals For per 60 Relative",
+          "desc": "Rozdíl mezi góly ze slotu pro tým za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sGA/60 Rel",
+          "type": "sga60_rel",
+          "colour": "red",
+          "eng": "Slot Goals Against per 60 Relative",
+          "desc": "Rozdíl mezi góly ze slotu proti týmu za 60 minut s hráčem na ledě a bez hráče na ledě",
+          "data": "60"
+        },
+        {
+          "name": "sGF% Rel",
+          "type": "sgf_percent_rel",
+          "colour": "red",
+          "eng": "Slot Goals For % Relative",
+          "desc": "Rozdíl mezi podíly gólů ze slotu pro tým ze všech gólů ze slotu pro i proti týmu s hráčem na ledě a bez hráče na ledě",
+          "data": "percent"
+        }
+      ]
+    }],
+    "faceOffs": [{
+      "name": "Vhazování",
+      "name_en": "Faceoffs",
+      "type": "teams_faceOffs",
+      "select_type": 1,
+      "enabled": true,
+      "attributes": [
+        {
+          "name": "FO",
+          "type": "fo",
+          "colour": "white",
+          "eng": "Faceoffs",
+          "desc": "Účasti na vhazování",
+          "data": "count"
+        },
+        {
+          "name": "FOW",
+          "type": "fow",
+          "colour": "white",
+          "eng": "Faceoffs Won",
+          "desc": "Vyhraná vhazování",
+          "data": "count"
+        },
+        {
+          "name": "FOW%",
+          "type": "fow_percent",
+          "colour": "white",
+          "eng": "Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování ze všech účastí na vhazování",
+          "data": "percent"
+        },
+        {
+          "name": "DZFO",
+          "type": "dzfo",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs",
+          "desc": "Účasti na vhazováních v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZFOW",
+          "type": "dzfow",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování v obranném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "DZFOW%",
+          "type": "dzfow_percent",
+          "colour": "red",
+          "eng": "Defensive Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování v obranném pásmu ze všech účastí na vhazováních v obranném pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "NZFO",
+          "type": "nzfo",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs",
+          "desc": "Účasti na vhazováních ve středním pásmu",
+          "data": "count"
+        },
+        {
+          "name": "NZFOW",
+          "type": "nzfow",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování ve středním pásmu",
+          "data": "count"
+        },
+        {
+          "name": "NZFOW%",
+          "type": "nzfow_percent",
+          "colour": "white",
+          "eng": "Neutral Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování ve středním pásmu ze všech účastí na vhazováních ve středním pásmu",
+          "data": "percent"
+        },
+        {
+          "name": "OZFO",
+          "type": "ozfo",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs",
+          "desc": "Účasti na vhazováních v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZFOW",
+          "type": "ozfow",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs Won",
+          "desc": "Vyhraná vhazování v útočném pásmu",
+          "data": "count"
+        },
+        {
+          "name": "OZFOW%",
+          "type": "ozfow_percent",
+          "colour": "green",
+          "eng": "Offensive Zone Faceoffs Won %",
+          "desc": "Podíl Účasti vhazování v útočném pásmu ze všech účastí na vhazováních v útočném pásmu",
+          "data": "percent"
+        }
+      ]
+    }]
+  }]
+}

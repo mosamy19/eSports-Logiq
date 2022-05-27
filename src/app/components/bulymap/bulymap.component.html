@@ -1,0 +1,405 @@
+<div #exportpng>
+  <div class="container-videos">
+    <div class="row">
+      <div class="column-aside aside-left">
+        <div class="game-type-selects">
+          <!-- *ngIf="checkAllGamesSelected()" -->
+          <button
+            (click)="mainGamesSelect('ALL')"
+            *ngIf="checkAllGamesSelected()"
+          >
+            {{ "vybrat_vsechny_zapasy" | translate }}
+          </button>
+          <!-- *ngIf="!checkAllGamesSelected()" -->
+          <button
+            (click)="mainGamesSelect('')"
+            *ngIf="!checkAllGamesSelected()"
+            class="selected"
+          >
+            {{ "odebrat_vsechny_zapasy" | translate }}
+          </button>
+        </div>
+
+        <div class="games-list-box">
+          <div class="games-list" #games_list>
+            <ng-container *ngFor="let game of games">
+              <div class="game" [ngClass]="{ active: game.active == true }">
+                <div
+                  class="check-indicator"
+                  (click)="toggleGame(game.id)"
+                ></div>
+                <div class="title" data-title="{{ game.match }}">
+                  <span class="teams"
+                    >{{ getTeamNameShortcut(game.homeTeam) }} -
+                    {{ getTeamNameShortcut(game.awayTeam) }}</span
+                  >
+                  <span class="date">{{ game.matchDate | match_date }}</span>
+                </div>
+                <div class="play-ico" (click)="playBulyPlace(game)"></div>
+
+                <div class="shots">
+                  <ng-container *ngFor="let circle of game.circles">
+                    <div
+                      class="circle circle-{{ circle.color }}"
+                      (click)="playBulyPlace(game)"
+                      *ngIf="circle.color == 0"
+                    >
+                      {{ circle.count }}
+                    </div>
+                    <div
+                      class="circle circle-0"
+                      (click)="
+                        playBulyPlace(
+                          game
+                        )
+                      "
+                      *ngIf="circle.color != 0"
+                    >
+                      {{ circle.count }} 
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+            <div style="height: 1000px"></div>
+          </div>
+        </div>
+
+        <div class="all-videos-box">
+          <button
+            class="all-videos"
+            (click)="openAllVideos()"
+          >
+            <span>{{ "prehrat_vybrane_zapasy" | translate }}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="column-center">
+        <div class="bulymap" id="bulymap">
+          <div class="loading" *ngIf="loading">
+            <img src="/assets/loading_img.svg" />
+            <span>{{ "nahravam_data" | translate }}</span>
+          </div>
+
+          <div class="left-side" *ngIf="!loading">
+            <div class="bulys-box top-left buly-list-{{ active_players.length }}">
+              <ng-container
+                *ngFor="let item of defenseDefenseLeft_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                  
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box bottom-left buly-list-{{ active_players.length }}">
+              <ng-container
+                *ngFor="let item of defenseDefenseRight_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                  
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box top-right buly-list-{{ active_players.length }}" [ngStyle]="{'margin-top': active_players.length == 5 ? '-83px' : ''}">
+              <ng-container
+                *ngFor="let item of defenseNeutralLeft_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                  
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box bottom-right buly-list-{{ active_players.length }}" [ngStyle]="{'margin-top': active_players.length == 5 ? '-22px' : ''}">
+              <ng-container
+                *ngFor="let item of defenseNeutralRight_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                 
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div
+            class="bulys-box center-zone buly-list-{{ active_players.length }}"
+            *ngIf="!loading"
+          >
+            <ng-container *ngFor="let item of center_data; let i = index">
+              <div
+                class="buly-box player-{{ item.color }}"
+              >
+                <div class="value-ratio">
+                  <div class="left-item">{{ getPomer(item) }}</div>
+                  <div class="right-item">{{ getPercent(item) }}%</div>
+                </div>
+                <div class="buttons" (click)="playBulyPlace(item)"></div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="right-side" *ngIf="!loading">
+            <div class="bulys-box top-left buly-list-{{ active_players.length }}" [ngStyle]="{'margin-top': active_players.length == 5 ? '-83px' : ''}">
+              <ng-container
+                *ngFor="let item of offenseNeutralLeft_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box bottom-left buly-list-{{ active_players.length }}" [ngStyle]="{'margin-top': active_players.length == 5 ? '-22px' : ''}">
+              <ng-container
+                *ngFor="let item of offenseNeutralRight_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box top-right buly-list-{{ active_players.length }}" >
+              <ng-container
+                *ngFor="let item of offenseDefenseLeft_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+            <div class="bulys-box bottom-right buly-list-{{ active_players.length }}">
+              <ng-container
+                *ngFor="let item of offenseDefenseRight_data; let i = index"
+              >
+                <div
+                  class="buly-box player-{{ item.color }}"
+                >
+                  <div class="value-ratio">
+                    <div class="left-item">{{ getPomer(item) }}</div>
+                    <div class="right-item">{{ getPercent(item) }}%</div>
+                  </div>
+                  <div class="buttons" (click)="playBulyPlace(item)"></div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="title-obranne-pasmo">
+            {{ "obranne_pasmo" | translate }}
+          </div>
+          <div class="title-utocne-pasmo">{{ "utocne_pasmo" | translate }}</div>
+        </div>
+
+        <div class="total-box">
+          <div class="total-box-title">
+            {{ "vsechna_vhazovani" | translate }}
+          </div>
+
+          <div class="boxes">
+            <ng-container *ngFor="let item of total_data; let i = index">
+              <div class="buly-box playerbox-{{ item.color }}">
+                <div class="box-title" *ngIf="shots_team">
+                  {{ getTeamNameShortcut(filter_team) }}
+                </div>
+                <div class="box-title" *ngIf="!shots_team">{{ item.name }}</div>
+                <div class="data">
+                  <div class="left-box">{{ getPomer(item) }}</div>
+                  <div class="right-box">{{ getPercent(item) }}%</div>
+                  <div class="play-ico" (click)="playBulyPlace(item)"></div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+
+
+          <div class="total-box-title">
+            {{ "leva_vhazovani" | translate }}
+          </div>
+
+          <div class="boxes">
+            <ng-container *ngFor="let item of leftSide_data; let i = index">
+              <div class="buly-box playerbox-{{ item.color }}">
+                <div class="box-title" *ngIf="shots_team">
+                  {{ getTeamNameShortcut(filter_team) }}
+                </div>
+                <div class="box-title" *ngIf="!shots_team">{{ item.name }}</div>
+                <div class="data">
+                  <div class="left-box">{{ getPomer(item) }}</div>
+                  <div class="right-box">{{ getPercent(item) }}%</div>
+                  <div class="play-ico" (click)="playBulyPlace(item)"></div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+
+
+          <div class="total-box-title">
+            {{ "prava_vhazovani" | translate }}
+          </div>
+
+          <div class="boxes">
+            <ng-container *ngFor="let item of rightSide_data; let i = index">
+              <div class="buly-box playerbox-{{ item.color }}">
+                <div class="box-title" *ngIf="shots_team">
+                  {{ getTeamNameShortcut(filter_team) }}
+                </div>
+                <div class="box-title" *ngIf="!shots_team">{{ item.name }}</div>
+                <div class="data">
+                  <div class="left-box">{{ getPomer(item) }}</div>
+                  <div class="right-box">{{ getPercent(item) }}%</div>
+                  <div class="play-ico" (click)="playBulyPlace(item)"></div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-aside aside-right">
+        <div class="boxes">
+          <div class="box">
+            <div class="form-box">
+              <label>{{ "vysledek_vhazovani" | translate }}</label>
+              <div class="buttons">
+                <button
+                  [class.active]="bully_result == 'ALL'"
+                  (click)="setBullyResult('ALL')"
+                >
+                  {{ "vsechna" | translate }}
+                </button>
+                <button
+                [class.active]="bully_result == 'won'"
+                (click)="setBullyResult('won')"
+                >
+                  {{ "vyhrana" | translate }}
+                </button>
+                <button
+                [class.active]="bully_result == 'lose'"
+                (click)="setBullyResult('lose')"
+                >
+                  {{ "prohrana" | translate }}
+                </button>
+              </div>
+            </div>
+  
+            <div class="form-box">
+              <label>{{ "drzeni_hole_soupere" | translate }}</label>
+              <div class="buttons">
+                <button
+                  [class.active]="stick_side == 'ALL'"
+                  (click)="setStickSide('ALL')"
+                >
+                  {{ "vsechna" | translate }}
+                </button>
+                <button
+                  [class.active]="stick_side == 'right'"
+                  (click)="setStickSide('right')"
+                >
+                  {{ "pravaci" | translate }}
+                </button>
+                <button
+                  [class.active]="stick_side == 'left'"
+                  (click)="setStickSide('left')"
+                >
+                  {{ "levaci" | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="form-box">
+              <label>{{ "zakonceni_po_vhazovani" | translate }}</label>
+              <div class="buttons">
+                <button
+                  [class.active]="bully_finish == 'ALL'"
+                  (click)="setBullyFinish('ALL')"
+                >
+                  {{ "vsechna" | translate }}
+                </button>
+                <button
+                  [class.active]="bully_finish == 'shot'"
+                  (click)="setBullyFinish('shot')"
+                >
+                  {{ "strela" | translate }}
+                </button>
+                <button
+                  [class.active]="bully_finish == 'slotShot'"
+                  (click)="setBullyFinish('slotShot')"
+                >
+                  {{ "strela_ze_slotu" | translate }}
+                </button>
+                <button
+                [class.active]="bully_finish == 'goal'"
+                (click)="setBullyFinish('goal')"
+                >
+                  {{ "gol" | translate }}
+                </button>
+              </div>
+            </div>
+  
+            <div class="form-box" >
+              <label>{{"vyber_protihrace" | translate}}</label>
+              <select [(ngModel)]="selected_opponent" (ngModelChange)="faceOffsFilter()">
+                <option value="ALL">{{ "vyberte_hrace" | translate }}</option>
+                <option disabled>_________________</option>
+                <ng-container *ngFor="let team of enemy_teams">
+                  <option disabled>{{team.shortName}}</option>
+                  <option disabled></option>
+                  <option *ngFor="let player of team.players" value="{{player.uuid}}">
+                    {{getPlayerShortName(player.name,player.surname)}}
+                  </option>
+                  <option disabled>_________________</option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>

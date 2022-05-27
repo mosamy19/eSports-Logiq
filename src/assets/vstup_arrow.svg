@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="223px" viewBox="0 0 24 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <g id="3.-Videomapy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.5---Videomapy---mapa-vstupů" transform="translate(-999.000000, -674.000000)" fill="#C1C7CD">
+            <g id="Group-3" transform="translate(999.000000, 674.000000)">
+                <g id="Group" fill-rule="nonzero">
+                    <g id="arrow-alt-circle-up" transform="translate(12.000000, 12.000000) scale(1, -1) translate(-12.000000, -12.000000) ">
+                        <g transform="translate(12.000000, 12.000000) scale(1, -1) translate(-12.000000, -12.000000) " id="Shape">
+                            <path d="M0,12 C0,5.37096774 5.37096774,0 12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 Z M14.1290323,17.6129032 L14.1290323,12 L17.5596774,12 C18.0774194,12 18.3387097,11.3709677 17.9709677,11.0080645 L12.4112903,5.47741935 C12.183871,5.25 11.8209677,5.25 11.5935484,5.47741935 L6.02903226,11.0080645 C5.66129032,11.3758065 5.92258065,12 6.44032258,12 L9.87096774,12 L9.87096774,17.6129032 C9.87096774,17.9322581 10.1322581,18.1935484 10.4516129,18.1935484 L13.5483871,18.1935484 C13.8677419,18.1935484 14.1290323,17.9322581 14.1290323,17.6129032 Z"></path>
+                        </g>
+                    </g>
+                </g>
+                <g id="sraf" transform="translate(11.000000, 23.000000)">
+                    <g id="sraf-line" transform="translate(0.000000, 192.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 180.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 168.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 156.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 144.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 132.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 120.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 108.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 96.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 84.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 72.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 60.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 48.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 36.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 24.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line" transform="translate(0.000000, 12.000000)">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                    <g id="sraf-line">
+                        <rect x="0" y="0" width="2" height="8" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

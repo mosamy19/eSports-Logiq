@@ -1,0 +1,704 @@
+<nav></nav>
+<div class="filter">
+  <div class="container">
+    <div class="row">
+      <div class="column form-box">
+        <label for="filter_season">{{"sezona" | translate}}
+          <sup>*</sup>
+        </label>
+        <div class="multiselect">
+          <div class="multiselect-text">{{itemsToString(filter_season)}}</div>
+          <angular2-multiselect [data]="seasons_select_list" [(ngModel)]="filter_season" [settings]="dropdownSettings"
+            (ngModelChange)="getSeasonParts()"></angular2-multiselect>
+        </div>
+      </div>
+      <div class="column form-box">
+        <label for="filter_seasonPart">{{"cast_sezony" | translate}}
+          <sup>*</sup>
+        </label>
+        <select id="filter_seasonPart" [(ngModel)]="filter_seasonPart" (ngModelChange)="getTeamsData()">
+          <option value="" selected disabled>Vyberte část</option>
+          <option value="{{competition.uuids}}" *ngFor="let competition of competitions_list">{{competition.name}}
+          </option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_team">{{"vybrat_tym" | translate}}
+          <sup>*</sup>
+        </label>
+        <select id="filter_team" [(ngModel)]="filter_team" (ngModelChange)="getPlayerList()">
+          <option value="" disabled selected>{{'vyberte_tym' | translate}}</option>
+          <option value="{{team.uuid}}" *ngFor="let team of teams_list">{{team.name}}</option>
+        </select>
+      </div>
+      <!--
+      <div class="column form-box form-box__zfix">
+        <label for="filter_player">{{'vyhledat_hrace' | translate}}
+          <sup>*</sup>
+        </label>
+        <input type="text" id="filter_player" placeholder="{{'napiste_jmeno' | translate}}" auto-complete
+          [list-formatter]="playerListFormatter" (valueChanged)="playerChanged($event)" value-property-name="uuid"
+          display-property-name="short_name" [source]="players_list"
+          (input)="playerChangedDetectDeleted($event.target.value)" #filter_name_input>
+      </div>
+      -->
+      <div class="column form-box">
+        <label for="filter_countOfPlayer">{{"pocet_hracu_na_lede" | translate}}</label>
+        <select id="filter_countOfPlayer" [(ngModel)]="filter_countOfPlayer">
+          <option value="5:5">5/5</option>
+          <option value="5:4">5/4</option>
+          <option value="4:5">4/5</option>
+          <option value="3:3">3/3</option>
+          <option value="ES">{{'rovnovazny_stav' | translate}}</option>
+          <option value="PP">{{'presilovky' | translate}}</option>
+          <option value="SH">{{'oslabeni' | translate}}</option>
+          <!-- <option value="WG" *ngIf="boolProd">{{'bez_brankare' | translate}}</option> -->
+          <option value="6:5">6/5</option>
+          <option value="5:6">5/6</option>
+          <option value="">{{'vsechny_situace' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_minTOI">{{"minimalni_toi" | translate}} (min.)</label>
+        <input type="number" id="filter_minTOI" placeholder="{{'zadejte_cas' | translate}}" min="0" max="60"
+          [(ngModel)]="filter_minTOI">
+      </div>
+      <div class="column form-box">
+        <label for="filter_lastGame">{{'poslednich_utkani' | translate}}</label>
+        <input type="number" id="filter_lastGames" placeholder="{{'zadejte_pocet' | translate}}" min="0" max="100"
+          [(ngModel)]="filter_lastGames">
+      </div>
+      <div class="column form-box form-box__right">
+        <label>&nbsp;</label>
+        <input type="button" value="{{'vice_filtru' | translate}}" class="more-filters" *ngIf="more_filters==false"
+          (click)="showMoreFilters()">
+        <input type="button" value="{{'mene_filtru' | translate}}" class="more-filters active"
+          *ngIf="more_filters==true" (click)="showMoreFilters()">
+      </div>
+      <div class="column form-box">
+        <label>&nbsp;</label>
+        <input type="submit" value="{{'nahrat_data' | translate}}" (click)="loadData()"
+          [className]="filter_season!='' && filter_seasonPart!='' && filter_team!='' ? 'load-data' : 'load-data load-data__disabled'">
+      </div>
+    </div>
+
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_calendar_from">{{'kalendar_od' | translate}}</label>
+        <input type="date" [(ngModel)]="filter_dateFrom" (ngModelChange)="dateFromChange($event)">
+      </div>
+      <div class="column form-box">
+        <label for="filter_calendar_from">{{'kalendar_do' | translate}}</label>
+        <input type="date" [(ngModel)]="filter_dateTo" (ngModelChange)="dateToChange($event)">
+      </div>
+      <div class="column form-box">
+        <label for="filter_homeAway">{{'doma_venku' | translate}}</label>
+        <select id="filter_homeAway" [(ngModel)]="filter_homeAway">
+          <option value="">{{'doma_i_venku' | translate}}</option>
+          <option value="home">{{'doma' | translate}}</option>
+          <option value="away">{{'venku' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_matchState">{{'stav_utkani' | translate}}</label>
+        <select id="filter_matchState" [(ngModel)]="filter_matchState">
+          <option value="">{{'vsechny_stavy' | translate}}</option>
+          <option value="lead">{{'ve_vedeni' | translate}}</option>
+          <option value="trail">{{'pri_prohravani' | translate}}</option>
+          <option value="tie">{{'vyrovnany' | translate}}</option>
+        </select>
+      </div>
+      <div class="column form-box">
+        <label for="filter_minutes">{{'time_in_games' | translate}}</label>
+        <div class="from-to">
+          <input type="number" id="filter_minutes_from" placeholder="{{'od' | translate}}"
+            [(ngModel)]="filter_minutes_from">
+          <span>-</span>
+          <input type="number" id="filter_minutes_to" placeholder="{{'do' | translate}}"
+            [(ngModel)]="filter_minutes_to">
+        </div>
+      </div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+    </div>
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_minutes">{{'vyberte_soupere' | translate}}</label>
+      </div>
+    </div>
+
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <div [className]="checkNonselectedOpponent() ? 'btn-opponent btn-opponent__active' : 'btn-opponent'"
+          (click)="setOpponentsAll()">{{'vsichni' | translate}}</div>
+      </div>
+      <div class="column form-box" *ngFor="let team of teams_list">
+        <div *ngIf="filter_team==team.uuid"
+          [className]="filter_opponent==team.uuid ? 'btn-opponent btn-opponent__active' : 'btn-opponent disabled'">
+          {{team.shortcut}}</div>
+        <div *ngIf="filter_team!=team.uuid" class="btn-opponent"
+          [ngClass]="{'btn-opponent__active':checkSelectedOpponent(team.uuid) == true}"
+          (click)="addOpponent(team.uuid)">{{team.shortcut}}</div>
+      </div>
+    </div>
+
+
+
+    <div class="row more-filters-row" [class.more-filters-row-active]="more_filters==true">
+      <div class="column form-box">
+        <label for="filter_situationType">{{'filtr_po_situaci' | translate}}</label>
+        <select id="filter_situationType" [(ngModel)]="filter_situationType">
+          <option value="">{{'vyberte_situaci' | translate}}</option>
+          <option value="wonInDefenseZone">{{'vyhrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+          <option value="wonInOffenseZone">{{'vyhrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+          <option value="lostInDefenseZone">{{'prohrane_vhazovani_v_obrannem_pasmu' | translate}}</option>
+          <option value="lostInOffenseZone">{{'prohrane_vhazovani_v_utocnem_pasmu' | translate}}</option>
+
+          <ng-container>
+            <option value="successfulZoneEntry">{{'uspesny_vstup_do_pasma' | translate}}</option>
+            <option value="unsuccessfulZoneEntry">{{'neuspesny_vstup_do_pasma' | translate}}</option>
+            <option value="successfulZoneExit">{{'uspesny_vystup_z_pasma' | translate}}</option>
+            <option value="unsuccessfulZoneExit">{{'neuspesny_vystup_z_pasma' | translate}}</option>
+          </ng-container>
+
+        </select>
+      </div>
+      <div class="column form-box">
+        <ng-container *ngIf="filter_situationType!=''">
+          <label for="filter_situationTime">{{'cas_po_situaci' | translate}} </label>
+          <input type="number" id="filter_situationTime" placeholder="{{'zadejte_cas' | translate}}"
+            [(ngModel)]="filter_situationTime">
+        </ng-container>
+      </div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+      <div class="column form-box"></div>
+    </div>
+
+
+
+
+    <div [className]="dataLoaded ? 'row tabs' : 'row tabs tabs__disabled'">
+      <div class="column tabs-list">
+        <span class="item" [class.active]="tab=='data'" (click)="showTab('data')">Data</span>
+        <span class="item item_dark" [class.active]="tab=='vizualizace'"
+          (click)="showTab('vizualizace')">{{'vizualizace' | translate}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="tab-content" [class.show]="tab=='data'">
+  <div class="container" *ngIf="!no_data">
+    <Loading *ngIf="loading"></Loading>
+
+    <div class="table-wowy" *ngIf="!loading">
+
+
+
+      <div class="filter">
+        <div class="row">
+          <div class="column form-box">
+            <label>&nbsp;</label>
+            <div class="check check-green" [ngClass]="{'check__active':filter_hraci_spolu == true}"
+              (click)="hraci_spolu_toggle()">
+              <div class="ico"></div>
+              <label>{{'hraci_spolu' | translate}}</label>
+            </div>
+          </div>
+          <div class="column form-box">
+            <label>&nbsp;</label>
+            <div class="check check-red" [ngClass]="{'check__active':filter_hraci_zvlast == true}"
+              (click)="hraci_zvlast_toggle()">
+              <div class="ico"></div>
+              <label>{{'hrac_zvlast' | translate}}</label>
+            </div>
+          </div>
+          <div class="column form-box">
+            <label>&nbsp;</label>
+            <div class="check check-yellow" [ngClass]="{'check__active':filter_spoluhraci_zvlast == true}"
+              (click)="spoluhraci_zvlast_toggle()">
+              <div class="ico"></div>
+              <label>{{'spoluhrac_zvlast' | translate}}</label>
+            </div>
+          </div>
+          <div class="column form-box">
+            <label for="filter_posts">{{'filtrovat_pozice' | translate}}</label>
+            <select id="filter_posts" [(ngModel)]="filter_posts">
+              <option value="ALL">{{'vsechny_pozice' | translate}}</option>
+              <option value="FO">{{'jen_utocnici' | translate}}</option>
+              <option value="DE">{{'jen_obranci' | translate}}</option>
+            </select>
+          </div>
+          <div class="column form-box">
+            <label>&nbsp;</label>
+            <div class="s-bez" (click)="recount()" [ngClass]="{'s-bez__active':filter_s_bez == true}">
+              {{'odecet_s_bez' | translate}}</div>
+          </div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        {{setDefaultOrderRow()}}
+        <table [mfData]="data" #mf="mfDataTable" (mfSortByChange)="changedOrder($event)" [mfSortBy]="['toi']"
+          [mfSortOrder]="'desc'" [mfRowsOnPage]="1000" class="filter-{{filter_posts}}">
+          <thead>
+            <tr *ngFor="let player_data of selected_player">
+              <th class="gray-cell center"></th>
+              <th class="gray-cell center"></th>
+              <th class="gray-cell">
+                <div class="sticker sticker__white sticker__nowrap">{{getPlayerName(player_data.uuid)}}</div>
+              </th>
+
+              <th class="gray-cell center">{{player_data.gp}}</th>
+
+              <th class="gray-cell center" [style.width]="width + 'px'">{{player_data.toi | format_sesonds}}</th>
+
+              <th *ngFor="let attribute of table_settings"
+                class="gray-cell center {{getTableToggleAttributes(attribute['type'])}}">
+                {{player_data[attribute['type']]}}</th>
+
+            </tr>
+            <tr>
+              <th colspan="3" class="select-data">
+                <div class="toggle-table-data" (click)="toggleTableSettings()">
+                  <img src="/assets/ico-data.svg" class="ico"> {{'vybrat_vlastni_data' | translate}}
+                </div>
+              </th>
+
+
+              <th class="center {{getTableToggleAttributes('gp')}}">
+                <mfDefaultSorter by="gp">GP</mfDefaultSorter>
+              </th>
+
+
+              <th class="center {{getTableToggleAttributes('toi')}}">
+                <mfDefaultSorter by="toi">TOI</mfDefaultSorter>
+              </th>
+
+
+              <th *ngFor="let attribute of table_settings"
+                class="center {{getTableToggleAttributes(attribute['type'])}}">
+                <mfDefaultSorter by="{{attribute['type']}}">{{attribute['name']}}</mfDefaultSorter>
+                <div class="attribute-line attribute-line_{{getAttributeColour(attribute['type'])}}"></div>
+                <div class="attribute-table-tooltip">
+                  <div class="attribute-table-tooltip-title">{{getAttributeText(attribute['type'],1)}}</div>
+                  <div class="attribute-table-tooltip-desc">{{getAttributeText(attribute['type'],2)}}</div>
+                </div>
+              </th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of mf.data" class="post-{{getPlayerPost(item['uuid'])}}">
+              <ng-container *ngIf="filter_posts=='FO'">
+                <ng-container *ngIf="getPlayerPost(item['uuid'])=='FO'">
+                  {{addOrderRow()}}
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="filter_posts=='DE'">
+                <ng-container *ngIf="getPlayerPost(item['uuid'])=='DE'">
+                  {{addOrderRow()}}
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="filter_posts=='ALL'">
+                {{addOrderRow()}}
+              </ng-container>
+
+
+              <td class="eye" *ngIf="filter_hraci_spolu || filter_hraci_zvlast || filter_spoluhraci_zvlast">
+                <div class="eye-dropdown">
+                  w <div class="eye-dropdown-menu">
+                    <ul>
+                      <li><a
+                          href="{{formationAnalysisLink(selected_player[0]['uuid'],item['uuid'],undefined,undefined,undefined,undefined)}}"
+                          target="_blank">{{'analyzovat_hrace' | translate}}</a></li>
+                      <li><a
+                          href="{{gamelogLink(selected_player[0]['uuid'],item['uuid'],undefined,undefined,undefined,undefined)}}"
+                          target="_blank">Game log</a></li>
+                      <li><a
+                          href="{{trendLink(selected_player[0]['uuid'],item['uuid'],undefined,undefined,undefined,undefined)}}"
+                          target="_blank">Trend</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+
+              <td class="td-content__order"
+                *ngIf="filter_hraci_spolu || filter_hraci_zvlast || filter_spoluhraci_zvlast">
+                {{list_order}}.
+              </td>
+
+
+              <td>
+                <div class="td-content">
+                  <div class="sub-row bold" *ngIf="filter_hraci_spolu">
+                    <div class="sticker sticker__green sticker__nowrap">{{getPlayerName(selected_player[0]['uuid'])}}
+                      {{'s' | translate}}
+                      {{getPlayerName(item['uuid'])}}</div>
+                  </div>
+                  <div class="sub-row" *ngIf="filter_hraci_zvlast">
+                    <div class="sticker sticker__red sticker__nowrap">{{getPlayerName(selected_player[0]['uuid'])}}
+                      {{'bez' | translate}}
+                      {{getPlayerName(item['uuid'])}}</div>
+                  </div>
+                  <div class="sub-row" *ngIf="filter_spoluhraci_zvlast">
+                    <div class="sticker sticker__yellow sticker__nowrap">{{getPlayerName(item['uuid'])}}
+                      {{'bez' | translate}}
+                      {{getPlayerName(selected_player[0]['uuid'])}}</div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="{{getTableToggleAttributes('gp')}}">
+                <div class="td-content center">
+                  <div class="sub-row bold" *ngIf="filter_hraci_spolu" [innerHTML]="item['stats'][0].gp"
+                    [ngClass]="{'sorted':filterby == 'gp'}"></div>
+                  <div class="sub-row" *ngIf="filter_hraci_zvlast" [innerHTML]="item['stats'][1].gp"
+                    [ngClass]="{'sorted':filterby == 'gp'}"></div>
+                  <div class="sub-row" *ngIf="filter_spoluhraci_zvlast" [innerHTML]="item['stats'][2].gp"
+                    [ngClass]="{'sorted':filterby == 'gp'}"></div>
+                </div>
+              </td>
+
+
+              <td class="{{getTableToggleAttributes('toi')}}">
+                <div class="td-content center">
+                  <div class="sub-row bold" *ngIf="filter_hraci_spolu"
+                    [innerHTML]="item['stats'][0].toi | format_sesonds" [ngClass]="{'sorted':filterby == 'toi'}"></div>
+                  <div class="sub-row" *ngIf="filter_hraci_zvlast" [innerHTML]="item['stats'][1].toi | format_sesonds"
+                    [ngClass]="{'sorted':filterby == 'toi'}"></div>
+                  <div class="sub-row" *ngIf="filter_spoluhraci_zvlast"
+                    [innerHTML]="item['stats'][2].toi | format_sesonds" [ngClass]="{'sorted':filterby == 'toi'}"></div>
+                </div>
+              </td>
+
+
+              <td *ngFor="let attribute of table_settings" class="{{getTableToggleAttributes(attribute['type'])}}">
+                <div class="td-content center">
+                  <div class="sub-row bold" *ngIf="filter_hraci_spolu"
+                    [innerHTML]="formatValue(item['stats'][0][attribute['type']])"
+                    [ngClass]="{'sorted':filterby == attribute['type']}"></div>
+                  <div class="sub-row" *ngIf="filter_hraci_zvlast"
+                    [innerHTML]="formatValue(item['stats'][1][attribute['type']]) | get_colour:filter_s_bez"
+                    [ngClass]="{'sorted':filterby == attribute['type']}"></div>
+                  <div class="sub-row" *ngIf="filter_spoluhraci_zvlast"
+                    [innerHTML]="formatValue(item['stats'][2][attribute['type']]) | get_colour:filter_s_bez"
+                    [ngClass]="{'sorted':filterby == attribute['type']}"></div>
+                </div>
+              </td>
+
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="download-box">
+        <div class="btn btn-download" (click)="downloadCSV()">{{'export_dat' | translate}}</div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <no-data *ngIf="no_data"></no-data>
+
+
+</div>
+
+
+<div class="tab-content tab-content__dark" [class.show]="tab=='vizualizace'">
+  <div class="container" *ngIf="!no_data">
+
+    <Loading *ngIf="loading"></Loading>
+
+
+
+
+    <div class="charts" *ngIf="!loading">
+
+      <div class="small-tab-content">
+
+        <div class="filter">
+          <div class="row">
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div class="check check-green" [ngClass]="{'check__active':filter_hraci_spolu == true}"
+                (click)="hraci_spolu_toggle()">
+                <div class="ico"></div>
+                <label>{{'hraci_spolu' | translate}}</label>
+              </div>
+            </div>
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div class="check check-red" [ngClass]="{'check__active':filter_hraci_zvlast == true}"
+                (click)="hraci_zvlast_toggle()">
+                <div class="ico"></div>
+                <label>{{'hrac_zvlast' | translate}}</label>
+              </div>
+            </div>
+            <div class="column form-box">
+              <label>&nbsp;</label>
+              <div class="check check-yellow" [ngClass]="{'check__active':filter_spoluhraci_zvlast == true}"
+                (click)="spoluhraci_zvlast_toggle()">
+                <div class="ico"></div>
+                <label>{{'spoluhrac_zvlast' | translate}}</label>
+              </div>
+            </div>
+            <div class="column form-box">
+              <label for="filter_posts">{{'filtrovat_pozice' | translate}}</label>
+              <select id="filter_posts" [(ngModel)]="filter_posts">
+                <option value="ALL">{{'vsechny_pozice' | translate}}</option>
+                <option value="FO">{{'jen_utocnici' | translate}}</option>
+                <option value="DE">{{'jen_obranci' | translate}}</option>
+              </select>
+            </div>
+            <div class="column"></div>
+            <div class="column legenda">
+              <!--
+                <div class="average-competition">vs průměr TELH</div>
+                <div class="average-team">vs průměr týmu</div>
+              -->
+            </div>
+          </div>
+        </div>
+
+        <div class="player-name-heading" *ngIf="dataLoaded==true">{{getPlayerName(selected_player[0]['uuid'])}}</div>
+
+        <div class="graph-name">{{selected_graph_name}}</div>
+
+        <div class="bubble-graph">
+
+
+          <div class="y-scale">
+            <div class="number">
+              <span>100</span>
+            </div>
+            <div class="number">
+              <span>90</span>
+            </div>
+            <div class="number">
+              <span>80</span>
+            </div>
+            <div class="number">
+              <span>70</span>
+            </div>
+            <div class="number">
+              <span>60</span>
+            </div>
+            <div class="number">
+              <span>50</span>
+            </div>
+            <div class="number">
+              <span>40</span>
+            </div>
+            <div class="number">
+              <span>30</span>
+            </div>
+            <div class="number">
+              <span>20</span>
+            </div>
+            <div class="number">
+              <span>10</span>
+            </div>
+            <div class="number">
+              <span>0</span>
+            </div>
+          </div>
+
+          <div class="bubble-graph-scroll" #graphscroll>
+
+            <div class="bubble-graph-inner filter-{{filter_posts}}">
+
+              <!--
+              <div class="average average-team" [ngStyle]="{bottom: team_averages['cf60']+'%'}" *ngIf="selected_graph=='cf60'">
+                <span class="name" [ngStyle]="{left: graph_scroll+14+'px'}">vs průměr týmu</span>
+                <div class="value">
+                  <div class="number" [ngStyle]="{left: graph_scroll+1170+'px'}">{{team_averages['cf60']}}</div>
+                </div>
+              </div>
+
+              <div class="average average-competition" [ngStyle]="{bottom: competition_averages['cf60']+'%'}" *ngIf="selected_graph=='cf60'">
+                <span class="name" [ngStyle]="{left: graph_scroll+14+'px'}">vs průměr TELH</span>
+                <div class="value">
+                  <div class="number" [ngStyle]="{left: graph_scroll+1170+'px'}">{{competition_averages['cf60']}}</div>
+                </div>
+              </div>
+              -->
+
+
+
+              <div class="bubble-column post-{{getPlayerPost(item['uuid'])}}" *ngFor="let item of data">
+
+                <ng-container *ngFor="let graph_setting of graph_settings">
+                  <div *ngIf="graph_setting['type']==selected_graph">
+
+                    <div class="bubble bubble__yellow"
+                      [ngStyle]="drawGraphCircle(item['stats'][2][graph_setting['type']],graph_setting['type'],item['stats'][2]['toi'])"
+                      *ngIf="filter_spoluhraci_zvlast"></div>
+                    <div class="bubble bubble__red"
+                      [ngStyle]="drawGraphCircle(item['stats'][1][graph_setting['type']],graph_setting['type'],item['stats'][1]['toi'])"
+                      *ngIf="filter_hraci_zvlast"></div>
+                    <div class="bubble bubble__green"
+                      [ngStyle]="drawGraphCircle(item['stats'][0][graph_setting['type']],graph_setting['type'],item['stats'][0]['toi'])"
+                      *ngIf="filter_hraci_spolu"></div>
+
+                  </div>
+                </ng-container>
+
+
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row"></div>
+                <div class="bubble-row bubble-row__last"></div>
+              </div>
+
+
+            </div>
+
+
+
+            <div class="graph-data-legenda">
+              <table>
+                <tr>
+                  <th class="select-data">
+                    <div class="toggle-graph-data" (click)="toggleGraphSettings()">
+                      <img src="/assets/ico-data.svg" class="ico"> {{'vybrat_data' | translate}}
+                    </div>
+                    <div class="select-data-inner" *ngIf="toggle_graph_settings">
+                      <div class="setting-close" (click)="toggleGraphSettings()">Zavřít
+                        <div class="ico-close">
+                          <div class="ico"></div>
+                        </div>
+                      </div>
+                      <div class="setting" *ngFor="let item of graph_settings">
+                        <div class="setting-name">{{item['name']}}</div>
+                        <div class="setting-check">
+                          <input type="checkbox" name="{{item['type']}}" id="{{item['type']}}" class="ios-toggle"
+                            [checked]="item['enabled']" (click)="toggleGraphAttributes(item['type'])">
+                          <label for="{{item['type']}}" class="checkbox-label"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+                <ng-container *ngFor="let item of graph_settings">
+                  <tr *ngIf="item['enabled']" class="graph_select_row">
+                    <td class="select_row" [ngClass]="{'select_row__active':selected_graph==item['type']}"
+                      (click)="graphSelectRow(item['type'],item['name'])">{{item['name']}}</td>
+                  </tr>
+                </ng-container>
+              </table>
+            </div>
+
+            <div class="graph-data-arrow">
+              <div class="arrow-right" (click)="scroll_next()" *ngIf="canscrollnext"></div>
+              <div class="arrow-left" (click)="scroll_prev()" *ngIf="canscrollprev"></div>
+            </div>
+
+
+            <div class="graph-data">
+              <div class="graph-data-inner filter-{{filter_posts}}">
+
+                <div class="graph-data-box post-{{getPlayerPost(item['uuid'])}}" *ngFor="let item of data_graph">
+                  <table>
+                    <tr>
+                      <td class="player-name">
+                        <div class="player-name-inner">{{getPlayerName(item['uuid'])}}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="th-green" [ngClass]="{'disabled_cell':filter_hraci_spolu == false}"
+                        (click)="getGraphSettings()">{{item['stats'][0]['toi']
+                        | format_sesonds}}</th>
+                      <th class="th-red" [ngClass]="{'disabled_cell':filter_hraci_zvlast == false}">{{item['stats'][1]['toi']
+                        | format_sesonds}}</th>
+                      <th class="th-yellow" [ngClass]="{'disabled_cell':filter_spoluhraci_zvlast == false}">{{item['stats'][2]['toi']
+                        | format_sesonds}}</th>
+                    </tr>
+
+                    <tr *ngFor="let attribute of getGraphSettings()">
+                      <ng-container *ngFor="let data_row of [0,1,2]; let i = index">
+                        <td *ngIf="i==0" [ngClass]="{'disabled_cell':filter_hraci_spolu == false}"
+                          [innerHTML]="item['stats'][i][attribute['type']] | get_colour:filter_s_bez"></td>
+                        <td *ngIf="i==1" [ngClass]="{'disabled_cell':filter_hraci_zvlast == false}"
+                          [innerHTML]="item['stats'][i][attribute['type']] | get_colour:filter_s_bez"></td>
+                        <td *ngIf="i==2" [ngClass]="{'disabled_cell':filter_spoluhraci_zvlast == false}"
+                          [innerHTML]="item['stats'][i][attribute['type']] | get_colour:filter_s_bez"></td>
+                      </ng-container>
+                    </tr>
+
+                  </table>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+  <no-data-dark *ngIf="no_data" class="no_data_dark"></no-data-dark>
+
+
+
+
+
+</div>
+
+
+<div class="tab-content" [class.show]="tab==''">
+  <select-data></select-data>
+</div>
+
+
+<settings-canvas *ngIf="toggle_table_settings" (toggleTableSettings_)="toggleTableSettings()"
+  [table_settings_data]="table_settings" (apply_selected_attributes)="onChangedAttributes($event)"></settings-canvas>
+
+
+
+<footer-box></footer-box>

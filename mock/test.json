@@ -1,0 +1,57 @@
+{
+  "cz":{
+    "videomaps":{
+      "strely":{
+        "main":{
+          "header":"Videomapy - Heatmapa  <b> Hrubý text </b>",
+          "text":"Nejaký text"
+        },
+        "tips":[
+          {
+            "header": "Srovnat četnost ...",
+            "text": "Nejaký text"
+          },
+          {
+            "header": "Heatmapa střel ...",
+            "text": "Nejaký text" 
+          }
+        ],
+        "functions":[
+          {
+            "header":"Výber hráču",
+            "id":0,
+            "functions":[
+              {
+                "text": "Tlačítko ON v ...."
+              },
+              {
+                "text": "Tlačítko OFF v ...."
+              }
+            ]
+          },
+          {
+            "header":"Niečo iné",
+            "id":1,
+            "functions":[
+              {
+                "text": "Popis niečoho iného ON ...."
+              },
+              {
+                "text": "Popis niečoho iného OFF ...."
+              }
+            ]
+          }
+        ]
+      },
+      "heatmapa":[{
+
+      }]
+    },
+    "hraci":[{
+
+    }]
+  },
+  "en":{
+    
+  }
+} 

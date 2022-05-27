@@ -1,0 +1,41 @@
+<div id="full-content">
+  <nav>
+  </nav>
+
+  <div class="main-content">
+
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <div class="contact">
+
+            <h1>Kontakt</h1>
+
+            <div class="alert alert-success" *ngIf="sent">
+              <strong>Výborně!</strong> E-mail byl odeslán na podporu.
+            </div>
+
+            <label>Váš e-mail:</label>
+            <input type="text" class="email" name="email" placeholder="Zadejte e-mail" [(ngModel)]="email">
+
+            <label>Popis problému:</label>
+            <textarea class="text" placeholder="Popište problém" [(ngModel)]="text"></textarea>
+
+            <button (click)="sendEmail()" [disabled]="email=='' && text==''">Odeslat</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="loading==true" class='fullscreenDiv'>
+    <div class="center">
+      <Loading></Loading>
+    </div>
+  </div>
+</div>
+
+
+<footer-box></footer-box>

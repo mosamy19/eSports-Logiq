@@ -1,0 +1,183 @@
+table {
+  width: 100%;
+  margin-top: 40px;
+
+  tr {
+
+    th,
+    td {
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      padding: 0;
+    }
+
+    th {
+      color: #fff;
+      background-color: #151d22;
+      padding: 0 8px;
+      height: 36px;
+    }
+
+    td {
+      color: #151d22;
+      padding: 0 8px;
+      height: 37px;
+      border-bottom: 1px solid #151d22;
+    }
+
+    th.download {
+      text-align: right;
+
+      button {
+        padding: 0;
+        background: url(/assets/arrow-circle-download_all.svg) no-repeat #1d5cff;
+        border: 0;
+        height: 26px;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #ffffff;
+        text-transform: none;
+        background-position: center left 6px;
+        padding-left: 25px;
+        padding-right: 5px;
+        border-radius: 2px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: #2451ce;
+        }
+      }
+    }
+
+    td.match {
+      .tag {
+        border-radius: 2px;
+        background-color: #eceff1;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #151d22;
+        padding: 4px 6px;
+        display: inline-block;
+      }
+    }
+
+    td.download {
+      text-align: right;
+
+      .tag.pink {
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #151d22;
+        height: 20px;
+        border-radius: 2px;
+        background-color: #ffc5d0;
+        padding: 4px 6px;
+        display: inline-block;
+      }
+
+      a {
+        height: 20px;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        color: #ffffff;
+        border-radius: 2px;
+        background-color: #1d5cff;
+        border: 0;
+        text-transform: none;
+        margin: 0;
+        padding: 0 12px;
+        display: inline-block;
+        padding-top: 4px;
+      }
+    }
+  }
+}
+
+
+.buly-false {
+  display: inline-block;
+  background: #ff2929;
+  color: #fff;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  font-size: 10px;
+  vertical-align: top;
+  padding-top: 2px;
+  margin-left: 4px;
+
+  &::after {
+    //content: "L";
+  }
+}
+
+
+.buly-true {
+  display: inline-block;
+  background: #119e1d;
+  color: #fff;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  font-size: 10px;
+  vertical-align: top;
+  padding-top: 3px;
+  margin-left: 4px;
+
+  &::after {
+    //content: "W";
+  }
+}
+
+.vstup-successful {
+  display: inline-block;
+  background: #119e1d;
+  color: #fff;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  padding-left: 4px;
+  font-size: 10px;
+  vertical-align: top;
+  padding-top: 2px;
+  margin-left: 4px;
+}
+
+.vstup-unsuccessful {
+  display: inline-block;
+  background: #ff2929;
+  color: #fff;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  padding-left: 4px;
+  font-size: 10px;
+  vertical-align: top;
+  padding-top: 2px;
+  margin-left: 4px;
+}

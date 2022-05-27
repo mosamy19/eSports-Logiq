@@ -1,0 +1,52 @@
+<div class="login">
+  <div class="login-box login-box__left">
+    <img src="/assets/logo-1.svg" width="50%" />
+  </div>
+  <div class="login-box login-box__right">
+    <div class="login-inner">
+      <h1>Hockey Logic {{ prostredi }}</h1>
+      <br />
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Chyba!</strong> Přihlášení se nepodařilo.
+      </div>
+      <input
+        type="text"
+        placeholder="E-mail"
+        name="email"
+        [(ngModel)]="user_email"
+      />
+      <input
+        type="password"
+        placeholder="Heslo"
+        name="password"
+        [(ngModel)]="user_password"
+      />
+      <select [(ngModel)]="language" (change)="changeLanguage()">
+        <option value="cz">Česky</option>
+        <option value="en">English</option>
+      </select>
+      <div *ngIf="language == 'cz'" style="width: 131px;" class="button btn-primary" (click)="auth()">{{"prihlasit_se" | translate}}</div>
+      <div *ngIf="language == 'en'" style="width: 131px;" class="button btn-primary" (click)="auth()">Login</div>
+    </div>
+
+    <!--
+      //Podminka
+      *ngIf="user_location=='CZ' || user_location=='CA' || user_location=='ID'"
+
+    <div class="login-inner" *ngIf="user_location!='CZ' && user_location!='CA' && user_location!='ID'">
+      <h1>Hockey Logiq</h1>
+      <br>
+      <div class="alert alert-danger">
+        <strong>Chyba!</strong> Aplikace Hockey Logic je dostupná pouze na území ČR
+      </div>
+    </div>
+    -->
+
+    <div class="copyright">
+      Made with <span>❤</span> by
+      <a href="http://esportsmedia.cz" target="_blank"
+        >eSports.cz ({{ user_location }})</a
+      >
+    </div>
+  </div>
+</div>

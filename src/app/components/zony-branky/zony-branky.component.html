@@ -1,0 +1,120 @@
+<div class="zona-branky">
+  <Loading *ngIf="loading"></Loading>
+
+  <div class="row filter">
+    <div class="column" style="padding-left: 0;">
+      <div class="column form-box">
+        <label for="filter_team">{{"vybrat_tym" | translate}}</label>
+        <select id="filter_team" [(ngModel)]="filter_team" (ngModelChange)="getPlayerList()">
+          <option value="" disabled selected>{{'vyberte_tym' | translate}}</option>
+          <option value="{{team.uuid}}" *ngFor="let team of teams_list">{{team.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="column form-box">
+      <label for="filter_team">{{'vybrat_brankare' | translate}}</label>
+      <select id="filter_goalkeeper" [(ngModel)]="filter_goalkeeper" (ngModelChange)="selectGoalkeeper()">
+        <option value="" disabled selected>{{'vyberte_brankare' | translate}}</option>
+        <option value="{{player.uuid}}" *ngFor="let player of players_list">{{player.surname}} {{player.name[0]}}.
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="net-row">
+
+    <div class="column">
+      <div class="percent" *ngIf="data_loaded">
+        <div class="percent_circle gabr_percent">
+          <div class="value-wrapper" [class.skala]="show_skala_zony">
+            {{gabr_percent}}%
+            <div *ngIf="show_skala_zony" class="skala-value">
+              {{gabr}}
+            </div>
+          </div>
+        </div>
+        <div class="percent_circle gabl_percent">
+          <div class="value-wrapper" [class.skala]="show_skala_zony">
+            {{gabl_percent}}%
+            <div *ngIf="show_skala_zony" class="skala-value">
+              {{gabl}}
+            </div>
+          </div>
+        </div>
+        <div class="percent_circle gaur_percent">
+          <div class="value-wrapper" [class.skala]="show_skala_zony">
+            {{gaul_percent}}%
+            <div *ngIf="show_skala_zony" class="skala-value">
+              {{gaul}}
+            </div>
+          </div>
+        </div>
+        <div class="percent_circle gaul_percent">
+          <div class="value-wrapper" [class.skala]="show_skala_zony">
+            {{gaur_percent}}%
+            <div *ngIf="show_skala_zony" class="skala-value">
+              {{gaur}}
+            </div>
+          </div>
+        </div>
+        <div class="percent_circle gafh_percent">
+          <div class="value-wrapper" [class.skala]="show_skala_zony">
+            {{gafh_percent}}%
+            <div *ngIf="show_skala_zony" class="skala-value">
+              {{gafh}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 304 202" style="enable-background:new 0 0 304 202;" xml:space="preserve" *ngIf="!show_skala_zony">
+        <style type="text/css">
+          .st0 {
+            fill: #FF1744;
+          }
+
+          .st1 {
+            fill: #DDE1E6;
+          }
+
+        </style>
+        <g>
+          <path class="st0" d="M6,202h292V12c0-3.3-2.7-6-6-6H12c-3.3,0-6,2.7-6,6V202z M12,0h280c6.6,0,12,5.4,12,12v190H0V12
+                                    C0,5.4,5.4,0,12,0z" />
+          <polygon class="st1" points="157,112 290,112 290,202 223.5,202" />
+          <polygon class="st1" points="152,118 213,202 91,202" />
+          <polygon class="st1" points="14,112 147,112 80.5,202 14,202" />
+          <path class="st1" d="M156,14h131c1.7,0,3,1.3,3,3v87H156V14z" />
+          <path class="st1" d="M17,14h131v90H14V17C14,15.3,15.3,14,17,14z" />
+        </g>
+      </svg>
+
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 304 202" style="enable-background:new 0 0 304 202;" xml:space="preserve" *ngIf="show_skala_zony">
+        <style type="text/css">
+          .st0 {
+            fill: #FF1744;
+          }
+
+          .st1 {
+            fill: #DDE1E6;
+          }
+
+        </style>
+        <g>
+          <path class="st0" d="M6,202h292V12c0-3.3-2.7-6-6-6H12c-3.3,0-6,2.7-6,6V202z M12,0h280c6.6,0,12,5.4,12,12v190H0V12
+                                    C0,5.4,5.4,0,12,0z" />
+          <polygon [ngClass]="gabl_percent_class" points="157,112 290,112 290,202 223.5,202" />
+          <polygon [ngClass]="gafh_percent_class" points="152,118 213,202 91,202" />
+          <polygon [ngClass]="gabr_percent_class" points="14,112 147,112 80.5,202 14,202" />
+          <path [ngClass]="gaul_percent_class" d="M156,14h131c1.7,0,3,1.3,3,3v87H156V14z" />
+          <path [ngClass]="gaur_percent_class" d="M17,14h131v90H14V17C14,15.3,15.3,14,17,14z" />
+        </g>
+      </svg>
+
+    </div>
+
+
+  </div>
+
+</div>

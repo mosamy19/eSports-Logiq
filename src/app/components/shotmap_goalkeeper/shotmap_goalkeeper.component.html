@@ -1,0 +1,654 @@
+<div class="container download" [ngClass]="{'invert':invert==true}" #exportpng>
+
+  <div class="row">
+    <div class="column-aside">
+
+      <div class="game-type-selects">
+        <button
+          (click)="mainGamesSelect('ALL')"
+          *ngIf="checkAllGamesSelected()"
+        >
+          {{ "vybrat_vsechny_zapasy" | translate }}
+        </button>
+        <button
+          (click)="mainGamesSelect('')"
+          *ngIf="!checkAllGamesSelected()"
+          class="selected"
+        >
+          {{ "odebrat_vsechny_zapasy" | translate }}
+        </button>
+      </div>
+
+      <div class="games-list-box">
+        <div class="games-list" #games_list>
+          <ng-container *ngFor="let game of games">
+            <div class="game" [ngClass]="{ active: game.active == true }">
+              <div
+                class="check-indicator"
+                (click)="toggleGame(game.id)"
+              ></div>
+              <div class="title">
+                <span class="teams"
+                  >{{ getTeamNameShortcut(game.homeTeam) }} -
+                  {{ getTeamNameShortcut(game.awayTeam) }}</span
+                >
+                <span class="date">{{ game.matchDate | match_date }}</span>
+              </div>
+              <div
+                class="play-ico"
+                (click)="playGameVideo(game, 'all', undefined)"
+              ></div>
+              <ng-container>
+                <div class="shots">
+                  <ng-container *ngFor="let circle of game.circles">
+                    <div
+                      class="circle circle-{{ circle.color }}"
+                      *ngIf="circle.count > 0"
+                      (click)="playGameVideo(game, circle.player, undefined)"
+                    >
+                      {{ circle.count }}
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <button class="all-videos" [disabled]="isGameChecked()" (click)="openAllVideos()">
+        <span *ngIf="main_games_select=='ALL'">{{'videa_ze_vsech_zapasu' | translate}}</span>
+        <span *ngIf="main_games_select=='SELECTED'">{{'videa_z_vybranych_zapasu' | translate}}</span>
+      </button>
+
+    </div>
+
+
+    <div class="column-center">
+      <div class="shotmap" id="shotmap">
+        <div 
+          *ngFor="let shot of circles"
+          class="circle circle-{{shot.color}}"
+          [ngStyle]="{ left: shot['x'] + 'px', top: shot['y']+ 'px' }"
+          [class.goal]="shot.type == 'G'"
+          (click)="shotClick(shot)">
+        </div>
+        <canvas 
+          #canvas 
+          id="canvas" 
+          width="760px" 
+          height="556px" 
+          (click)="closeVideo()"
+          ></canvas>
+      </div>
+
+      <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+        <div class="more-info" *ngIf="shotmapInfobarOpen">
+          <label>NEBEZPEČNOST STŘEL</label>
+          <div class="boxes">
+            <div class="box green">
+              <div class="box-name">{{"vysoka" | translate}}</div>
+              <table>
+                <tr>
+                  <th>
+                    <div class="heading">{{"pocet" | translate}}</div>
+                  </th>
+                  <th>
+                    <div class="heading">xG</div>
+                  </th>
+                  <th>
+                    <div class="heading">G</div>
+                  </th>
+                </tr>
+                <tr>
+                  <td class="left-box">{{getShotsCount('HD')}}</td>
+                  <td class="center-box">{{getXg('HD')}}</td>
+                  <td class="right-box">{{getGoalsCount('HD')}}</td>
+                </tr>
+              </table>
+            </div>
+            <div class="box orange">
+              <div class="box-name">{{"stredni" | translate}}</div>
+              <table>
+                <tr>
+                  <th>
+                    <div class="heading">{{"pocet" | translate}}</div>
+                  </th>
+                  <th>
+                    <div class="heading">xG</div>
+                  </th>
+                  <th>
+                    <div class="heading">G</div>
+                  </th>
+                </tr>
+                <tr>
+                  <td class="left-box">{{getShotsCount('MD')}}</td>
+                  <td class="center-box">{{getXg('MD')}}</td>
+                  <td class="right-box">{{getGoalsCount('MD')}}</td>
+                </tr>
+              </table>
+            </div>
+            <div class="box red">
+              <div class="box-name">{{"nizka" | translate}}</div>
+              <table>
+                <tr>
+                  <th>
+                    <div class="heading">{{"pocet" | translate}}</div>
+                  </th>
+                  <th>
+                    <div class="heading">xG</div>
+                  </th>
+                  <th>
+                    <div class="heading">G</div>
+                  </th>
+                </tr>
+                <tr>
+                  <td class="left-box">{{getShotsCount('LD')}}</td>
+                  <td class="center-box">{{getXg('LD')}}</td>
+                  <td class="right-box">{{getGoalsCount('LD')}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <table class="basic-info">
+          <tr>
+            <td>
+              TOI: {{getAllToi() | format_sesonds}}
+            </td>
+            <td>xG: {{getAllXg()}}</td>
+            <td>G: {{getAllGoals()}}</td>
+            <td class="toggler-td"><button class="toggler" (click)="toggleShotmapInfobar()"><img
+                  src="/assets/icobutton-download.svg" width="16" height="16"></button></td>
+          </tr>
+        </table>
+      </div>
+
+
+      <ng-container *ngIf="showVideoModal">
+        <div
+            class="shotmap-tooltip"
+            [ngClass]="{ small: selected_shot.netZone == null }"
+            [ngStyle]="{ left: tooltip_x + 23 + 'px', top: tooltip_y - 55 + 'px' }"
+          >
+            <div class="shotmap-tooltip-inner">
+              <div class="game-info">
+                {{ selected_shot.matchDate | format_date }},
+                {{ selected_shot.homeTeam }}-{{ selected_shot.awayTeam }}
+              </div>
+              <div class="game-gate">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 240 160"
+                  style="enable-background: new 0 0 304 202"
+                  xml:space="preserve"
+                >
+                <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g id="branka-copy">
+                  <path
+                    d="M4,160 L0,160 L0,7.044 C0,3.19 3.177,0 7,0 L233,0 C236.823,0 240,3.19 240,7.044 L240,160 L236,160 L236,7.044 C236.129,5.337 234.685,3.887 233,4.025 L7,4.025 C5.315,3.887 3.871,5.337 4,7.044 L4,160 Z"
+                    id="Path"
+                    fill="#FF1744"
+                  ></path>
+                  <path
+                    d="M84,86 L84,120 C84,122.563 84.603,124.986 85.674,127.134 L60.111,160 L8,160 L8,86 L84,86 Z"
+                    id="Path"
+                    fill="#f2f4f8"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: selected_shot.netZone == 'br' }"
+                  ></path>
+                  <rect
+                    id="Rectangle"
+                    fill="#f2f4f8"
+                    x="88"
+                    y="36"
+                    width="64"
+                    height="96"
+                    rx="12"
+                    [ngClass]="{ active: selected_shot.netZone == 'ce' }"
+                  ></rect>
+                  <path
+                    d="M118,8 L118,32 L100,32 C91.269,32 84.17,38.994 84.003,47.685 L84,48 L84,82 L8,82 L8,8 L118,8 Z"
+                    id="Path"
+                    fill="#f2f4f8"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: selected_shot.netZone == 'ur' }"
+                  ></path>
+                  <path
+                    d="M152.112,129.455 L175,159 L65,159 L87.888,129.455 C90.8301361,132.870621 95.0793291,134.882976 99.586,134.995 L100,135 L140,135 C144.84,135 149.178,132.85 152.112,129.455 Z"
+                    id="Path"
+                    fill="#f2f4f8"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: selected_shot.netZone == 'fh' }"
+                  ></path>
+                  <path
+                    d="M232,8 L232,82 L156,82 L156,48 C156,39.269 149.006,32.17 140.315,32.003 L140,32 L122,32 L122,8 L232,8 Z"
+                    id="Path"
+                    fill="#f2f4f8"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: selected_shot.netZone == 'ul' }"
+                  ></path>
+                  <path
+                    d="M231,86 L231,160 L178.889,160 L153.326,127.134 C154.358731,125.063184 154.927605,122.792123 154.993,120.479 L155,120 L155,86 L231,86 Z"
+                    id="Path"
+                    fill="#f2f4f8"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: selected_shot.netZone == 'bl' }"
+                  ></path>
+                </g>
+              </g>
+                </svg>
+              </div>
+              <div class="game-time">
+                <strong>{{ "cas" | translate }}:</strong>
+                {{ selected_shot.time | format_sesonds }}
+              </div>
+              <div class="game-time">
+                <strong>xG:</strong>
+                {{ getRoundNumber(selected_shot.xG,2)}}
+              </div>
+              <div class="game-shot">
+                <strong>{{ "strela" | translate }}:</strong>
+                {{ getPlayerName(selected_shot.player) }}
+              </div>
+              <button
+                class="game-video"
+                (click)="playGameVideo(selected_shot, 'all', selected_shot)"
+              >
+                {{ "prehrat_video" | translate }}
+              </button>
+            </div>
+          </div>
+      </ng-container>
+    </div>
+
+
+    <div class="column-aside  aside-right">
+      <div class="boxes">
+        <div class="box">
+
+          <div class="form-box">
+            <label>{{ 'vybrat_brankare' | translate}}</label>
+            <select id="filter_individual_player" 
+              class="goalie-select"
+              [(ngModel)]="filter_goalkeeper"
+              (ngModelChange)="changePlayer()"
+              [disabled]="players == ''">
+              <option value="" selected disabled>{{'brankar' | translate}}</option>
+              <option disabled>
+                ──────────
+              </option>
+              <option value="{{player.uuid}}" *ngFor="let player of players">{{player.surname}}
+                {{player.name[0]}}.</option>
+            </select>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "kategorie_strel" | translate }}</label>
+            <div class="buttons">
+              <div class="btn-box">
+                <button
+                [class.active]="shot_category == 'ALL'"
+                (click)="shotCategorySet('ALL')"
+                >
+                  {{ "na_branku" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [class.active]="shot_category == 'G'"
+                (click)="shotCategorySet('G')"
+                >
+                  {{ "goly" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "lokace_strel" | translate }}</label>
+            <div class="buttons">
+              <div class="btn-box">
+                <button
+                [class.active]="shot_location == 'ALL'"
+                (click)="shotLocationSet('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [class.active]="shot_location == 'slot'"
+                (click)="shotLocationSet('slot')"
+                >
+                  Slot
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "typy_strel" | translate }}</label>
+
+            <div class="btn-box">
+              <button
+                [class.active]="shot_type == 'ALL'"
+                (click)="shotTypeSet('ALL')"
+              >
+                {{ "vsechny" | translate }}
+              </button>
+            </div>
+
+            <div class="buttons">
+              <div class="btn-box">
+                <button
+                [class.active]="shot_type == 'z_prvni'"
+                (click)="shotTypeSet('z_prvni')"
+                >
+                  {{ "z_prvni" | translate }}
+                </button>
+              </div>
+
+              <div class="btn-box">
+                <button
+                [class.active]="shot_type == 'dorazky'"
+                (click)="shotTypeSet('dorazky')"
+                >
+                  {{ "dorazky" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "nebezpecnost_strel" | translate }}</label>
+
+            <div class="buttons">
+              <div class="btn-box">
+                <button 
+                [class.active]="shot_danger == 'ALL'"
+                (click)="shotDangerSet('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+
+              <div class="btn-box">
+                <button
+                [class.active]="shot_danger == 'high'"
+                (click)="shotDangerSet('high')"
+                >
+                  {{ "vysoka" | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <div class="btn-box">
+                <button
+                [class.active]="shot_danger == 'medium'"
+                (click)="shotDangerSet('medium')"
+                >
+                  {{ "stredni" | translate }}
+                </button>
+              </div>
+
+              <div class="btn-box">
+                <button
+                [class.active]="shot_danger == 'low'"
+                (click)="shotDangerSet('low')"
+                >
+                  {{ "nizka" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "drzeni_hole_soupere" | translate }}</label>
+
+            <div class="btn-box">
+              <button class="active"
+                [class.active]="shot_side == 'ALL'"
+                (click)="shotSideSet('ALL')"
+              >
+                {{ "vsichni" | translate }}
+              </button>
+            </div>
+
+            <div class="buttons">
+              <div class="btn-box">
+                <button
+                [class.active]="shot_side == 'left'"
+                (click)="shotSideSet('left')"
+                >
+                  {{ "levaci" | translate }}
+                </button>
+              </div>
+
+              <div class="btn-box">
+                <button
+                [class.active]="shot_side == 'right'"
+                (click)="shotSideSet('right')"
+                >
+                  {{ "pravaci" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="box">
+
+          <div class="form-box">
+            <label>{{ "typy_akce" | translate }}</label>
+
+            <div class="btn-box">
+              <button class="active"
+                [class.active]="shot_action == 'ALL'"
+                (click)="shotActionSet('ALL')"
+              >
+                {{ "vsechny" | translate }}
+              </button>
+            </div>
+
+            <div class="btn-box">
+              <button
+                [class.active]="shot_action == 'forcek'"
+                (click)="shotActionSet('forcek')"
+              >
+                {{ "forcek" | translate }}
+              </button>
+            </div>
+
+            <div class="btn-box">
+              <button
+                (click)="shotActionSet('rychly_utok')"
+                [class.active]="shot_action == 'rychly_utok'"
+              >
+                {{ "rychly_utok" | translate }}
+              </button>
+            </div>
+
+            <div class="btn-box">
+              <button
+                (click)="shotActionSet('dlouhy_utok')"
+                [class.active]="shot_action == 'dlouhy_utok'"
+              >
+                {{ "dlouhy_utok" | translate }}
+              </button>
+            </div>
+
+            <div class="btn-box">
+              <button
+                (click)="shotActionSet('precisleni')"
+                [class.active]="shot_action == 'precisleni'"
+              >
+                {{ "precisleni" | translate }}
+              </button>
+            </div>
+
+            <div class="btn-box">
+              <button
+                (click)="shotActionSet('po_vhazovani')"
+                [class.active]="shot_action == 'po_vhazovani'"
+              >
+                {{ "po_vhazovani" | translate }}
+              </button>
+            </div>
+
+          </div>
+
+          <div class="form-box">
+            <label>{{ "zony_branky" | translate }}</label>
+
+            <svg
+              width="100%"
+              viewBox="0 0 240 160"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <style>
+                .form-box .active {
+                  fill: #151d22 !important;
+                }
+
+                .form-box path,
+                .form-box rect {
+                  cursor: pointer;
+                }
+              </style>
+
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g id="branka-copy">
+                  <path
+                    d="M4,160 L0,160 L0,7.044 C0,3.19 3.177,0 7,0 L233,0 C236.823,0 240,3.19 240,7.044 L240,160 L236,160 L236,7.044 C236.129,5.337 234.685,3.887 233,4.025 L7,4.025 C5.315,3.887 3.871,5.337 4,7.044 L4,160 Z"
+                    id="Path"
+                    fill="#FF1744"
+                  ></path>
+                  <path
+                    d="M84,86 L84,120 C84,122.563 84.603,124.986 85.674,127.134 L60.111,160 L8,160 L8,86 L84,86 Z"
+                    id="Path"
+                    fill="#DDE1E6"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: filter_zone == 'br' }"
+                    (click)="selectGoalZone('br')"
+                  ></path>
+                  <rect
+                    id="Rectangle"
+                    fill="#DDE1E6"
+                    x="88"
+                    y="36"
+                    width="64"
+                    height="96"
+                    rx="12"
+                    [ngClass]="{ active: filter_zone == 'ce' }"
+                    (click)="selectGoalZone('ce')"
+                  ></rect>
+                  <path
+                    d="M118,8 L118,32 L100,32 C91.269,32 84.17,38.994 84.003,47.685 L84,48 L84,82 L8,82 L8,8 L118,8 Z"
+                    id="Path"
+                    fill="#DDE1E6"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: filter_zone == 'ur' }"
+                    (click)="selectGoalZone('ur')"
+                  ></path>
+                  <path
+                    d="M152.112,129.455 L175,159 L65,159 L87.888,129.455 C90.8301361,132.870621 95.0793291,134.882976 99.586,134.995 L100,135 L140,135 C144.84,135 149.178,132.85 152.112,129.455 Z"
+                    id="Path"
+                    fill="#DDE1E6"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: filter_zone == 'fh' }"
+                    (click)="selectGoalZone('fh')"
+                  ></path>
+                  <path
+                    d="M232,8 L232,82 L156,82 L156,48 C156,39.269 149.006,32.17 140.315,32.003 L140,32 L122,32 L122,8 L232,8 Z"
+                    id="Path"
+                    fill="#DDE1E6"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: filter_zone == 'ul' }"
+                    (click)="selectGoalZone('ul')"
+                  ></path>
+                  <path
+                    d="M231,86 L231,160 L178.889,160 L153.326,127.134 C154.358731,125.063184 154.927605,122.792123 154.993,120.479 L155,120 L155,86 L231,86 Z"
+                    id="Path"
+                    fill="#DDE1E6"
+                    fill-rule="nonzero"
+                    [ngClass]="{ active: filter_zone == 'bl' }"
+                    (click)="selectGoalZone('bl')"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <div class="numbers">
+              <div class="br">{{ getNetZoneNumbers("br") }}</div>
+              <div class="ce">{{ getNetZoneNumbers("ce") }}</div>
+              <div class="ur">{{ getNetZoneNumbers("ur") }}</div>
+              <div class="fh">{{ getNetZoneNumbers("fh") }}</div>
+              <div class="ul">{{ getNetZoneNumbers("ul") }}</div>
+              <div class="bl">{{ getNetZoneNumbers("bl") }}</div>
+            </div>
+          </div>
+
+          <div class="form-box">
+
+            <div class="btn-box">
+              <button class="download-map"
+                (click)="downloadMap()"
+              >
+                {{ "ulozit_mapu" | translate }}
+              </button>
+            </div>
+
+          </div>
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="modal" *ngIf="show_video_player">
+    <div class="modal-content">
+      <div class="video-box">
+        <div class="video-window">
+          <iframe [src]='video_url_safe' *ngIf="video_url!=''"></iframe>
+        </div>
+      </div>
+      <div class="close-button-box">
+        <span class="close-button" (click)="closeVideoPlayer()"><img
+            src="/assets/ico-close.svg">{{'zavrit_video' | translate}}</span>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<div class="fullscreen-loading" *ngIf="exporting_png">
+  <Loading></Loading>
+</div>

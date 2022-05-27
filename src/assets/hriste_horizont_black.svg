@@ -1,0 +1,292 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="328" viewBox="0 0 640 328">
+    <defs>
+        <path id="a" d="M128.194 0H320v328H128.194c-44.576 0-60.74-4.641-77.036-13.357-16.297-8.715-29.086-21.504-37.801-37.8C4.64 260.545 0 244.381 0 199.805v-71.612c0-44.576 4.641-60.74 13.357-77.036 8.715-16.297 21.504-29.086 37.8-37.801C67.455 4.64 83.619 0 128.195 0z"/>
+        <filter id="b" width="100.6%" height="100.6%" x="-.3%" y="-.3%" filterUnits="objectBoundingBox">
+            <feOffset dx="-2" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="d" d="M31 45h12v8H31z"/>
+        <filter id="c" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="f" d="M31 58h12v8H31z"/>
+        <filter id="e" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="h" d="M55 45h12v8H55z"/>
+        <filter id="g" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="j" d="M27 0h12v8H27z"/>
+        <filter id="i" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="l" d="M59 0h12v8H59z"/>
+        <filter id="k" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="n" d="M27 102h12v8H27z"/>
+        <filter id="m" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="p" d="M59 102h12v8H59z"/>
+        <filter id="o" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="r" d="M55 58h12v8H55z"/>
+        <filter id="q" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="t" d="M31 45h12v8H31z"/>
+        <filter id="s" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="v" d="M31 58h12v8H31z"/>
+        <filter id="u" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="x" d="M55 45h12v8H55z"/>
+        <filter id="w" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="z" d="M27 0h12v8H27z"/>
+        <filter id="y" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="B" d="M59 0h12v8H59z"/>
+        <filter id="A" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="D" d="M27 102h12v8H27z"/>
+        <filter id="C" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="F" d="M59 102h12v8H59z"/>
+        <filter id="E" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="H" d="M55 58h12v8H55z"/>
+        <filter id="G" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="I" d="M128.194 0H320v328H128.194c-44.576 0-60.74-4.641-77.036-13.357-16.297-8.715-29.086-21.504-37.801-37.8C4.64 260.545 0 244.381 0 199.805v-71.612c0-44.576 4.641-60.74 13.357-77.036 8.715-16.297 21.504-29.086 37.8-37.801C67.455 4.64 83.619 0 128.195 0z"/>
+        <filter id="J" width="100.6%" height="100.6%" x="-.3%" y="-.3%" filterUnits="objectBoundingBox">
+            <feOffset dx="-2" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="L" d="M31 45h12v8H31z"/>
+        <filter id="K" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="N" d="M31 58h12v8H31z"/>
+        <filter id="M" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="P" d="M55 45h12v8H55z"/>
+        <filter id="O" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="R" d="M27 0h12v8H27z"/>
+        <filter id="Q" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="T" d="M59 0h12v8H59z"/>
+        <filter id="S" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="V" d="M27 102h12v8H27z"/>
+        <filter id="U" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="X" d="M59 102h12v8H59z"/>
+        <filter id="W" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="Z" d="M55 58h12v8H55z"/>
+        <filter id="Y" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="ab" d="M31 45h12v8H31z"/>
+        <filter id="aa" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="ad" d="M31 58h12v8H31z"/>
+        <filter id="ac" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="af" d="M55 45h12v8H55z"/>
+        <filter id="ae" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="ah" d="M27 0h12v8H27z"/>
+        <filter id="ag" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="aj" d="M59 0h12v8H59z"/>
+        <filter id="ai" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="al" d="M27 102h12v8H27z"/>
+        <filter id="ak" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="an" d="M59 102h12v8H59z"/>
+        <filter id="am" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+        <path id="ap" d="M55 58h12v8H55z"/>
+        <filter id="ao" width="108.3%" height="112.5%" x="-4.2%" y="-6.2%" filterUnits="objectBoundingBox">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0823529412 0 0 0 0 0.11372549 0 0 0 0 0.133333333 0 0 0 1 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g fill-rule="nonzero">
+                <use fill="#FFF" xlink:href="#a"/>
+                <use fill="#000" filter="url(#b)" xlink:href="#a"/>
+                <path stroke="#151D22" stroke-linejoin="square" d="M319.5 327.5V.5H128.194c-40.565 0-58.363 3.437-76.8 13.298-16.21 8.668-28.928 21.386-37.596 37.596C3.937 69.83.5 87.629.5 128.194v71.612c0 40.565 3.437 58.363 13.298 76.8 8.668 16.21 21.386 28.928 37.596 37.596 18.437 9.861 36.235 13.298 76.8 13.298H319.5z"/>
+            </g>
+            <g fill="#E9ECEF" fill-rule="nonzero" stroke="#151D22">
+                <path d="M30.5 167.937v-7.9c0-4.703 4.113-8.5 9.167-8.5.395 0 .79.025 1.182.072l3.651.44v23.877l-3.65.44c-5.01.604-9.613-2.663-10.272-7.322a7.894 7.894 0 0 1-.078-1.107z"/>
+                <path d="M44.5 175.47v-22.956a6.575 6.575 0 0 0-7 6.56v9.734a6.67 6.67 0 0 0 7 6.662z"/>
+            </g>
+            <path fill="#151D22" fill-rule="nonzero" d="M44 18l2-1v294l-2-1zM228 0h4v328h-4z"/>
+            <g fill-rule="nonzero" transform="translate(62 33)">
+                <circle cx="49" cy="55" r="48.5" fill="#FFF" stroke="#151D22"/>
+                <circle cx="49" cy="55" r="4" fill="#151D22"/>
+                <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+                <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+                <use fill="#000" filter="url(#g)" xlink:href="#h"/>
+                <use fill="#000" filter="url(#i)" xlink:href="#j"/>
+                <use fill="#000" filter="url(#k)" xlink:href="#l"/>
+                <use fill="#000" filter="url(#m)" xlink:href="#n"/>
+                <use fill="#000" filter="url(#o)" xlink:href="#p"/>
+                <use fill="#000" filter="url(#q)" xlink:href="#r"/>
+            </g>
+            <g fill-rule="nonzero" transform="translate(62 185)">
+                <circle cx="49" cy="55" r="48.5" fill="#FFF" stroke="#151D22"/>
+                <circle cx="49" cy="55" r="4" fill="#151D22"/>
+                <use fill="#000" filter="url(#s)" xlink:href="#t"/>
+                <use fill="#000" filter="url(#u)" xlink:href="#v"/>
+                <use fill="#000" filter="url(#w)" xlink:href="#x"/>
+                <use fill="#000" filter="url(#y)" xlink:href="#z"/>
+                <use fill="#000" filter="url(#A)" xlink:href="#B"/>
+                <use fill="#000" filter="url(#C)" xlink:href="#D"/>
+                <use fill="#000" filter="url(#E)" xlink:href="#F"/>
+                <use fill="#000" filter="url(#G)" xlink:href="#H"/>
+            </g>
+            <circle cx="252" cy="88" r="4" fill="#151D22" fill-rule="nonzero"/>
+            <circle cx="252" cy="240" r="4" fill="#151D22" fill-rule="nonzero"/>
+            <path fill="#151D22" d="M46 178v-28h16.774A21.971 21.971 0 0 1 68 164.26c0 5.196-1.796 9.972-4.8 13.74H46z"/>
+        </g>
+        <g transform="matrix(-1 0 0 1 640 0)">
+            <g fill-rule="nonzero">
+                <use fill="#FFF" xlink:href="#I"/>
+                <use fill="#000" filter="url(#J)" xlink:href="#I"/>
+                <path stroke="#151D22" stroke-linejoin="square" d="M319.5 327.5V.5H128.194c-40.565 0-58.363 3.437-76.8 13.298-16.21 8.668-28.928 21.386-37.596 37.596C3.937 69.83.5 87.629.5 128.194v71.612c0 40.565 3.437 58.363 13.298 76.8 8.668 16.21 21.386 28.928 37.596 37.596 18.437 9.861 36.235 13.298 76.8 13.298H319.5z"/>
+            </g>
+            <g fill="#E9ECEF" fill-rule="nonzero" stroke="#151D22">
+                <path d="M30.5 167.937v-7.9c0-4.703 4.113-8.5 9.167-8.5.395 0 .79.025 1.182.072l3.651.44v23.877l-3.65.44c-5.01.604-9.613-2.663-10.272-7.322a7.894 7.894 0 0 1-.078-1.107z"/>
+                <path d="M44.5 175.47v-22.956a6.575 6.575 0 0 0-7 6.56v9.734a6.67 6.67 0 0 0 7 6.662z"/>
+            </g>
+            <path fill="#151D22" fill-rule="nonzero" d="M44 18l2-1v294l-2-1zM228 0h4v328h-4z"/>
+            <g fill-rule="nonzero" transform="translate(62 33)">
+                <circle cx="49" cy="55" r="48.5" fill="#FFF" stroke="#151D22"/>
+                <circle cx="49" cy="55" r="4" fill="#151D22"/>
+                <use fill="#000" filter="url(#K)" xlink:href="#L"/>
+                <use fill="#000" filter="url(#M)" xlink:href="#N"/>
+                <use fill="#000" filter="url(#O)" xlink:href="#P"/>
+                <use fill="#000" filter="url(#Q)" xlink:href="#R"/>
+                <use fill="#000" filter="url(#S)" xlink:href="#T"/>
+                <use fill="#000" filter="url(#U)" xlink:href="#V"/>
+                <use fill="#000" filter="url(#W)" xlink:href="#X"/>
+                <use fill="#000" filter="url(#Y)" xlink:href="#Z"/>
+            </g>
+            <g fill-rule="nonzero" transform="translate(62 185)">
+                <circle cx="49" cy="55" r="48.5" fill="#FFF" stroke="#151D22"/>
+                <circle cx="49" cy="55" r="4" fill="#151D22"/>
+                <use fill="#000" filter="url(#aa)" xlink:href="#ab"/>
+                <use fill="#000" filter="url(#ac)" xlink:href="#ad"/>
+                <use fill="#000" filter="url(#ae)" xlink:href="#af"/>
+                <use fill="#000" filter="url(#ag)" xlink:href="#ah"/>
+                <use fill="#000" filter="url(#ai)" xlink:href="#aj"/>
+                <use fill="#000" filter="url(#ak)" xlink:href="#al"/>
+                <use fill="#000" filter="url(#am)" xlink:href="#an"/>
+                <use fill="#000" filter="url(#ao)" xlink:href="#ap"/>
+            </g>
+            <circle cx="252" cy="88" r="4" fill="#151D22" fill-rule="nonzero"/>
+            <circle cx="252" cy="240" r="4" fill="#151D22" fill-rule="nonzero"/>
+            <path fill="#151D22" d="M46 178v-28h16.774A21.971 21.971 0 0 1 68 164.26c0 5.196-1.796 9.972-4.8 13.74H46z"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(271 115)">
+            <circle cx="49" cy="49" r="48.5" fill="#FFF" stroke="#151D22"/>
+            <circle cx="49" cy="49" r="4" fill="#151D22"/>
+        </g>
+    </g>
+</svg>

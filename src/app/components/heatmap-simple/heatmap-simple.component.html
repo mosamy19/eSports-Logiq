@@ -1,0 +1,55 @@
+<div class="stats-widget-loader" *ngIf="loading==true">
+  <span class="stats-widget-info" *ngIf="loading==true && error==false">Loading
+  </span>
+  <span class="stats-widget-alert" *ngIf="error==true">No data available for this game
+  </span>
+  <div class="sk-circle" *ngIf="error!=true">
+    <div class="sk-circle1 sk-child">
+    </div>
+    <div class="sk-circle2 sk-child">
+    </div>
+    <div class="sk-circle3 sk-child">
+    </div>
+    <div class="sk-circle4 sk-child">
+    </div>
+    <div class="sk-circle5 sk-child">
+    </div>
+    <div class="sk-circle6 sk-child">
+    </div>
+    <div class="sk-circle7 sk-child">
+    </div>
+    <div class="sk-circle8 sk-child">
+    </div>
+    <div class="sk-circle9 sk-child">
+    </div>
+    <div class="sk-circle10 sk-child">
+    </div>
+    <div class="sk-circle11 sk-child">
+    </div>
+    <div class="sk-circle12 sk-child">
+    </div>
+  </div>
+</div>
+
+<div class="heatmap">
+  <div class="teams">
+    <div class="team-home">{{home_name}}</div>
+    <div class="team-away">{{away_name}}</div>
+  </div>
+  <table>
+    <tr>
+      <td>
+        <!-- <div class="team" *ngIf="show_teams=='legendaOn'">
+          <div class="team-name team-name__home">{{home_name}}</div>
+        </div> -->
+        <canvas #heatmap_home id="heatmap_home" width="512px" height="512px"></canvas>
+      </td>
+      <td>
+        <!-- <div class="team" *ngIf="show_teams=='legendaOn'">
+          <div class="team-name team-name__away">{{away_name}}</div>
+        </div> -->
+        <canvas #heatmap_away id="heatmap_away" width="512px" height="512px"></canvas>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,440 @@
+.container {
+  min-height: 500px;
+  padding-top: 10px;
+}
+.flex{
+  display: flex;
+}
+.column-aside {
+  flex-grow: 1;
+  max-width: 17%;
+  padding-right: 12px;
+
+  .all-videos {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border-style: solid;
+    border: 2px solid #1d5cff;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #1d5cff;
+    text-transform: none;
+    background: url(/assets/play_all.svg) no-repeat;
+    text-align: left;
+    padding: 0 12px;
+    background-position: center right 12px;
+  }
+  &.aside-right {
+    max-width: 17%;
+    padding: 0 0 0 13px;
+    .boxes {
+      &::after {
+        clear: both;
+        content: "";
+      }
+
+      .box {
+        float: left;
+        width: 100%;
+
+        &:first-child {
+          padding-right: 4px;
+        }
+
+        &:last-child {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+}
+
+.game-type-selects {
+  button {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #a2a9b0;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f4f8);
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: #878d96;
+    text-transform: none;
+    margin-bottom: 16px;
+
+    &.active {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    &.selected {
+      background-image: linear-gradient(to bottom, #ed0017, #b80012 100%);
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.57;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      border-color: transparent;
+    }
+  }
+}
+
+.games-list-box {
+  position: relative;
+
+  .games-list {
+    height: 500px;
+    overflow: auto;
+    margin-bottom: 20px;
+
+    .game {
+      height: 40px;
+      border-radius: 8px;
+      border: solid 1px #c1c7cd;
+      margin-bottom: 8px;
+      overflow: hidden;
+
+      &:after {
+        display: block;
+        content: "";
+        clear: both;
+      }
+
+      .check-indicator {
+        float: left;
+        margin-top: -1px;
+        width: 39px;
+        height: 39px;
+        cursor: pointer;
+        background: url(/assets/check_white_off.svg) no-repeat;
+      }
+
+      &.active {
+        border: solid 1px #121619;
+
+        .check-indicator {
+          background: url(/assets/check_white_on.svg) no-repeat;
+        }
+      }
+
+      .title {
+        float: left;
+        font-size: 12px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.29;
+        letter-spacing: normal;
+        color: #ffffff;
+        padding: 2px 8px;
+
+        .teams {
+          display: block;
+          font-size: 12px;
+          color: #151d22;
+          font-weight: bold;
+          margin-top: 3px;
+          margin-bottom: 2px;
+        }
+
+        .date {
+          display: block;
+          font-size: 10px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          color: #878d96;
+        }
+      }
+
+      .shots {
+        float: right;
+        text-align: right;
+        padding-top: 5px;
+        padding-right: 0;
+
+        .circle {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          border-radius: 100%;
+          font-size: 12px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          text-align: center;
+          color: #121619;
+          vertical-align: top;
+          padding-top: 6px;
+          margin-top: 2px;
+          margin-left: 2px;
+          cursor: pointer;
+          background-color: #dde1e6;
+        }
+
+        .circle-0 {
+          border: 0;
+          background-color: #dde1e6;
+        }
+      }
+
+      .play-ico {
+        float: right;
+        width: 24px;
+        height: 24px;
+        margin-right: 7px;
+        margin-top: 7px;
+        margin-left: 2px;
+        cursor: pointer;
+        background: url(/assets/play_all.svg) no-repeat;
+        background-position: center;
+        background-size: 16px;
+      }
+    }
+  }
+}
+
+.data-holder {
+  position: absolute;
+}
+
+.big-cell {
+  position: absolute;
+  background-color: white;
+  width: 154px;
+  height: 52px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 9px grey;
+}
+
+.LU {
+  top: 135px;
+  left: 29%;
+}
+
+.LD {
+  top: 355px;
+  left: 29%;
+}
+
+.CU {
+  top: 150px;
+  left: 47%;
+}
+
+.CD {
+  top: 448px;
+  left: 44%;
+}
+
+.RU {
+  top: 135px;
+  left: 59%;
+}
+
+.RD {
+  top: 355px;
+  left: 59%;
+}
+
+.names {
+  justify-content: center;
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+.cell {
+  width: 47px;
+  display: flex;
+  justify-content: center;
+}
+
+.center-holder {
+  justify-content: center;
+
+  .vc {
+    border: 1px solid #adb5bd;
+    font-weight: 600;
+    color: #121619;
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    border-radius: 6px;
+  }
+}
+
+.value-holder {
+  justify-content: center;
+
+  .vl {
+    border: 1px solid #adb5bd;
+    border-radius: 6px 0 0 6px;
+    font-weight: 600;
+    color: #121619;
+  }
+
+  .vc {
+    border-top: 1px solid #adb5bd;
+    border-bottom: 1px solid #adb5bd;
+    font-weight: 600;
+    color: #121619;
+  }
+
+  .vr {
+    border: 1px solid #adb5bd;
+    border-radius: 0 6px 6px 0;
+    font-weight: 600;
+    color: #121619;
+  }
+}
+.name-holder {
+  justify-content: center;
+  .big-cell {
+    position: relative;
+    box-shadow: none;
+    background-color: #121619;
+    color: white;
+
+    .cell {
+      color: #ffffff;
+      background-color: #121619;
+    }
+  }
+}
+
+.form-box {
+  margin-bottom: 9px;
+  position: relative;
+
+  label {
+    font-size: 10px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color: #121619;
+    text-transform: uppercase;
+  }
+
+  button {
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #a2a9b0;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f4f8);
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+    padding: 0;
+    text-transform: none;
+    margin-bottom: 8px;
+
+    &.active {
+      background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.57;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      border-color: #1d5cff;
+    }
+  }
+
+  .buttons {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+
+    .btn-box {
+      float: left;
+      width: 50%;
+
+      &:first-child {
+        padding-right: 4px;
+      }
+
+      &:last-child {
+        padding-left: 4px;
+      }
+    }
+  }
+}
+
+.download-map {
+  text-align: start !important;
+  padding-left: 10px !important;
+  background: url(/assets/icobutton-download.svg) center right 10px no-repeat !important;
+  color: #1d5cff !important;
+  font-size: 14px !important;
+  border: 2px solid #1d5cff !important;
+  font-weight: bold !important;
+}
+
+.goalie-select {
+  border-radius: 8px;
+  border: solid 1px #a2a9b0;
+  background-color: #ffffff;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #121619;
+  text-align: left;
+  background: url(/assets/arrow.svg) no-repeat #fff;
+  background-position: right 8px center;
+}
+
+.total-text {
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.play-button{
+  width: 100%;
+  height: 22px;
+  display: none;
+  position: absolute;
+  background: url(/assets/play_all.svg) no-repeat;
+  background-position: center;
+}
+
+.value-holder:hover,.center-holder:hover{
+
+  .play-button{
+    cursor: pointer;
+    display: initial;
+  }
+}

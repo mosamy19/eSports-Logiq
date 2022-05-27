@@ -1,0 +1,40 @@
+footer {
+  width: 100%;
+  background-color: #121619;
+  margin-top: 0;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  padding: 32px 0;
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  a {
+    color: #ffffff;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .links {
+    a {
+      text-decoration: underline;
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}

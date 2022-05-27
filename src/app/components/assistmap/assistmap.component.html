@@ -1,0 +1,539 @@
+<div
+  #exportpng
+>
+  <div class="container-videos" >
+    <div class="row">
+      <div class="column-aside aside-left">
+        <div class="game-type-selects">
+          <button
+            (click)="mainGamesSelect('ALL')"
+            *ngIf="checkAllGamesSelected()"
+          >
+            {{ "vybrat_vsechny_zapasy" | translate }}
+          </button>
+          <button
+            (click)="mainGamesSelect('')"
+            *ngIf="!checkAllGamesSelected()"
+            class="selected"
+          >
+            {{ "odebrat_vsechny_zapasy" | translate }}
+          </button>
+        </div>
+        <div class="games-list-box">
+          <div class="games-list" #games_list>
+            <ng-container *ngFor="let game of games">
+              <div class="game" [ngClass]="{ active: game.active == true }">
+                <div
+                  class="check-indicator"
+                  (click)="toggleGame(game.id)"
+                ></div>
+                <div class="title">
+                  <span class="teams"
+                    >{{ getTeamNameShortcut(game.homeTeam) }} -
+                    {{ getTeamNameShortcut(game.awayTeam) }}</span
+                  >
+                  <span class="date">{{ game.matchDate | match_date }}</span>
+                </div>
+                <div
+                  class="play-ico"
+                  (click)="playGameVideo(game, 'all', undefined)"
+                ></div>
+                <ng-container>
+                  <div class="shots">
+                    <ng-container *ngFor="let circle of game.circles">
+                      <div
+                        class="circle circle-{{ circle.color }}"
+                        *ngIf="circle.count > 0"
+                        (click)="playGameVideo(game, circle.player, undefined)"
+                      >
+                        {{ circle.count }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+            <div style="height: 1000px"></div>
+          </div>
+        </div>
+        <button
+          class="all-videos"
+          [disabled]="isGameChecked()"
+          (click)="openAllVideos()"
+        >
+          <span>{{
+            "prehrat_vybrane_zapasy" | translate
+          }}</span>
+          
+        </button>
+      </div>
+      <div class="column-center">
+        <div class="shotmap" id="shotmap" style="overflow: hidden;">
+          <ng-container *ngFor="let assist of circles">
+            <div
+              class="triangle triangle-{{ assist.color }}"
+              [ngClass]="{ active: detectActivePass(assist) }"
+              [ngStyle]="{
+                left: assist['x'] + 'px',
+                top: assist['y'] + 2 + 'px'
+              }"
+              (click)="assistClick(assist)"
+            >
+              <img
+                src="/assets/arrows/{{ assist.color }}.png"
+                [ngStyle]="{
+                  transform: 'rotateZ(' + getAssistAngle(assist) + 'deg)'
+                }"
+              />
+            </div>
+          </ng-container>
+          <canvas
+            #canvas
+            id="canvas"
+            width="760px"
+            height="582px"
+            (click)="closeVideo()"
+          ></canvas>
+        </div>
+
+        <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+          <div class="more-info" *ngIf="shotmapInfobarOpen">
+            <label>{{'nebezpecnost_strel' | translate}}</label>
+            <div class="boxes">
+              <div class="box green">
+                <div class="box-name">{{'vysoka' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getShotsCount('HD')}}</td>
+                    <td class="center-box">{{getXg('HD')}}</td>
+                    <td class="right-box">{{getGoalsCount('HD')}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box orange">
+                <div class="box-name">{{'stredni' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getShotsCount('MD')}}</td>
+                    <td class="center-box">{{getXg('MD')}}</td>
+                    <td class="right-box">{{getGoalsCount('MD')}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box red">
+                <div class="box-name">{{'nizka' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getShotsCount('LD')}}</td>
+                    <td class="center-box">{{getXg('LD')}}</td>
+                    <td class="right-box">{{getGoalsCount('LD')}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <table class="basic-info">
+            <tr>
+              <td>
+                TOI: {{getAllToi() | format_sesonds}}
+              </td>
+              <td>xG: {{getAllXg()}}</td>
+              <td>G: {{getAllGoals()}}</td>
+              <td class="toggler-td"><button class="toggler" (click)="toggleShotmapInfobar()"><img
+                    src="/assets/icobutton-download.svg" width="16" height="16"></button></td>
+            </tr>
+          </table>
+        </div>
+
+
+        <ng-container *ngIf="showVideoModal">
+          <div
+            class="shotmap-tooltip"
+            [ngClass]="{ small: selected_assist.shot.netZone == null }"
+            [ngStyle]="{ left: tooltip_x + 3 + 'px', top: tooltip_y - 70 + 'px' }"
+          >
+            <div class="shotmap-tooltip-inner">
+              <p>
+                <strong
+                  >{{ selected_assist.matchDate | format_date }},
+                  {{ selected_assist.homeTeam }} -
+                  {{ selected_assist.awayTeam }}</strong
+                >
+              </p>
+              <div class="game-gate" *ngIf="selected_assist.shot.netZone != null">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 304 202"
+                  style="enable-background: new 0 0 304 202"
+                  xml:space="preserve"
+                  width="152px"
+                >
+                  <g>
+                    <path
+                      class="st0"
+                      d="M6,202h292V12c0-3.3-2.7-6-6-6H12c-3.3,0-6,2.7-6,6V202z M12,0h280c6.6,0,12,5.4,12,12v190H0V12
+                                        C0,5.4,5.4,0,12,0z"
+                    />
+                    <polygon
+                      class="st1"
+                      [ngClass]="{ active: selected_assist.netZone == 'bl' }"
+                      points="157,112 290,112 290,202 223.5,202"
+                    />
+                    <polygon
+                      class="st1"
+                      [ngClass]="{ active: selected_assist.netZone == 'fh' }"
+                      points="152,118 213,202 91,202"
+                    />
+                    <polygon
+                      class="st1"
+                      [ngClass]="{ active: selected_assist.netZone == 'br' }"
+                      points="14,112 147,112 80.5,202 14,202"
+                    />
+                    <path
+                      class="st1"
+                      [ngClass]="{ active: selected_assist.netZone == 'ul' }"
+                      d="M156,14h131c1.7,0,3,1.3,3,3v87H156V14z"
+                    />
+                    <path
+                      class="st1"
+                      [ngClass]="{ active: selected_assist.netZone == 'ur' }"
+                      d="M17,14h131v90H14V17C14,15.3,15.3,14,17,14z"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p>
+                <strong>{{ "cas" | translate }}:</strong>
+                {{ selected_assist.time | format_sesonds }}
+              </p>
+              <p>
+                <strong>{{ "prihravka" | translate }}:</strong>
+                {{ getPlayerName(selected_assist.player) }}
+              </p>
+              <p *ngIf="selected_assist.shot != null">
+                <strong>{{ "strela" | translate }}:</strong>
+                {{ getPlayerName(selected_assist.shot["player"]) }}
+              </p>
+              <p *ngIf="selected_assist.shot != null">
+                <strong>xG:</strong>
+                {{ getAssistXg(selected_assist) }}
+              </p>
+              <button
+                class="game-video"
+                (click)="playGameVideo(selected_assist, 'all', selected_assist)"
+              >
+                {{ "prehrat_video" | translate }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="column-aside aside-right">
+        <div class="boxes">
+          <div class="box">
+            <div class="form-box">
+              <label>{{ "trajektorie" | translate }}</label>
+              <button
+                [ngClass]="{ active: draw_all_categories == 'yes' }"
+                (click)="drawAllTrajectoriesSelect(draw_all_categories)"
+              >
+                {{ "vykreslit_vsechny_trajektorie" | translate }}
+              </button>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "kdo_prihraval" | translate }}</label>
+              <button
+                [ngClass]="{ active: render_assist_pro_proti == 'HRAC' }"
+                (click)="renderAssistProProti('HRAC')"
+              >
+                {{'hrac' | translate}}
+              </button>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: render_assist_pro_proti == 'PRO' }"
+                    (click)="renderAssistProProti('PRO')"
+                  >
+                    {{'tym' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: render_assist_pro_proti == 'PROTI' }"
+                    (click)="renderAssistProProti('PROTI')"
+                  >
+                    {{'souper' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "kategorie_strel_z_prihravek" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: shot_category == 'BMGS' }"
+                  (click)="changeShotCategory('BMGS')"
+                >
+                  {{ "strelecke_pokusy" | translate }}
+                </button>
+              </div>
+
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: shot_category == 'SG' }"
+                    (click)="changeShotCategory('SG')"
+                  >
+                    {{ "na_branku" | translate }}
+                  </button>
+                </div>
+
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: shot_category == 'G' }"
+                    (click)="changeShotCategory('G')"
+                  >
+                    {{ "goly" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "lokace_nasledne_strely" | translate }}</label>
+
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: shot_location == 'ALL' }"
+                    (click)="setShotLocation('ALL')"
+                  >
+                    {{ "vsechny" | translate }}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: shot_location == 'SLOT' }"
+                    (click)="setShotLocation('SLOT')"
+                  >
+                    {{ "ze_slotu" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "typy_prihravek" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: assist_type == 'ALL' }"
+                  (click)="setAssistType('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: assist_type == 'behindTheNet' }"
+                  (click)="setAssistType('behindTheNet')"
+                >
+                  {{ "zpoza_branky" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: assist_type == 'crossIce' }"
+                  (click)="setAssistType('crossIce')"
+                >
+                  {{ "krizne" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: assist_type == 'oneTimer' }"
+                  (click)="setAssistType('oneTimer')"
+                >
+                  {{ "na_strelu_z_prvni" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="form-box">
+              <label>{{ "typy_akce" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == '' }"
+                  (click)="setActionType('')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == 'forecheck' }"
+                  (click)="setActionType('forecheck')"
+                >
+                  {{ "forcek" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == 'rush' }"
+                  (click)="setActionType('rush')"
+                >
+                  {{ "rychly_utok" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == 'long' }"
+                  (click)="setActionType('long')"
+                >
+                  {{ "dlouhy_utok" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == 'oddManRush' }"
+                  (click)="setActionType('oddManRush')"
+                >
+                  {{ "precisleni" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [ngClass]="{ active: action_type == 'afterFO' }"
+                  (click)="setActionType('afterFO')"
+                >
+                  {{ "po_vhazovani" | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "nebezpecnost_strel" | translate }}</label>
+              <div class="btn-box">
+                <button
+                  [class.active]="shotDangerType == ''"
+                  (click)="toggleShotDangerType('')"
+                >
+                {{'vsechny' | translate}}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [class.active]="shotDangerType == 'HD'"
+                  (click)="toggleShotDangerType('HD')"
+                >
+                {{'vysoka' | translate}}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [class.active]="shotDangerType == 'MD'"
+                  (click)="toggleShotDangerType('MD')"
+                >
+                {{'stredni' | translate}}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                  [class.active]="shotDangerType == 'LD'"
+                  (click)="toggleShotDangerType('LD')"
+                >
+                {{'nizka' | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--
+
+        <div class="filter">
+          <div class="form-box" *ngIf="assist_category=='SA'">
+            <label>{{'prihravky_na_strely' | translate}}</label>
+            <select [(ngModel)]="shot_category" (change)="reloadAssists()">
+              <option value="G">{{'prihravky_na_goly' | translate}}</option>
+              <option value="SG">{{'prihravky_na_strely_na_branku' | translate}}</option>
+              <option value="SG_">{{'prihravky_na_strely_na_branku_ze_slotu' | translate}}</option>
+              <option value="BMGS_">{{'prihravky_na_strelecke_pokusy_ze_slotu' | translate}}</option>
+              <option value="BMGS">{{'prihravky_na_strelecke_pokusy' | translate}}</option>
+            </select>
+          </div>
+          <div class="form-box">
+            <label>Typ přihrávky</label>
+            <select [(ngModel)]="assist_type" (change)="reloadAssists()">
+              <option value="">{{'vsechny_typy' | translate}}</option>
+              <option value="behindTheNet">{{'prihravky_zpoza_branky' | translate}}</option>
+              <option value="crossIce" *ngIf="assist_category!='sPN' && assist_category!='BLK.sP'">
+                {{'krizne_prihravky' | translate}}
+              </option>
+              <option value="oneTimer" *ngIf="assist_category!='sPN' && assist_category!='BLK.sP'">
+                {{'prihravky_na_strely_z_prvni' | translate}}</option>
+            </select>
+          </div>
+          <div class="form-box">
+            <label>{{'typ_akce' | translate}}</label>
+            <select [(ngModel)]="action_type" (change)="reloadAssists()">
+              <option value="">{{'vsechny_typy' | translate}}</option>
+              <option value="rush">{{'rychly_utok' | translate}}</option>
+              <option value="oddManRush">{{'precisleni' | translate}}</option>
+              <option value="forecheck">{{'forechecking' | translate}}</option>
+            </select>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fullscreen-loading" *ngIf="exporting_png">
+  <Loading></Loading>
+</div>

@@ -1,0 +1,133 @@
+<div class="shotmap-small">
+  <div class="shots">
+    <div *ngFor="let shot of circles" class="circle circle-{{shot.color}}"
+      [ngStyle]="{'left': shot['x'] - 7 +'px','top': shot['y'] - 15 +'px'}" [class.goal]="shot.type=='G'" (click)="shotClick(shot)">
+    </div>
+  </div>
+  
+
+  <!-- <div class="clickable" (click)="closeVideo()"></div> -->
+
+  <ng-container *ngIf="showVideoModal">
+    <div class="shotmap-tooltip" [ngClass]="{'small':selected_shot.netZone==null}"
+      [ngStyle]="{'left': tooltip_x - 5 +'px','top': tooltip_y  - 10 +'px'}">
+      <div class="close-tooltip" (click)="closeVideo()"></div>
+      <div class="shotmap-tooltip-inner">
+
+        <div class="game-info">
+          {{selected_shot.matchDate | format_date}}, {{selected_shot.homeTeam}}-{{selected_shot.awayTeam}}
+        </div>
+        <div class="game-gate">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+            y="0px" viewBox="0 0 304 202" style="enable-background:new 0 0 304 202;" xml:space="preserve" width="152px">
+            <g>
+              <path class="st0" d="M6,202h292V12c0-3.3-2.7-6-6-6H12c-3.3,0-6,2.7-6,6V202z M12,0h280c6.6,0,12,5.4,12,12v190H0V12
+                                  C0,5.4,5.4,0,12,0z" />
+              <polygon class="st1" [ngClass]="{'active':selected_shot.netZone=='bl'}"
+                points="157,112 290,112 290,202 223.5,202" />
+              <polygon class="st1" [ngClass]="{'active':selected_shot.netZone=='fh'}" points="152,118 213,202 91,202" />
+              <polygon class="st1" [ngClass]="{'active':selected_shot.netZone=='br'}"
+                points="14,112 147,112 80.5,202 14,202" />
+              <path class="st1" [ngClass]="{'active':selected_shot.netZone=='ul'}"
+                d="M156,14h131c1.7,0,3,1.3,3,3v87H156V14z" />
+              <path class="st1" [ngClass]="{'active':selected_shot.netZone=='ur'}"
+                d="M17,14h131v90H14V17C14,15.3,15.3,14,17,14z" />
+            </g>
+          </svg>
+        </div>
+        <div class="game-time"><strong>{{'cas' | translate}}:</strong> {{ selected_shot.time | format_sesonds}}
+        </div>
+        <div class="game-time"><strong>xG:</strong> {{getRoundNumber(selected_shot.xG,2)}}
+        </div>
+        <div class="game-shot"><strong>{{'strela' | translate}}:</strong> {{getPlayerName(selected_shot.player)}}
+        </div>
+        <button class="game-video"
+          (click)="playGameVideo(selected_shot,'all',selected_shot)">{{'prehrat_video' | translate}}</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+    <div class="more-info" *ngIf="shotmapInfobarOpen">
+      <label>NEBEZPEČNOST STŘEL {{shotDangerType}}</label>
+      <div class="boxes">
+        <div class="box green">
+          <div class="box-name">{{"vysoka" | translate}}</div>
+          <table>
+            <tr>
+              <th>
+                <div class="heading">Počet</div>
+              </th>
+              <th>
+                <div class="heading">xG</div>
+              </th>
+              <th>
+                <div class="heading">G</div>
+              </th>
+            </tr>
+            <tr>
+              <td class="left-box">{{getShotsCount('HD')}}</td>
+              <td class="center-box">{{getXg('HD')}}</td>
+              <td class="right-box">{{getGoalsCount('HD')}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box orange">
+          <div class="box-name">{{"stredni" | translate}}</div>
+          <table>
+            <tr>
+              <th>
+                <div class="heading">Počet</div>
+              </th>
+              <th>
+                <div class="heading">xG</div>
+              </th>
+              <th>
+                <div class="heading">G</div>
+              </th>
+            </tr>
+            <tr>
+              <td class="left-box">{{getShotsCount('MD')}}</td>
+              <td class="center-box">{{getXg('MD')}}</td>
+              <td class="right-box">{{getGoalsCount('MD')}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="box red">
+          <div class="box-name">{{"nizka" | translate}}</div>
+          <table>
+            <tr>
+              <th>
+                <div class="heading">Počet</div>
+              </th>
+              <th>
+                <div class="heading">xG</div>
+              </th>
+              <th>
+                <div class="heading">G</div>
+              </th>
+            </tr>
+            <tr>
+              <td class="left-box">{{getShotsCount('LD')}}</td>
+              <td class="center-box">{{getXg('LD')}}</td>
+              <td class="right-box">{{getGoalsCount('LD')}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <table class="basic-info">
+      <tr>
+        <td>
+          TOI: {{toi | format_sesonds}}
+        </td>
+        <td>xG: {{getAllXg()}}</td>
+        <td>G: {{getAllGoals()}}</td>
+        <td class="toggler-td"><button class="toggler" (click)="toggleShotmapInfobar()"><img
+              src="/assets/icobutton-download.svg" width="16" height="16"></button></td>
+      </tr>
+    </table>
+  </div>
+
+</div>

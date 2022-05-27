@@ -1,0 +1,64 @@
+<div id="full-content">
+  <nav>
+  </nav>
+
+  <div class="main-content">
+
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <Loading *ngIf="loading"></Loading>
+
+          <table *ngIf="loading==false">
+            <tr>
+              <th class="match">{{"typ_media" | translate}}</th>
+              <th class="match">{{"zapas" | translate}}</th>
+              <th class="player">{{"hrac" | translate}}</th>
+              <th class="time">{{"cas" | translate}}</th>
+              <th class="download">
+                <button (click)="downloadAll()">{{'stahnout_vse' | translate}}</button>
+              </th>
+            </tr>
+
+            <tr *ngFor="let item of download_data">
+              <td class="match">
+                <strong>{{item['video_text'][6]+"_media_type" | translate}}</strong>
+              </td>
+              <td class="match">
+                <div class="tag">{{item['video_text'][0]}}</div>
+              </td>
+              <td class="player"><strong>{{item['video_text'][1]}}</strong>
+                <span style="margin-left: 8px; color: rgb(121, 121, 121);">{{item["video_multiple"]}}</span>
+
+                <!--
+                {{item['video_text'][2]}}
+              
+                <span class="buly-{{getBulyState(item['video_text'][7])}}" *ngIf="item['video_text'][6]=='buly'"></span>
+
+                <span class="vstup-{{getVstupState(item['video_text'][8])}}"
+                  *ngIf="item['video_text'][6]=='vstup'">&nbsp;</span>
+                -->
+
+              </td>
+              <td class="time">{{item['video_text'][4]}}</td>
+
+              <td class="download" *ngIf="item.cut==null">
+                <div class="tag pink">{{'video_se_spracovava' | translate}}...</div>
+              </td>
+              <td class="download" *ngIf="item.cut!=null"><a href="{{item.cut.url}}" target="_blank">{{'stahnout_video'}}</a>
+              </td>
+            </tr>
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<footer-box></footer-box>

@@ -1,0 +1,319 @@
+<div class="tab-content" [class.show]="tab=='tabulky'">
+  <div class="container">
+    <Loading *ngIf="loading"></Loading>
+
+    <div class="table-individual-stats" [style.visibility]="!loading ? 'visible' : 'hidden'">
+
+
+
+      <div class="filter">
+        <div class="row">
+          <div class="column form-box form-box__check">
+            <label>{{'porovnat_s' | translate}}</label>
+            <div class="check-boxes check-boxes__light">
+              <!--
+              <button [ngClass]="{'checked':average_compare == 'team'}" (click)="averageCompare('team')">{{'prumerem_tymu' | translate}}</button>
+                -->
+              <button [ngClass]="{'checked':average_compare == 'competition'}"
+                (click)="averageCompare('competition')">{{'prumerem_telh' | translate}}</button>
+            </div>
+            <button class="toggle-data" (click)="active_skala()"
+              *ngIf="!show_skala">{{'zobrazit_skalu' | translate}}</button>
+            <button class="toggle-data active" (click)="active_skala()" *ngIf="show_skala">
+              <span *ngIf="skala_loading"><img src="/assets/loading.gif" width="20"></span>
+              {{'skryt_skalu' | translate}}
+            </button>
+
+          </div>
+          <div class="column form-box form-box-skala">
+            <div [style.visibility]="show_skala ? 'visible' : 'hidden'">
+              <table>
+                <tr>
+                  <td colspan="4" class="left">{{'nejhorsi' | translate}}</td>
+                  <td colspan="2">{{'prumer' | translate}}</td>
+                  <td colspan="4" class="right">{{'nejlepsi' | translate}}</td>
+                </tr>
+                <tr>
+                  <td class="cell-0"></td>
+                  <td class="cell-1"></td>
+                  <td class="cell-2"></td>
+                  <td class="cell-3"></td>
+                  <td class="cell-4"></td>
+                  <td class="cell-5"></td>
+                  <td class="cell-6"></td>
+                  <td class="cell-7"></td>
+                  <td class="cell-8"></td>
+                  <td class="cell-9"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      {{setDefaultOrderRow()}}
+      <table [mfData]="data" #mf1="mfDataTable" (mfSortByChange)="changedOrder($event)" [mfSortBy]="['toi']"
+        [mfSortOrder]="'desc'" [mfRowsOnPage]="1000" class="filter-{{filter_posts}}">
+        <thead>
+          <tr>
+            <th class="select-data" colspan="2">
+              <div class="toggle-table-data" (click)="toggleTableSettings()">
+                <img src="/assets/ico-data.svg" class="ico"> {{'vybrat_vlastni_data' | translate}}
+              </div>
+            </th>
+            <th class="center">
+              <mfDefaultSorter by="gp">GP</mfDefaultSorter>
+            </th>
+
+            <th class="center">
+              <mfDefaultSorter by="toi">TOI</mfDefaultSorter>
+            </th>
+
+
+            <th *ngFor="let attribute of table_settings" class="center">
+              <mfDefaultSorter by="{{attribute['type']}}">{{attribute['name']}}</mfDefaultSorter>
+
+              <div class="attribute-line attribute-line_{{getAttributeColour(attribute['type'])}}"></div>
+
+              <div class="attribute-table-tooltip">
+                <div class="attribute-table-tooltip-title">{{getAttributeText(attribute['type'],1)}}</div>
+                <div class="attribute-table-tooltip-desc">{{getAttributeText(attribute['type'],2)}}</div>
+              </div>
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf1.data; let i = index" class="post-{{getPlayerPost(item['uuid'])}}">
+
+
+            <ng-container *ngIf="filter_posts=='FO'">
+              <ng-container *ngIf="getPlayerPost(item['uuid'])=='FO'">
+                {{addOrderRow()}}
+              </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="filter_posts=='DE'">
+              <ng-container *ngIf="getPlayerPost(item['uuid'])=='DE'">
+                {{addOrderRow()}}
+              </ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="filter_posts=='ALL'">
+              {{addOrderRow()}}
+            </ng-container>
+
+            <td class="eye">
+              <div class="eye-dropdown">
+                <div class="eye-dropdown-menu">
+                  <ul>
+                    <li><a href="{{gamelogLink(item['uuid'],undefined,undefined,undefined,undefined,undefined)}}"
+                        target="_blank">Game log</a></li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+            <!--<td class="td-content td-content-number">#{{i+1}}</td>-->
+            <td class="td-content td-content__players">
+              <div class="sticker sticker__grey"><img src="{{getPlayerTeamLogo(item.team)}}" class="team-logo"
+                  width="15">
+                {{getPlayerName(item['uuid'])}}</div>
+            </td>
+            <td class="td-content center" [ngClass]="{'bold':filterby == 'gp'}">
+              <span class="average-cell">{{item.gp}}</span>
+            </td>
+            <td class="td-content center" [ngClass]="{'bold':filterby == 'toi'}">
+              <span class="average-cell">{{item.toi | format_sesonds}}</span>
+            </td>
+
+
+            <td *ngFor="let attribute of table_settings" class="td-content center"
+              [ngClass]="{'bold':filterby == attribute['type']}">
+              <span class="average-cell" [ngClass]="getSkalaColour(item['uuid'], attribute['type'], item['team'])">{{item[attribute['type']]|
+                checkAttributeValue: attribute['type']}}</span>
+            </td>
+
+          </tr>
+        </tbody>
+
+
+        <tfoot *ngIf="averages_loaded">
+          <tr>
+            <td></td>
+            <td colspan="3">
+              <img class="team-logo" width="15" src="/assets/telh_logo.png">
+              <div class="sticker sticker__grey"> Tipsport Extraliga</div>
+            </td>
+            <td *ngFor="let attribute of table_settings" class="td-content center">
+              {{data_averages[attribute['type']]| checkAttributeValue: attribute['type']}}
+            </td>
+          </tr>
+        </tfoot>
+
+
+      </table>
+
+      <div class="averages-loading" *ngIf="!averages_loaded">
+        <img src="/assets/loading.gif" width="20" height="20">
+      </div>
+
+
+      <div class="download-box">
+        <div class="btn btn-download" (click)="downloadCSV()">{{'export_dat' | translate}}</div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+<div class="tab-content" [class.show]="tab=='vizualizace'">
+  <div class="container">
+
+    <div class="small-tabs">
+      <div class="small-tab" [ngClass]="{'small-tab__active':tab_small_viz == 'zony_branky'}"
+        (click)="tab_small_vizClick('zony_branky')">
+        {{'zona_branky' | translate}}</div>
+      <div class="small-tab" [ngClass]="{'small-tab__active':tab_small_viz == 'mapa_strel'}"
+        (click)="tab_small_vizClick('mapa_strel')">
+        {{'mapa_strel' | translate}}</div>
+    </div>
+
+    <div class="zony-branky" *ngIf="tab_small_viz == 'zony_branky'">
+
+      <div class="filter filter__indark">
+        <div class="row">
+          <div class="column form-box form-box__check">
+            <label>{{'porovnat_s' | translate}}</label>
+            <div class="check-boxes check-boxes__dark">
+              <button [ngClass]="{'checked':average_compare_zony == 'competition'}"
+                (click)="averageCompare_zony('competition')">{{'prumerem_telh' | translate}}</button>
+            </div>
+            <button class="toggle-data" (click)="active_skala_zony()"
+              *ngIf="!show_skala_zony">{{'zobrazit_skalu' | translate}}</button>
+            <button class="toggle-data active" (click)="active_skala_zony()" *ngIf="show_skala_zony">
+              {{'skryt_skalu' | translate}}
+            </button>
+
+          </div>
+          <div class="column form-box form-box-skala">
+            <div [style.visibility]="show_skala_zony ? 'visible' : 'hidden'">
+              <table>
+                <tr>
+                  <td colspan="4" class="left">{{'nejhorsi' | translate}}</td>
+                  <td colspan="2">{{'prumer2' | translate}}</td>
+                  <td colspan="4" class="right">{{'nejlepsi' | translate}}</td>
+                </tr>
+                <tr>
+                  <td class="cell-0"></td>
+                  <td class="cell-1"></td>
+                  <td class="cell-2"></td>
+                  <td class="cell-3"></td>
+                  <td class="cell-4"></td>
+                  <td class="cell-5"></td>
+                  <td class="cell-6"></td>
+                  <td class="cell-7"></td>
+                  <td class="cell-8"></td>
+                  <td class="cell-9"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <ng-container *ngIf="!loading">
+        <div class="row zones-row" *ngFor="let row of count_of_zony_branky">
+          <div class="column">
+            <zony-branky [filter_team_input]="filter_team" [filter_seasonPart]="filter_seasonPart"
+              [filter_lastGames]="filter_lastGames" [filter_countOfPlayer]="filter_countOfPlayer"
+              [filter_matchState]="filter_matchState" [filter_homeAway]="filter_homeAway"
+              [filter_opponents]="filter_opponents" [filter_dateFrom]="filter_dateFrom" [filter_dateTo]="filter_dateTo"
+              [filter_minutes_from]="filter_minutes_from" [filter_minutes_to]="filter_minutes_to"
+              [filter_minTOI]="filter_minTOI" [filter_situationType]="filter_situationType"
+              [filter_situationTime]="filter_situationTime" [show_skala_zony]="show_skala_zony"></zony-branky>
+          </div>
+          <div class="column">
+            <zony-branky [filter_team_input]="filter_team" [filter_seasonPart]="filter_seasonPart"
+              [filter_lastGames]="filter_lastGames" [filter_countOfPlayer]="filter_countOfPlayer"
+              [filter_matchState]="filter_matchState" [filter_homeAway]="filter_homeAway"
+              [filter_opponents]="filter_opponents" [filter_dateFrom]="filter_dateFrom" [filter_dateTo]="filter_dateTo"
+              [filter_minutes_from]="filter_minutes_from" [filter_minutes_to]="filter_minutes_to"
+              [filter_minTOI]="filter_minTOI" [filter_situationType]="filter_situationType"
+              [filter_situationTime]="filter_situationTime" [show_skala_zony]="show_skala_zony"></zony-branky>
+          </div>
+          <div class="column">
+            <zony-branky [filter_team_input]="filter_team" [filter_seasonPart]="filter_seasonPart"
+              [filter_lastGames]="filter_lastGames" [filter_countOfPlayer]="filter_countOfPlayer"
+              [filter_matchState]="filter_matchState" [filter_homeAway]="filter_homeAway"
+              [filter_opponents]="filter_opponents" [filter_dateFrom]="filter_dateFrom" [filter_dateTo]="filter_dateTo"
+              [filter_minutes_from]="filter_minutes_from" [filter_minutes_to]="filter_minutes_to"
+              [filter_minTOI]="filter_minTOI" [filter_situationType]="filter_situationType"
+              [filter_situationTime]="filter_situationTime" [show_skala_zony]="show_skala_zony"></zony-branky>
+          </div>
+          <div class="column">
+            <zony-branky [filter_team_input]="filter_team" [filter_seasonPart]="filter_seasonPart"
+              [filter_lastGames]="filter_lastGames" [filter_countOfPlayer]="filter_countOfPlayer"
+              [filter_matchState]="filter_matchState" [filter_homeAway]="filter_homeAway"
+              [filter_opponents]="filter_opponents" [filter_dateFrom]="filter_dateFrom" [filter_dateTo]="filter_dateTo"
+              [filter_minutes_from]="filter_minutes_from" [filter_minutes_to]="filter_minutes_to"
+              [filter_minTOI]="filter_minTOI" [filter_situationType]="filter_situationType"
+              [filter_situationTime]="filter_situationTime" [show_skala_zony]="show_skala_zony"></zony-branky>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="row">
+        <div class="column">
+          <button class="load_more_zones" (click)="addRowZonyBranky()">{{'more_goalies' | translate}}</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mapa-strel" *ngIf="tab_small_viz == 'mapa_strel'">
+      <br>
+
+      <div class="row filter">
+        <div class="column" style="padding-left: 17px!important;">
+          <div class="column form-box">
+            <label for="filter_team2">{{"vybrat_tym" | translate}}</label>
+            <select id="filter_team2" [(ngModel)]="filter_team2" (ngModelChange)="getPlayerList()">
+              <option value="" disabled selected>{{'vyberte_tym' | translate}}</option>
+              <option value="{{team.uuid}}" *ngFor="let team of teams_list">{{team.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="column form-box">
+          <label for="filter_team">{{'vybrat_brankare' | translate}}</label>
+          <select id="filter_goalkeeper" [(ngModel)]="filter_goalkeeper" (ngModelChange)="selectGoalkeeper()">
+            <option value="" disabled selected>{{'vyberte_brankare' | translate}}</option>
+            <option value="{{player.uuid}}" *ngFor="let player of players_list">{{player.surname}} {{player.name[0]}}.
+            </option>
+          </select>
+        </div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+      <Loading *ngIf="loading_shotmap"></Loading>
+      <div *ngIf="!loaded_shotmap" style="height: 500px"></div>
+
+      <shotmap-goalkeeper [filter_team_input]="filter_team" [filter_seasonPart]="filter_seasonPart" [shots]="shots"
+        [teams_list]="teams_list" (onInvertChanged)="invertChanged($event)" *ngIf="loaded_shotmap"
+        (onOpenVideoPlayer)="openVideoPlayer($event)">
+      </shotmap-goalkeeper>
+    </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,303 @@
+<div class="container-videos" style="background-color: #fff;">
+  <div
+    class="row"
+    [ngClass]="{ invert: invert == true }"
+    style="margin-left: -10px !important; margin-right: -10px !important"
+  >
+    <div class="column-aside aside-left">
+      <div class="game-type-selects">
+        <button
+          (click)="mainGamesSelect('ALL')"
+          *ngIf="checkAllGamesSelected()"
+        >
+          {{ "vybrat_vsechny_zapasy" | translate }}
+        </button>
+        <button
+          (click)="mainGamesSelect('')"
+          *ngIf="!checkAllGamesSelected()"
+          class="selected"
+        >
+          {{ "odebrat_vsechny_zapasy" | translate }}
+        </button>
+      </div>
+
+      <div class="games-list" #games_list>
+        <Label *ngIf="games_list_loading" class="games_list_loading"
+          ><img src="/assets/loading.gif" width="20"
+        /></Label>
+
+        <ng-container *ngFor="let game of games">
+          <div class="game" [ngClass]="{ active: game.active == true }" style="overflow: initial;">
+            <div class="check-indicator" (click)="toggleGame(game.id)"></div>
+            <div class="title">
+              <span class="teams"
+                >{{ getTeamNameShortcut(game.homeTeam) }} -
+                {{ getTeamNameShortcut(game.awayTeam) }}</span
+              >
+              <span class="date">{{ game.matchDate | match_date }}</span>
+            </div>
+          </div>
+        </ng-container>
+        <!--<div style="height: 1000px"></div>-->
+      </div>
+    </div>
+
+    <div class="column-center">
+      <div class="shotmap" id="shotmap">
+        <div class="map-outline">
+          <div style="display: flex;">
+          <!-- <img src="../../../assets/skala.png"class="skala" *ngIf="render_pro_proti == 'HRAC'"> -->
+          <img src="../../../assets/skala_2.svg"class="skala">
+
+          <img src="{{ heatmap_pro_url }}" style="position: relative; left: 0;" *ngIf="render_pro_proti == 'PRO'" />
+          <img
+            src="{{ heatmap_proti_url }}"
+            *ngIf="render_pro_proti == 'PROTI'"
+          />
+          <img src="{{ heatmap_pro_url }}" *ngIf="render_pro_proti == 'HRAC'" />
+          </div>
+          <!-- <img src="/assets/heatmap_mask.png" class="mask" /> -->
+          <img src="/assets/heatmap_mask_760.png" class="mask" *ngIf="show_mask"/>
+          <img src="/assets/hriste_760x582_maska.svg" class="overlay"/>
+
+          <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+            <div class="more-info" *ngIf="shotmapInfobarOpen">
+              <label>{{'nebezpecnost_strel' | translate}}</label>
+              <div class="boxes">
+                <div class="box green">
+                  <div class="box-name">{{'vysoka' | translate}}</div>
+                  <table>
+                    <tr>
+                      <th>
+                        <div class="heading">{{'pocet' | translate}}</div>
+                      </th>
+                      <th>
+                        <div class="heading">xG</div>
+                      </th>
+                      <th>
+                        <div class="heading">G</div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="left-box">{{ getShotsCount("HD") }}</td>
+                      <td class="center-box">{{ getXg("HD") }}</td>
+                      <td class="right-box">{{ getGoalsCount("HD") }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="box orange">
+                  <div class="box-name">{{'stredni' | translate}}</div>
+                  <table>
+                    <tr>
+                      <th>
+                        <div class="heading">{{'pocet' | translate}}</div>
+                      </th>
+                      <th>
+                        <div class="heading">xG</div>
+                      </th>
+                      <th>
+                        <div class="heading">G</div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="left-box">{{ getShotsCount("MD") }}</td>
+                      <td class="center-box">{{ getXg("MD") }}</td>
+                      <td class="right-box">{{ getGoalsCount("MD") }}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="box red">
+                  <div class="box-name">{{'nizka' | translate}}</div>
+                  <table>
+                    <tr>
+                      <th>
+                        <div class="heading">{{'pocet' | translate}}</div>
+                      </th>
+                      <th>
+                        <div class="heading">xG</div>
+                      </th>
+                      <th>
+                        <div class="heading">G</div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="left-box">{{ getShotsCount("LD") }}</td>
+                      <td class="center-box">{{ getXg("LD") }}</td>
+                      <td class="right-box">{{ getGoalsCount("LD") }}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <table class="basic-info">
+              <tr>
+                <td>TOI: {{ getAllToi() | format_sesonds }}</td>
+                <td>xG: {{ xG !== undefined ? xG : 0}}</td>
+                <td>G: {{ g !== undefined ? g : 0}}</td>
+                <td class="toggler-td">
+                  <button class="toggler" (click)="toggleShotmapInfobar()">
+                    <img
+                      class="more-info-img"
+                      src="/assets/icobutton-download.svg"
+                      width="16"
+                      height="16"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="loading" *ngIf="heatmap_loading">
+          <img src="/assets/loading_img.svg" />
+          <span>{{ "nahravam_data" | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="column-aside aside-right">
+      <div class="boxes">
+        <div class="box">
+          <div class="form-box">
+            <label>{{ "kdo_strilel" | translate }}</label>
+            <button
+              [ngClass]="{ active: render_pro_proti == 'HRAC' }"
+              (click)="renderAssistProProti('HRAC')"
+              [disabled]="shots_team"
+            >
+              {{ "hrac" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: render_pro_proti == 'PRO' }"
+              (click)="renderAssistProProti('PRO')"
+            >
+              {{ "tym" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: render_pro_proti == 'PROTI' }"
+              (click)="renderAssistProProti('PROTI')"
+            >
+              {{ "souper" | translate }}
+            </button>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "kategorie_strel" | translate }}</label>
+            <button
+              [ngClass]="{ active: kategorie_strel == 'cf60' }"
+              (click)="setShotCategory('cf60')"
+            >
+              {{ "strelecke_pokusy" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: kategorie_strel == 'sogf60' }"
+              (click)="setShotCategory('sogf60')"
+            >
+              {{ "na_branku" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: kategorie_strel == 'gf60' }"
+              (click)="setShotCategory('gf60')"
+            >
+              {{ "goly" | translate }}
+            </button>
+          </div>
+
+          <!-- <div class="form-box">
+            <label>{{ "nebezpecnost_strel" | translate }}</label>
+            <button
+              [ngClass]="{ active: nebezpecnost_strel == 'ALL' }"
+              (click)="setShotDanger('ALL')"
+            >
+              {{ "vsechny" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: nebezpecnost_strel == 'HD' }"
+              (click)="setShotDanger('HD')"
+            >
+              {{ "vysoka" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: nebezpecnost_strel == 'MD' }"
+              (click)="setShotDanger('MD')"
+            >
+              {{ "stredni" | translate }}
+            </button>
+            <button
+              [ngClass]="{ active: nebezpecnost_strel == 'LD' }"
+              (click)="setShotDanger('LD')"
+            >
+              {{ "nizka" | translate }}
+            </button>
+          </div> -->
+        </div>
+        <div class="box">
+          <div class="form-box">
+            <label>{{"typy_akce" | translate}}</label>
+            <button
+              [class.active]="action_type == ''"
+              (click)="setActionType('')"
+            >
+              {{'vsechny' | translate}}
+            </button>
+            <button
+              [class.active]="action_type == 'f.'"
+              (click)="setActionType('f.')"
+            >
+              {{'forcek' | translate}}
+            </button>
+            <button
+              [class.active]="action_type == 'r.'"
+              (click)="setActionType('r.')"
+            >
+              {{'rychly_utok' | translate}}
+            </button>
+            <button
+              [class.active]="action_type == 'l.'"
+              (click)="setActionType('l.')"
+            >
+              {{'dlouhy_utok' | translate}}
+            </button>
+            <button
+              [class.active]="action_type == 'o.'"
+              (click)="setActionType('o.')"
+            >
+              {{'precisleni' | translate}}
+            </button>
+            <button
+              [class.active]="action_type == 'a.'"
+              (click)="setActionType('a.')"
+            >
+              {{'po_vhazovani' | translate}}
+            </button>
+          </div>
+
+          <div class="form-box">
+            <label>{{ "porovnat_s_prumerem" | translate }}</label>
+            <button
+              [ngClass]="{ active: porovnat_s == 'league' }"
+              (click)="porovnatS('league')"
+            >
+              {{"produkce_strel" | translate}}
+            </button>
+
+            <button
+            [ngClass]="{ active: porovnat_s == 'chance' }"
+            (click)="porovnatS('chance')">
+              {{"promenovani_sanci" | translate}}
+            </button>
+          </div>
+        </div>
+
+        <div class="box">
+          <div style="margin-top: 118px">
+            <button (click)="loadHeatmap()" class="load-data">
+              {{ "nahrat_heatmapu" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

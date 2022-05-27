@@ -1,0 +1,137 @@
+<div class="div" style="position: relative;">
+  <div [ngClass] = getCssClassNames()>
+    <div class="third third-1">
+      1. třetina
+    </div>
+    <div class="third third-2">
+      2. třetina
+    </div>
+    <div class="third third-3">
+      3. třetina
+    </div>
+    <div class="prolong" *ngIf="MAX_TIME >= 15">
+      Prodloužení
+    </div>
+    <div class="prolong-2" *ngIf="MAX_TIME >= 20">
+      Prodloužení
+    </div>
+  </div>
+
+  <div class="chart-box">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [markers]="chartOptions.markers"
+      [stroke]="chartOptions.stroke"
+      [dataLabels]="chartOptions.dataLabels"
+      [title]="chartOptions.title"
+      [annotations]="chartOptions.annotations"
+      [legend]="chartOptions.legend"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [grid]="chartOptions.grid"
+      #chart
+    ></apx-chart>
+    <!-- <div class="goal-box">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/EHC_M%C3%BCnchen_logo.svg/1200px-EHC_M%C3%BCnchen_logo.svg.png"
+      />
+    </div> -->
+  </div>
+
+  <table class="desc-table" *ngIf="loaded">
+    <tr>
+      <td>
+        <table [ngClass]=getCssForTab1()>
+          <tr>
+            <span [ngClass]="getCssHomeTeamShortcut1()">{{getTeamShortcut(this.home_team)}}</span>
+            <td>
+              <span class="home-value">
+                {{first_home_xg.toFixed(2)}} xG</span
+              >
+            </td>
+            <span [ngClass]="getCssAwayTeamShortcut1()">{{getTeamShortcut(this.away_team)}}</span>
+            <td>
+              <span class="visitor-value">
+                  {{first_away_xg.toFixed(2)}} xG</span
+              >
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table [ngClass]=getCssForTab2()>
+          <tr>
+            <span [ngClass]="getCssHomeTeamShortcut2()">{{getTeamShortcut(this.home_team)}}</span>
+            <td>
+              <span class="home-value"
+                >{{second_home_xg.toFixed(2)}} xG</span
+              >
+            </td>
+            <span [ngClass]="getCssAwayTeamShortcut2()">{{getTeamShortcut(this.away_team)}}</span>
+            <td>
+              <span class="visitor-value">
+                  {{second_away_xg.toFixed(2)}} xG</span
+              >
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table [ngClass]=getCssForTab3()>
+          <tr>
+            <span [ngClass]="getCssHomeTeamShortcut3()">{{getTeamShortcut(this.home_team)}}</span>
+            <td>
+              <span class="home-value"
+                >{{third_home_xg.toFixed(2)}} xG</span
+              >
+            </td>
+            <span [ngClass]="getCssAwayTeamShortcut3()">{{getTeamShortcut(this.away_team)}}</span>
+            <td>
+              <span class="visitor-value"
+                >{{third_away_xg.toFixed(2)}} xG</span
+              >
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td *ngIf="this.MAX_TIME > 12">
+        <table [ngClass]=getCssForProlong()>
+          <tr>
+            <span [ngClass]="getCssHomeTeamShortcutProlong()">{{getTeamShortcut(this.home_team)}}</span>
+            <td>
+              <span class="home-value"
+              >{{forth_home_xg.toFixed(2)}} xG</span
+              >
+            </td>
+            <span [ngClass]="getCssAwayTeamShortcutProlong()">{{getTeamShortcut(this.away_team)}}</span>
+            <td>
+              <span class="visitor-value"
+              >{{forth_away_xg.toFixed(2)}} xG</span
+              >
+            </td>
+          </tr>
+        </table>
+        </td>
+      <td *ngIf="this.MAX_TIME > 16">
+        <table [ngClass]=getCssForProlong21()>
+          <tr>
+            <span [ngClass]="getCssHomeTeamShortcutProlong2()">{{getTeamShortcut(this.home_team)}}</span>
+            <td>
+              <span class="home-value"
+              >{{fifth_home_xg.toFixed(2)}} xG</span
+              >
+            </td>
+            <span [ngClass]="getCssAwayTeamShortcutProlong2()">{{getTeamShortcut(this.away_team)}}</span>
+            <td>
+              <span class="visitor-value"
+              >{{fifth_away_xg.toFixed(2)}} xG</span
+              >
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+

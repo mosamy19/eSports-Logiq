@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Startuje kompilace produkcni verze."
+ng build --prod
+echo "Startuje deploy heatmap pluginu."
+gulp heatmap
+echo "Startuje deploy video pluginu."
+gulp video
+echo "Startuje deploy mock dat."
+gulp mock
+echo "Startuje deploy tracking API."
+gulp tracking_api
+echo "Startuje deploy cele aplikace."
+gulp prod

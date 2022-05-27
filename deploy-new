@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Startuje kompilace UI 2.0 verze."
+ng build --configuration=test --aot --build-optimizer --optimization=true --stats-json --output-hashing=all
+echo "Startuje deploy cele aplikace na UI 2.0 server."
+gulp test_new
+echo "Startuje deploy tracking API."
+gulp tracking_api

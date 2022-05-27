@@ -1,0 +1,965 @@
+<div #exportpng>
+  <div class="container-videos">
+    <div class="row" [ngStyle]="getBottomPadding()">
+      <div class="column-aside aside-left">
+        <div class="game-type-selects">
+          <button
+            (click)="mainGamesSelect('ALL')"
+            *ngIf="checkAllGamesSelected()"
+          >
+            {{ "vybrat_vsechny_zapasy" | translate }}
+          </button>
+          <button
+            (click)="mainGamesSelect('')"
+            *ngIf="!checkAllGamesSelected()"
+            class="selected"
+          >
+            {{ "odebrat_vsechny_zapasy" | translate }}
+          </button>
+        </div>
+
+        <div class="games-list-box">
+          <div class="games-list" #games_list>
+            <Label *ngIf="games_list_loading" class="games_list_loading"
+              ><img src="/assets/loading.gif" width="20"
+            /></Label>
+
+            <ng-container *ngFor="let game of games">
+              <div class="game" [ngClass]="{ active: game.active == true }">
+                <div
+                  class="check-indicator"
+                  (click)="toggleGame(game.id)"
+                ></div>
+                <div class="title">
+                  <span class="teams"
+                    >{{ getTeamNameShortcut(game.homeTeam) }} -
+                    {{ getTeamNameShortcut(game.awayTeam) }}</span
+                  >
+                  <span class="date">{{ game.matchDate | match_date }}</span>
+                </div>
+                <div
+                  class="play-ico"
+                  (click)="playGameVideo(game, 'all', undefined)"
+                ></div>
+                <ng-container *ngIf="shots_team == false">
+                  <div class="shots">
+                    <ng-container *ngFor="let circle of game.circles">
+                      <div
+                        class="circle circle-{{ circle.color }}"
+                        *ngIf="circle.count > 0"
+                        (click)="playGameVideo(game, 'all', undefined)"
+                      >
+                        {{ circle.count }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="shots_team == true">
+                  <div class="shots">
+                    <ng-container *ngFor="let circle of game.circles">
+                      <div
+                        class="circle circle-{{ circle.color }}"
+                        *ngIf="circle.count > 0"
+                        (click)="playGameVideo(game, 'all', undefined)"
+                      >
+                        {{ circle.count }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+            <div style="height: 1000px"></div>
+          </div>
+        </div>
+
+        <button
+          class="all-videos"
+          [disabled]="isGameChecked()"
+          (click)="openAllVideos()"
+        >
+          <span *ngIf="main_games_select == 'ALL'">{{
+            "videa_ze_vsech_zapasu" | translate
+          }}</span>
+          <span *ngIf="main_games_select == 'SELECTED'">{{
+            "videa_z_vybranych_zapasu" | translate
+          }}</span>
+        </button>
+      </div>
+
+      <div class="column-center">
+        <div class="shotmap" id="shotmap">
+          <div
+            *ngFor="let shot of circles"
+            class="circle circle-{{ shot.color }}"
+            [ngStyle]="{ left: shot['x'] + 'px', top: shot['y'] + 'px' }"
+            (click)="shotClick(shot)"
+          ></div>
+
+          <div class="loading" *ngIf="loading">
+            <img src="/assets/loading_img.svg" />
+            <span>{{ "nahravam_data" | translate }}</span>
+          </div>
+
+          <div class="box-left" *ngIf="loading == false && showLoadedData()">
+            <div class="title-row">{{'vlevo' | translate}}</div>
+            <div class="title-info-row">
+              <div class="box">{{'pocet' | translate}}</div>
+              <div class="box">xG</div>
+            </div>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PLAYER' && shots_team == false"
+            >
+              <ng-container *ngFor="let item of players_list; let i = index">
+                <ng-container *ngIf="item.enabled">
+                  <div
+                    class="item-box player-{{ i + 1 }}"
+                    [ngClass]="{
+                      active: selected_button_spot == 'box_left_pro_player_' + i
+                    }"
+                  >
+                    <div class="second-row">
+                      <div class="box value-box-left">
+                        {{ getValue(item.uuid, "left") }}
+                      </div>
+                      <div class="box value-box-right">
+                        {{ getXg(item.uuid, "left") }}
+                      </div>
+                    </div>
+                    <div class="play-entries" (click)="playSelectedVideos('left',item.uuid)"></div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PRO'"
+            >
+            <!-- [ngClass]="{
+                  active: selected_button_spot == 'box_left_pro_team_' + i
+                }" -->
+              <div
+                class="item-box player-0"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueAllTeamPro("left") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgAllTeamPro("left") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('left')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' && zapojeni_hrace_proti == 'onice'
+              "
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active:
+                    selected_button_spot ==
+                    'box_left_proti_hracem_zamezene_vstupy_individual_' 
+                }"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueTotalProti("left") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgTotalProti("left") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('left')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' &&
+                zapojeni_hrace_proti == 'individual'
+              "
+            >
+              <ng-container *ngIf="shots_team == false">
+                <ng-container *ngFor="let item of players_list; let i = index">
+                  <ng-container *ngIf="item.enabled">
+                    <div
+                      class="item-box player-{{ i + 1 }}"
+                      [ngClass]="{
+                        active:
+                          selected_button_spot ==
+                          'box_left_proti_hracem_zamezene_vstupy_individual_' +
+                            i
+                      }"
+                    >
+                      <div class="second-row">
+                        <div class="box value-box-left">
+                          {{ getValueProtiHracemZamezene(item.uuid, "left") }}
+                        </div>
+                        <div class="box value-box-right">
+                          {{ getValueProtiHracemZamezene(item.uuid, "left") }}
+                        </div>
+                      </div>
+                      <div class="play-entries"></div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="shots_team == true">
+                <!-- [ngClass]="{
+                    active: selected_button_spot == 'box_left_proti_team_' + i
+                  }" -->
+                <div
+                  class="item-box player-0"
+                  
+                >
+                  <div class="second-row">
+                    <div class="box value-box-left">
+                      {{ getValueAllTeamProti("left") }}
+                    </div>
+                    <div class="box value-box-right">
+                      {{ getValueAllTeamProti("left") }}
+                    </div>
+                  </div>
+                  <div class="play-entries"></div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <div class="box-center" *ngIf="loading == false && showLoadedData()">
+            <div class="title-row">{{'stredem' | translate}}</div>
+            <div class="title-info-row">
+              <div class="box">{{'pocet' | translate}}</div>
+              <div class="box">xG</div>
+            </div>
+            <ng-container
+              *ngIf="render_pro_proti == 'PLAYER' && shots_team == false"
+            >
+              <ng-container *ngFor="let item of players_list; let i = index">
+                <ng-container *ngIf="item.enabled">
+                  <div
+                    class="item-box player-{{ i + 1 }}"
+                    [ngClass]="{
+                      active:
+                        selected_button_spot == 'box_center_pro_player_' + i
+                    }"
+                  >
+                    <div class="second-row">
+                      <div class="box value-box-left">
+                        {{ getValue(item.uuid, "center") }}
+                      </div>
+                      <div class="box value-box-right">
+                        {{ getXg(item.uuid, "center") }}
+                      </div>
+                    </div>
+                    <div class="play-entries" (click)="playSelectedVideos('center',item.uuid)"></div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PRO'"
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active: selected_button_spot == 'box_center_pro_team_'
+                }"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueAllTeamPro("center") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgAllTeamPro("center") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('center')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' && zapojeni_hrace_proti == 'onice'
+              "
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active:
+                    selected_button_spot ==
+                    'box_center_proti_nehracem_zamezene_vstupy_individual_' 
+                }"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueTotalProti("center") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgTotalProti("center") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('center')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' &&
+                zapojeni_hrace_proti == 'individual'
+              "
+            >
+              <ng-container *ngIf="shots_team == false">
+                <ng-container *ngFor="let item of players_list; let i = index">
+                  <ng-container *ngIf="item.enabled">
+                    <div
+                      class="item-box player-{{ i + 1 }}"
+                      [ngClass]="{
+                        active:
+                          selected_button_spot ==
+                          'box_center_proti_hracem_zamezene_vstupy_individual_' +
+                            i
+                      }"
+                    >
+                      <div class="second-row">
+                        <div class="box value-box-left">
+                          {{ getValueProtiHracemZamezene(item.uuid, "center") }}
+                        </div>
+                        <div class="box value-box-right">
+                          {{ getValueProtiHracemZamezene(item.uuid, "center") }}
+                        </div>
+                      </div>
+                      <div class="play-entries" (click)="playSelectedVideos('center')"></div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="shots_team == true">
+                <div
+                  class="item-box player-0"
+                  [ngClass]="{
+                    active: selected_button_spot == 'box_center_proti_team_' 
+                  }"
+                >
+                  <div class="second-row">
+                    <div class="box value-box-left">
+                      {{ getValueAllTeamProti("center") }}
+                    </div>
+                    <div class="box value-box-right">
+                      {{ getValueAllTeamProti("center") }}
+                    </div>
+                  </div>
+                  <div class="play-entries" (click)="playSelectedVideos('center')"></div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <div class="box-right" *ngIf="loading == false && showLoadedData()">
+            <div class="title-row">{{'vpravo' | translate}}</div>
+            <div class="title-info-row">
+              <div class="box">{{'pocet' | translate}}</div>
+              <div class="box">xG</div>
+            </div>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PLAYER' && shots_team == false"
+            >
+              <ng-container *ngFor="let item of players_list; let i = index">
+                <ng-container *ngIf="item.enabled">
+                  <div
+                    class="item-box player-{{ i + 1 }}"
+                    [ngClass]="{
+                      active:
+                        selected_button_spot == 'box_right_pro_player_' + i
+                    }"
+                  >
+                    <div class="second-row">
+                      <div class="box value-box-left">
+                        {{ getValue(item.uuid, "right") }}
+                      </div>
+                      <div class="box value-box-right">
+                        {{ getXg(item.uuid, "right") }}
+                      </div>
+                    </div>
+                    <div class="play-entries" (click)="playSelectedVideos('right',item.uuid)"></div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PRO'"
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active: selected_button_spot == 'box_right_pro_team_' 
+                }"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueAllTeamPro("right") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgAllTeamPro("right") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('right')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' && zapojeni_hrace_proti == 'onice'
+              "
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active:
+                    selected_button_spot ==
+                    'box_right_proti_nehracem_zamezene_vstupy_individual_' 
+                }"
+              >
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueTotalProti("right") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgTotalProti("right") }}
+                  </div>
+                </div>
+                <div class="play-entries" (click)="playSelectedVideos('right')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' &&
+                zapojeni_hrace_proti == 'individual'
+              "
+            >
+              <ng-container *ngIf="shots_team == false">
+                <ng-container *ngFor="let item of players_list; let i = index">
+                  <ng-container *ngIf="item.enabled">
+                    <div
+                      class="item-box player-{{ i + 1 }}"
+                      [ngClass]="{
+                        active:
+                          selected_button_spot ==
+                          'box_right_proti_hracem_zamezene_vstupy_individual_' +
+                            i
+                      }"
+                    >
+                      <div class="second-row">
+                        <div class="box value-box-left">
+                          {{ getValueProtiHracemZamezene("right") }}
+                        </div>
+                        <div class="box value-box-right">
+                          {{ getValueProtiHracemZamezene("right") }}
+                        </div>
+                      </div>
+                      <div class="play-entries" (click)="playSelectedVideos('right')"></div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="shots_team == true">
+                <div
+                  class="item-box player-0"
+                  [ngClass]="{
+                    active: selected_button_spot == 'box_right_proti_team_' 
+                  }"
+                >
+                  <div class="second-row">
+                    <div class="box value-box-left">
+                      {{ getValueAllTeamProti("right") }}
+                    </div>
+                    <div class="box value-box-right">
+                      {{ getValueAllTeamProti("right") }}
+                    </div>
+                  </div>
+                  <div class="play-entries"></div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <div class="box-total" *ngIf="loading == false && showLoadedData()">
+            <div class="title-row">{{ "celkem" | translate }}</div>
+            <ng-container
+              *ngIf="render_pro_proti == 'PLAYER' && shots_team == false"
+            >
+              <ng-container *ngFor="let item of players_list; let i = index">
+                <ng-container *ngIf="item.enabled">
+                  <div
+                    class="item-box player-{{ i + 1 }}"
+                    [ngClass]="{
+                      active:
+                        selected_button_spot == 'box_total_pro_player_' + i
+                    }"
+                  >
+                    <div class="main-row">
+                      <div class="box">{{ "pocet" | translate }}</div>
+                      <div class="box">xG</div>
+                    </div>
+                    <div class="second-row">
+                      <div class="box value-box-left">
+                        {{ getValue(item.uuid, "total") }}
+                      </div>
+                      <div class="box value-box-right">
+                        {{ getXg(item.uuid, "total") }}
+                      </div>
+                    </div>
+                    <div class="play-entries all" (click)="playSelectedVideos('total',item.uuid)"></div>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="render_pro_proti == 'PRO'"
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active: selected_button_spot == 'box_total_pro_team_'
+                }"
+              >
+                <div class="main-row">
+                  <div class="box">{{ "pocet" | translate }}</div>
+                  <div class="box">xG</div>
+                </div>
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueAllTeamPro("total") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgAllTeamPro("total") }}
+                  </div>
+                </div>
+                <div class="play-entries all" (click)="playSelectedVideos('total')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' && zapojeni_hrace_proti == 'onice'
+              "
+            >
+              <div
+                class="item-box player-0"
+                [ngClass]="{
+                  active:
+                    selected_button_spot ==
+                    'box_total_proti_nehracem_zamezene_vstupy_individual_'
+                }"
+              >
+                <div class="main-row">
+                  <div class="box">{{ "pocet" | translate }}</div>
+                  <div class="box">xG</div>
+                </div>
+                <div class="second-row">
+                  <div class="box value-box-left">
+                    {{ getValueTotalProti("total") }}
+                  </div>
+                  <div class="box value-box-right">
+                    {{ getXgTotalProti("total") }}
+                  </div>
+                </div>
+                <div class="play-entries all" (click)="playSelectedVideos('total')"></div>
+              </div>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                render_pro_proti == 'PROTI' &&
+                zapojeni_hrace_proti == 'individual'
+              "
+            >
+              <ng-container *ngIf="shots_team == false">
+                <ng-container *ngFor="let item of players_list; let i = index">
+                  <ng-container *ngIf="item.enabled">
+                    <div
+                      class="item-box player-{{ i + 1 }}"
+                      [ngClass]="{
+                        active:
+                          selected_button_spot ==
+                          'box_total_proti_hracem_zamezene_vstupy_individual_' +
+                            i
+                      }"
+                    >
+                      <div class="main-row">
+                        <div class="box">{{ "pocet" | translate }}</div>
+                        <div class="box">xG</div>
+                      </div>
+                      <div class="second-row">
+                        <div class="box value-box-left">
+                          {{ getValueProtiHracemZamezene(item.uuid, "total") }}
+                        </div>
+                        <div class="box value-box-right">
+                          {{ getValueProtiHracemZamezene(item.uuid, "total") }}
+                        </div>
+                      </div>
+                      <div class="play-entries all" (click)="playSelectedVideos('total')"></div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+
+              <ng-container *ngIf="shots_team == true">
+                <div
+                  class="item-box player-0"
+                  [ngClass]="{
+                    active: selected_button_spot == 'box_total_proti_team_' 
+                  }"
+                >
+                  <div class="main-row">
+                    <div class="box">{{ "pocet" | translate }}</div>
+                    <div class="box">xG</div>
+                  </div>
+                  <div class="second-row">
+                    <div class="box value-box-left">
+                      <!-- {{ getValueAllTeamProti(item.uuid, "total") }} -->
+                    </div>
+                    <div class="box value-box-right">
+                     <!--  {{ getValueAllTeamProti(item.uuid, "total") }} -->
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <div class="vstup_arrow_1"><img src="/assets/vstup_arrow.svg" /></div>
+          <div class="vstup_arrow_2"><img src="/assets/vstup_arrow.svg" /></div>
+        </div>
+        <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+          <div class="more-info" *ngIf="shotmapInfobarOpen">
+            <label>{{"nebezpecnost_vstupu" | translate}}</label>
+            <div class="boxes">
+              <div class="box green">
+                <div class="box-name">{{"vysoka" | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{"pocet" | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getValueEnterDanger("HD")}}</td>
+                    <td class="center-box">{{getXgEnterDanger("HD")}}</td>
+                    <td class="right-box">{{getGoalseEnterDanger("HD")}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box orange">
+                <div class="box-name">{{"stredni" | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{"pocet" | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getValueEnterDanger("MD")}}</td>
+                    <td class="center-box">{{getXgEnterDanger("MD")}}</td>
+                    <td class="right-box">{{getGoalseEnterDanger("MD")}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box red">
+                <div class="box-name">{{"nizka" | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{"pocet" | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{getValueEnterDanger("LD")}}</td>
+                    <td class="center-box">{{getXgEnterDanger("LD")}}</td>
+                    <td class="right-box">{{getGoalseEnterDanger("LD")}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <table class="basic-info">
+            <tr>
+              <td>
+                TOI: {{toi2 | format_sesonds}}
+              </td>
+              <td>xG: {{ xG }}</td>
+              <td>G: {{ goals }}</td>
+              <td  class="toggler-td"><button class="toggler" (click)="openInfobar()"><img
+                    src="/assets/icobutton-download.svg" width="16" height="16"></button></td>
+            </tr>
+          </table>
+        </div>
+        
+      </div>
+
+      <div class="column-aside aside-right">
+        
+        <div class="boxes">
+          <div class="box">
+
+            <div class="form-box">
+              <label>{{ "kdo_vstupoval" | translate }}</label>
+              <button
+              [disabled]="shots_team"
+              [ngClass]="{'active':render_pro_proti=='PLAYER'}"
+              (click)="renderProProti('PLAYER')"
+              >
+              <ng-container *ngIf="count_of_players <= 1">
+                {{'hrac' | translate}}
+              </ng-container>
+              <ng-container *ngIf="count_of_players > 1">
+                {{'hraci' | translate}}
+              </ng-container>
+                
+              </button>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                  [ngClass]="{'active':render_pro_proti=='PRO'}"
+                  (click)="renderProProti('PRO')"
+                  >
+                    {{'tym' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                  [ngClass]="{'active':render_pro_proti=='PROTI'}"
+                  (click)="renderProProti('PROTI')"
+                  >
+                    {{'souper' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <label>{{ "kategorie_vstupu" | translate }}</label>
+
+              <!-- <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_category=='ALL'}"
+                (click)="setEnterCategory('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div> -->
+
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_category=='KON'}"
+                (click)="setEnterCategory('KON')"
+                >
+                  {{ "kontrolovane" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_category=='NAH'}"
+                (click)="setEnterCategory('NAH')"
+                >
+                  {{ "nahozeni" | translate }}
+                </button>
+              </div>
+            </div>
+
+            <div class="form-box" *ngIf="enter_category == 'KON'">
+              <label>{{ "podle_uspesnosti" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':vstupy_dle_uspesnosti == 'ALL'}"
+                (click)="setEnterSuccess('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                  [ngClass]="{'active':vstupy_dle_uspesnosti == 'success'}"
+                  (click)="setEnterSuccess('success')"
+                  >
+                    {{ "uspesne" | translate }}
+                  </button>
+                </div>
+
+                <div class="btn-box">
+                  <button
+                  [ngClass]="{'active':vstupy_dle_uspesnosti == 'nosuccess'}"
+                  (click)="setEnterSuccess('nosuccess')"
+                  >
+                    {{ "neuspesne" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box" *ngIf="enter_category == 'NAH'">
+              <label>{{ "vysledek_nahozeni" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':dumpin_result == 'ALL'}"
+                (click)="setDumpinResult('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':dumpin_result == 'fight'}"
+                (click)="setDumpinResult('fight')"
+                >
+                  {{ "souboj_o_puk" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':dumpin_result == 'stonks'}"
+                (click)="setDumpinResult('stonks')"
+                >
+                  {{ "zisk_utociciho_tymu" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':dumpin_result == 'notStonks'}"
+                (click)="setDumpinResult('notStonks')"
+                >
+                  {{ "zisk_braniciho_tymu" | translate }}
+                </button>
+              </div>
+
+              
+            </div>
+            
+          </div>
+
+          <div class="box">
+           
+            
+            <div class="form-box">
+              <label>{{ "nebezpecnost_vstupu" | translate }}</label>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_danger == 'ALL'}"
+                (click)="setEnterDanger('ALL')"
+                >
+                {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_danger == 'HD'}"
+                (click)="setEnterDanger('HD')"
+                >
+                  {{ "vysoka" | translate}}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_danger == 'MD'}"
+                (click)="setEnterDanger('MD')"
+                >
+                  {{"stredni" | translate}}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':enter_danger == 'LD'}"
+                (click)="setEnterDanger('LD')"
+                >
+                 {{"nizka"|translate}}
+                </button>
+              </div>
+
+            </div>
+
+
+            <div class="form-box" >
+              <label>{{ "zakonceni" | translate }}</label>
+
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':vysledek_vstupu == 'ALL'}"
+                (click)="setEnterShot('ALL')"
+                >
+                  {{ "vsechny" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':vysledek_vstupu == 'shot_attempt'}"
+                (click)="setEnterShot('shot_attempt')"
+                >
+                  {{ "strela" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':vysledek_vstupu == 'shot'}"
+                (click)="setEnterShot('shot')"
+                >
+                  {{ "strela_ze_slotu" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <button
+                [ngClass]="{'active':vysledek_vstupu == 'goal'}"
+                (click)="setEnterShot('goal')"
+                >
+                  {{ "gol" | translate }}
+                </button>
+              </div>
+              <div class="btn-box">
+                <div class="box save-map">
+                  <button class="load-data" (click)="downloadMap()">{{"ulozit_mapu" | translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

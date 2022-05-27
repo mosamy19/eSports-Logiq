@@ -1,0 +1,215 @@
+<div class="cube" *ngIf="loaded">
+
+  <div class="head">
+    <div class="header">
+      {{ header | translate}}
+
+    </div>
+    <div class="circle" [ngClass]="getColor(percentile | check_null)">
+      {{percentile | check_null}}
+    </div>
+
+    <div class="toi" *ngIf="toi">
+      <div class="bold">
+        TOI:
+      </div>
+      <ng-container *ngIf="toi_value != null ">
+        {{toi_value | format_sesonds}}
+      </ng-container>
+      <ng-container *ngIf="toi_value == null">
+        {{ "nedostatecny_pocet_minut" | translate}}
+      </ng-container>
+      
+    </div>
+    <div class="toi" *ngIf="!toi && toi_value == null">
+      <div class="bold">
+        TOI:
+      </div>
+      <ng-container *ngIf="toi_value == null">
+        {{ "nedostatecny_pocet_minut" | translate}}
+      </ng-container>
+    </div>
+    
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_1.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+          [ngStyle]="{'width': (selected_data.row_1.percent | check_null) + '%'}"
+          [ngClass]="getColor(selected_data.row_1.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_1.att_name}}: 
+          </div> 
+          {{selected_data.row_1.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_1.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_2.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+          [ngStyle]="{'width':selected_data.row_2.percent + '%'}"
+          [ngClass]="getColor(selected_data.row_2.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_2.att_name}}: 
+          </div> 
+          {{selected_data.row_2.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_2.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_3.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+        [ngStyle]="{'width':selected_data.row_3.percent + '%'}"
+        [ngClass]="getColor(selected_data.row_3.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_3.att_name}}: 
+          </div> 
+          {{selected_data.row_3.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_3.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_4.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+         [ngStyle]="{'width':selected_data.row_4.percent + '%'}"
+         [ngClass]="getColor(selected_data.row_4.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_4.att_name}}: 
+          </div> 
+          {{selected_data.row_4.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_4.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_5.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+          [ngStyle]="{'width':selected_data.row_5.percent + '%'}"
+          [ngClass]="getColor(selected_data.row_5.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_5.att_name}}: 
+          </div> 
+          {{selected_data.row_5.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_5.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_6.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+          [ngStyle]="{'width':selected_data.row_6.percent + '%'}"
+          [ngClass]="getColor(selected_data.row_6.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_6.att_name}}: 
+          </div> 
+          {{selected_data.row_6.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_6.percent | check_null}}
+      </div>
+    </div>
+  </div>
+
+  <div class="data-row">
+    <div class="header">
+      {{selected_data.row_7.name | translate}}
+    </div>
+    <div class="bar-wrapper">
+      <div class="center"></div>
+      <div class="bar">
+        <div class="fill-bar"
+          [ngStyle]="{'width':selected_data.row_7.percent + '%'}"
+          [ngClass]="getColor(selected_data.row_7.percent)"
+        >
+        </div>
+        <div class="pop-up">
+          <div class="bold">
+            {{selected_data.row_7.att_name}}: 
+          </div> 
+          {{selected_data.row_7.att_value | check_null}}
+        </div>
+      </div>
+      <div class="value">
+        {{selected_data.row_7.percent | check_null}}
+      </div>
+    </div>
+    <div class="value-bar">
+      <div>0</div>
+      <div style="margin-left: 16px;">50</div>
+      <div>100</div>
+    </div>
+  </div>
+
+</div>

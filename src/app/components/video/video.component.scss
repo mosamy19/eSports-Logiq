@@ -1,0 +1,1030 @@
+.fullscreen-video {
+  background: rgba(21, 29, 34, 0.75);
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .main-row {
+    height: 48px;
+    background-color: #1d5cff;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: #ffffff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    label {
+      float: left;
+      padding: 14px 0;
+      margin-left: 9px;
+    }
+
+    button {
+      float: right;
+      background: url(/assets/ico-close.svg) no-repeat;
+      background-size: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      color: #ffffff;
+      border: 0;
+      margin: 0;
+      padding-top: 9px;
+      background-position: 2px 15px;
+      margin-top: 2px;
+      text-transform: none;
+    }
+
+    .download-button {
+      float: right;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgIDxnIGlkPSLDmnByYXZ5IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJvZmZjYW52YXMtdmlkZW8tamVkZW4tesOhcGFzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM0Ny4wMDAwMDAsIC0xNy4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iPiAgICAgICAgICAgIDxnIGlkPSJhcnJvdy1jaXJjbGUtZG93biIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM0Ny4wMDAwMDAsIDE3LjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOCwwIEMxMi40MTkzNTQ4LDAgMTYsMy41ODA2NDUxNiAxNiw4IEMxNiwxMi40MTkzNTQ4IDEyLjQxOTM1NDgsMTYgOCwxNiBDMy41ODA2NDUxNiwxNiAwLDEyLjQxOTM1NDggMCw4IEMwLDMuNTgwNjQ1MTYgMy41ODA2NDUxNiwwIDgsMCBaIE0xMi4xOTAzMjI2LDcuODAzMjI1ODEgTDExLjU1ODA2NDUsNy4xNzA5Njc3NCBDMTEuNDAzMjI1OCw3LjAxNjEyOTAzIDExLjE1NDgzODcsNy4wMTkzNTQ4NCAxMS4wMDMyMjU4LDcuMTc3NDE5MzUgTDguODM4NzA5NjgsOS40NDUxNjEyOSBMOC44Mzg3MDk2OCw0LjI1ODA2NDUyIEM4LjgzODcwOTY4LDQuMDQ1MTYxMjkgOC42NjQ1MTYxMywzLjg3MDk2Nzc0IDguNDUxNjEyOSwzLjg3MDk2Nzc0IEw3LjU0ODM4NzEsMy44NzA5Njc3NCBDNy4zMzU0ODM4NywzLjg3MDk2Nzc0IDcuMTYxMjkwMzIsNC4wNDUxNjEyOSA3LjE2MTI5MDMyLDQuMjU4MDY0NTIgTDcuMTYxMjkwMzIsOS40NDUxNjEyOSBMNC45OTY3NzQxOSw3LjE3NzQxOTM1IEM0Ljg0NTE2MTI5LDcuMDE5MzU0ODQgNC41OTY3NzQxOSw3LjAxNjEyOTAzIDQuNDQxOTM1NDgsNy4xNzA5Njc3NCBMMy44MDk2Nzc0Miw3LjgwMzIyNTgxIEMzLjY1ODA2NDUyLDcuOTU0ODM4NzEgMy42NTgwNjQ1Miw4LjIgMy44MDk2Nzc0Miw4LjM1MTYxMjkgTDcuNzI1ODA2NDUsMTIuMjY3NzQxOSBDNy44Nzc0MTkzNSwxMi40MTkzNTQ4IDguMTIyNTgwNjUsMTIuNDE5MzU0OCA4LjI3NDE5MzU1LDEyLjI2Nzc0MTkgTDEyLjE5MDMyMjYsOC4zNTE2MTI5IEMxMi4zNDE5MzU1LDguMiAxMi4zNDE5MzU1LDcuOTU0ODM4NzEgMTIuMTkwMzIyNiw3LjgwMzIyNTgxIFoiIGlkPSJTaGFwZSI+PC9wYXRoPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+      background-repeat: no-repeat;
+      background-size: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.29;
+      letter-spacing: normal;
+      color: #ffffff;
+      border: 0;
+      margin: 0;
+      background-position: 2px 15px;
+      margin-top: 2px;
+      display: block;
+      padding-top: 14px;
+      padding-left: 27px;
+      padding-bottom: 13px;
+      margin-right: 29px;
+    }
+  }
+
+  .video-content {
+    height: 100%;
+    min-height: calc(100vh - 50px);
+    padding-top: 0;
+
+    .video-box {
+      flex: 0 0 64%;
+      max-width: 64%;
+      background: #fff;
+      border-bottom-left-radius: 3px;
+      padding-top: 18px;
+      padding-left: 20px;
+      padding-bottom: 45px;
+
+      label {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        color: #151d22;
+        margin-bottom: 6px;
+      }
+
+      .video-inner {
+        height: 450px;
+        background-color: #f5f7f8;
+
+        iframe {
+          height: 451px;
+          border: 0;
+        }
+      }
+    }
+
+    .aside-box {
+      flex: 0 0 36%;
+      max-width: 36%;
+      padding-left: 15px;
+      background: #fff;
+      padding-right: 25px;
+      border-bottom-right-radius: 3px;
+      padding-top: 18px;
+
+      .form {
+        .column {
+          padding: 0 4px;
+        }
+
+        label {
+          font-size: 11px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1;
+          letter-spacing: normal;
+          color: #1d5cff;
+        }
+
+        select {
+          height: 36px;
+          border-radius: 3px;
+          border: solid 1px #151d22;
+          background-color: #ffffff;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          color: #151d22;
+          background: url(/assets/arrow.svg) right 7px center no-repeat;
+          padding-right: 22px;
+        }
+
+        button {
+          height: 36px;
+          border-radius: 3px;
+          border: solid 1px #f2f4f8;
+          background-color: #ffffff;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          color: #151d22;
+          padding: 0;
+          width: 100%;
+          margin: 0;
+        }
+
+        .order {
+          .title {
+            font-weight: bold;
+            color: #1d5cff;
+            padding-top: 20px;
+          }
+        }
+
+        .select {
+          max-width: 80px;
+
+          button {
+            width: 100%;
+            text-align: left;
+            position: relative;
+            padding-left: 33px;
+            text-transform: none;
+
+            &::before {
+              display: block;
+              content: "";
+              width: 16px;
+              height: 16px;
+              border: solid 1px #f2f4f8;
+              position: absolute;
+              top: 9px;
+              left: 8px;
+            }
+
+            &.active {
+              border: solid 1px #000;
+
+              &::before {
+                background: url(/assets/check-on.svg);
+                background-size: contain;
+                border: 0;
+              }
+            }
+          }
+        }
+
+        .before {
+          max-width: 67px;
+        }
+
+        .download {
+          button {
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.29;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+            height: 36px;
+            border-radius: 18px;
+            background-color: #1d5cff;
+            border: 0;
+            padding: 0;
+            text-transform: none;
+            margin-top: 15px;
+          }
+        }
+      }
+
+      .video-selects {
+        display: block;
+        width: 100%;
+        height: 388px;
+        overflow: auto;
+
+        .video-button {
+          border: solid 1px #d4d4d4;
+          font-size: 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          color: #151d22;
+          display: block;
+          width: 100%;
+          height: 36px;
+          border-radius: 3px;
+          margin-bottom: 8px;
+          overflow: hidden;
+          padding-right: 2px;
+
+          &::after {
+            display: block;
+            content: "";
+            clear: both;
+          }
+
+          .checkbox {
+            float: left;
+            width: 32px;
+            height: 34px;
+            background: #d4d4d4;
+            padding-top: 8px;
+            padding-left: 7px;
+            cursor: pointer;
+
+            &::after {
+              display: block;
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -167.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,183 L1049.71429,183 C1048.7675,183 1048,182.2325 1048,181.285714 L1048,168.714286 C1048,167.7675 1048.7675,167 1049.71429,167 L1062.28571,167 C1063.2325,167 1064,167.7675 1064,168.714286 L1064,181.285714 C1064,182.2325 1063.2325,183 1062.28571,183 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .desc {
+            float: left;
+            padding: 8px;
+          }
+
+          .state {
+            float: right;
+            padding: 8px 4px;
+            font-weight: normal;
+            margin-right: 10px;
+          }
+
+          .time {
+            float: right;
+            padding: 8px 4px;
+          }
+
+          .cropped {
+            float: right;
+            width: 12px;
+            height: 14px;
+            margin: 10px 4px;
+            position: relative;
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -168.000000)' fill='%23D4D4D4' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            .tooltip {
+              position: absolute;
+              left: 19px;
+              top: -5px;
+              width: 60px;
+              background: #000000c7;
+              text-align: center;
+              color: #fff;
+              border: 1px solid #000;
+              padding: 2px;
+              font-size: 14px;
+              display: none;
+              border-radius: 2px;
+            }
+
+            &:hover {
+              .tooltip {
+                display: block;
+              }
+            }
+          }
+
+          .play {
+            float: right;
+            width: 24px;
+            height: 24px;
+            margin: 5px 4px;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1398.000000, -163.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M28,24 C21.372583,24 16,18.627417 16,12 C16,5.372583 21.372583,0 28,0 C34.627417,0 40,5.372583 40,12 C40,18.627417 34.627417,24 28,24 Z M33.4734783,11.0310757 L25.6161165,6.15392996 C24.9777058,5.75785229 24,6.14221168 24,7.12185941 L24,16.8738072 C24,17.7526778 24.9085075,18.2823438 25.6161165,17.8417367 L33.4734783,12.9669346 C34.1743907,12.5333584 34.1766229,11.4646518 33.4734783,11.0310757 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            float: right;
+            width: 24px;
+            height: 24px;
+            margin: 5px 4px;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -295.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 295.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+        }
+
+        .color-0 {
+          .download.active {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1433.000000, -167.000000)' fill-rule='nonzero'%3E%3Cg id='hourglass-half' transform='translate(1433.000000, 167.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23D4D4D4'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%239C9C9C'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          &.active {
+            border-color: #9c9c9c;
+
+            .checkbox {
+              background: #9c9c9c;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%239C9C9C'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -168.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          &.playing {
+            background: #9c9c9c;
+            border-color: #9c9c9c;
+            color: #fff;
+
+            .checkbox {
+              background: #9c9c9c;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%239C9C9C'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-1 {
+          border: solid 1px #cbd9ff;
+
+          .checkbox {
+            background-color: #cbd9ff;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-527.000000, -1477.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(527.000000, 1472.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmNonactive-Copy-5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -952.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 947.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-543.000000, -1472.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(527.000000, 1472.000000)'%3E%3Cpath d='M28,24 C21.372583,24 16,18.627417 16,12 C16,5.372583 21.372583,0 28,0 C34.627417,0 40,5.372583 40,12 C40,18.627417 34.627417,24 28,24 Z M33.4734783,11.0310757 L25.6161165,6.15392996 C24.9777058,5.75785229 24,6.14221168 24,7.12185941 L24,16.8738072 C24,17.7526778 24.9085075,18.2823438 25.6161165,17.8417367 L33.4734783,12.9669346 C34.1743907,12.5333584 34.1766229,11.4646518 33.4734783,11.0310757 Z' id='icoPlay-Copy-5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-571.000000, -1472.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(527.000000, 1472.000000)'%3E%3Cpath d='M56,0 C62.6290323,0 68,5.37096774 68,12 C68,18.6290323 62.6290323,24 56,24 C49.3709677,24 44,18.6290323 44,12 C44,5.37096774 49.3709677,0 56,0 Z M62.2854839,11.7048387 L61.3370968,10.7564516 C61.1048387,10.5241935 60.7322581,10.5290323 60.5048387,10.766129 L57.2580645,14.1677419 L57.2580645,6.38709677 C57.2580645,6.06774194 56.9967742,5.80645161 56.6774194,5.80645161 L55.3225806,5.80645161 C55.0032258,5.80645161 54.7419355,6.06774194 54.7419355,6.38709677 L54.7419355,14.1677419 L51.4951613,10.766129 C51.2677419,10.5290323 50.8951613,10.5241935 50.6629032,10.7564516 L49.7145161,11.7048387 C49.4870968,11.9322581 49.4870968,12.3 49.7145161,12.5274194 L55.5887097,18.4016129 C55.816129,18.6290323 56.183871,18.6290323 56.4112903,18.4016129 L62.2854839,12.5274194 C62.5129032,12.3 62.5129032,11.9322581 62.2854839,11.7048387 Z' id='icoDownload-Copy-5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -951.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress' transform='translate(1325.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23CAD8FF'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%231d5cff'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #1d5cff;
+
+            .checkbox {
+              background: #1d5cff;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-81.000000, -1679.000000)' fill-rule='nonzero'%3E%3Cg id='Group-3' transform='translate(73.000000, 1669.000000)'%3E%3Cpath d='M22.2857143,26 L9.71428571,26 C8.7675,26 8,25.2325 8,24.2857143 L8,11.7142857 C8,10.7675 8.7675,10 9.71428571,10 L22.2857143,10 C23.2325,10 24,10.7675 24,11.7142857 L24,24.2857143 C24,25.2325 23.2325,26 22.2857143,26 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M14.9755,22.4978929 L21.5469286,15.9264643 C21.7700714,15.7033214 21.7700714,15.3415 21.5469286,15.1183571 L20.7388214,14.31025 C20.5156786,14.0871071 20.1538571,14.0870714 19.9306786,14.31025 L14.5714286,19.6694643 L12.0693214,17.1673571 C11.8461786,16.9442143 11.4843571,16.9442143 11.2611786,17.1673571 L10.4530714,17.9754643 C10.2299286,18.1986071 10.2299286,18.5604286 10.4530714,18.7835714 L14.1673571,22.4978571 C14.3905357,22.7210714 14.7523214,22.7210714 14.9755,22.4978929 Z' id='Path' fill='%231d5cff'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #1d5cff;
+            border-color: #1d5cff;
+            color: #fff;
+
+            .checkbox {
+              background: #1d5cff;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-81.000000, -1679.000000)' fill-rule='nonzero'%3E%3Cg id='Group-3' transform='translate(73.000000, 1669.000000)'%3E%3Cpath d='M22.2857143,26 L9.71428571,26 C8.7675,26 8,25.2325 8,24.2857143 L8,11.7142857 C8,10.7675 8.7675,10 9.71428571,10 L22.2857143,10 C23.2325,10 24,10.7675 24,11.7142857 L24,24.2857143 C24,25.2325 23.2325,26 22.2857143,26 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M14.9755,22.4978929 L21.5469286,15.9264643 C21.7700714,15.7033214 21.7700714,15.3415 21.5469286,15.1183571 L20.7388214,14.31025 C20.5156786,14.0871071 20.1538571,14.0870714 19.9306786,14.31025 L14.5714286,19.6694643 L12.0693214,17.1673571 C11.8461786,16.9442143 11.4843571,16.9442143 11.2611786,17.1673571 L10.4530714,17.9754643 C10.2299286,18.1986071 10.2299286,18.5604286 10.4530714,18.7835714 L14.1673571,22.4978571 C14.3905357,22.7210714 14.7523214,22.7210714 14.9755,22.4978929 Z' id='Path' fill='%231d5cff'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-2 {
+          border: solid 1px #ffc5d0;
+
+          .checkbox {
+            background-color: #ffc5d0;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1225.000000, -1020.000000)' fill='%23FF1744' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1015.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -1020.000000)' fill='%23FF1744' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1015.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1241.000000, -1015.000000)' fill='%23FF1744' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1015.000000)'%3E%3Cpath d='M44,24 C37.372583,24 32,18.627417 32,12 C32,5.372583 37.372583,0 44,0 C50.627417,0 56,5.372583 56,12 C56,18.627417 50.627417,24 44,24 Z M49.4734783,11.0310757 L41.6161165,6.15392996 C40.9777058,5.75785229 40,6.14221168 40,7.12185941 L40,16.8738072 C40,17.7526778 40.9085075,18.2823438 41.6161165,17.8417367 L49.4734783,12.9669346 C50.1743907,12.5333584 50.1766229,11.4646518 49.4734783,11.0310757 Z' id='icoPlay'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1297.000000, -1015.000000)' fill='%23FF1744' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1015.000000)'%3E%3Cpath d='M100,0 C106.629032,0 112,5.37096774 112,12 C112,18.6290323 106.629032,24 100,24 C93.3709677,24 88,18.6290323 88,12 C88,5.37096774 93.3709677,0 100,0 Z M106.285484,11.7048387 L105.337097,10.7564516 C105.104839,10.5241935 104.732258,10.5290323 104.504839,10.766129 L101.258065,14.1677419 L101.258065,6.38709677 C101.258065,6.06774194 100.996774,5.80645161 100.677419,5.80645161 L99.3225806,5.80645161 C99.0032258,5.80645161 98.7419355,6.06774194 98.7419355,6.38709677 L98.7419355,14.1677419 L95.4951613,10.766129 C95.2677419,10.5290323 94.8951613,10.5241935 94.6629032,10.7564516 L93.7145161,11.7048387 C93.4870968,11.9322581 93.4870968,12.3 93.7145161,12.5274194 L99.5887097,18.4016129 C99.816129,18.6290323 100.183871,18.6290323 100.41129,18.4016129 L106.285484,12.5274194 C106.512903,12.3 106.512903,11.9322581 106.285484,11.7048387 Z' id='icoDownload'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -1019.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy' transform='translate(1325.000000, 1019.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23FFC5D0'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%23FF1744'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #ff1744;
+
+            .checkbox {
+              background: #ff1744;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1054.51392,355.82324 L1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 Z' id='Path' fill='%23FF1744'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #ff1744;
+            border-color: #ff1744;
+            color: #fff;
+
+            .checkbox {
+              background: #ff1744;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1054.51392,355.82324 L1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 Z' id='Path' fill='%23FF1744'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-3 {
+          border: solid 1px #eac0ff;
+
+          .checkbox {
+            background-color: #eac0ff;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1225.000000, -1088.000000)' fill='%23AA00FF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1083.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive-Copy'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -1088.000000)' fill='%23AA00FF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1083.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive-Copy'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1241.000000, -1083.000000)' fill='%23AA00FF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1083.000000)'%3E%3Cpath d='M44,24 C37.372583,24 32,18.627417 32,12 C32,5.372583 37.372583,0 44,0 C50.627417,0 56,5.372583 56,12 C56,18.627417 50.627417,24 44,24 Z M49.4734783,11.0310757 L41.6161165,6.15392996 C40.9777058,5.75785229 40,6.14221168 40,7.12185941 L40,16.8738072 C40,17.7526778 40.9085075,18.2823438 41.6161165,17.8417367 L49.4734783,12.9669346 C50.1743907,12.5333584 50.1766229,11.4646518 49.4734783,11.0310757 Z' id='icoPlay-Copy'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1297.000000, -1083.000000)' fill='%23AA00FF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1083.000000)'%3E%3Cpath d='M100,0 C106.629032,0 112,5.37096774 112,12 C112,18.6290323 106.629032,24 100,24 C93.3709677,24 88,18.6290323 88,12 C88,5.37096774 93.3709677,0 100,0 Z M106.285484,11.7048387 L105.337097,10.7564516 C105.104839,10.5241935 104.732258,10.5290323 104.504839,10.766129 L101.258065,14.1677419 L101.258065,6.38709677 C101.258065,6.06774194 100.996774,5.80645161 100.677419,5.80645161 L99.3225806,5.80645161 C99.0032258,5.80645161 98.7419355,6.06774194 98.7419355,6.38709677 L98.7419355,14.1677419 L95.4951613,10.766129 C95.2677419,10.5290323 94.8951613,10.5241935 94.6629032,10.7564516 L93.7145161,11.7048387 C93.4870968,11.9322581 93.4870968,12.3 93.7145161,12.5274194 L99.5887097,18.4016129 C99.816129,18.6290323 100.183871,18.6290323 100.41129,18.4016129 L106.285484,12.5274194 C106.512903,12.3 106.512903,11.9322581 106.285484,11.7048387 Z' id='icoDownload-Copy'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -1087.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-2' transform='translate(1325.000000, 1087.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23EABFFF'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%23AA00FF'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #aa00ff;
+
+            .checkbox {
+              background: #aa00ff;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 L1060.83892,348.883539 Z' id='Path' fill='%23AA00FF'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #aa00ff;
+            border-color: #aa00ff;
+            color: #fff;
+
+            .checkbox {
+              background: #aa00ff;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 L1060.83892,348.883539 Z' id='Path' fill='%23AA00FF'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-4 {
+          border: solid 1px #ffeabe;
+
+          .checkbox {
+            background-color: #ffeabe;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1225.000000, -1156.000000)' fill='%23FFAB00' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1151.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -1156.000000)' fill='%23FFAB00' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1151.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1241.000000, -1151.000000)' fill='%23FFAB00' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1151.000000)'%3E%3Cpath d='M44,24 C37.372583,24 32,18.627417 32,12 C32,5.372583 37.372583,0 44,0 C50.627417,0 56,5.372583 56,12 C56,18.627417 50.627417,24 44,24 Z M49.4734783,11.0310757 L41.6161165,6.15392996 C40.9777058,5.75785229 40,6.14221168 40,7.12185941 L40,16.8738072 C40,17.7526778 40.9085075,18.2823438 41.6161165,17.8417367 L49.4734783,12.9669346 C50.1743907,12.5333584 50.1766229,11.4646518 49.4734783,11.0310757 Z' id='icoPlay-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1297.000000, -1151.000000)' fill='%23FFAB00' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1151.000000)'%3E%3Cpath d='M100,0 C106.629032,0 112,5.37096774 112,12 C112,18.6290323 106.629032,24 100,24 C93.3709677,24 88,18.6290323 88,12 C88,5.37096774 93.3709677,0 100,0 Z M106.285484,11.7048387 L105.337097,10.7564516 C105.104839,10.5241935 104.732258,10.5290323 104.504839,10.766129 L101.258065,14.1677419 L101.258065,6.38709677 C101.258065,6.06774194 100.996774,5.80645161 100.677419,5.80645161 L99.3225806,5.80645161 C99.0032258,5.80645161 98.7419355,6.06774194 98.7419355,6.38709677 L98.7419355,14.1677419 L95.4951613,10.766129 C95.2677419,10.5290323 94.8951613,10.5241935 94.6629032,10.7564516 L93.7145161,11.7048387 C93.4870968,11.9322581 93.4870968,12.3 93.7145161,12.5274194 L99.5887097,18.4016129 C99.816129,18.6290323 100.183871,18.6290323 100.41129,18.4016129 L106.285484,12.5274194 C106.512903,12.3 106.512903,11.9322581 106.285484,11.7048387 Z' id='icoDownload-Copy-2'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -1155.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-3' transform='translate(1325.000000, 1155.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23FFEABF'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%23FFAB00'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #ffab00;
+
+            .checkbox {
+              background: #ffab00;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%23FFAB00'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #ffab00;
+            border-color: #ffab00;
+            color: #fff;
+
+            .checkbox {
+              background: #ffab00;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%23FFAB00'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-5 {
+          border: solid 1px #beeee8;
+
+          .checkbox {
+            background-color: #beeee8;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1225.000000, -1224.000000)' fill='%2300BFA5' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1219.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive-Copy-3'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -1224.000000)' fill='%2300BFA5' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1219.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive-Copy-3'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1241.000000, -1219.000000)' fill='%2300BFA5' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1219.000000)'%3E%3Cpath d='M44,24 C37.372583,24 32,18.627417 32,12 C32,5.372583 37.372583,0 44,0 C50.627417,0 56,5.372583 56,12 C56,18.627417 50.627417,24 44,24 Z M49.4734783,11.0310757 L41.6161165,6.15392996 C40.9777058,5.75785229 40,6.14221168 40,7.12185941 L40,16.8738072 C40,17.7526778 40.9085075,18.2823438 41.6161165,17.8417367 L49.4734783,12.9669346 C50.1743907,12.5333584 50.1766229,11.4646518 49.4734783,11.0310757 Z' id='icoPlay-Copy-3'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1297.000000, -1219.000000)' fill='%2300BFA5' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1219.000000)'%3E%3Cpath d='M100,0 C106.629032,0 112,5.37096774 112,12 C112,18.6290323 106.629032,24 100,24 C93.3709677,24 88,18.6290323 88,12 C88,5.37096774 93.3709677,0 100,0 Z M106.285484,11.7048387 L105.337097,10.7564516 C105.104839,10.5241935 104.732258,10.5290323 104.504839,10.766129 L101.258065,14.1677419 L101.258065,6.38709677 C101.258065,6.06774194 100.996774,5.80645161 100.677419,5.80645161 L99.3225806,5.80645161 C99.0032258,5.80645161 98.7419355,6.06774194 98.7419355,6.38709677 L98.7419355,14.1677419 L95.4951613,10.766129 C95.2677419,10.5290323 94.8951613,10.5241935 94.6629032,10.7564516 L93.7145161,11.7048387 C93.4870968,11.9322581 93.4870968,12.3 93.7145161,12.5274194 L99.5887097,18.4016129 C99.816129,18.6290323 100.183871,18.6290323 100.41129,18.4016129 L106.285484,12.5274194 C106.512903,12.3 106.512903,11.9322581 106.285484,11.7048387 Z' id='icoDownload-Copy-3'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -1223.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-4' transform='translate(1325.000000, 1223.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23BFEFE8'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%2300BFA5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #00bfa5;
+
+            .checkbox {
+              background: #00bfa5;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%2300BFA5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #00bfa5;
+            border-color: #00bfa5;
+            color: #fff;
+
+            .checkbox {
+              background: #00bfa5;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%2300BFA5'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        .color-6 {
+          border: solid 1px #d8f7c5;
+
+          .checkbox {
+            background-color: #d8f7c5;
+          }
+
+          .cropped {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1225.000000, -1292.000000)' fill='%2364DD17' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1287.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive-Copy-4'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1209.000000, -1292.000000)' fill='%2364DD17' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1287.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='icoTrimmActive-Copy-4'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+          }
+
+          .play {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1241.000000, -1287.000000)' fill='%2364DD17' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1287.000000)'%3E%3Cpath d='M44,24 C37.372583,24 32,18.627417 32,12 C32,5.372583 37.372583,0 44,0 C50.627417,0 56,5.372583 56,12 C56,18.627417 50.627417,24 44,24 Z M49.4734783,11.0310757 L41.6161165,6.15392996 C40.9777058,5.75785229 40,6.14221168 40,7.12185941 L40,16.8738072 C40,17.7526778 40.9085075,18.2823438 41.6161165,17.8417367 L49.4734783,12.9669346 C50.1743907,12.5333584 50.1766229,11.4646518 49.4734783,11.0310757 Z' id='icoPlay-Copy-4'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+
+          .download {
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1297.000000, -1287.000000)' fill='%2364DD17' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1209.000000, 1287.000000)'%3E%3Cpath d='M100,0 C106.629032,0 112,5.37096774 112,12 C112,18.6290323 106.629032,24 100,24 C93.3709677,24 88,18.6290323 88,12 C88,5.37096774 93.3709677,0 100,0 Z M106.285484,11.7048387 L105.337097,10.7564516 C105.104839,10.5241935 104.732258,10.5290323 104.504839,10.766129 L101.258065,14.1677419 L101.258065,6.38709677 C101.258065,6.06774194 100.996774,5.80645161 100.677419,5.80645161 L99.3225806,5.80645161 C99.0032258,5.80645161 98.7419355,6.06774194 98.7419355,6.38709677 L98.7419355,14.1677419 L95.4951613,10.766129 C95.2677419,10.5290323 94.8951613,10.5241935 94.6629032,10.7564516 L93.7145161,11.7048387 C93.4870968,11.9322581 93.4870968,12.3 93.7145161,12.5274194 L99.5887097,18.4016129 C99.816129,18.6290323 100.183871,18.6290323 100.41129,18.4016129 L106.285484,12.5274194 C106.512903,12.3 106.512903,11.9322581 106.285484,11.7048387 Z' id='icoDownload-Copy-4'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            &.active {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1325.000000, -1291.000000)' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-5' transform='translate(1325.000000, 1291.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape' fill='%23D8F6C5'%3E%3C/path%3E%3Cpath d='M8.90375,12 L3.095625,12 C2.86506828,12.6415163 2.74810919,13.3183139 2.74997744,14 L9.25001927,14 C9.25174782,13.3182722 9.13457533,12.6414636 8.90375,12 Z M6,6.5 C7.2759375,6.5 8.370625,5.4625 8.90375,4 L3.09625,4 C3.629375,5.4625 4.724375,6.5 6,6.5 Z' id='Shape' fill='%2364DD17'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+          }
+
+          &.active {
+            border-color: #64dd17;
+
+            .checkbox {
+              background: #64dd17;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 L1060.83892,348.883539 Z' id='Path' fill='%2364DD17'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+
+          &.playing {
+            background: #64dd17;
+            border-color: #64dd17;
+            color: #fff;
+
+            .checkbox {
+              background: #64dd17;
+
+              &::after {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -343.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,359 L1049.71429,359 C1048.7675,359 1048,358.2325 1048,357.285714 L1048,344.714286 C1048,343.7675 1048.7675,343 1049.71429,343 L1062.28571,343 C1063.2325,343 1064,343.7675 1064,344.714286 L1064,357.285714 C1064,358.2325 1063.2325,359 1062.28571,359 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,348.883539 C1061.05369,348.647891 1061.05369,348.265793 1060.83892,348.030145 L1060.06112,347.17675 C1059.84634,346.941102 1059.49809,346.941064 1059.28328,347.17675 L1054.125,352.836303 L1051.71672,350.193974 C1051.50195,349.958326 1051.15369,349.958326 1050.93888,350.193974 L1050.16108,351.047368 C1049.94631,351.283016 1049.94631,351.665115 1050.16108,351.900763 L1053.73608,355.823203 C1053.95089,356.058926 1054.29911,356.058926 1054.51392,355.82324 L1060.83892,348.883539 Z' id='Path' fill='%2364DD17'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .cropped {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' opacity='0.250279018'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1081.000000, -952.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M19.8402674,12.3385486 L16.6914143,14.9049766 C16.5078841,15.0545604 16.2400789,15.024245 16.0932547,14.8372653 C16.032888,14.7603888 16,14.6648701 16,14.56642 L16,9.43356401 C16,9.19411322 16.1905322,9 16.4255656,9 C16.5221994,9 16.615956,9.03350615 16.6914143,9.0950074 L19.8402674,11.6614354 C20.0237977,11.8110191 20.0535538,12.0838577 19.9067296,12.2708373 C19.8870975,12.2958386 19.8648076,12.3185476 19.8402674,12.3385486 Z M24.1597326,12.3385486 C24.1351924,12.3185476 24.1129025,12.2958386 24.0932704,12.2708373 C23.9464462,12.0838577 23.9762023,11.8110191 24.1597326,11.6614354 L27.3085857,9.0950074 C27.384044,9.03350615 27.4778006,9 27.5744344,9 C27.8094678,9 28,9.19411322 28,9.43356401 L28,14.56642 C28,14.6648701 27.967112,14.7603888 27.9067453,14.8372653 C27.7599211,15.024245 27.4921159,15.0545604 27.3085857,14.9049766 L24.1597326,12.3385486 Z M22,5 C22.5522847,5 23,5.44771525 23,6 L23,18 C23,18.5522847 22.5522847,19 22,19 C21.4477153,19 21,18.5522847 21,18 L21,6 C21,5.44771525 21.4477153,5 22,5 Z' id='icoTrimmNonactive'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -256.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+
+            .play {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            }
+
+            .download {
+              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -251.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 251.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+              &.active {
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='16px' viewBox='0 0 12 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1049.000000, -951.000000)' fill='%23FAFAFA' fill-rule='nonzero'%3E%3Cg id='icoProgress-Copy-6' transform='translate(1049.000000, 951.000000)'%3E%3Cpath d='M11.25,2 C11.6642136,2 12,1.66421356 12,1.25 L12,0.75 C12,0.335786438 11.6642136,2.53632657e-17 11.25,0 L0.75,0 C0.335786438,-2.53632657e-17 5.07265313e-17,0.335786438 0,0.75 L0,1.25 C5.07265313e-17,1.66421356 0.335786438,2 0.75,2 C0.75,4.84375 2.34375,7.2415625 4.52625,8 C2.34375,8.7584375 0.75,11.15625 0.75,14 C0.335786438,14 5.07265313e-17,14.3357864 0,14.75 L0,15.25 C5.07265313e-17,15.6642136 0.335786438,16 0.75,16 L11.25,16 C11.6642136,16 12,15.6642136 12,15.25 L12,14.75 C12,14.3357864 11.6642136,14 11.25,14 C11.25,11.15625 9.65625,8.7584375 7.47375,8 C9.65625,7.2415625 11.25,4.84375 11.25,2 Z M9.25,14 L2.75,14 C2.75,11.579375 4.19375,9.5 6,9.5 C7.80625,9.5 9.25,11.57875 9.25,14 Z M6,6.5 C4.1940625,6.5 2.75,4.42125 2.75,2 L9.25,2 C9.25,4.420625 7.80625,6.5 6,6.5 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .custom-slider .ng5-slider .ng5-slider-bar {
+    background: #b0bec5;
+    height: 4px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-selection {
+    background: #1d5cff;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    width: 8px;
+    height: 16px;
+    top: auto;
+    /* to remove the default positioning */
+    bottom: 0;
+    background-color: #333;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer:after {
+    display: none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-bubble {
+    bottom: 14px;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-limit {
+    font-weight: bold;
+    color: orange;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick {
+    width: 11px;
+    height: 16px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-159.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-13' transform='translate(144.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    margin-left: 4px;
+    border-radius: 0;
+    top: -3px;
+
+    &.ng5-slider-selected {
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-487.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-10' transform='translate(472.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowBlue'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      width: 11px;
+      height: 16px;
+      background-size: cover;
+    }
+
+    &:nth-child(7) {
+      background-image: url("data:image/svg+xml,%0A%3Csvg width='6px' height='16px' viewBox='0 0 6 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-573.000000, -616.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-9' transform='translate(540.000000, 616.000000)'%3E%3Cpath d='M35.6614514,3.84026745 L33.0950234,0.691414337 C32.9454396,0.507884089 32.975755,0.240078897 33.1627347,0.0932546985 C33.2396112,0.0328880303 33.3351299,-1.0446402e-15 33.43358,-1.02655522e-15 L38.566436,-8.36648687e-17 C38.8058868,-3.96784723e-17 39,0.190532213 39,0.425565609 C39,0.522199428 38.9664938,0.615956002 38.9049926,0.691414337 L36.3385646,3.84026745 C36.1889809,4.0237977 35.9161423,4.05355383 35.7291627,3.90672963 C35.7041614,3.88709754 35.6814524,3.86480756 35.6614514,3.84026745 Z M35.6614514,12.1597326 C35.6814524,12.1351924 35.7041614,12.1129025 35.7291627,12.0932704 C35.9161423,11.9464462 36.1889809,11.9762023 36.3385646,12.1597326 L38.9049926,15.3085857 C38.9664938,15.384044 39,15.4778006 39,15.5744344 C39,15.8094678 38.8058868,16 38.566436,16 L33.43358,16 C33.3351299,16 33.2396112,15.967112 33.1627347,15.9067453 C32.975755,15.7599211 32.9454396,15.4921159 33.0950234,15.3085857 L35.6614514,12.1597326 Z' id='icoCenterTrimm'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      width: 6px;
+      height: 16px;
+      background-color: transparent;
+    }
+
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(13) {
+      background-image: url("data:image/svg+xml,%0A%3Csvg width='10px' height='14px' viewBox='0 0 10 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-983.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-4' transform='translate(968.000000, 616.000000)'%3E%3Cpath d='M23.4,14.3 L15,8 L23.4,1.7 C23.8418278,1.36862915 24.4686292,1.4581722 24.8,1.9 C24.9298221,2.07309617 25,2.28362979 25,2.5 L25,13.5 C25,14.0522847 24.5522847,14.5 24,14.5 C23.7836298,14.5 23.5730962,14.4298221 23.4,14.3 Z' id='icoArrowR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      width: 11px;
+      height: 16px;
+      background-color: transparent;
+
+      &.ng5-slider-selected {
+        background-color: transparent;
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-655.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-8' transform='translate(640.000000, 616.000000)'%3E%3Cpath d='M24.4118283,14.844966 L16.1120121,8.80873608 C15.6653595,8.48389783 15.5666095,7.85848091 15.8914477,7.4118283 C15.9529794,7.32722226 16.0274061,7.25279558 16.1120121,7.19126392 L24.4118283,1.15503396 C24.8584809,0.830195703 25.4838978,0.928945743 25.8087361,1.37559835 C25.9330418,1.54651866 26,1.75242754 26,1.96377005 L26,14.03623 C26,14.5885147 25.5522847,15.03623 25,15.03623 C24.7886575,15.03623 24.5827486,14.9692717 24.4118283,14.844966 Z' id='icoArrowBlueR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        width: 11px;
+        height: 16px;
+        background-size: cover;
+      }
+    }
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer-min {
+    width: 16px;
+    height: 24px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-380.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-11' transform='translate(368.000000, 612.000000)'%3E%3Cpath d='M12,22 L12,2 C12,1.44771525 12.4477153,1 13,1 C13.2163702,1 13.4269038,1.07017787 13.6,1.2 L28,12 L13.6,22.8 C13.1581722,23.1313708 12.5313708,23.0418278 12.2,22.6 C12.0701779,22.4269038 12,22.2163702 12,22 Z' id='icoArrowTrimmL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    top: -10px;
+    border-radius: 0;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer-max {
+    width: 16px;
+    height: 24px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-860.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-6' transform='translate(848.000000, 612.000000)'%3E%3Cpath d='M26.4,22.8 L12,12 L26.4,1.2 C26.8418278,0.86862915 27.4686292,0.9581722 27.8,1.4 C27.9298221,1.57309617 28,1.78362979 28,2 L28,22 C28,22.5522847 27.5522847,23 27,23 C26.7836298,23 26.5730962,22.9298221 26.4,22.8 Z' id='icoArrowTrimmR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    top: -10px;
+    border-radius: 0;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-inner-tooltip {
+    position: relative;
+    top: 68px;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #151d22;
+
+    &::after {
+      //display: block;
+      //content: "s";
+    }
+  }
+
+  .custom-slider * {
+    &:hover,
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-tick-value .ng5-slider-inner-tooltip {
+    &::after {
+      content: "s";
+      display: inline-block;
+      margin-left: -2px;
+    }
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-ticks .ng5-slider-tick {
+    &:nth-child(7) {
+      .ng5-slider-span .ng5-slider-inner-tooltip {
+        display: none;
+      }
+    }
+
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11),
+    &:nth-child(12),
+    &:nth-child(13) {
+      .ng5-slider-span .ng5-slider-inner-tooltip {
+        &::before {
+          content: "+";
+        }
+      }
+    }
+  }
+}
+
+.video-slider {
+  position: relative;
+
+  .action-time {
+    position: absolute;
+    bottom: 0;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #151d22;
+    left: calc(50% - 15px);
+    top: 63px;
+    text-align: center;
+    display: block;
+  }
+}

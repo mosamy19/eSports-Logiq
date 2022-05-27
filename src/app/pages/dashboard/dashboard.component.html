@@ -1,0 +1,25 @@
+<div id="full-content">
+
+  <nav *ngIf="loading_data==false">
+  </nav>
+
+
+
+  <div class="container selection-dashboard" *ngIf="loading_data==false">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+
+
+
+  <div *ngIf="loading_data==true" class='fullscreenDiv'>
+    <div class="center">
+      <Loading></Loading>
+    </div>
+  </div>
+
+</div>
+
+
+<footer-box *ngIf="loading_data==false"></footer-box>

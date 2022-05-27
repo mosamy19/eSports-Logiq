@@ -1,0 +1,19 @@
+{
+  "json.format.enable": false,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+
+  "ego.power-tools": {
+    "buttons": [
+      {
+        "text": "Deploy test",
+        "tooltip": "Deploy test",
+        "action": {
+          "type": "shell",
+          "command": "ng build && gulp test"
+        }
+      }
+    ]
+  }
+}

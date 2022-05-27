@@ -1,0 +1,902 @@
+<div class="canvas-settings">
+    <div class="container">
+      <div class="canvas-tabs"
+        *ngIf="canvas_type_setting=='normal' || canvas_type_setting=='shoda' || canvas_type_setting=='60' || canvas_type_setting=='rekordy'">
+        <div class="canvas-tab" [ngClass]="{'active':getActualTab() == 'individualni-data'}"
+          (click)="changeTab('individualni-data')">{{"individualni_data" | translate}}
+          <div class="canvas-tooltip">
+            {{"individualni_data_desc" | translate}}
+          </div>
+        </div>
+        <div class="canvas-tab" [ngClass]="{'active':getActualTab() == 'on-ice-data'}" (click)="changeTab('on-ice-data')">
+          On-ice
+          data
+          <div class="canvas-tooltip">
+            {{"onice_data_desc" | translate}}
+          </div>
+        </div>
+        <div class="canvas-close" (click)="toggleTableSettings()">{{"zavrit" | translate}}</div>
+      </div>
+  
+      <div class="canvas-tabs" *ngIf="canvas_type_setting=='teams'">
+        <div class="canvas-tab active">{{"tymova_data" | translate}}
+          <div class="canvas-tooltip">
+            {{"tymova_data_desc" | translate}}
+          </div>
+        </div>
+        <div class="canvas-close" (click)="toggleTableSettings()">{{"zavrit" | translate}}</div>
+      </div>
+  
+      <div class="canvas-tabs" *ngIf="canvas_type_setting=='goalkeepers'">
+        <div class="canvas-tab active">{{"brankari" | translate}}
+          <div class="canvas-tooltip">
+            {{"brankari_desc" | translate}}
+          </div>
+        </div>
+        <div class="canvas-close" (click)="toggleTableSettings()">{{"zavrit" | translate}}</div>
+      </div>
+  
+    </div>
+  
+  
+    <div class="container">
+      <div class="filter canvas-filters">
+        <div class="form-box__check" *ngIf="enabled_types==''">
+          <div class="check-boxes">
+            <button [ngClass]="{'checked':checkbox_pocet == true}" (click)="toggle_checkbox_pocet()">{{"pocet" | translate}}</button>
+            <button [ngClass]="{'checked':checkbox_60 == true}" (click)="toggle_checkbox_60()">/60</button>
+            <button [ngClass]="{'checked':checkbox_percent == true}" (click)="toggle_checkbox_percent()">%</button>
+          </div>
+        </div>
+        <div class="save-select">
+          <div class="btn-group" *ngIf="existSaved_bool==true">
+            <button (click)="toggleSaveDropdown()" type="button" class="btn">
+              <span *ngIf="selected_name==''">{{"vybrat_prednadstavene" | translate}}</span>
+              <span *ngIf="selected_name!=''">{{selected_name}}</span>
+            </button>
+            <ul class="dropdown-menu" [style.visibility]="save_select_visible ? 'visible' : 'hidden'">
+              <ng-container *ngFor="let saved_data of saved">
+                <li role="menuitem">
+                  <div class="dropdown-item" (click)="selectSaved(saved_data.id)">{{saved_data.name}}</div>
+                  <span class="delete" (click)="deleteSaved(saved_data.id)">
+                    <img
+                      src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTEuOTk5IDUxMS45OTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMS45OTkgNTExLjk5OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxjaXJjbGUgc3R5bGU9ImZpbGw6I0UyMUIxQjsiIGN4PSIyNTUuOTk5IiBjeT0iMjU1Ljk5OSIgcj0iMjU1Ljk5OSIvPgo8Zz4KCQoJCTxyZWN0IHg9IjI0NC4wMDIiIHk9IjEyMC4wMDgiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgLTEwNi4wMzk3IDI1Ni4wMDIyKSIgc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNzEuOTg4Ii8+CgkKCQk8cmVjdCB4PSIxMjAuMDA4IiB5PSIyNDQuMDA3IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzEgLTAuNzA3MSAwLjcwNzEgMC43MDcxIC0xMDYuMDQyOCAyNTYuMDAzNSkiIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiB3aWR0aD0iMjcxLjk4OCIgaGVpZ2h0PSIyNCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=">
+                  </span>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+        <div class="canvas-help" *ngIf="canvas_type_setting!='goalkeepers'">
+          <div class="help">{{"napoveda" | translate}}</div>
+          <div class="offense">{{"ofenzivni_data" | translate}}</div>
+          <div class="defense">{{"defenzivni_data" | translate}}</div>
+        </div>
+        <div class="canvas-help" *ngIf="canvas_type_setting=='goalkeepers'">
+          <div class="help">{{"napoveda" | translate}}</div>
+          <div class="allshots">{{"strely_celkem" | translate}}</div>
+          <div class="allslotshots">{{"strely_ze_slotu" | translate}}</div>
+        </div>
+      </div>
+  
+      <div class="canvas-settings-wide">
+  
+  
+        <!--!!!!!!!individualni data-->
+        <div class="canvas-settings-boxes"
+          *ngIf="getActualTab() == 'individualni-data' && canvas_type_setting!='teams' && canvas_type_setting!='goalkeepers'">
+  
+          <div class="canvas-row">
+  
+            <ng-container *ngFor="let item of individual_attributes | slice:0:8">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+  
+  
+                <div style="height:48px">
+                  <select [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+  
+                  <select
+                    *ngIf="(item.type=='individual_allShots' || item.type=='individual_slotShots' || item.type=='individual_slotShots'  || item.type=='onice_allShots'  || item.type=='onice_slotShots')"
+                    [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+                </div>
+  
+  
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                        <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                          [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                          <div class="canvas-tooltip">
+                            <strong>{{attribute.eng}}</strong><br>
+                            {{attribute.desc}}
+                          </div>
+                        </button>
+                        -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of individual_attributes | slice:8:16">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                      <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of individual_attributes | slice:16:24">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                      <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of individual_attributes | slice:24:32">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+  
+                  <select [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+                
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+  
+                      <ng-container *ngIf="checkName(attribute.name,filter_select[item.type])">
+                        <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                          (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                          [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">
+  
+                            {{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        
+                          <div class="canvas-tooltip">
+                            <strong>{{attribute.eng}}</strong><br>
+                            {{attribute.desc}}
+                          </div>
+                        </button>
+                      </ng-container>
+                      <ng-container *ngIf="!checkName(attribute.name,filter_select[item.type])">
+                        <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(attribute.type,attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">
+  
+                          {{attribute.name}}
+                        
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      </ng-container>
+  
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                      <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+          </div>
+  
+        </div>
+  
+  
+  
+  
+        <!--!!!!!!!onice data-->
+        <div class="canvas-settings-boxes"
+          *ngIf="getActualTab() == 'on-ice-data' && canvas_type_setting!='teams' && canvas_type_setting!='goalkeepers'">
+  
+  
+          <div class="canvas-row">
+  
+            <ng-container *ngFor="let item of onice_attributes | slice:0:8">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+  
+                <div style="height:48px">
+                  <select [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+  
+                  <select
+                    *ngIf="(item.type=='individual_allShots' || item.type=='individual_slotShots' || item.type=='individual_slotShots'  || item.type=='onice_allShots'  || item.type=='onice_slotShots')"
+                    [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+  
+                </div>
+  
+  
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                            <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                              [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                              <div class="canvas-tooltip">
+                                <strong>{{attribute.eng}}</strong><br>
+                                {{attribute.desc}}
+                              </div>
+                            </button>
+                            -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of onice_attributes | slice:8:16">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                          <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                            [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                            <div class="canvas-tooltip">
+                              <strong>{{attribute.eng}}</strong><br>
+                              {{attribute.desc}}
+                            </div>
+                          </button>
+                          -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+  
+          </div>
+  
+  
+        </div>
+  
+  
+  
+  
+        <!--!!!!!!!teams data-->
+        <div class="canvas-settings-boxes" *ngIf="canvas_type_setting=='teams'">
+  
+  
+          <div class="canvas-row">
+  
+            <ng-container *ngFor="let item of teams_attributes | slice:0:8">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+  
+                <div style="height:48px">
+                  <select [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+  
+                  <select *ngIf="(item.type=='teams_allShots' || item.type=='teams_slotShots')"
+                    [(ngModel)]="filter_select[item.type]">
+                    <ng-container *ngIf="item.select_type==1">
+                      <option *ngFor="let action_type of action_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}
+                      </option>
+                    </ng-container>
+                    <ng-container *ngIf="item.select_type==2">
+                      <option *ngFor="let action_type of vystupy_z_pasma_types_test" value="{{action_type.id}}">
+                        {{action_type.name}}</option>
+                    </ng-container>
+                  </select>
+  
+                </div>
+  
+  
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                            <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                              [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                              <div class="canvas-tooltip">
+                                <strong>{{attribute.eng}}</strong><br>
+                                {{attribute.desc}}
+                              </div>
+                            </button>
+                            -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of teams_attributes | slice:8:16">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                          <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                            [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                            <div class="canvas-tooltip">
+                              <strong>{{attribute.eng}}</strong><br>
+                              {{attribute.desc}}
+                            </div>
+                          </button>
+                          -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of teams_attributes | slice:16:24">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">
+  
+                        <ng-container *ngIf="checkName(attribute.name,filter_select[item.type])">
+                          {{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        </ng-container>
+                        <ng-container *ngIf="!checkName(attribute.name,filter_select[item.type])">
+                          {{attribute.name}}
+                        </ng-container>
+                        
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                          <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                            [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                            <div class="canvas-tooltip">
+                              <strong>{{attribute.eng}}</strong><br>
+                              {{attribute.desc}}
+                            </div>
+                          </button>
+                          -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+  
+          </div>
+  
+  
+        </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+        <!--!!!!!!!goalkeepers data-->
+        <div class="canvas-settings-boxes" *ngIf="canvas_type_setting=='goalkeepers'">
+  
+  
+          <div class="canvas-row">
+  
+            <ng-container *ngFor="let item of goalkeepers_attributes | slice:0:8">
+              <div class="canvas-settings-box" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]"
+                  [style.visibility]="item.type!='goalkeepers_basic_data' ? 'visible' : 'hidden'">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <!--
+                            <button class="btn-{{attribute.colour}}" (click)="selectAttribute(action_types[filter_produktivita]['prefix_type']+attribute.type,action_types[filter_produktivita]['prefix']+attribute.name,attribute.colour)"
+                              [class.active]="isAttributeSelected(action_types[filter_produktivita]['prefix_type']+attribute.type)">{{action_types[filter_produktivita]['prefix']}}{{attribute.name}}
+                              <div class="canvas-tooltip">
+                                <strong>{{attribute.eng}}</strong><br>
+                                {{attribute.desc}}
+                              </div>
+                            </button>
+                            -->
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of goalkeepers_attributes | slice:8:15">
+              <div class="canvas-settings-box bigger-titles" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]"
+                  [style.visibility]="item.type!='goalkeepers_basic_data' ? 'visible' : 'hidden'">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+  
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+            <div class="clear"></div>
+  
+            <ng-container *ngFor="let item of goalkeepers_attributes | slice:16:24">
+              <div class="canvas-settings-box bigger-titles" *ngIf="item.enabled==true">
+                <label>{{item.name}}
+                  <div class="canvas-tooltip">
+                    <strong>{{item.name_en}}</strong>
+                  </div>
+                </label>
+                <select [(ngModel)]="filter_select[item.type]"
+                  [style.visibility]="item.type!='goalkeepers_basic_data' ? 'visible' : 'hidden'">
+                  <ng-container *ngIf="item.select_type==1">
+                    <option *ngFor="let action_type of action_types" value="{{action_type.id}}">{{action_type.name}}
+                    </option>
+                  </ng-container>
+                  <ng-container *ngIf="item.select_type==2">
+                    <option *ngFor="let action_type of vystupy_z_pasma_types" value="{{action_type.id}}">
+                      {{action_type.name}}</option>
+                  </ng-container>
+                </select>
+                <!--<div  style="height:48px"></div>-->
+                <div class="canvas-settings-box-buttons">
+                  <ng-container *ngFor="let attribute of item.attributes">
+                    <ng-container *ngIf="checkEnabledKind(checkbox_pocet,checkbox_60,checkbox_percent,attribute.data)">
+                      <button *ngIf="item.select_type==1" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(action_types[filter_select[item.type]]['prefix_type']+attribute.type,action_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(action_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{action_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+                      <button *ngIf="item.select_type==2" class="btn-{{attribute.colour}}"
+                        (click)="selectAttribute(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type,vystupy_z_pasma_types[filter_select[item.type]]['prefix']+attribute.name,attribute.colour)"
+                        [class.active]="isAttributeSelected(vystupy_z_pasma_types[filter_select[item.type]]['prefix_type']+attribute.type)">{{vystupy_z_pasma_types[filter_select[item.type]]['prefix']}}{{attribute.name}}
+                        <div class="canvas-tooltip">
+                          <strong>{{attribute.eng}}</strong><br>
+                          {{attribute.desc}}
+                        </div>
+                      </button>
+  
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+  
+  
+          </div>
+  
+  
+        </div>
+  
+  
+  
+  
+        <div class="canvas-settings-selected-box">
+          <Label tooltip="{{'vyber_atributu' | translate}}, které mají tvořit tabulku dat" theme="light" show-delay="500"
+            placement="left"> {{"vybrana_data" | translate}}
+             <img
+              src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ5IDQ5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OSA0OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTM5LjkxNCwwSDM3LjVoLTI4aC05djQ5aDdoMzNoOFY4LjU4NkwzOS45MTQsMHogTTM1LjUsMnYxNGgtMjRWMkgzNS41eiBNOS41LDQ3VjI4aDI5djE5SDkuNXogTTQ2LjUsNDdoLTZWMjZoLTMzdjIxaC01ICAgVjJoN3YxNmgyOFYyaDEuNTg2TDQ2LjUsOS40MTRWNDd6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMTMuNSwzM2g3YzAuNTUzLDAsMS0wLjQ0NywxLTFzLTAuNDQ3LTEtMS0xaC03Yy0wLjU1MywwLTEsMC40NDctMSwxUzEyLjk0NywzMywxMy41LDMzeiIgZmlsbD0iI0ZGRkZGRiIvPgoJPHBhdGggZD0iTTIzLjUsMzVoLTEwYy0wLjU1MywwLTEsMC40NDctMSwxczAuNDQ3LDEsMSwxaDEwYzAuNTUzLDAsMS0wLjQ0NywxLTFTMjQuMDUzLDM1LDIzLjUsMzV6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMjUuNzksMzUuMjljLTAuMTgxLDAuMTg5LTAuMjksMC40NS0wLjI5LDAuNzFzMC4xMDksMC41MiwwLjI5LDAuNzFDMjUuOTc5LDM2Ljg5LDI2LjIyOSwzNywyNi41LDM3ICAgYzAuMjYsMCwwLjUyLTAuMTEsMC43MS0wLjI5YzAuMTgtMC4xOSwwLjI5LTAuNDUsMC4yOS0wLjcxcy0wLjExLTAuNTIxLTAuMjktMC43MUMyNi44NCwzNC45MiwyNi4xNiwzNC45MiwyNS43OSwzNS4yOXoiIGZpbGw9IiNGRkZGRkYiLz4KCTxwYXRoIGQ9Ik0zMy41LDRoLTZ2MTBoNlY0eiBNMzEuNSwxMmgtMlY2aDJWMTJ6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="
+              style="
+            width: 15px;
+            float: right;" (click)="savePresset()" class="save-icon">
+          </Label>
+          <div class="canvas-choose-data">
+            <button class="delete-button" (click)="deleteAllAttributes()">Smazat vše</button>
+  
+            <ng-container *ngFor="let attribute of selected_attributes">
+  
+              <button *ngIf="attribute.type!=null" class="btn-{{attribute.colour}} active"
+                (click)="removeAttribute(attribute.type)">{{attribute.name}}</button>
+  
+              <div *ngIf="attribute.type==null" class="choose-box"></div>
+  
+            </ng-container>
+  
+          </div>
+          <div class="load-data" (click)="applySelectedAttributes()">{{'nahrat_data' | translate}}</div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  <!--
+  <settings-canvas *ngIf="toggle_table_settings" (toggleTableSettings_)="toggleTableSettings()"></settings-canvas>
+  -->
+  

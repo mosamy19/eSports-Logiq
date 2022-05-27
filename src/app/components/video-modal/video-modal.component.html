@@ -1,0 +1,132 @@
+<div class="modal-content">
+  <div class="video-box">
+
+
+    <div class="video-window">
+      <div class="video-window-header">{{videoTitle[0].game_date | format_date}}, {{videoTitle[0].home_team}} -
+        {{videoTitle[0].away_team}}
+        {{videoTitle[0].game_score}}</div>
+      <div class="video-inner">
+        <iframe [src]='this.video_url' *ngIf="video_url!=''"></iframe>
+      </div>
+      <div class="close-button-box">
+        <span class="close-button" (click)="toggleVideoModal()"><img src="/assets/ico-close.svg">Zavřít video</span>
+      </div>
+    </div>
+
+
+    <div class="video-list">
+
+      <div class="form-box">
+        <label for="filter_situationType">Vyberte kategorii</label>
+        <select id="filter_situationType" [(ngModel)]="filter_situationType">
+          <option value="goals">{{'goly' | translate}}</option>
+          <option value="chances">{{'strely_ze_slotu' | translate}}</option>
+          <option value="shotsOnGoal">{{'strely_na_branku' | translate}}</option>
+          <option value="shots">{{'strelecke_pokusy' | translate}}</option>
+          <option value="shifts" *ngIf="video_player_type=='player'">{{'stridani' | translate}}</option>
+          <option value="faceOffs" *ngIf="video_player_type=='player'">{{'vhazovani' | translate}}</option>
+        </select>
+      </div>
+
+      <ul class="videos-list goly" *ngIf="filter_situationType=='goals'">
+        <li *ngFor="let video of videoData_new.goals; let i = index" [ngClass]="{'bold':selected_video == 'goals'+i}">
+
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'goals'+i)"
+            *ngIf="selected_video!='goals'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='goals'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.time | format_sesonds}}</div>
+        </li>
+      </ul>
+
+
+      <ul class="videos-list strelyzeslotu" *ngIf="filter_situationType=='chances'">
+        <li *ngFor="let video of videoData_new.chances; let i = index"
+          [ngClass]="{'bold':selected_video == 'chances'+i}">
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'chances'+i)"
+            *ngIf="selected_video!='chances'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='chances'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.time | format_sesonds}}</div>
+        </li>
+      </ul>
+
+      <ul class="videos-list strelynabranku" *ngIf="filter_situationType=='shotsOnGoal'">
+        <li *ngFor="let video of videoData_new.shotsOnGoal; let i = index"
+          [ngClass]="{'bold':selected_video == 'shotsOnGoal'+i}">
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'shotsOnGoal'+i)"
+            *ngIf="selected_video!='shotsOnGoal'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='shotsOnGoal'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.time | format_sesonds}}</div>
+        </li>
+      </ul>
+
+      <ul class="videos-list streleckepokusy" *ngIf="filter_situationType=='shots'">
+        <li *ngFor="let video of videoData_new.shots; let i = index" [ngClass]="{'bold':selected_video == 'shots'+i}">
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'shots'+i)"
+            *ngIf="selected_video!='shots'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='shots'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.time | format_sesonds}}</div>
+        </li>
+      </ul>
+
+
+      <ul class="videos-list stridani" *ngIf="filter_situationType=='shifts'">
+        <li *ngFor="let video of videoData_new.shifts; let i = index" [ngClass]="{'bold':selected_video == 'shifts'+i}">
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'shifts'+i)"
+            *ngIf="selected_video!='shifts'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='shifts'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.start |
+            format_sesonds}} -
+            {{video.end | format_sesonds}}</div>
+        </li>
+      </ul>
+
+      <ul class="videos-list faceOffs" *ngIf="filter_situationType=='faceOffs'">
+        <li *ngFor="let video of videoData_new.faceOffs; let i = index"
+          [ngClass]="{'bold':selected_video == 'faceOffs'+i}">
+          <div class="video-title" *ngIf="video_player_type=='player'">#{{getPlayerJersey(player_uuid)}}
+            {{getPlayerName(player_uuid)}}</div>
+          <div class="video-title" *ngIf="video_player_type=='team'">#{{getPlayerJersey(video.player)}}
+            {{getPlayerName(video.player)}}</div>
+          <div class="play-btn"
+            (click)="getTrustedUrl('http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime='+getRealVideoStart(video.videoTime)+'&id='+videoId,'faceOffs'+i)"
+            *ngIf="selected_video!='faceOffs'+i"></div>
+          <div class="stop-btn" (click)="stopVideo()" *ngIf="selected_video=='faceOffs'+i"></div>
+          <div class="time"><span>{{getGameState(video.gameState)}}</span>{{video.time | format_sesonds}}</div>
+        </li>
+      </ul>
+
+
+
+
+    </div>
+  </div>
+
+
+</div>

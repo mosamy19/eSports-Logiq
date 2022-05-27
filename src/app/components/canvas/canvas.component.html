@@ -1,0 +1,396 @@
+<div class="canvas">
+    <div class="left-side">
+        <div class="help-holder">
+          <div class="help" (click)="openHelpPage()">
+            <img src="/assets/help.svg" alt="">
+            <span>{{'napoveda' | translate}}</span>
+          </div>
+        </div>
+        <h1 class="header">
+            {{"typy_dat" | translate}}
+        </h1>
+        <hr>
+        <div class="data-select">
+            <div class="cell" *ngFor="let item of types" (click)="onTypeSelect(item)" [ngClass]="{'active-blue': item.name == selected_data.name}">
+                {{item['name']}}
+            </div>
+        </div>
+
+        <ng-container *ngIf="allowed_parameters.length > 0 || show_net">
+          <h1 class="header">
+            {{"parametry_udalosti" | translate}}
+          </h1>
+          <hr>
+          <div class="data-select">
+              <div *ngFor="let item of allowed_parameters">
+                <div class="type-header">
+                {{item.name}}
+                </div>
+                <div class="cell" *ngFor="let item2 of item.types" 
+                [ngClass]="{'active-blue': checkActive(item,item2)}"
+                (click)="selectTypes(item,item2)">
+                    {{item2.name}}
+                </div>
+              </div>
+
+              <div *ngIf="show_net">
+                  <div class="type-header">
+                      {{"zony_branky" | translate}}
+                  </div>
+                  <svg
+                  width="232px"
+                  viewBox="0 0 240 160"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <style>
+                    .data-select .active {
+                      fill: url(#Gradient)
+                    }
+
+                    .data-select path,
+                    .data-select rect {
+                      cursor: pointer;
+                    }
+                  </style>
+                  <defs>
+                      <linearGradient id="Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#4985FF" />
+                          <stop offset="100%" stop-color="#1D5CFF" />
+                        </linearGradient>
+                  </defs>
+
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g id="branka-copy">
+                      <path
+                        d="M4,160 L0,160 L0,7.044 C0,3.19 3.177,0 7,0 L233,0 C236.823,0 240,3.19 240,7.044 L240,160 L236,160 L236,7.044 C236.129,5.337 234.685,3.887 233,4.025 L7,4.025 C5.315,3.887 3.871,5.337 4,7.044 L4,160 Z"
+                        id="Path"
+                        fill="#FF1744"
+                      ></path>
+                      <path
+                        d="M84,86 L84,120 C84,122.563 84.603,124.986 85.674,127.134 L60.111,160 L8,160 L8,86 L84,86 Z"
+                        id="Path"
+                        fill="#f2f4f8"
+                        fill-rule="nonzero"
+                        [ngClass]="{ active: selected_net_location == 'br.' }"
+                        (click)="selectGoalZone('br.')"
+                      ></path>
+                      <rect
+                        id="Rectangle"
+                        fill="#f2f4f8"
+                        x="88"
+                        y="36"
+                        width="64"
+                        height="96"
+                        rx="12"
+                        [ngClass]="{ active: selected_net_location == 'ce.' }"
+                        (click)="selectGoalZone('ce.')"
+                      ></rect>
+                      <path
+                        d="M118,8 L118,32 L100,32 C91.269,32 84.17,38.994 84.003,47.685 L84,48 L84,82 L8,82 L8,8 L118,8 Z"
+                        id="Path"
+                        fill="#f2f4f8"
+                        fill-rule="nonzero"
+                        [ngClass]="{ active: selected_net_location == 'ur.' }"
+                        (click)="selectGoalZone('ur.')"
+                      ></path>
+                      <path
+                        d="M152.112,129.455 L175,159 L65,159 L87.888,129.455 C90.8301361,132.870621 95.0793291,134.882976 99.586,134.995 L100,135 L140,135 C144.84,135 149.178,132.85 152.112,129.455 Z"
+                        id="Path"
+                        fill="#f2f4f8"
+                        fill-rule="nonzero"
+                        [ngClass]="{ active: selected_net_location == 'fh.' }"
+                        (click)="selectGoalZone('fh.')"
+                      ></path>
+                      <path
+                        d="M232,8 L232,82 L156,82 L156,48 C156,39.269 149.006,32.17 140.315,32.003 L140,32 L122,32 L122,8 L232,8 Z"
+                        id="Path"
+                        fill="#f2f4f8"
+                        fill-rule="nonzero"
+                        [ngClass]="{ active: selected_net_location == 'ul.' }"
+                        (click)="selectGoalZone('ul.')"
+                      ></path>
+                      <path
+                        d="M231,86 L231,160 L178.889,160 L153.326,127.134 C154.358731,125.063184 154.927605,122.792123 154.993,120.479 L155,120 L155,86 L231,86 Z"
+                        id="Path"
+                        fill="#f2f4f8"
+                        fill-rule="nonzero"
+                        [ngClass]="{ active: selected_net_location == 'bl.' }"
+                        (click)="selectGoalZone('bl.')"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+          </div>    
+        </ng-container>
+        
+        <div class="no-data" *ngIf="selected_data == '' && selected_data_onice == ''">
+            <h1 class="header">
+                {{"vyberte_typ_dat" | translate}}
+            </h1>
+        </div>
+
+        <div class="data-header" *ngIf="selected_data != ''">
+            <div class="individual">H</div>
+            <h1 class="header" *ngIf="page == 'players'">
+                {{"data_hrace" | translate}}
+            </h1>
+            <h1 class="header" *ngIf="page == 'teams'">
+              {{"data_tymu" | translate}}
+            </h1>
+            <h1 class="header" *ngIf="page == 'goalkeepers'">
+              {{"data_brankaru" | translate}}
+            </h1>
+        </div>
+        <hr *ngIf="selected_data != ''">
+        
+        <div class="data-select" *ngIf="selected_data != ''">
+            <div *ngFor="let item of selected_data.types" >
+                <div class="type-header">
+                    {{item.name}}
+                </div>
+                <ng-container *ngFor="let item2 of item.attributes">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell" *ngIf="filterData(item2)" [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'individual')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <div class="type-header rel-header" *ngIf="item.rel != ''">
+                  {{"casovo_prepocitane_hodnoty" | translate}}
+                </div>
+                <ng-container *ngFor="let item2 of item.time">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell" [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'individual')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                
+                <div class="type-header rel-header" *ngIf="item.percent != ''">
+                  {{"podilove_a_odvozene_hodnoty" | translate}}
+                </div>
+                <ng-container *ngFor="let item2 of item.percent">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell" [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'individual')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="data-header" *ngIf="selected_data_onice != ''">
+            <div class="on-ice">T</div>
+            <h1 class="header">
+                {{"data_tymu_s_hracem" | translate}}
+            </h1>
+        </div>
+        <hr *ngIf="selected_data_onice != ''">
+        
+        <div class="data-select" *ngIf="selected_data_onice != ''">
+            <div class="data-holder" *ngFor="let item of selected_data_onice.types">
+                <div class="type-header">
+                    {{item.name}}
+                </div>
+                <ng-container *ngFor="let item2 of item.attributes">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell" *ngIf="filterData(item2)" [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'on-ice')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <div class="type-header rel-header" *ngIf="item.rel != ''">
+                  {{"casovo_prepocitane_hodnoty" | translate}}
+                </div>
+                <ng-container *ngFor="let item2 of item.time">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell"  [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'on-ice')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                  </div>
+                  </ng-container>
+                </ng-container>
+                
+                <div class="type-header rel-header" *ngIf="item.percent != ''">
+                  {{"podilove_a_odvozene_hodnoty" | translate}}
+                </div>
+                <ng-container *ngFor="let item2 of item.percent">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell"  [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'on-ice')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                  </div>
+                  </ng-container>
+                </ng-container>
+                
+                <div class="type-header rel-header" *ngIf="item.rel != ''">
+                    {{"relativni_ke_zbytku_tymu" | translate}}
+                </div>
+                <ng-container *ngFor="let item2 of item.rel">
+                  <ng-container *ngIf="isEnabled(item2)">
+                    <div class="cell"  [ngClass]="getColor(item2)" (click)="onSelectAttribute(item2, 'on-ice')">
+                      {{getAttributeName(item2.name)}}
+                      <div class="canvas-tooltip">
+                        <div class="canvas-tooltop-header">
+                          {{item2.eng}}
+                        </div>
+                          {{item2.desc}}
+                      </div>
+                  </div>
+                  </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-side" >
+      <div class="delete-selected" (click)="toggleTableSettings()" style="justify-content: flex-end !important;">
+        {{"zavrit" | translate}}
+
+        <div class="cross" style="margin-left: 5px;"></div>
+      </div>
+
+        <div class="type-header">
+            {{"prednadstavene_datove_sety" | translate}}
+        </div>
+
+        <div class="save-select">
+            <div class="btn-group">
+              <button (click)="toggleSaveDropdown('data_set')" type="button" class="btn">
+                <span *ngIf="selected_name==''">{{"vybrat_datovy_set" | translate}}</span>
+                <span *ngIf="selected_name!=''">{{selected_name}}</span>
+              </button>
+              <ul class="dropdown-menu" [style.visibility]="save_select_visible ? 'visible' : 'hidden'">
+                <ng-container *ngFor="let saved_data of saved">
+                  <li role="menuitem">
+                    <div class="dropdown-item" (click)="selectSaved(saved_data.id)">{{saved_data.name}}</div>
+                    <span class="delete" (click)="deleteSaved(saved_data.id)">
+                      <img
+                        src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTEuOTk5IDUxMS45OTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMS45OTkgNTExLjk5OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxjaXJjbGUgc3R5bGU9ImZpbGw6I0UyMUIxQjsiIGN4PSIyNTUuOTk5IiBjeT0iMjU1Ljk5OSIgcj0iMjU1Ljk5OSIvPgo8Zz4KCQoJCTxyZWN0IHg9IjI0NC4wMDIiIHk9IjEyMC4wMDgiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MSAtMC43MDcxIDAuNzA3MSAwLjcwNzEgLTEwNi4wMzk3IDI1Ni4wMDIyKSIgc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNzEuOTg4Ii8+CgkKCQk8cmVjdCB4PSIxMjAuMDA4IiB5PSIyNDQuMDA3IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzEgLTAuNzA3MSAwLjcwNzEgMC43MDcxIC0xMDYuMDQyOCAyNTYuMDAzNSkiIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiB3aWR0aD0iMjcxLjk4OCIgaGVpZ2h0PSIyNCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=">
+                    </span>
+                  </li>
+                </ng-container>
+                <ng-container *ngFor="let saved_data of predefined_sets">
+                  <li role="menuitem">
+                    <div class="dropdown-item" (click)="selectSaved(saved_data.id)">{{saved_data.name}}</div>
+                    
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+        </div>
+        <!-- <div class="save-select">
+          <div class="btn-group">
+            <button (click)="deleteAllSaved()" type="button" style="margin-top: 16px;" class="btn-delete">
+              <span>{{"smazat_vsechny_sablony" | translate}}</span>
+            </button>
+          </div>
+        </div> -->
+
+        <div class="button black-button" style="margin-top: 16px;" (click)="savePresset()">
+          {{"ulozit_datovy_set" | translate}}
+          <!-- <div class="save-png"></div> -->
+          <img 
+            src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ5IDQ5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0OSA0OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTM5LjkxNCwwSDM3LjVoLTI4aC05djQ5aDdoMzNoOFY4LjU4NkwzOS45MTQsMHogTTM1LjUsMnYxNGgtMjRWMkgzNS41eiBNOS41LDQ3VjI4aDI5djE5SDkuNXogTTQ2LjUsNDdoLTZWMjZoLTMzdjIxaC01ICAgVjJoN3YxNmgyOFYyaDEuNTg2TDQ2LjUsOS40MTRWNDd6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMTMuNSwzM2g3YzAuNTUzLDAsMS0wLjQ0NywxLTFzLTAuNDQ3LTEtMS0xaC03Yy0wLjU1MywwLTEsMC40NDctMSwxUzEyLjk0NywzMywxMy41LDMzeiIgZmlsbD0iI0ZGRkZGRiIvPgoJPHBhdGggZD0iTTIzLjUsMzVoLTEwYy0wLjU1MywwLTEsMC40NDctMSwxczAuNDQ3LDEsMSwxaDEwYzAuNTUzLDAsMS0wLjQ0NywxLTFTMjQuMDUzLDM1LDIzLjUsMzV6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNMjUuNzksMzUuMjljLTAuMTgxLDAuMTg5LTAuMjksMC40NS0wLjI5LDAuNzFzMC4xMDksMC41MiwwLjI5LDAuNzFDMjUuOTc5LDM2Ljg5LDI2LjIyOSwzNywyNi41LDM3ICAgYzAuMjYsMCwwLjUyLTAuMTEsMC43MS0wLjI5YzAuMTgtMC4xOSwwLjI5LTAuNDUsMC4yOS0wLjcxcy0wLjExLTAuNTIxLTAuMjktMC43MUMyNi44NCwzNC45MiwyNi4xNiwzNC45MiwyNS43OSwzNS4yOXoiIGZpbGw9IiNGRkZGRkYiLz4KCTxwYXRoIGQ9Ik0zMy41LDRoLTZ2MTBoNlY0eiBNMzEuNSwxMmgtMlY2aDJWMTJ6IiBmaWxsPSIjRkZGRkZGIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="
+            alt=""
+            style="height: 16px;">
+        </div>
+
+        <div class="delete-selected">
+            {{"smazat_vyber" | translate}}
+
+            <div class="cross" (click)="clearSelected()"></div>
+            
+        </div>
+
+        <div class="attributes">
+            <div class="cell" 
+            *ngFor="let item of selected_attributes, let i = index" 
+            [ngClass]="getSelectedColor(item)" 
+            (click)="removeSelected(i)">
+                {{item.name}}
+            </div>
+
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+        </div>
+
+        <div *ngIf="enable_min_value" class="type-header arrow" style="font-size: 12px;" (click)="show_minimal_filter = !show_minimal_filter">
+            {{"minimalni_hodnota" | translate}}
+        </div>
+
+        <div class="save-select" *ngIf="show_minimal_filter">
+          <div class="btn-group">
+            <button (click)="toggleSaveDropdown('metric')" type="button" class="btn">
+              <span *ngIf="selected_attribute == undefined">{{"vybrat_metriku" | translate}}</span>
+              <span *ngIf="selected_attribute!= undefined" style="display: flex; align-items: center; justify-content: space-between;">
+                {{selected_attribute_name}}
+                <div class="cross" (click)="setMetricValue('')"></div>
+              </span>
+            </button>
+            <ul class="dropdown-menu" [style.visibility]="metric_select_visible ? 'visible' : 'hidden'">
+              
+              <ng-container *ngFor="let attribute of selected_attributes">
+                <li (click)="setMetricValue(attribute)" role="menuitem">
+                  <div class="dropdown-item" >{{attribute.name}}</div>
+                 
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+
+        <div class="value-input" *ngIf="show_minimal_filter">
+            <input type="number" [(ngModel)]="min_value" placeholder="{{'zadejte_minimalni_pocet' | translate}}">
+        </div>
+
+        <div class="button" (click)="applySelectedAttributes()">
+            {{"nahrat_data" | translate}}
+            <div class="load-png"></div>
+        </div>
+    </div>
+</div>

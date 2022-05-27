@@ -1,0 +1,13 @@
+#!/bin/bash
+echo "Startuje kompilace testovaci verze."
+ng build --configuration=test --aot --build-optimizer --optimization=true --stats-json
+echo "Startuje deploy heatmap pluginu."
+gulp heatmap_test
+echo "Startuje deploy video pluginu."
+gulp video
+echo "Startuje deploy mock dat."
+gulp mock
+echo "Startuje deploy tracking API."
+gulp tracking_api
+echo "Startuje deploy cele aplikace."
+gulp test

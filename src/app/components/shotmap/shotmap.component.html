@@ -1,0 +1,1018 @@
+<div #exportpng>
+  <div class="container-videos">
+    <!--
+    <div class="row">
+      <div class="column">
+        <div class="form-box" *ngIf="shots_team==false && render_shot_pro_proti=='PRO' && render_shot_pro_type=='hrac'">
+          <div class=" players-list">
+            <ng-container *ngFor="let player of players_list; let i = index">
+              <div class="player player-{{i+1}}" [ngClass]="{'active':player.enabled==true}"
+                (click)="togglePlayer(player.uuid)">
+                <div class="check-indicator"></div>
+                <div class="title">{{getPlayerName(player.uuid)}}</div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <div class="row">
+      <div class="column-aside aside-left">
+        <div class="game-type-selects">
+          <button
+            (click)="mainGamesSelect('ALL')"
+            *ngIf="checkAllGamesSelected()"
+          >
+            {{ "vybrat_vsechny_zapasy" | translate }}
+          </button>
+          <button
+            (click)="mainGamesSelect('')"
+            *ngIf="!checkAllGamesSelected()"
+            class="selected"
+          >
+            {{ "odebrat_vsechny_zapasy" | translate }}
+          </button>
+        </div>
+
+        <div class="games-list-box">
+          <div class="games-list" #games_list>
+            <ng-container *ngFor="let game of games">
+              <div class="game" [ngClass]="{ active: game.active == true }" style="overflow: initial;">
+                <div
+                  class="check-indicator"
+                  (click)="toggleGame(game.id,game.match,game.matchDate)"
+                ></div>
+                <div class="title" title="{{ game['match'] }}">
+                  <span class="teams"
+                    >{{ getTeamNameShortcut(game.homeTeam) }}
+                    -
+                    {{ getTeamNameShortcut(game.awayTeam) }}</span
+                  >
+                  <span class="date">{{ game.matchDate | match_date }}</span>
+                </div>
+                <div
+                  class="play-ico"
+                  (click)="playGameVideo(game, 'all', undefined)"
+                ></div>
+                <ng-container>
+                  <div class="shots">
+                    <ng-container *ngFor="let circle of game.circles">
+                      <div
+                        class="circle circle-{{ circle.color }}"
+                        *ngIf="circle.count > 0"
+                        (click)="playGameVideo(game, circle.player, undefined)"
+                      >
+                        {{ circle.count }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+            <div style="height: 20px"></div>
+          </div>
+        </div>
+
+        <div class="all-videos-box">
+          <button
+            class="all-videos"
+            [disabled]="isGameChecked()"
+            (click)="openAllVideos()"
+          >
+            <span>{{ "prehrat_vybrane_zapasy" | translate }}</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="column-center">
+        <div
+          class="shotmap"
+          [class.pro-tym]="render_shot_pro_type == 'tym'"
+          id="shotmap"
+        >
+          <div
+            *ngFor="let shot of circles"
+            class="circle circle-{{ shot.color }}"
+            [ngStyle]="{ left: shot['x'] - 4 + 'px', top: shot['y'] - 18 + 'px' }"
+            [class.goal]="shot.type == 'G'"
+            [class.emptyNet]="shot.emptyNet"
+            (click)="shotClick(shot)"
+          ></div>
+          <Loading style="display: -webkit-inline-box;" *ngIf="loading"></Loading>
+          <canvas
+            #canvas
+            id="canvas"
+            width="760px"
+            height="582px"
+            (click)="closeVideo()"
+          ></canvas>
+        </div>
+
+        <div class="shotmap-infobar" [class.open]="shotmapInfobarOpen">
+          <div class="more-info" *ngIf="shotmapInfobarOpen">
+            <label>{{'nebezpecnost_strel' | translate}}</label>
+            <div class="boxes">
+              <div class="box green">
+                <div class="box-name">{{'vysoka' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{ getShotsCount("HD") }}</td>
+                    <td class="center-box">{{ getXg("HD") }}</td>
+                    <td class="right-box">{{ getGoalsCount("HD") }}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box orange">
+                <div class="box-name">{{'stredni' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{ getShotsCount("MD") }}</td>
+                    <td class="center-box">{{ getXg("MD") }}</td>
+                    <td class="right-box">{{ getGoalsCount("MD") }}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box red">
+                <div class="box-name">{{'nizka' | translate}}</div>
+                <table>
+                  <tr>
+                    <th>
+                      <div class="heading">{{'pocet' | translate}}</div>
+                    </th>
+                    <th>
+                      <div class="heading">xG</div>
+                    </th>
+                    <th>
+                      <div class="heading">G</div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="left-box">{{ getShotsCount("LD") }}</td>
+                    <td class="center-box">{{ getXg("LD") }}</td>
+                    <td class="right-box">{{ getGoalsCount("LD") }}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <table class="basic-info">
+            <tr>
+              <td>TOI: {{ getAllToi() | format_sesonds }}</td>
+              <td>xG: {{ getAllXg() }}</td>
+              <td>G: {{ getAllGoals() }}</td>
+              <td class="toggler-td">
+                <button class="toggler" (click)="toggleShotmapInfobar()">
+                  <img
+                    src="/assets/icobutton-download.svg"
+                    width="16"
+                    height="16"
+                  />
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--  top: tooltip_y - 35 + 'px'  -->
+        <ng-container *ngIf="showVideoModal">
+          <div
+            class="shotmap-tooltip"
+            [ngClass]="{ small: selected_shot.netZone == null }"
+            [ngStyle]="{ left: tooltip_x + 'px', 'top': selected_shot.netZone == null ? tooltip_y - 30 + 'px' : tooltip_y - 55 + 'px'}"
+          >
+            <div class="shotmap-tooltip-inner">
+              <div class="game-info">
+                {{ selected_shot.matchDate | format_date }},
+                {{ selected_shot.homeTeam }}-{{ selected_shot.awayTeam }}
+              </div>
+              <div class="game-gate">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 240 160"
+                  style="enable-background: new 0 0 304 202"
+                  xml:space="preserve"
+                >
+                  <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g id="branka-copy">
+                    <path
+                      d="M4,160 L0,160 L0,7.044 C0,3.19 3.177,0 7,0 L233,0 C236.823,0 240,3.19 240,7.044 L240,160 L236,160 L236,7.044 C236.129,5.337 234.685,3.887 233,4.025 L7,4.025 C5.315,3.887 3.871,5.337 4,7.044 L4,160 Z"
+                      id="Path"
+                      fill="#FF1744"
+                    ></path>
+                    <path
+                      d="M84,86 L84,120 C84,122.563 84.603,124.986 85.674,127.134 L60.111,160 L8,160 L8,86 L84,86 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: selected_shot.netZone == 'br' }"
+                    ></path>
+                    <rect
+                      id="Rectangle"
+                      fill="#f2f4f8"
+                      x="88"
+                      y="36"
+                      width="64"
+                      height="96"
+                      rx="12"
+                      [ngClass]="{ active: selected_shot.netZone == 'ce' }"
+                    ></rect>
+                    <path
+                      d="M118,8 L118,32 L100,32 C91.269,32 84.17,38.994 84.003,47.685 L84,48 L84,82 L8,82 L8,8 L118,8 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: selected_shot.netZone == 'ur' }"
+                    ></path>
+                    <path
+                      d="M152.112,129.455 L175,159 L65,159 L87.888,129.455 C90.8301361,132.870621 95.0793291,134.882976 99.586,134.995 L100,135 L140,135 C144.84,135 149.178,132.85 152.112,129.455 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: selected_shot.netZone == 'fh' }"
+                    ></path>
+                    <path
+                      d="M232,8 L232,82 L156,82 L156,48 C156,39.269 149.006,32.17 140.315,32.003 L140,32 L122,32 L122,8 L232,8 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: selected_shot.netZone == 'ul' }"
+                    ></path>
+                    <path
+                      d="M231,86 L231,160 L178.889,160 L153.326,127.134 C154.358731,125.063184 154.927605,122.792123 154.993,120.479 L155,120 L155,86 L231,86 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: selected_shot.netZone == 'bl' }"
+                    ></path>
+                  </g>
+                </g>
+                </svg>
+              </div>
+              <div class="game-time">
+                <strong>{{ "cas" | translate }}:</strong>
+                {{ selected_shot.time | format_sesonds }}
+              </div>
+              <div class="game-time">
+                <strong>xG:</strong>
+                {{ getRoundNumber(selected_shot.xG,2)}}
+              </div>
+              <div class="game-shot">
+                <strong>{{ "strela" | translate }}:</strong>
+                {{ getPlayerName(selected_shot.player) }}
+              </div>
+              <button
+                class="game-video"
+                (click)="playGameVideo(selected_shot, 'all', selected_shot)"
+              >
+                {{ "prehrat_video" | translate }}
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="column-aside aside-right">
+        <div class="boxes">
+          <div class="box">
+            <div class="form-box">
+              <label>{{'kdo_strilel' | translate}}</label>
+              <button
+                [ngClass]="{ active: render_shot_pro_proti == 'HRAC' }"
+                (click)="renderShotProProti('HRAC')"
+              >
+                {{'hrac' | translate}}
+              </button>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [ngClass]="{ active: render_shot_pro_proti == 'PRO' }"
+                    (click)="renderShotProProti('PRO')"
+                  >
+                    {{'tym' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  
+                  <button
+                    [ngClass]="{ active: render_shot_pro_proti == 'PROTI','loading': !shots.against}"
+                    (click)="renderShotProProti('PROTI')"
+                    [disabled]="!shots.against"
+                  >
+                  <ng-container *ngIf="!shots.against">
+                    {{'nacitani_soupere | translate'}}
+                  </ng-container>
+                  <ng-container *ngIf="shots.against">
+                    {{'souper' | translate}}
+                  </ng-container>
+                    
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-box">
+              <label>{{'kategorie_strel' | translate}}</label>
+              <button
+                [class.active]="shot_category == 'SGMB'"
+                (click)="toggleShotCategoryFilter('SGMB')"
+              >
+                {{'strelecke_pokusy' | translate}}
+              </button>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_category == 'SG'"
+                    (click)="toggleShotCategoryFilter('SG')"
+                  >
+                    {{'na_branku' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_category == 'G'"
+                    (click)="toggleShotCategoryFilter('G')"
+                  >
+                    {{'goly' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-box">
+              <label>{{'lokace_strel' | translate}}</label>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_location == 'ALL'"
+                    (click)="toggleShotLocation('ALL')"
+                  >
+                    {{'vsechny' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_location == 'SLOT'"
+                    (click)="toggleShotLocation('SLOT')"
+                  >
+                    {{'ve_slotu' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-box">
+              <label>{{'typy_strel' | translate}}</label>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_type == ''"
+                    (click)="toggleShotType('')"
+                  >
+                  {{'vsechny' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_type == '1T'"
+                    (click)="toggleShotType('1T')"
+                  >
+                    {{'z_prvni' | translate}}
+                  </button>
+                </div>
+              </div>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shot_type == 'R'"
+                    (click)="toggleShotType('R')"
+                  >
+                    {{'dorazky' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button disabled>{{'2_sance' | translate}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-box">
+              <label>{{'nebezpecnost_strel' | translate}}</label>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shotDangerType == ''"
+                    (click)="toggleShotDangerType('')"
+                  >
+                  {{'vsechny' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [class.active]="shotDangerType == 'HD'"
+                    (click)="toggleShotDangerType('HD')"
+                  >
+                    {{'vysoka' | translate}}
+                  </button>
+                </div>
+              </div>
+              <div class="buttons">
+                <div class="btn-box">
+                  <button
+                    [class.active]="shotDangerType == 'MD'"
+                    (click)="toggleShotDangerType('MD')"
+                  >
+                    {{'stredni' | translate}}
+                  </button>
+                </div>
+                <div class="btn-box">
+                  <button
+                    [class.active]="shotDangerType == 'LD'"
+                    (click)="toggleShotDangerType('LD')"
+                  >
+                    {{'nizka' | translate}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="form-box">
+              <label>{{'typy_akce' | translate}}</label>
+              <button
+                [class.active]="action_type == ''"
+                (click)="toggleActionType('')"
+              >
+                {{'vsechny' | translate}}
+              </button>
+              <button
+                [class.active]="action_type == 'forecheck'"
+                (click)="toggleActionType('forecheck')"
+              >
+                {{'forcek' | translate}}
+              </button>
+              <button
+                [class.active]="action_type == 'rush'"
+                (click)="toggleActionType('rush')"
+              >
+                {{'rychly_utok' | translate}}
+              </button>
+              <button
+                [class.active]="action_type == 'long'"
+                (click)="toggleActionType('long')">{{'dlouhy_utok' | translate}}</button>
+              <button
+                [class.active]="action_type == 'oddManRush'"
+                (click)="toggleActionType('oddManRush')"
+              >
+                {{'precisleni' | translate}}
+              </button>
+              <button
+                [class.active]="action_type == 'afterFo'"
+                (click)="toggleActionType('afterFo')">{{'po_vhazovani' | translate}}</button>
+            </div>
+            <div class="form-box">
+              <label>{{ "zony_branky" | translate }}</label>
+
+              <svg
+                width="100%"
+                viewBox="0 0 240 160"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <style>
+                  .form-box .active {
+                    fill: #151d22 !important;
+                  }
+
+                  .form-box path,
+                  .form-box rect {
+                    cursor: pointer;
+                  }
+                </style>
+
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g id="branka-copy">
+                    <path
+                      d="M4,160 L0,160 L0,7.044 C0,3.19 3.177,0 7,0 L233,0 C236.823,0 240,3.19 240,7.044 L240,160 L236,160 L236,7.044 C236.129,5.337 234.685,3.887 233,4.025 L7,4.025 C5.315,3.887 3.871,5.337 4,7.044 L4,160 Z"
+                      id="Path"
+                      fill="#FF1744"
+                    ></path>
+                    <path
+                      d="M84,86 L84,120 C84,122.563 84.603,124.986 85.674,127.134 L60.111,160 L8,160 L8,86 L84,86 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: filter_zone == 'br' }"
+                      (click)="selectGoalZone('br')"
+                    ></path>
+                    <rect
+                      id="Rectangle"
+                      fill="#f2f4f8"
+                      x="88"
+                      y="36"
+                      width="64"
+                      height="96"
+                      rx="12"
+                      [ngClass]="{ active: filter_zone == 'ce' }"
+                      (click)="selectGoalZone('ce')"
+                    ></rect>
+                    <path
+                      d="M118,8 L118,32 L100,32 C91.269,32 84.17,38.994 84.003,47.685 L84,48 L84,82 L8,82 L8,8 L118,8 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: filter_zone == 'ur' }"
+                      (click)="selectGoalZone('ur')"
+                    ></path>
+                    <path
+                      d="M152.112,129.455 L175,159 L65,159 L87.888,129.455 C90.8301361,132.870621 95.0793291,134.882976 99.586,134.995 L100,135 L140,135 C144.84,135 149.178,132.85 152.112,129.455 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: filter_zone == 'fh' }"
+                      (click)="selectGoalZone('fh')"
+                    ></path>
+                    <path
+                      d="M232,8 L232,82 L156,82 L156,48 C156,39.269 149.006,32.17 140.315,32.003 L140,32 L122,32 L122,8 L232,8 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: filter_zone == 'ul' }"
+                      (click)="selectGoalZone('ul')"
+                    ></path>
+                    <path
+                      d="M231,86 L231,160 L178.889,160 L153.326,127.134 C154.358731,125.063184 154.927605,122.792123 154.993,120.479 L155,120 L155,86 L231,86 Z"
+                      id="Path"
+                      fill="#f2f4f8"
+                      fill-rule="nonzero"
+                      [ngClass]="{ active: filter_zone == 'bl' }"
+                      (click)="selectGoalZone('bl')"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+              <div class="numbers">
+                <div class="br">{{ getNetZoneNumbers("br") }}</div>
+                <div class="ce">{{ getNetZoneNumbers("ce") }}</div>
+                <div class="ur">{{ getNetZoneNumbers("ur") }}</div>
+                <div class="fh">{{ getNetZoneNumbers("fh") }}</div>
+                <div class="ul">{{ getNetZoneNumbers("ul") }}</div>
+                <div class="bl">{{ getNetZoneNumbers("bl") }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br clear="all" />
+
+        <div class="boxes">
+          <div class="box">&nbsp;</div>
+          <div class="box" style="margin-top: -63px;">
+            <button class="load-data" (click)="downloadMap()">{{'ulozit_mapu' | translate}}</button>
+          </div>
+        </div>
+
+        <br clear="all" />
+      </div>
+    </div>
+
+    <div class="fullscreen-loading" *ngIf="exporting_png">
+      <Loading></Loading>
+    </div>
+  </div>
+
+  <div class=" more-maps">
+    <div class="row">
+      <div class="column">
+        <div class="map-nav">
+          <h3>{{'zobrazit_ke_srovnani' | translate}}</h3>
+          <div class="buttons">
+            <button
+              [class.active]="shot_nav == 'typy_akce'"
+              (click)="shot_nav = 'typy_akce'"
+            >
+              {{'typy_akce' | translate}}
+            </button>
+            <button
+              [class.active]="shot_nav == 'nebezpecnost_strel'"
+              (click)="shot_nav = 'nebezpecnost_strel'"
+            >
+              {{'nebezpecnost_strel' | translate}}
+            </button>
+            <button
+              [class.active]="shot_nav == 'hraci_spolu'"
+              (click)="shot_nav = 'hraci_spolu'"
+            >
+              {{'hraci_spolu' | translate}}
+            </button>
+            <button
+              [class.active]="shot_nav == 'poslednich_5_zapasu'"
+              (click)="loadLastGames(5)"
+            >
+              {{'poslednich_5_zapasu' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="shot_nav == 'typy_akce'">
+      <div class="column" style="padding: 0">
+        <div class="three-ice">
+          <div class="ice">
+            <div class="ice-inner">
+              <div class="ice-heading">{{'forcek' | translate}}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'forecheck'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+          <div class="ice">
+            <div class="ice-inner">
+              <div class="ice-heading">{{'rychly_utok' | translate}}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'rush'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+          <div class="ice">
+            <div class="ice-inner">
+              <div class="ice-heading">{{'dlouhy_utok' | translate}}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'long'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              ></shotmap-small>
+            </div>
+          </div>
+          <div class="ice">
+            <div class="ice-inner">
+              <div class="ice-heading">{{'precisleni' | translate}}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'oddManRush'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+          <div class="ice">
+            <div class="ice-inner">
+              <div class="ice-heading">{{'po_vhazovani' | translate}}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'afterFO'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              ></shotmap-small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="shot_nav == 'hraci_spolu'">
+      <div class="column" style="padding: 0">
+        <div class="three-ice">
+          <div class="ice" *ngFor="let player of players_list">
+            <div class="ice-inner">
+              <div class="ice-heading">{{ getPlayerName(player.uuid) }}</div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [player_uuid]="player.uuid"
+                [action_type]="action_type"
+                [shots_FULL]="shots_FULL"
+                [teams_list]="teams_list"
+                [type]="'forecheck'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="shot_nav == 'poslednich_5_zapasu'">
+      <div class="column" style="padding: 0">
+        <div class="three-ice">
+          <div class="ice" *ngFor="let game of last5Games | slice: 0:5, let i = index">
+            <div class="ice-inner">
+              <div class="ice-heading">
+                {{ getTeamNameShortcut(game.homeTeam) }}-{{
+                  getTeamNameShortcut(game.awayTeam)
+                }}
+                {{ game.matchDate | match_date2 }}
+              </div>
+              <shotmap-small
+                [shotmapInfobarOpen]="shotmapInfobarOpen"
+                (openshotmapInfobar)="toggleShotmapInfobar()"
+                [map_type]="shot_nav"
+                [gameId]="game.match"
+                [action_type]="action_type"
+                [shots_FULL]="getIndividualShots(game.match)"
+                [teams_list]="teams_list"
+                [type]="'forecheck'"
+                [games]="games"
+                [render_shot_pro_proti]="render_shot_pro_proti"
+                [shots_team]="shots_team"
+                [render_shot_pro_type]="render_shot_pro_type"
+                [filter_playerId_select1]="filter_playerId_select1"
+                [filter_playerId_select2]="filter_playerId_select2"
+                [filter_playerId_select3]="filter_playerId_select3"
+                [filter_playerId_select4]="filter_playerId_select4"
+                [filter_playerId_select5]="filter_playerId_select5"
+                [players_list]="players_list"
+                [shot_category]="shot_category"
+                [filter_zone]="filter_zone"
+                [shot_type]="shot_type"
+                [shotDangerType]="shotDangerType"
+                [shot_location]="shot_location"
+                (openSmallVideo)="openSmallVideo($event)"
+                [toi]="getCustomToi(game.match)"
+                [last5Games]="true"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row" *ngIf="shot_nav == 'nebezpecnost_strel'">
+      <div class="column" style="padding: unset !important">
+        <div class="three-ice">
+          <div class="ice" >
+            <div class="ice-inner">
+              <div class="ice-heading">
+                {{'vysoka' | translate}}
+              </div>
+              <shotmap-small
+              [shotmapInfobarOpen]="shotmapInfobarOpen"
+              (openshotmapInfobar)="toggleShotmapInfobar()"
+              [map_type]="shot_nav"
+              [action_type]="action_type"
+              [shots_FULL]="shots_FULL"
+              [teams_list]="teams_list"
+              [type]="'forecheck'"
+              [games]="games"
+              [danger]="'HD'"
+              [render_shot_pro_proti]="render_shot_pro_proti"
+              [shots_team]="shots_team"
+              [render_shot_pro_type]="render_shot_pro_type"
+              [filter_playerId_select1]="filter_playerId_select1"
+              [filter_playerId_select2]="filter_playerId_select2"
+              [filter_playerId_select3]="filter_playerId_select3"
+              [filter_playerId_select4]="filter_playerId_select4"
+              [filter_playerId_select5]="filter_playerId_select5"
+              [players_list]="players_list"
+              [shot_category]="shot_category"
+              [filter_zone]="filter_zone"
+              [shot_type]="shot_type"
+              [shotDangerType]="shotDangerType"
+              [shot_location]="shot_location"
+              (openSmallVideo)="openSmallVideo($event)"
+              [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+
+          <div class="ice" >
+            <div class="ice-inner">
+              <div class="ice-heading">
+                {{'stredni' | translate}}
+              </div>
+              <shotmap-small
+              [shotmapInfobarOpen]="shotmapInfobarOpen"
+              (openshotmapInfobar)="toggleShotmapInfobar()"
+              [map_type]="shot_nav"
+              [action_type]="action_type"
+              [shots_FULL]="shots_FULL"
+              [teams_list]="teams_list"
+              [type]="'forecheck'"
+              [games]="games"
+              [danger]="'MD'"
+              [render_shot_pro_proti]="render_shot_pro_proti"
+              [shots_team]="shots_team"
+              [render_shot_pro_type]="render_shot_pro_type"
+              [filter_playerId_select1]="filter_playerId_select1"
+              [filter_playerId_select2]="filter_playerId_select2"
+              [filter_playerId_select3]="filter_playerId_select3"
+              [filter_playerId_select4]="filter_playerId_select4"
+              [filter_playerId_select5]="filter_playerId_select5"
+              [players_list]="players_list"
+              [shot_category]="shot_category"
+              [filter_zone]="filter_zone"
+              [shot_type]="shot_type"
+              [shotDangerType]="shotDangerType"
+              [shot_location]="shot_location"
+              (openSmallVideo)="openSmallVideo($event)"
+              [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+
+          <div class="ice" >
+            <div class="ice-inner">
+              <div class="ice-heading">
+                {{'nizka' | translate}}
+              </div>
+              <shotmap-small
+              [shotmapInfobarOpen]="shotmapInfobarOpen"
+              (openshotmapInfobar)="toggleShotmapInfobar()"
+              [map_type]="shot_nav"
+              [action_type]="action_type"
+              [shots_FULL]="shots_FULL"
+              [teams_list]="teams_list"
+              [type]="'forecheck'"
+              [games]="games"
+              [danger]="'LD'"
+              [render_shot_pro_proti]="render_shot_pro_proti"
+              [shots_team]="shots_team"
+              [render_shot_pro_type]="render_shot_pro_type"
+              [filter_playerId_select1]="filter_playerId_select1"
+              [filter_playerId_select2]="filter_playerId_select2"
+              [filter_playerId_select3]="filter_playerId_select3"
+              [filter_playerId_select4]="filter_playerId_select4"
+              [filter_playerId_select5]="filter_playerId_select5"
+              [players_list]="players_list"
+              [shot_category]="shot_category"
+              [filter_zone]="filter_zone"
+              [shot_type]="shot_type"
+              [shotDangerType]="shotDangerType"
+              [shot_location]="shot_location"
+              (openSmallVideo)="openSmallVideo($event)"
+              [toi]="getAllToi()"
+              >
+              </shotmap-small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
