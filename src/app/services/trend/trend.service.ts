@@ -21,7 +21,7 @@ export class TrendService {
             this.api_url = "http://logiq-test-2.statistics.datasport.cz";
         } */
         if (isDevMode()) {
-            this.api_url = "http://logiq.statistics.datasport.cz";
+            this.api_url = "http://logiq-test.statistics.datasport.cz";
         }
     }
 

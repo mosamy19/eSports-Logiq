@@ -2132,6 +2132,13 @@ export class GoalkeepersComponent implements OnInit {
             this.data_relativeToCompetition =
               temporary_data_relativeToCompetition;
 
+            this.data.forEach( x=> {
+              let selectedPlayer = temporary_data_relativeToCompetition.filter(
+                y=> (y.player==x.uuid)
+                );
+              x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
+            });  
+
             this.skala_loading = false;
           } else {
             const temporary_data_relativeToCompetition = [];
@@ -2140,6 +2147,13 @@ export class GoalkeepersComponent implements OnInit {
               item['team'] = this.filter_team;
               temporary_data_relativeToCompetition.push(item);
             });
+
+            this.data.forEach( x=> {
+              let selectedPlayer = temporary_data_relativeToCompetition.filter(
+                y=> (y.player==x.uuid)
+                );
+              x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
+            });  
 
             this.skala_loading = false;
           }

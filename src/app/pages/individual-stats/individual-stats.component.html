@@ -841,7 +841,7 @@
                   class="filter-{{ filter_posts }}"
                   [ngStyle]="{
                     'border-right-width':
-                      show_skala && !skala_loading ? '300px' : '0px'
+                      show_skala && !skala_loading ? '125px' : '0px'
                   }"
                 >
                   <thead>
@@ -1200,13 +1200,13 @@
                 <thead>
                   <tr>
                     <th class="center" style="min-width: 120px">
-                      <mfDefaultSorter by="gp">∅ PCT</mfDefaultSorter>
+                      <mfDefaultSorter by="summaryPercentile">∅ PCT</mfDefaultSorter>
                       <div class="attribute-table-tooltip">
                         <div class="attribute-table-tooltip-title">
-                          Summary percentile %
+                          Summary ranking
                         </div>
                         <div class="attribute-table-tooltip-desc">
-                          Souhrný percentil všech statistik hráče
+                          Souhrnné pořadí všech statistik týmu
                         </div>
                       </div>
                     </th>

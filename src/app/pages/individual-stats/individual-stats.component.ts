@@ -3229,6 +3229,13 @@ export class IndividualStatsComponent implements OnInit, AfterViewInit {
               temporary_data_relativeToCompetition;
             this.data_relativeToTeam = temporary_data_relativeToTeam;
 
+            this.data.forEach( x=> {
+              let selectedPlayer = temporary_data_relativeToCompetition.filter(
+                y=> (y.player==x.uuid)
+                );
+              x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
+            });  
+
             this.skala_loading = false;
             this.show_skala = true;
           } else {
@@ -3248,6 +3255,13 @@ export class IndividualStatsComponent implements OnInit, AfterViewInit {
 
             this.data_relativeToCompetition =
               temporary_data_relativeToCompetition;
+
+              this.data.forEach( x=> {
+                let selectedPlayer = temporary_data_relativeToCompetition.filter(
+                  y=> (y.player==x.uuid)
+                  );
+                x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
+              });  
             this.data_relativeToTeam = temporary_data_relativeToTeam;
 
             //console.log(JSON.stringify(temporary_data_relativeToTeam));
