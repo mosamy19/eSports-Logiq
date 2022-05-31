@@ -3634,6 +3634,7 @@ export class FormationsOverviewComponent implements OnInit {
           .subscribe(
             (loaded_data) => {
               this.data_relativeToTeam = loaded_data;
+              this.updateDataWithSummaryPercentile();
               console.log("loaded data percentile:", loaded_data);
               this.skala_loading = false;
               console.log("data_relativeToTeam", this.data_relativeToTeam);
@@ -3670,6 +3671,7 @@ export class FormationsOverviewComponent implements OnInit {
           .subscribe(
             (loaded_data) => {
               this.data_relativeToTeam = loaded_data;
+              this.updateDataWithSummaryPercentile();
               console.log("data_relativeToTeam", this.data_relativeToTeam);
 
               this.wowyService
@@ -3696,6 +3698,7 @@ export class FormationsOverviewComponent implements OnInit {
                     console.log("Data percentil", loaded_data);
                     this.data_relativeToTeam["wowy"] =
                       loaded_data.wowy.selected_player;
+                    this.updateDataWithSummaryPercentile();
                     console.log(
                       "data Rel to team New:",
                       this.data_relativeToTeam
@@ -3744,6 +3747,7 @@ export class FormationsOverviewComponent implements OnInit {
         .subscribe(
           (loaded_data) => {
             this.data_relativeToTeam = loaded_data;
+            this.updateDataWithSummaryPercentile();
             console.log("Data percentil", this.data_relativeToTeam);
             this.skala_loading = false;
           },
@@ -3756,6 +3760,21 @@ export class FormationsOverviewComponent implements OnInit {
           }
         );
     }
+  }
+
+  updateDataWithSummaryPercentile(){
+
+    console.log(this.data_relativeToTeam)
+    console.log(this.data)
+
+    this.data.forEach( x=> {
+      let selectedPlayer = this.data_relativeToTeam["wowy"].stats.filter(
+        y=> (y.uuid==x.uuid)
+        );
+      x.stats[0]["summaryPercentile"] = selectedPlayer[0].stats[0]["summaryPercentile"]
+      x.stats[1]["summaryPercentile"] = selectedPlayer[0].stats[1]["summaryPercentile"]
+      x.stats[2]["summaryPercentile"] = selectedPlayer[0].stats[2]["summaryPercentile"]
+    });  
   }
 
   onChangedAttributes(new_attributes: any) {
