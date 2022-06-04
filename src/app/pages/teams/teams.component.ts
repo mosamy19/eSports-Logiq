@@ -741,6 +741,19 @@ export class TeamsComponent implements OnInit {
     }
   }
 
+
+
+
+  updateSummaryIndex( tempSummaryData : any  ){
+    this.data.forEach((item) => {
+      if (item["uuid"] == tempSummaryData["uuid"]) {
+        item['summaryIndex'] = tempSummaryData['summaryIndex'];
+        return;
+      }
+    });
+  }
+
+
   loadPoradi() {
     this.data_poradie = [];
     this.skala_loading = true;
@@ -770,6 +783,7 @@ export class TeamsComponent implements OnInit {
             (loaded_data) => {
               let data_edited = loaded_data;
               data_edited["uuid"] = item["uuid"];
+              this.updateSummaryIndex(data_edited);
               this.data_poradie.push(data_edited);
 
               if (index + 1 == this.teams_list.length) {
@@ -809,6 +823,7 @@ export class TeamsComponent implements OnInit {
             (loaded_data) => {
               let data_edited = loaded_data;
               data_edited["uuid"] = item;
+              this.updateSummaryIndex(data_edited);
               this.data_poradie.push(data_edited);
 
               this.skala_loading = false;

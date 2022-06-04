@@ -741,7 +741,7 @@
                 <table
                   [mfData]="data"
                   #mf1="mfDataTable"
-                  [mfRowsOnPage]="1000"
+                  [mfRowsOnPage]="20"
                   class="table-main sticky-header filter-{{ filter_posts }}"
                   [ngClass]="{
                     'is-active': show_skala == true && skala_loading == false
@@ -1608,6 +1608,7 @@
                 </ng-container>
               </table>
             </div>
+          </div>
             <div
               class="box-right"
               *ngIf="ligovy_percetnil_active && show_skala && !skala_loading"
@@ -1628,10 +1629,10 @@
                       <mfDefaultSorter by="gp">∅ PCT</mfDefaultSorter>
                       <div class="attribute-table-tooltip">
                         <div class="attribute-table-tooltip-title">
-                          Summary ranking
+                          Summary percentile %
                         </div>
                         <div class="attribute-table-tooltip-desc">
-                          Souhrnné pořadí všech statistik týmu
+                          Souhrný percentil všech statistik hráče
                         </div>
                       </div>
                     </th>
@@ -1780,7 +1781,7 @@
                 </tbody>
               </table>
             </div>
-          </div>
+         
           <!-- Lava cast tabulky -->
           <div class="download-box">
             <div class="btn btn-download" (click)="downloadCSVWowy()">
@@ -1885,11 +1886,15 @@
                   [mfSortBy]="[shoda_sortby]"
                   [mfSortOrder]="shodaSort_value"
                   (mfSortOrderChange)="shodaSort($event)"
+                  [ngStyle]="{
+                    'border-right':
+                    ligovy_percetnil_active && show_skala ? '100px  solid #fff' : '0px'
+                  }"
                 >
                   <thead>
                     <tr>
                       <ng-container *ngFor="let attribute of table_settings">
-                        <th class="center" style="min-width: 120px">
+                        <th class="center" style="min-width: 80px">
                           <div class="on-ice">
                             <div
                               *ngIf="!attribute['onIce']"
@@ -2069,6 +2074,7 @@
                 </table>
               </div>
             </div>
+        
             <div class="left-box">
               <div class="box-left table-formation-left">
                 <table
@@ -2315,13 +2321,67 @@
                 </table>
               </div>
             </div>
+            <div  class="box-right" *ngIf="ligovy_percetnil_active && show_skala && !skala_loading" >
+              <table
+                [mfData]="data"
+                #mf1="mfDataTable"
+                (mfSortByChange)="changedOrder2($event)"
+                [mfSortBy]="[shoda_sortby]"
+                [mfSortOrder]="shodaSort_value"
+                (mfSortOrderChange)="shodaSort($event)"
+                [mfRowsOnPage]="1000"
+                class="table-main sticky-header"
+              >
+                <thead>
+                  <tr>
+                    <th class="center" style="min-width: 120px">
+                      <mfDefaultSorter by="summaryPercentile">∅ PCT</mfDefaultSorter>
+                      <div class="attribute-table-tooltip">
+                        <div class="attribute-table-tooltip-title">
+                          Summary percentile %
+                        </div>
+                        <div class="attribute-table-tooltip-desc">
+                          Souhrný percentil všech statistik hráče
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of mf1.data">
+                    <td 
+                    class="td-content center"  style="height: 63px" >
+                      <div
+                        class="box bold"
+                        [ngClass]="
+                          getSkalaColour(
+                            item['players'],
+                            'summaryPercentile',
+                            false
+                          )
+                        "
+                      >
+                        {{
+                          getSkalaNumber(
+                            item['players'],
+                            "summaryPercentile",
+                            false
+                          )
+                        }}
+                      </div>
+                    </td>
+                  </tr>                
+                </tbody>
+              </table>
           </div>
-        </div>
+        
         <div class="download-box">
           <div class="btn btn-download" (click)="downloadCSVFormace()">
             {{ "export_dat" | translate }}
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </div>
   </div>

@@ -608,7 +608,7 @@ export class FormationsOverviewComponent implements OnInit {
             if (
               this.checkFormationPlayers(formationPlayers, element2.players)
             ) {
-              data = element2.stats;
+                  data = element2.stats;
             }
           });
         });
@@ -1295,7 +1295,7 @@ export class FormationsOverviewComponent implements OnInit {
               this.data[index]["attackers"] = attackers;
               this.data[index]["defenders"] = defenders;
               this.data[index]["team"] = item.team;
-
+              
               this.table_players.push(item["players"]);
             });
 
@@ -3605,6 +3605,30 @@ export class FormationsOverviewComponent implements OnInit {
     }
   }
 
+
+
+  updateSummerPercentileInData(){
+
+    this.data.forEach( (row)=> {
+      let selectedData : any;
+      row.players.forEach((element) => {
+        this.data_relativeToTeam.forEach((element2, index) => {
+          if (
+            this.checkFormationPlayers(row.players, element2.players)
+          ) {
+            selectedData = element2.stats;
+          }
+        });
+      });
+
+      row['summaryPercentile'] = selectedData['summaryPercentile'];
+
+    })
+
+  }
+
+
+
   loadSkala() {
     this.data_relativeToTeam = [];
     this.skala_loading = true;
@@ -3634,8 +3658,9 @@ export class FormationsOverviewComponent implements OnInit {
           .subscribe(
             (loaded_data) => {
               this.data_relativeToTeam = loaded_data;
-              this.updateDataWithSummaryPercentile();
               console.log("loaded data percentile:", loaded_data);
+              this.updateSummerPercentileInData()
+
               this.skala_loading = false;
               console.log("data_relativeToTeam", this.data_relativeToTeam);
             },
@@ -3671,9 +3696,8 @@ export class FormationsOverviewComponent implements OnInit {
           .subscribe(
             (loaded_data) => {
               this.data_relativeToTeam = loaded_data;
-              this.updateDataWithSummaryPercentile();
               console.log("data_relativeToTeam", this.data_relativeToTeam);
-
+              this.updateSummerPercentileInData()
               this.wowyService
                 .getWowyPercentil(
                   this.filter_seasonPart,
@@ -3698,7 +3722,6 @@ export class FormationsOverviewComponent implements OnInit {
                     console.log("Data percentil", loaded_data);
                     this.data_relativeToTeam["wowy"] =
                       loaded_data.wowy.selected_player;
-                    this.updateDataWithSummaryPercentile();
                     console.log(
                       "data Rel to team New:",
                       this.data_relativeToTeam
@@ -3747,7 +3770,6 @@ export class FormationsOverviewComponent implements OnInit {
         .subscribe(
           (loaded_data) => {
             this.data_relativeToTeam = loaded_data;
-            this.updateDataWithSummaryPercentile();
             console.log("Data percentil", this.data_relativeToTeam);
             this.skala_loading = false;
           },
