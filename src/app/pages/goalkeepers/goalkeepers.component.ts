@@ -2132,12 +2132,7 @@ export class GoalkeepersComponent implements OnInit {
             this.data_relativeToCompetition =
               temporary_data_relativeToCompetition;
 
-            this.data.forEach( x=> {
-              let selectedPlayer = temporary_data_relativeToCompetition.filter(
-                y=> (y.player==x.uuid)
-                );
-              x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
-            });  
+            this.updateSummaryPercentileData();
 
             this.skala_loading = false;
           } else {
@@ -2148,12 +2143,7 @@ export class GoalkeepersComponent implements OnInit {
               temporary_data_relativeToCompetition.push(item);
             });
 
-            this.data.forEach( x=> {
-              let selectedPlayer = temporary_data_relativeToCompetition.filter(
-                y=> (y.player==x.uuid)
-                );
-              x["summaryPercentile"] = selectedPlayer[0].stats["summaryPercentile"]
-            });  
+            this.updateSummaryPercentileData();
 
             this.skala_loading = false;
           }
@@ -2167,6 +2157,20 @@ export class GoalkeepersComponent implements OnInit {
 
     // this.sendEvent(this.filter_team);
   }
+
+
+  updateSummaryPercentileData(){
+    this.data.forEach( x=> {
+      let selectedPlayer = this.data_relativeToCompetition.filter(
+        y=> (y.team==x.team)
+        );
+        selectedPlayer.forEach( player => {
+          if(player["player"] ==  x["uuid"] )
+              x["summaryPercentile"] = player.stats["summaryPercentile"]
+        })
+    }); 
+  }
+
 
   getTeamName(uuid: string) {
     let shortcut = '';
