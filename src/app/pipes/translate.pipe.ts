@@ -5,9 +5,9 @@ export class TranslatePipe implements PipeTransform {
   transform(value: string): string {
     let language = localStorage.getItem("language");
     let translates: {
-      key:string,
-      cz:string,
-      en:string
+      key: string;
+      cz: string;
+      en: string;
     }[] = [
       {
         key: "hraci",
@@ -82,32 +82,32 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "zakladni_set",
         cz: "Základní šablona",
-        en: "Basic sablone"
+        en: "Basic sablone",
       },
       {
         key: "srovnani_se",
         cz: "Srovnání se",
-        en: "Comparison with"
+        en: "Comparison with",
       },
       {
         key: "klicka",
         cz: " Klička",
-        en: "Trick"
+        en: "Trick",
       },
       {
         key: "hraci_v_tabulce",
         cz: "Hráči v tabulce",
-        en: "Players in the chart"
+        en: "Players in the chart",
       },
       {
         key: "vyberte_tym_soupere",
         cz: "Vyberte tým soupeře",
-        en: "Choose enemy team"
+        en: "Choose enemy team",
       },
       {
         key: "filtrovat_tym_soupere",
         cz: "Filtrovat tým soupeře",
-        en: "Filter enemy team"
+        en: "Filter enemy team",
       },
       {
         key: "vybrat_tym",
@@ -212,12 +212,12 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "dvojice",
         cz: "Dvojice",
-        en: "Teammates in pairs"
+        en: "Teammates in pairs",
       },
       {
         key: "kombinace_hracu",
         cz: "Kombinace hráčů",
-        en: "Player combinations"
+        en: "Player combinations",
       },
       {
         key: "venku",
@@ -898,7 +898,7 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "shoda_hracu",
         cz: "Shoda hráčů",
-        en: "Find similar player"
+        en: "Find similar player",
       },
       {
         key: "celkova_shoda",
@@ -1310,25 +1310,25 @@ export class TranslatePipe implements PipeTransform {
         cz: "Zápasů",
         en: "Games",
       },
-      {  /* ku kontrole */
-        key: "vyberte_druh_formace",
+      {
+        /* ku kontrole */ key: "vyberte_druh_formace",
         cz: "Vyberte druh formace",
-        en: "Choose formation type"
+        en: "Choose formation type",
       },
-      {  /* ku kontrole */
-        key: "dvojice_widget_text",
+      {
+        /* ku kontrole */ key: "dvojice_widget_text",
         cz: "Udáva rozdíl mezi počtem šancí, které soupeři vyprodukovali průměrně za 60 minut, ve kterích byl hráč",
-        en: "It shows the difference between the number of chances, that opponents produced on average in 60 minutes, in which was player"
+        en: "It shows the difference between the number of chances, that opponents produced on average in 60 minutes, in which was player",
       },
-      {  /* ku kontrole */
-        key: "formace_widget_text",
+      {
+        /* ku kontrole */ key: "formace_widget_text",
         cz: "Rozdíl mezi počtem střel a gólů vyprodukovaných pro tým či proti týmu, když byl hráč na ledě, a když hráč na",
-        en: "The difference between the number of shots and goals produced for or against a team, when a player was on the ice and when a player was"
+        en: "The difference between the number of shots and goals produced for or against a team, when a player was on the ice and when a player was",
       },
-      {  /* ku kontrole */
-        key: "kombinace_widget_text",
+      {
+        /* ku kontrole */ key: "kombinace_widget_text",
         cz: "Udáva rozdíl mezi percentuálním podílem střeleckých pokusú pro tým ze všech střeleckých pokusů hráče",
-        en: "Indicates the difference between the percentage of shooting attempts for the team from all the player's shooting attempts"
+        en: "Indicates the difference between the percentage of shooting attempts for the team from all the player's shooting attempts",
       },
       {
         key: "kalendare",
@@ -1899,7 +1899,7 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "datum_od_do",
         cz: "Datum od - do",
-        en: "Date from - to"
+        en: "Date from - to",
       },
       {
         key: "skore",
@@ -2275,7 +2275,7 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "tymova_data",
         cz: "Týmová data",
-        en: "Team data", 
+        en: "Team data",
       },
       {
         key: "tymova_data_desc",
@@ -2285,7 +2285,7 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "brankari_desc",
         cz: "Udávají hodnoty dosažené brankáři",
-        en: "Stats achieved by goalies", 
+        en: "Stats achieved by goalies",
       },
       {
         key: "vybrat_prednadstavene",
@@ -2415,12 +2415,12 @@ export class TranslatePipe implements PipeTransform {
       {
         key: "casovo_prepocitane_hodnoty",
         cz: "Časově přepočtené hodnoty",
-        en: "Time-recalculated values"
+        en: "Time-recalculated values",
       },
       {
         key: "podilove_a_odvozene_hodnoty",
         cz: "Podílové a odvozené hodnoty",
-        en: "Equity and derived values"
+        en: "Equity and derived values",
       },
       {
         key: "zisk_utociciho_tymu",
@@ -2741,6 +2741,36 @@ export class TranslatePipe implements PipeTransform {
         key: "smazat_vsechny_sablony",
         cz: "Smazat všechny šablony",
         en: "Delete all datasets",
+      },
+      {
+        key: "download_selected_videos",
+        cz: "Stáhnout vybraná videa",
+        en: "Download selected videos",
+      },
+      {
+        key: "alternation",
+        cz: "Střídání",
+        en: "Alternation",
+      },
+      {
+        key: "play_selected_section",
+        cz: "Přehrát zvolený úsek",
+        en: "Play the selected section",
+      },
+      {
+        key: "players_note",
+        cz: "Poznámka pro hráče",
+        en: "Note for players",
+      },
+      {
+        key: "cut_before",
+        cz: "Ořez před",
+        en: "Cut before",
+      },
+      {
+        key: "game_time",
+        cz: "Herní čas",
+        en: "Game time",
       },
     ];
 

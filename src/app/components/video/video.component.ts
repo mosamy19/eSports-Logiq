@@ -4,6 +4,7 @@ import { DefaultService } from "../../services/default/default.service";
 import { TranslatePipe } from "../../pipes/translate.pipe";
 import { Options } from "ng5-slider";
 import { DomSanitizer } from "@angular/platform-browser";
+import { $ } from "protractor";
 
 @Component({
   selector: "videobox",
@@ -61,7 +62,7 @@ export class VideoBoxComponent implements OnInit {
     this.videos.forEach((item, index) => {
       this.videos2.push(item);
     });
-    console.log("Videos", this.videos)
+    console.log("Videos", this.videos);
     this.videos2.forEach((item, index) => {
       item["index"] = index;
       item["active"] = false;
@@ -81,7 +82,7 @@ export class VideoBoxComponent implements OnInit {
 
     this.videos2.sort(this.fieldSorter(["realTimestamp", "time"]));
 
-    if(this.videos2.length == 1){
+    if (this.videos2.length == 1) {
       this.playVideo(this.videos[0]);
     }
 
@@ -409,12 +410,12 @@ export class VideoBoxComponent implements OnInit {
     let awayTeam = this.getTeamShort(download_data["awayTeam"]);
 
     let score = "";
-    if(download_data["score"] != undefined && download_data["score"] != null){
+    if (download_data["score"] != undefined && download_data["score"] != null) {
       score =
-      download_data["score"]["home"] +
-      "-" +
-      download_data["score"]["away"] +
-      this.getGameState(download_data["score"]["state"]);
+        download_data["score"]["home"] +
+        "-" +
+        download_data["score"]["away"] +
+        this.getGameState(download_data["score"]["state"]);
     }
 
     let player =
@@ -562,12 +563,15 @@ export class VideoBoxComponent implements OnInit {
         let awayTeam = this.getTeamShort(download_data["awayTeam"]);
 
         let score = "";
-        if(download_data["score"] != undefined && download_data["score"] != null){
+        if (
+          download_data["score"] != undefined &&
+          download_data["score"] != null
+        ) {
           score =
-          download_data["score"]["home"] +
-          "-" +
-          download_data["score"]["away"] +
-          this.getGameState(download_data["score"]["state"]);
+            download_data["score"]["home"] +
+            "-" +
+            download_data["score"]["away"] +
+            this.getGameState(download_data["score"]["state"]);
         }
 
         let player =
@@ -701,21 +705,29 @@ export class VideoBoxComponent implements OnInit {
         video_time +
         "&id=" +
         videoId;
-      this.video_url_safe = this.sanitizer.bypassSecurityTrustResourceUrl(
-        video_url
-      );
+      this.video_url_safe =
+        this.sanitizer.bypassSecurityTrustResourceUrl(video_url);
       this.video_title =
+        //this.getPlayerJersey(video_data.player) +
+        "<img src='/assets/time.svg' > &nbsp;" +
+        sec +
+        "&nbsp;&nbsp;&nbsp;" +
+        "<img src='/assets/player.svg' > &nbsp;" +
         this.getPlayerJersey(video_data.player) +
-        " " +
+        "&nbsp;" +
         this.getPlayerName(video_data.player) +
-        " - " +
-        this.formatMatchDate(video_data.matchDate) +
-        " - " +
-        video_cas;
-      this.active_video_index = video_data.index;
-      this.active_video_time = video_cas;
-      this.minValue = Number(video_data.before);
-      this.maxValue = Number(video_data.after);
+        "&nbsp;&nbsp;&nbsp;" +
+        "<img src='/assets/date.svg' > &nbsp;" +
+        this.formatMatchDate(video_data.matchDate);
+
+      //   " - " +
+
+      //   " - " +
+      //   video_cas;
+      // this.active_video_index = video_data.index;
+      // this.active_video_time = video_cas;
+      // this.minValue = Number(video_data.before);
+      // this.maxValue = Number(video_data.after);
 
       this.is_playing = true;
     } else {
@@ -734,7 +746,13 @@ export class VideoBoxComponent implements OnInit {
 
   formatMatchDate(value: string) {
     let date = new Date(value);
-    return Number(date.getDate()) + "." + Number(date.getMonth() + 1) + ".";
+    return (
+      Number(date.getDate()) +
+      "." +
+      Number(date.getMonth() + 1) +
+      "." +
+      Number(date.getFullYear())
+    );
   }
 
   minValueChange() {

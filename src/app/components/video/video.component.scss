@@ -1,30 +1,33 @@
 .fullscreen-video {
   background: rgba(21, 29, 34, 0.75);
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 2px;
 
   .main-row {
-    height: 48px;
-    background-color: #1d5cff;
     font-size: 16px;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
     line-height: 1.29;
     letter-spacing: normal;
-    color: #ffffff;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    color: #121619;
+    background-color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 12px 0 14px 0px;
+    margin-right: 12px;
+    width: 99%;
 
     label {
       float: left;
-      padding: 14px 0;
-      margin-left: 9px;
+      padding: 0px;
+      margin-left: 22px;
+      font-size: 20px;
+      padding-top: 12px;
     }
 
     button {
       float: right;
-      background: url(/assets/ico-close.svg) no-repeat;
+      background: url("/assets/icobutton-cross_6.svg") no-repeat;
       background-size: 16px;
       font-size: 14px;
       font-weight: 500;
@@ -32,19 +35,18 @@
       font-stretch: normal;
       line-height: 1.29;
       letter-spacing: normal;
-      color: #ffffff;
       border: 0;
       margin: 0;
       padding-top: 9px;
       background-position: 2px 15px;
       margin-top: 2px;
       text-transform: none;
+      color: #121619;
     }
 
     .download-button {
       float: right;
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgIDxnIGlkPSLDmnByYXZ5IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJvZmZjYW52YXMtdmlkZW8tamVkZW4tesOhcGFzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM0Ny4wMDAwMDAsIC0xNy4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iPiAgICAgICAgICAgIDxnIGlkPSJhcnJvdy1jaXJjbGUtZG93biIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM0Ny4wMDAwMDAsIDE3LjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOCwwIEMxMi40MTkzNTQ4LDAgMTYsMy41ODA2NDUxNiAxNiw4IEMxNiwxMi40MTkzNTQ4IDEyLjQxOTM1NDgsMTYgOCwxNiBDMy41ODA2NDUxNiwxNiAwLDEyLjQxOTM1NDggMCw4IEMwLDMuNTgwNjQ1MTYgMy41ODA2NDUxNiwwIDgsMCBaIE0xMi4xOTAzMjI2LDcuODAzMjI1ODEgTDExLjU1ODA2NDUsNy4xNzA5Njc3NCBDMTEuNDAzMjI1OCw3LjAxNjEyOTAzIDExLjE1NDgzODcsNy4wMTkzNTQ4NCAxMS4wMDMyMjU4LDcuMTc3NDE5MzUgTDguODM4NzA5NjgsOS40NDUxNjEyOSBMOC44Mzg3MDk2OCw0LjI1ODA2NDUyIEM4LjgzODcwOTY4LDQuMDQ1MTYxMjkgOC42NjQ1MTYxMywzLjg3MDk2Nzc0IDguNDUxNjEyOSwzLjg3MDk2Nzc0IEw3LjU0ODM4NzEsMy44NzA5Njc3NCBDNy4zMzU0ODM4NywzLjg3MDk2Nzc0IDcuMTYxMjkwMzIsNC4wNDUxNjEyOSA3LjE2MTI5MDMyLDQuMjU4MDY0NTIgTDcuMTYxMjkwMzIsOS40NDUxNjEyOSBMNC45OTY3NzQxOSw3LjE3NzQxOTM1IEM0Ljg0NTE2MTI5LDcuMDE5MzU0ODQgNC41OTY3NzQxOSw3LjAxNjEyOTAzIDQuNDQxOTM1NDgsNy4xNzA5Njc3NCBMMy44MDk2Nzc0Miw3LjgwMzIyNTgxIEMzLjY1ODA2NDUyLDcuOTU0ODM4NzEgMy42NTgwNjQ1Miw4LjIgMy44MDk2Nzc0Miw4LjM1MTYxMjkgTDcuNzI1ODA2NDUsMTIuMjY3NzQxOSBDNy44Nzc0MTkzNSwxMi40MTkzNTQ4IDguMTIyNTgwNjUsMTIuNDE5MzU0OCA4LjI3NDE5MzU1LDEyLjI2Nzc0MTkgTDEyLjE5MDMyMjYsOC4zNTE2MTI5IEMxMi4zNDE5MzU1LDguMiAxMi4zNDE5MzU1LDcuOTU0ODM4NzEgMTIuMTkwMzIyNiw3LjgwMzIyNTgxIFoiIGlkPSJTaGFwZSI+PC9wYXRoPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
-      background-repeat: no-repeat;
+      background: url("/assets/icobutton-download.svg") no-repeat;
       background-size: 16px;
       font-size: 14px;
       font-weight: 500;
@@ -52,7 +54,6 @@
       font-stretch: normal;
       line-height: 1.29;
       letter-spacing: normal;
-      color: #ffffff;
       border: 0;
       margin: 0;
       background-position: 2px 15px;
@@ -62,6 +63,7 @@
       padding-left: 27px;
       padding-bottom: 13px;
       margin-right: 29px;
+      color: #121619;
     }
   }
 
@@ -71,13 +73,15 @@
     padding-top: 0;
 
     .video-box {
-      flex: 0 0 64%;
-      max-width: 64%;
+      flex: 0 0 63%;
+      max-width: 63%;
       background: #fff;
-      border-bottom-left-radius: 3px;
       padding-top: 18px;
-      padding-left: 20px;
+      padding-left: 6px;
       padding-bottom: 45px;
+      padding-right: 18px;
+      height: 700px;
+      border-bottom-right-radius: 16px;
 
       label {
         margin: 0;
@@ -92,11 +96,16 @@
       }
 
       .video-inner {
-        height: 450px;
-        background-color: #f5f7f8;
+        // height: 450px;
+        // background-color: #f5f7f8;
+        height: 424px;
+        background-color: #f2f4f8;
+        border-radius: 0px;
+        width: 100%;
 
         iframe {
-          height: 451px;
+          height: 425px;
+          width: 100%;
           border: 0;
         }
       }
@@ -105,25 +114,27 @@
     .aside-box {
       flex: 0 0 36%;
       max-width: 36%;
-      padding-left: 15px;
+      padding-left: 32px;
       background: #fff;
-      padding-right: 25px;
-      border-bottom-right-radius: 3px;
-      padding-top: 18px;
+      padding-right: 0px;
+      height: 700px;
+      padding-top: 12px;
+      border-bottom-left-radius: 16px;
 
       .form {
         .column {
-          padding: 0 4px;
+          padding: 0px;
         }
 
         label {
-          font-size: 11px;
-          font-weight: 500;
-          font-style: normal;
+          font-family: Inter;
+          font-size: 12px;
+          font-weight: bold;
           font-stretch: normal;
-          line-height: 1;
+          font-style: normal;
+          line-height: 1.6;
           letter-spacing: normal;
-          color: #1d5cff;
+          color: #121619;
         }
 
         select {
@@ -143,20 +154,11 @@
         }
 
         button {
-          height: 36px;
-          border-radius: 3px;
-          border: solid 1px #f2f4f8;
-          background-color: #ffffff;
-          font-size: 14px;
-          font-weight: normal;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.29;
-          letter-spacing: normal;
-          color: #151d22;
-          padding: 0;
-          width: 100%;
-          margin: 0;
+          padding: 0px;
+          border-radius: 8px;
+          border: solid 1px #a2a9b0;
+          background-color: #fff;
+          color: #121619;
         }
 
         .order {
@@ -168,34 +170,21 @@
         }
 
         .select {
-          max-width: 80px;
+          max-width: 100px;
 
           button {
             width: 100%;
-            text-align: left;
             position: relative;
-            padding-left: 33px;
             text-transform: none;
-
-            &::before {
-              display: block;
-              content: "";
-              width: 16px;
-              height: 16px;
-              border: solid 1px #f2f4f8;
-              position: absolute;
-              top: 9px;
-              left: 8px;
-            }
+            background: url("/assets/checkbox-select-off.svg") no-repeat;
+            padding: 0px 0px 0px 35px;
+            border-radius: 12px;
+            height: 42px;
+            font-weight: normal;
 
             &.active {
-              border: solid 1px #000;
-
-              &::before {
-                background: url(/assets/check-on.svg);
-                background-size: contain;
-                border: 0;
-              }
+              border: solid 1px #a2a9b0;
+              background: url("/assets/checkbox-select-on.svg") no-repeat;
             }
           }
         }
@@ -225,28 +214,25 @@
         }
       }
 
+      .videos-row {
+        display: block;
+        position: relative;
+      }
+
       .video-selects {
         display: block;
         width: 100%;
-        height: 388px;
+        height: 480px;
         overflow: auto;
 
         .video-button {
-          border: solid 1px #d4d4d4;
-          font-size: 14px;
-          font-weight: normal;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.29;
-          letter-spacing: normal;
-          color: #151d22;
-          display: block;
           width: 100%;
-          height: 36px;
-          border-radius: 3px;
+          height: 40px;
+          padding: 9px 12px;
+          border-radius: 10px;
+          border: solid 1px #a2a9b0;
+          background-color: #fff;
           margin-bottom: 8px;
-          overflow: hidden;
-          padding-right: 2px;
 
           &::after {
             display: block;
@@ -256,44 +242,56 @@
 
           .checkbox {
             float: left;
-            width: 32px;
-            height: 34px;
-            background: #d4d4d4;
-            padding-top: 8px;
-            padding-left: 7px;
-            cursor: pointer;
-
-            &::after {
-              display: block;
-              content: "";
-              width: 16px;
-              height: 16px;
-              background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -167.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,183 L1049.71429,183 C1048.7675,183 1048,182.2325 1048,181.285714 L1048,168.714286 C1048,167.7675 1048.7675,167 1049.71429,167 L1062.28571,167 C1063.2325,167 1064,167.7675 1064,168.714286 L1064,181.285714 C1064,182.2325 1063.2325,183 1062.28571,183 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            }
+            width: 39px;
+            height: 40px;
+            object-fit: contain;
+            background-color: #a2a9b0;
+            background: url("/assets/checkbox-select-off.svg") no-repeat;
+            margin-top: -10px;
+            margin-left: -12px;
           }
 
           .desc {
             float: left;
-            padding: 8px;
+            margin: 0 26px 0 6px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
           }
 
           .state {
             float: right;
-            padding: 8px 4px;
+            font-family: Inter;
+            font-size: 14px;
             font-weight: normal;
-            margin-right: 10px;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
           }
 
           .time {
             float: right;
-            padding: 8px 4px;
+            margin: 0px 6px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+            padding: 0px;
           }
 
           .cropped {
             float: right;
             width: 12px;
             height: 14px;
-            margin: 10px 4px;
+            margin: 4px 4px;
             position: relative;
             background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -168.000000)' fill='%23D4D4D4' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 
@@ -321,11 +319,22 @@
 
           .play {
             float: right;
-            width: 24px;
-            height: 24px;
-            margin: 5px 4px;
+            width: 16px;
+            height: 16px;
+            margin: 3px 8px;
+            object-fit: contain;
             cursor: pointer;
-            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1398.000000, -163.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M28,24 C21.372583,24 16,18.627417 16,12 C16,5.372583 21.372583,0 28,0 C34.627417,0 40,5.372583 40,12 C40,18.627417 34.627417,24 28,24 Z M33.4734783,11.0310757 L25.6161165,6.15392996 C24.9777058,5.75785229 24,6.14221168 24,7.12185941 L24,16.8738072 C24,17.7526778 24.9085075,18.2823438 25.6161165,17.8417367 L33.4734783,12.9669346 C34.1743907,12.5333584 34.1766229,11.4646518 33.4734783,11.0310757 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("/assets/icobutton-play.svg") no-repeat;
+          }
+
+          .edit {
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin: 3px 8px;
+            object-fit: contain;
+            cursor: pointer;
+            background: url("/assets/icobutton-edit.svg") no-repeat;
           }
 
           .download {
@@ -346,14 +355,14 @@
           }
 
           &.active {
-            border-color: #9c9c9c;
+            // border-color: #9c9c9c;
 
             .checkbox {
-              background: #9c9c9c;
-
-              &::after {
-                background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%239C9C9C'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-              }
+              // background: #9c9c9c;
+              background: url("/assets/checkbox-select-on.svg") no-repeat;
+              // &::after {
+              //   background: url("/assets/checkbox-select-on.svg") no-repeat;
+              // }
             }
 
             .cropped.active {
@@ -362,12 +371,12 @@
           }
 
           &.playing {
-            background: #9c9c9c;
-            border-color: #9c9c9c;
+            background-color: #a2a9b0;
+            // border-color: #9c9c9c;
             color: #fff;
 
             .checkbox {
-              background: #9c9c9c;
+              background-color: #fff;
 
               &::after {
                 background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1048.000000, -255.000000)' fill-rule='nonzero'%3E%3Cpath d='M1062.28571,271 L1049.71429,271 C1048.7675,271 1048,270.2325 1048,269.285714 L1048,256.714286 C1048,255.7675 1048.7675,255 1049.71429,255 L1062.28571,255 C1063.2325,255 1064,255.7675 1064,256.714286 L1064,269.285714 C1064,270.2325 1063.2325,271 1062.28571,271 Z' id='Shape' fill='%23FFFFFF'%3E%3C/path%3E%3Cpath d='M1060.83892,260.883539 C1061.05369,260.647891 1061.05369,260.265793 1060.83892,260.030145 L1060.06112,259.17675 C1059.84634,258.941102 1059.49809,258.941064 1059.28328,259.17675 L1054.125,264.836303 L1051.71672,262.193974 C1051.50195,261.958326 1051.15369,261.958326 1050.93888,262.193974 L1050.16108,263.047368 C1049.94631,263.283016 1049.94631,263.665115 1050.16108,263.900763 L1053.73608,267.823203 C1053.95089,268.058926 1054.29911,268.058926 1054.51392,267.82324 L1060.83892,260.883539 Z' id='Path' fill='%239C9C9C'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -379,7 +388,7 @@
             }
 
             .play {
-              background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1125.000000, -947.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1065.000000, 947.000000)'%3E%3Cpath d='M72,0 C65.3709677,0 60,5.37096774 60,12 C60,18.6290323 65.3709677,24 72,24 C78.6290323,24 84,18.6290323 84,12 C84,5.37096774 78.6290323,0 72,0 Z M71,16.1666667 C71,16.625 70.64,17 70.2,17 L67.8,17 C67.36,17 67,16.625 67,16.1666667 L67,7.83333333 C67,7.375 67.36,7 67.8,7 L70.2,7 C70.64,7 71,7.375 71,7.83333333 L71,16.1666667 Z M77,16.1666667 C77,16.625 76.64,17 76.2,17 L73.8,17 C73.36,17 73,16.625 73,16.1666667 L73,7.83333333 C73,7.375 73.36,7 73.8,7 L76.2,7 C76.64,7 77,7.375 77,7.83333333 L77,16.1666667 Z' id='icoPause'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+              background: url("/assets/play.svg") no-repeat;
             }
 
             .download {
@@ -848,13 +857,30 @@
           }
         }
       }
+
+      .video-selects-gradiant {
+        width: 100%;
+        height: 24px;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          #fff
+        );
+        margin-top: -24px;
+        display: block;
+        position: inherit;
+      }
     }
   }
 }
 
 ::ng-deep {
+  .custom-slider {
+    margin-left: 4px;
+  }
+
   .custom-slider .ng5-slider .ng5-slider-bar {
-    background: #b0bec5;
+    background: #a2a9b0;
     height: 4px;
   }
 
@@ -887,29 +913,44 @@
   }
 
   .custom-slider .ng5-slider .ng5-slider-tick {
-    width: 11px;
+    //width: 11px;
     height: 16px;
     background-color: transparent;
-    background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-159.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-13' transform='translate(144.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    //background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-159.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-13' transform='translate(144.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
-    margin-left: 4px;
+    margin-left: 0px;
     border-radius: 0;
     top: -3px;
+    width: 4px;
+    border-radius: 2px;
+    border: solid 1px #f2f4f8;
+    background-color: #a2a9b0;
 
     &.ng5-slider-selected {
       background-color: transparent;
-      background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-487.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-10' transform='translate(472.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowBlue'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      width: 11px;
+      //background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-487.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-10' transform='translate(472.000000, 616.000000)'%3E%3Cpath d='M15,14.03623 L15,1.96377005 C15,1.4114853 15.4477153,0.963770046 16,0.963770046 C16.2113425,0.963770046 16.4172514,1.03072828 16.5881717,1.15503396 L26,8 L16.5881717,14.844966 C16.1415191,15.1698043 15.5161022,15.0710543 15.1912639,14.6244017 C15.0669582,14.4534813 15,14.2475725 15,14.03623 Z' id='icoArrowBlue'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      //width: 11px;
+      width: 4px;
       height: 16px;
       background-size: cover;
+      border-radius: 2px;
+      border: solid 1px #f2f4f8;
+      background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
     }
 
     &:nth-child(7) {
-      background-image: url("data:image/svg+xml,%0A%3Csvg width='6px' height='16px' viewBox='0 0 6 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-573.000000, -616.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-9' transform='translate(540.000000, 616.000000)'%3E%3Cpath d='M35.6614514,3.84026745 L33.0950234,0.691414337 C32.9454396,0.507884089 32.975755,0.240078897 33.1627347,0.0932546985 C33.2396112,0.0328880303 33.3351299,-1.0446402e-15 33.43358,-1.02655522e-15 L38.566436,-8.36648687e-17 C38.8058868,-3.96784723e-17 39,0.190532213 39,0.425565609 C39,0.522199428 38.9664938,0.615956002 38.9049926,0.691414337 L36.3385646,3.84026745 C36.1889809,4.0237977 35.9161423,4.05355383 35.7291627,3.90672963 C35.7041614,3.88709754 35.6814524,3.86480756 35.6614514,3.84026745 Z M35.6614514,12.1597326 C35.6814524,12.1351924 35.7041614,12.1129025 35.7291627,12.0932704 C35.9161423,11.9464462 36.1889809,11.9762023 36.3385646,12.1597326 L38.9049926,15.3085857 C38.9664938,15.384044 39,15.4778006 39,15.5744344 C39,15.8094678 38.8058868,16 38.566436,16 L33.43358,16 C33.3351299,16 33.2396112,15.967112 33.1627347,15.9067453 C32.975755,15.7599211 32.9454396,15.4921159 33.0950234,15.3085857 L35.6614514,12.1597326 Z' id='icoCenterTrimm'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      background-size: cover;
-      width: 6px;
+      // background-image: url("data:image/svg+xml,%0A%3Csvg width='6px' height='16px' viewBox='0 0 6 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-573.000000, -616.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-9' transform='translate(540.000000, 616.000000)'%3E%3Cpath d='M35.6614514,3.84026745 L33.0950234,0.691414337 C32.9454396,0.507884089 32.975755,0.240078897 33.1627347,0.0932546985 C33.2396112,0.0328880303 33.3351299,-1.0446402e-15 33.43358,-1.02655522e-15 L38.566436,-8.36648687e-17 C38.8058868,-3.96784723e-17 39,0.190532213 39,0.425565609 C39,0.522199428 38.9664938,0.615956002 38.9049926,0.691414337 L36.3385646,3.84026745 C36.1889809,4.0237977 35.9161423,4.05355383 35.7291627,3.90672963 C35.7041614,3.88709754 35.6814524,3.86480756 35.6614514,3.84026745 Z M35.6614514,12.1597326 C35.6814524,12.1351924 35.7041614,12.1129025 35.7291627,12.0932704 C35.9161423,11.9464462 36.1889809,11.9762023 36.3385646,12.1597326 L38.9049926,15.3085857 C38.9664938,15.384044 39,15.4778006 39,15.5744344 C39,15.8094678 38.8058868,16 38.566436,16 L33.43358,16 C33.3351299,16 33.2396112,15.967112 33.1627347,15.9067453 C32.975755,15.7599211 32.9454396,15.4921159 33.0950234,15.3085857 L35.6614514,12.1597326 Z' id='icoCenterTrimm'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      // background-size: cover;
+      // width: 6px;
+      // height: 16px;
+      // background-color: transparent;
+      width: 16px;
       height: 16px;
-      background-color: transparent;
+      padding: 4px;
+      border: solid 1px #f2f4f8;
+      background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
+      margin-left: -6px;
+      border-radius: 8px;
     }
 
     &:nth-child(8),
@@ -918,40 +959,55 @@
     &:nth-child(11),
     &:nth-child(12),
     &:nth-child(13) {
-      background-image: url("data:image/svg+xml,%0A%3Csvg width='10px' height='14px' viewBox='0 0 10 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-983.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-4' transform='translate(968.000000, 616.000000)'%3E%3Cpath d='M23.4,14.3 L15,8 L23.4,1.7 C23.8418278,1.36862915 24.4686292,1.4581722 24.8,1.9 C24.9298221,2.07309617 25,2.28362979 25,2.5 L25,13.5 C25,14.0522847 24.5522847,14.5 24,14.5 C23.7836298,14.5 23.5730962,14.4298221 23.4,14.3 Z' id='icoArrowR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      //background-image: url("data:image/svg+xml,%0A%3Csvg width='10px' height='14px' viewBox='0 0 10 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-983.000000, -617.000000)' fill='%23B0BEC5' fill-rule='nonzero'%3E%3Cg id='Group-4' transform='translate(968.000000, 616.000000)'%3E%3Cpath d='M23.4,14.3 L15,8 L23.4,1.7 C23.8418278,1.36862915 24.4686292,1.4581722 24.8,1.9 C24.9298221,2.07309617 25,2.28362979 25,2.5 L25,13.5 C25,14.0522847 24.5522847,14.5 24,14.5 C23.7836298,14.5 23.5730962,14.4298221 23.4,14.3 Z' id='icoArrowR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       background-size: cover;
-      width: 11px;
+      //width: 11px;
       height: 16px;
       background-color: transparent;
+      border-radius: 2px;
+      border: solid 1px #f2f4f8;
+      background-color: #a2a9b0;
+      width: 4px;
 
       &.ng5-slider-selected {
         background-color: transparent;
-        background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-655.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-8' transform='translate(640.000000, 616.000000)'%3E%3Cpath d='M24.4118283,14.844966 L16.1120121,8.80873608 C15.6653595,8.48389783 15.5666095,7.85848091 15.8914477,7.4118283 C15.9529794,7.32722226 16.0274061,7.25279558 16.1120121,7.19126392 L24.4118283,1.15503396 C24.8584809,0.830195703 25.4838978,0.928945743 25.8087361,1.37559835 C25.9330418,1.54651866 26,1.75242754 26,1.96377005 L26,14.03623 C26,14.5885147 25.5522847,15.03623 25,15.03623 C24.7886575,15.03623 24.5827486,14.9692717 24.4118283,14.844966 Z' id='icoArrowBlueR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        width: 11px;
+        //background-image: url("data:image/svg+xml,%0A%3Csvg width='11px' height='14px' viewBox='0 0 11 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-655.000000, -617.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-8' transform='translate(640.000000, 616.000000)'%3E%3Cpath d='M24.4118283,14.844966 L16.1120121,8.80873608 C15.6653595,8.48389783 15.5666095,7.85848091 15.8914477,7.4118283 C15.9529794,7.32722226 16.0274061,7.25279558 16.1120121,7.19126392 L24.4118283,1.15503396 C24.8584809,0.830195703 25.4838978,0.928945743 25.8087361,1.37559835 C25.9330418,1.54651866 26,1.75242754 26,1.96377005 L26,14.03623 C26,14.5885147 25.5522847,15.03623 25,15.03623 C24.7886575,15.03623 24.5827486,14.9692717 24.4118283,14.844966 Z' id='icoArrowBlueR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        //width: 11px;
         height: 16px;
-        background-size: cover;
+        //background-size: cover;
+        border-radius: 2px;
+        width: 4px;
+        border: solid 1px #f2f4f8;
+        background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
       }
     }
   }
 
   .custom-slider .ng5-slider .ng5-slider-pointer-min {
-    width: 16px;
+    //width: 16px;
     height: 24px;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-380.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-11' transform='translate(368.000000, 612.000000)'%3E%3Cpath d='M12,22 L12,2 C12,1.44771525 12.4477153,1 13,1 C13.2163702,1 13.4269038,1.07017787 13.6,1.2 L28,12 L13.6,22.8 C13.1581722,23.1313708 12.5313708,23.0418278 12.2,22.6 C12.0701779,22.4269038 12,22.2163702 12,22 Z' id='icoArrowTrimmL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    //background-color: transparent;
+    //background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-380.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-11' transform='translate(368.000000, 612.000000)'%3E%3Cpath d='M12,22 L12,2 C12,1.44771525 12.4477153,1 13,1 C13.2163702,1 13.4269038,1.07017787 13.6,1.2 L28,12 L13.6,22.8 C13.1581722,23.1313708 12.5313708,23.0418278 12.2,22.6 C12.0701779,22.4269038 12,22.2163702 12,22 Z' id='icoArrowTrimmL'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
     top: -10px;
-    border-radius: 0;
+    border-radius: 2px;
+    border: solid 1px #f2f4f8;
+    background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
+    width: 4px;
   }
 
   .custom-slider .ng5-slider .ng5-slider-pointer-max {
-    width: 16px;
+    //width: 16px;
     height: 24px;
     background-color: transparent;
-    background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-860.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-6' transform='translate(848.000000, 612.000000)'%3E%3Cpath d='M26.4,22.8 L12,12 L26.4,1.2 C26.8418278,0.86862915 27.4686292,0.9581722 27.8,1.4 C27.9298221,1.57309617 28,1.78362979 28,2 L28,22 C28,22.5522847 27.5522847,23 27,23 C26.7836298,23 26.5730962,22.9298221 26.4,22.8 Z' id='icoArrowTrimmR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    //background-image: url("data:image/svg+xml,%0A%3Csvg width='16px' height='22px' viewBox='0 0 16 22' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-860.000000, -613.000000)' fill='%231d5cff' fill-rule='nonzero'%3E%3Cg id='Group-6' transform='translate(848.000000, 612.000000)'%3E%3Cpath d='M26.4,22.8 L12,12 L26.4,1.2 C26.8418278,0.86862915 27.4686292,0.9581722 27.8,1.4 C27.9298221,1.57309617 28,1.78362979 28,2 L28,22 C28,22.5522847 27.5522847,23 27,23 C26.7836298,23 26.5730962,22.9298221 26.4,22.8 Z' id='icoArrowTrimmR'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
     top: -10px;
-    border-radius: 0;
+    //border-radius: 0;
+    width: 4px;
+    border-radius: 2px;
+    border: solid 1px #f2f4f8;
+    background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
   }
 
   .custom-slider .ng5-slider .ng5-slider-inner-tooltip {
@@ -992,6 +1048,12 @@
       .ng5-slider-span .ng5-slider-inner-tooltip {
         display: none;
       }
+
+      div.ng5-slider-inner-tooltip {
+        background: #fff !important;
+        top: 0;
+        border-radius: 2px;
+      }
     }
 
     &:nth-child(8),
@@ -1011,6 +1073,11 @@
 
 .video-slider {
   position: relative;
+  background: #f2f4f8;
+  //border: 1px solid #ccc;
+  height: 200px;
+  padding: 0px 30px;
+  padding-left: 26px;
 
   .action-time {
     position: absolute;
@@ -1026,5 +1093,162 @@
     top: 63px;
     text-align: center;
     display: block;
+  }
+}
+
+.header-splitter {
+  width: 89% !important;
+  background: #dde1e6;
+  height: 1px;
+  margin: 4%;
+  position: absolute;
+  z-index: 999;
+  padding: 0px;
+  margin-top: -6px;
+}
+
+.video-title {
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+  padding-bottom: 8px;
+  color: #121619;
+}
+
+.video-title > img {
+  width: 14px !important;
+  height: 16px !important;
+}
+
+.controls-title {
+  padding-bottom: 10px !important;
+  color: #121619;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.bg-button {
+  padding: 6px 16px 0px 10px;
+  border-radius: 8px;
+  border: solid 2px #1d5cff;
+  background-color: #fff;
+  display: flex;
+  bottom: 16px;
+  position: absolute;
+  width: 232px;
+}
+
+.bg-button label {
+  font-family: Inter;
+  padding: 0px 28px 0px 0px;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #1d5cff;
+  text-align: left;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.bg-button img {
+  float: right;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.bg-group {
+  width: 104px;
+  margin-top: 64px;
+  margin-right: 4px;
+
+  label {
+    height: 10px;
+    font-family: Inter;
+    font-size: 10px !important;
+    font-weight: bold !important;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color: #121619 !important;
+    text-transform: uppercase !important;
+  }
+
+  input {
+    width: 75px;
+    height: 40px;
+    padding: 0px 10px 2px 10px;
+    border-radius: 8px;
+    border: solid 1px #a2a9b0;
+    background-color: #fff;
+    margin-right: 6px;
+    vertical-align: top;
+  }
+
+  .btn-play-selected {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 2px #1d5cff;
+    background: url("/assets/icobutton-play.svg") no-repeat;
+    background-position: 168px 10px;
+    padding: 0px 8px;
+    text-align: left;
+    margin-top: 14px;
+    text-transform: inherit;
+    margin-right: 54px;
+    color: #1d5cff;
+    font-weight: 900;
+    font-family: Inter;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .btn-players-note {
+    width: 200px;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 2px #1d5cff;
+    color: #1d5cff;
+    font-weight: 900;
+    font-family: Inter;
+    font-size: 12px;
+    background: url("/assets/icobutton-edit.svg") no-repeat;
+    background-position: 168px 10px;
+    padding: 0px 8px;
+    text-align: left;
+    margin-top: 14px;
+    text-transform: inherit;
+    margin-left: 126px;
+  }
+}
+
+.bg-group .controls {
+  text-align: right;
+  width: 16px;
+  display: inline-block;
+  height: 40px;
+
+  .control-plus {
+    background: url("/assets/icobutton-plus.svg") no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 6px;
+    cursor: pointer;
+  }
+
+  .control-minus {
+    background: url("/assets/icobutton-minus.svg") no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
   }
 }
