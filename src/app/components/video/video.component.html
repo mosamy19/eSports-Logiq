@@ -24,9 +24,9 @@
           </div>
           <div class="row form">
             <div class="column select">
-              <label>{{ "oznacit_videa" | translate }}</label>
+              <label  class="uppercase"   >{{ "oznacit_videa" | translate }}</label>
               <button [class.active]="select_all" (click)="toggleSelectAll()">
-                {{ "vse" | translate }}
+                <span class="select-all-chk" >{{ "vse" | translate }}</span>
               </button>
             </div>
           </div>
@@ -75,7 +75,7 @@
             <div class="video-selects-gradiant"></div>
           </div>
           <div class="row">
-            <button class="bg-button">
+            <button class="bg-button" (click)="downloadAll()">
               <label>{{ "download_selected_videos" | translate }}</label>
               <img src="/assets/icobutton-download.svg" />
             </button>
@@ -108,7 +108,7 @@
               <div class="row">
                 <div class="bg-group">
                   <label>{{ "game_time" | translate }}</label>
-                  <input />
+                  <input [(ngModel)]="active_video_time" />
                   <div class="controls">
                     <div class="control-plus"></div>
                     <div class="control-minus"></div>
@@ -117,7 +117,7 @@
 
                 <div class="bg-group">
                   <label>{{ "cut_before" | translate }}</label>
-                  <input />
+                  <input  [(ngModel)]="video_before" />
                   <div class="controls">
                     <div class="control-plus"></div>
                     <div class="control-minus"></div>
@@ -126,7 +126,7 @@
 
                 <div class="bg-group">
                   <label>{{ "orez_po" | translate }}</label>
-                  <input />
+                  <input [(ngModel)]="video_after" />
                   <div class="controls">
                     <div class="control-plus"></div>
                     <div class="control-minus"></div>
