@@ -299,12 +299,12 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
-            margin-right : 35px;
+            margin-right : 25px;
           }
 
           .time {
             float: right;
-            margin: 0px 30px;
+            margin: 0px 12px;
             font-family: Inter;
             font-size: 14px;
             font-weight: normal;
@@ -313,6 +313,8 @@
             line-height: 1.57;
             letter-spacing: normal;
             padding: 0px;
+            width:100px;
+            text-align: center;
           }
 
           .cropped {
