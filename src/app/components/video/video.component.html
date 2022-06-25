@@ -68,7 +68,7 @@
                   <div class="time" *ngIf="video_type != 'shift'">
                     {{ video.time | format_sesonds2 }}
                   </div>
-                  <div class="time" *ngIf="video_type == 'shift'">
+                  <div  class="timeShift" *ngIf="video_type == 'shift'">
                     {{ video.start | format_sesonds2 }} -
                     {{ video.end | format_sesonds2 }}
                   </div>

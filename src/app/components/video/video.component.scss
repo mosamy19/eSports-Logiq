@@ -299,7 +299,7 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
-            margin-right : 25px;
+            margin-right : 10px;
           }
 
           .time {
@@ -313,7 +313,22 @@
             line-height: 1.57;
             letter-spacing: normal;
             padding: 0px;
-            width:100px;
+            min-width:40px;
+            text-align: center;
+          }
+
+          .timeShift {
+            float: right;
+            margin: 0px 12px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+            padding: 0px;
+            min-width: 90px;
             text-align: center;
           }
 
@@ -1170,7 +1185,7 @@
   display: flex;
   bottom: 16px;
   position: absolute;
-  width: 250px;
+  width: 230px;
 }
 
 .bg-button label {
