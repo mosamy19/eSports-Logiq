@@ -4085,8 +4085,17 @@ export class GamesComponent implements OnInit {
         this.videos_data = [];
 
         let videoPlayer = loaded_data["videoPlayer"]["videoId"];
-
         loaded_data["shifts"].forEach((item, index) => {
+
+          let eventData=[];
+          eventData = eventData.concat( item.chances);
+          eventData = eventData.concat( item.dumpIns);
+          eventData = eventData.concat( item.puckWins);
+          eventData = eventData.concat( item.goals);
+          eventData = eventData.concat( item.shots);
+          eventData = eventData.concat( item.shotsOnGoal);
+
+
           this.videos_data.push({
             index: index,
             player: player_uuid,
@@ -4104,6 +4113,8 @@ export class GamesComponent implements OnInit {
             gameState: "",
             start: item["start"],
             end: item["end"],
+            events: eventData,
+            isDetailViewOpen : false
           });
         });
 

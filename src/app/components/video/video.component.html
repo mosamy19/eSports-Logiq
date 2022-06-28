@@ -36,13 +36,17 @@
             <div class="row videos-row">
               <div class="video-selects">
                 <div
-                  class="video-button color-{{ video.color }}"
                   *ngFor="let video of videos2"
+                >
+                  <div
+                  class="video-button color-{{ video.color }}"
                   [ngClass]="{
                     active: video.active == true,
                     playing: video.playing == true
                   }"
-                >
+                  (click)="toggleVideoDetail(video)"
+                  >
+
                   <div
                     class="checkbox"
                     (click)="toggleActiveVideo(video.index)"
@@ -74,9 +78,62 @@
                   </div>
                   <div class="state">{{ video.matchDate | match_date }}</div>
                 </div>
+                <div style="border-radius: 8px;background-color: #f2f4f8; margin: -7px 0 8px 0;"   *ngIf="video.isDetailViewOpen" >
+                  <div  *ngFor="let event of  video.events ">
+                    <div class="event-row" >
+                      <span
+                      class="checkbox-white"
+                      (click)="toggleActiveVideo(video.index)"
+                    ></span>
+
+                    <span class="time" >
+                      {{ event.time | format_sesonds2 }}
+                    </span>
+
+
+                    <span class="selected-eva">
+                      KVA
+                    </span>
+                   
+                    <span class="gameState" >
+                      {{ event.gameState }}
+                    </span>
+  
+
+                    <span class="event-type">
+                      vstup do pásma
+                    </span>
+                    
+                    <div class="play" (click)="playVideo(video)"></div>
+                    <div class="edit"></div>
+
+                    <div
+                    class="cropped"
+                    [ngClass]="{
+                      active: video.before != '-5' || video.after != '+5'
+                    }"
+                    >
+                      <div class="tooltip">
+                        {{ video.before }} {{ video.after }}
+                      </div>
+                    </div>
+
+
+                    <div class="desc">
+                      {{ getPlayerJersey(video.player) }}
+                      {{ getPlayerName(video.player) }}
+                      <!--{{getShotType(video)}}-->
+                    </div>
+
+                    </div>
+                  </div>
+
+                </div> 
+              </div>
               </div>
               <div class="video-selects-gradiant"></div>
             </div>
+
             <div class="row row-downloadButton">
               <button class="bg-button" (click)="downloadAll()">
                 <label>{{ "download_selected_videos" | translate }}</label>

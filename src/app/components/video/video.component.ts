@@ -138,6 +138,14 @@ export class VideoBoxComponent implements OnInit {
     });
   }
 
+
+  
+  toggleVideoDetail(video: any) {
+    if(video.events.length > 0)
+      video.isDetailViewOpen  = !video.isDetailViewOpen ;
+  }
+
+
   getPlayerColor(uuid: string) {
     let value = "";
     this.players_list.forEach((item, index) => {
