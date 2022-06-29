@@ -2772,6 +2772,26 @@ export class TranslatePipe implements PipeTransform {
         cz: "Herní čas",
         en: "Game time",
       },
+      {
+        key: "players_note_panel_header",
+        cz: "Poznámka videokouče",
+        en: "Video disc note",
+      },
+      {
+        key: "clip_name",
+        cz: "Název klipu",
+        en: "Clip Name",
+      },
+      {
+        key: "event_evaluation",
+        cz: "Hodnocení akce",
+        en: "Event evaluation",
+      },
+      {
+        key: "game_note_situation",
+        cz: "POZNÁMKA K HERNÍ SITUACI",
+        en: "NOTE ON GAME SITUATION",
+      },
     ];
 
     let return_translate = "";

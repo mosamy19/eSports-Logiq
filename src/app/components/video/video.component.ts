@@ -871,8 +871,9 @@ export class VideoBoxComponent implements OnInit {
 
 
   showPlayersNotePanel() {
-    //$(".players-note-panel").show();
-    debugger;
     document.getElementById("players-note-panel").style.visibility = "visible";
+  }
+  hidePlayersNotePanel() {
+    document.getElementById("players-note-panel").style.visibility = "hidden";
   }
 }
