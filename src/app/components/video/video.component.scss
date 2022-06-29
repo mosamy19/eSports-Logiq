@@ -68,24 +68,24 @@
   }
 
 
-  .row-downloadButton{
+  .row-downloadButton {
     height: 100px;
   }
 
-  .closeButton{
+  .closeButton {
     margin-right: -1rem !important;
   }
 
-  .uppercase{
+  .uppercase {
     text-transform: uppercase;
   }
 
   .div-btn-play-selected {
-    width:25% ;
+    width: 25%;
   }
 
   .div-btn-players-note {
-    width:25% ;
+    width: 25%;
   }
 
   .video-content {
@@ -93,8 +93,8 @@
     min-height: calc(100vh - 50px);
     padding-top: 0;
 
-    .select-all-chk{
-      font-weight: bold !important ;
+    .select-all-chk {
+      font-weight: bold !important;
       font-size: 12px;
     }
 
@@ -249,9 +249,9 @@
       .video-selects {
         display: block;
         width: 100%;
-        max-height: 590px;
+        max-height: 563px;
         overflow: auto;
-        height : 70vh;
+
         .video-button {
           width: 100%;
           height: 40px;
@@ -299,7 +299,7 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
-            margin-right : 10px;
+            margin-right: 10px;
           }
 
           .time {
@@ -313,7 +313,7 @@
             line-height: 1.57;
             letter-spacing: normal;
             padding: 0px;
-            min-width:40px;
+            min-width: 40px;
             text-align: center;
           }
 
@@ -906,11 +906,9 @@
       .video-selects-gradiant {
         width: 100%;
         height: 24px;
-        background-image: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0),
-          #fff
-        );
+        background-image: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            #fff);
         margin-top: -24px;
         display: block;
         position: inherit;
@@ -920,9 +918,7 @@
 }
 
 ::ng-deep {
-  .custom-slider {
-
-  }
+  .custom-slider {}
 
   .custom-slider .ng5-slider .ng5-slider-bar {
     background: #a2a9b0;
@@ -1073,6 +1069,7 @@
   }
 
   .custom-slider * {
+
     &:hover,
     &:active,
     &:focus {
@@ -1160,7 +1157,7 @@
   color: #121619;
 }
 
-.video-title > img {
+.video-title>img {
   width: 14px !important;
   height: 16px !important;
 }
@@ -1270,7 +1267,7 @@
     text-align: left;
     margin-top: 14px;
     text-transform: inherit;
-    margin-left: 15px;
+    margin-left: 25px;
   }
 
 }
@@ -1304,6 +1301,24 @@
 }
 
 
-:host ::ng-deep div.ng5-slider-inner-tooltip{
+:host ::ng-deep div.ng5-slider-inner-tooltip {
   border-radius: 4px !important;
+}
+
+
+.players-note-panel {
+  visibility: hidden;
+  width: 512px;
+  height: 104%;
+  margin: 0 0 0 1056px;
+  padding: 19px 16px 195px 32px;
+  box-shadow: 0 2px 6px 0 rgba(18, 22, 25, 0.1), 0 2px 16px 0 rgba(18, 22, 25, 0.25);
+  background-color: #fff;
+  position: absolute;
+  z-index: 999999;
+  top: -50px;
+  right: 0;
+  padding: 25px;
+  margin: 0px 50px;
+  border-radius:18px;
 }

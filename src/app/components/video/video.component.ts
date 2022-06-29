@@ -55,7 +55,7 @@ export class VideoBoxComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public sanitizer: DomSanitizer
-  ) {}
+  ) { }
 
   ngOnInit() {
     console.log(this.videos);
@@ -725,7 +725,7 @@ export class VideoBoxComponent implements OnInit {
       //   " - " +
       //   video_cas;
       // this.active_video_index = video_data.index;
-      // this.active_video_time = video_cas;
+      this.active_video_time = video_cas;
       // this.minValue = Number(video_data.before);
       // this.maxValue = Number(video_data.after);
 
@@ -776,8 +776,8 @@ export class VideoBoxComponent implements OnInit {
     return (
       (s - // take value s and subtract (will try to convert String to Number)
         (s %= 60)) / // the new value of s, now holding the remainder of s divided by 60
-        // (will also try to convert String to Number)
-        60 + // and divide the resulting Number by 60
+      // (will also try to convert String to Number)
+      60 + // and divide the resulting Number by 60
       // (can never result in a fractional value = no need for rounding)
       // to which we concatenate a String (converts the Number to String)
       // who's reference is chosen by the conditional operator:
@@ -803,5 +803,76 @@ export class VideoBoxComponent implements OnInit {
     }
 
     return team_shortcut;
+  }
+
+
+  increaseVideoAfterTime() {
+    var t = parseInt(this.video_after);
+    if (t == 30)
+      return;
+    t += 5;
+    this.video_after = t > 0 ? "+" + t : t + "";
+  }
+  decreaseVideoAfterTime() {
+    debugger;
+    var t = parseInt(this.video_after);
+    if (t <= -30)
+      return;
+    t -= 5;
+    this.video_after = t > 0 ? "+" + t : t + "";
+  }
+
+  increaseVideoBeforeTime() {
+    var t = parseInt(this.video_before);
+    if (t == 30)
+      return;
+    t += 5;
+    this.video_before = t > 0 ? "+" + t : t + "";
+  }
+  decreaseVideoBeforeTime() {
+    debugger;
+    var t = parseInt(this.video_before);
+    if (t <= -30) {
+      return;
+    }
+    t -= 5;
+    this.video_before = t > 0 ? "+" + t : t + "";
+  }
+
+  formatTime(time) {
+    let sec = this.fmtMSS(time);
+    let video_cas = "";
+    if (this.fmtMSS(sec).length == 4) {
+      video_cas = "0" + sec;
+    } else {
+      video_cas = sec;
+    }
+    return video_cas;
+  }
+
+
+  increaseVideoTime() {
+    let d;
+    d = new Date('2030-01-01 10:' + this.active_video_time);
+    d.setSeconds(d.getSeconds() + 5);
+    let seconds = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+    let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    this.active_video_time = minutes + ':' + seconds;
+  }
+
+  decreaseVideoTime() {
+    let d;
+    d = new Date('2030-01-01 10:' + this.active_video_time);
+    d.setSeconds(d.getSeconds() - 5);
+    let seconds = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+    let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    this.active_video_time = minutes + ':' + seconds;
+  }
+
+
+  showPlayersNotePanel() {
+    //$(".players-note-panel").show();
+    debugger;
+    document.getElementById("players-note-panel").style.visibility = "visible";
   }
 }
