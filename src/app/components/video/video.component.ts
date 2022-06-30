@@ -62,7 +62,7 @@ export class VideoBoxComponent implements OnInit {
     this.videos.forEach((item, index) => {
       this.videos2.push(item);
     });
-    console.log("Videos", this.videos);
+    console.log("Videos", this.videos[0]);
     this.videos2.forEach((item, index) => {
       item["index"] = index;
       item["active"] = false;
@@ -139,7 +139,7 @@ export class VideoBoxComponent implements OnInit {
   }
 
 
-  
+
   toggleVideoDetail(video: any) {
     if(video.events.length > 0)
       video.isDetailViewOpen  = !video.isDetailViewOpen ;
@@ -717,16 +717,17 @@ export class VideoBoxComponent implements OnInit {
         this.sanitizer.bypassSecurityTrustResourceUrl(video_url);
       this.video_title =
         //this.getPlayerJersey(video_data.player) +
-        "<img src='/assets/time.svg' > &nbsp;" +
+        "<img src='/assets/time.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
         sec +
-        "&nbsp;&nbsp;&nbsp;" +
-        "<img src='/assets/player.svg' > &nbsp;" +
+        "</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+        "<img style='margin-right: 16px;' src='/assets/player.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
         this.getPlayerJersey(video_data.player) +
-        "&nbsp;" +
+        " " +
         this.getPlayerName(video_data.player) +
-        "&nbsp;&nbsp;&nbsp;" +
-        "<img src='/assets/date.svg' > &nbsp;" +
-        this.formatMatchDate(video_data.matchDate);
+        "</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+        "<img style='margin-right: 16px;' src='/assets/date.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
+        this.formatMatchDate(video_data.matchDate) +
+        "</div>"
 
       //   " - " +
 
