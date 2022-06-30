@@ -81,11 +81,11 @@
   }
 
   .div-btn-play-selected {
-    width:25% ;
+    width:28% ;
   }
 
   .div-btn-players-note {
-    width:25% ;
+    width:28% ;
   }
 
   .video-content {
@@ -99,6 +99,9 @@
     }
 
     .video-box {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 30px;
       float: left;
       width: 63%;
       max-width: 63%;
@@ -1298,10 +1301,13 @@
   position: relative;
   background: #f2f4f8;
   //border: 1px solid #ccc;
-  height: 200px;
+  height: 100%;
   padding: 0px 30px;
   padding-left: 26px;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .action-time {
     position: absolute;
     bottom: 0;
@@ -1359,7 +1365,7 @@
   border-radius: 8px;
   border: solid 2px #1d5cff;
   color: #1d5cff;
-  font-weight: 900;
+  font-weight: 700;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -1367,12 +1373,13 @@
   padding: 0px 12px;
   text-transform: capitalize;
   font-size: 12px;
-  width: 260px;
+  width: 230px;
+  font-family: Inter;
 }
 
 
 .bg-group {
-  min-width: 16%;
+  min-width: 15%;
   margin-top: 64px;
   margin-right: 4px;
 
@@ -1390,7 +1397,7 @@
   }
 
   input {
-    width: 100px;
+    width: 80px;
     height: 40px;
     padding: 0px 10px 2px 10px;
     border-radius: 8px;
@@ -1416,7 +1423,7 @@
     margin-top: 14px;
     text-transform: inherit;
     color: #1d5cff;
-    font-weight: 900;
+    font-weight: 700;
     font-family: Inter;
     font-size: 12px;
   }
@@ -1427,7 +1434,7 @@
     border-radius: 8px;
     border: solid 2px #1d5cff;
     color: #1d5cff;
-    font-weight: 900;
+    font-weight: 700;
     font-family: Inter;
     font-size: 12px;
     // background: url("/assets/icobutton-edit.svg") no-repeat;
