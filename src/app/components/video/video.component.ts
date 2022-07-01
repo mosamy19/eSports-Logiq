@@ -5,6 +5,8 @@ import { TranslatePipe } from "../../pipes/translate.pipe";
 import { Options } from "ng5-slider";
 import { DomSanitizer } from "@angular/platform-browser";
 import { $ } from "protractor";
+import { FormationsAnalysisService } from "../../services/formations-analysis/formations-analysis.service";
+import { forEach } from "lodash";
 
 @Component({
   selector: "videobox",
@@ -48,13 +50,17 @@ export class VideoBoxComponent implements OnInit {
   video_type: string = "";
 
   videos2: any = [];
+  NotePlayers: any = [];
+  videoClip: any = {};
+  currentVideo: any = {};
 
   constructor(
     private translate: TranslatePipe,
     private defaultService: DefaultService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    private formationsAnalysisService: FormationsAnalysisService
   ) { }
 
   ngOnInit() {
@@ -679,6 +685,8 @@ export class VideoBoxComponent implements OnInit {
   }
 
   playVideo(video_data: any) {
+    this.currentVideo = video_data;
+
     if (video_data.playing == false) {
       this.videos2.forEach((item) => {
         item["playing"] = false;
@@ -871,9 +879,71 @@ export class VideoBoxComponent implements OnInit {
 
 
   showPlayersNotePanel() {
+    this.videoClip = { players: [] };
+    this.formationsAnalysisService
+      .getCompetitionDetails('173d42cf-0ee0-444b-b9c9-7e8348dfe3ef')
+      .subscribe((loaded_data) => {
+        if (loaded_data != null) {
+          var players = loaded_data.teams[0].players;
+          this.NotePlayers = players;
+        }
+      },
+        (err) => {
+          debugger;
+        });
+
     document.getElementById("players-note-panel").style.visibility = "visible";
   }
+
   hidePlayersNotePanel() {
     document.getElementById("players-note-panel").style.visibility = "hidden";
+  }
+
+  isPlayerAlreadyOnVideoClip(p) {
+    var exists = false;
+    if (p != undefined) {
+      for (let index = 0; index < this.videoClip.players.length; index++) {
+        const element = this.videoClip.players[index];
+        if (element == p.uuid) {
+          exists = true;
+          break;
+        }
+
+      }
+    }
+    return exists;
+  }
+
+  toggleReceiptPlayerList(player) {
+    if (!this.isPlayerAlreadyOnVideoClip(player))
+      this.videoClip.players.push(player.uuid);
+    else
+      this.videoClip.players.splice(this.videoClip.players.indexOf(player.uuid), 1);
+  }
+
+  sendVideoClip() {
+    var obj = {
+      "time": this.currentVideo.time,
+      "videoTime": this.currentVideo.videoTime,
+      "endVideoTime": 4500,
+      "videoId": this.currentVideo.videoId,
+      "matchId": this.currentVideo.match,
+      "name": this.videoClip.name,
+      "description": this.videoClip.description,
+      "type": "thumbs-up",
+      "players": this.videoClip.players
+    };
+
+    this.formationsAnalysisService
+      .createVideoClip(obj)
+      .subscribe((response) => {
+        debugger;
+        this.hidePlayersNotePanel();
+      },
+        (err) => {
+          debugger;
+        });
+
+
   }
 }

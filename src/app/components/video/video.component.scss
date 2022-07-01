@@ -1384,7 +1384,7 @@
       width: 30%;
 
       img {
-        margin: 0px 6px;
+        margin: 6px;
         cursor: pointer;
       }
 
@@ -1440,6 +1440,7 @@
   .body {
     width: 100%;
     margin: 14px 0px;
+    margin-bottom: 0px;
 
     .label {
       font-family: Inter;
@@ -1469,6 +1470,84 @@
       line-height: 1.57;
       letter-spacing: normal;
       color: #121619;
+    }
+  }
+
+  .players {
+    width: 100%;
+
+    .title {
+      height: 24px;
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: #121619;
+    }
+
+    .deffenders,
+    .attackers,
+    .goal-keepers {
+      display: inline-block;
+
+
+      .title {
+        height: 16px;
+        margin: 16px 38px 4px 0;
+        font-family: Inter;
+        font-size: 10px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: normal;
+        color: #121619;
+        text-transform: uppercase;
+      }
+
+      .player {
+        height: 26px;
+        margin: 4px 4px 4px 0;
+        padding: 4px 8px;
+        border-radius: 4px;
+        background-color: #f2f4f8;
+        display: inline-block;
+      }
+
+
+      .selected-player {
+        color: #fff;
+        background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
+      }
+    }
+
+  }
+
+  .footer {
+    width: 100%;
+
+    .send-button {
+      float: right;
+      width: 232px;
+      height: 40px;
+      margin: 31px 0 0 18px;
+      padding: 9px 0;
+      border-radius: 8px;
+      border: solid 2px #1d5cff;
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.57;
+      letter-spacing: normal;
+      text-align: center;
+      color: #1d5cff;
+      text-align: center;
+      cursor: pointer;
     }
   }
 }

@@ -147,7 +147,7 @@
             <div class="subject">
               <div class="left">
                 <div class="label">{{"clip_name" | translate}}</div>
-                <input />
+                <input [(ngModel)]="videoClip.name" />
               </div>
               <div class="right">
                 <div class="label">{{"event_evaluation" | translate}}</div>
@@ -161,11 +161,39 @@
 
             <div class="body">
               <div class="label">{{"game_note_situation" | translate}}</div>
-              <textarea ></textarea>
+              <textarea [(ngModel)]="videoClip.description"></textarea>
 
             </div>
 
-
+            <div class="players">
+              <div class="title">{{"recipients_of_the_note" | translate}}</div>
+              <div class="deffenders">
+                <div class="title">{{"defenders" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'DE'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+              <div class="attackers">
+                <div class="title">{{"attackers" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'FO'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+              <div class="goal-keepers">
+                <div class="title">{{"goal_keepers" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'GK'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="send-button" (click)="sendVideoClip()">
+                {{"send_to_players" | translate}}
+              </div>
+            </div>
           </div>
         </div>
       </div>

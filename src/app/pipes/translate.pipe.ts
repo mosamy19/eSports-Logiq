@@ -2792,6 +2792,31 @@ export class TranslatePipe implements PipeTransform {
         cz: "POZNÁMKA K HERNÍ SITUACI",
         en: "NOTE ON GAME SITUATION",
       },
+      {
+        key: "recipients_of_the_note",
+        cz: "Příjemci poznámky",
+        en: "Recipients of the note",
+      },
+      {
+        key: "defenders",
+        cz: "Obránci",
+        en: "Defenders",
+      },
+      {
+        key: "attackers",
+        cz: "útočníci",
+        en: "Attackers",
+      },
+      {
+        key: "goal_keepers",
+        cz: "Brankáři",
+        en: "Goal Keepers",
+      },
+      {
+        key: "send_to_players",
+        cz: "Odeslat hráči/hráčům",
+        en: "Send to player (s)",
+      },
     ];
 
     let return_translate = "";
