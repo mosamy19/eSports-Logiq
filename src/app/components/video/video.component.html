@@ -16,77 +16,6 @@
 
 
 
-<<<<<<< HEAD
-    <div class="video-content">
-      <div class="container">
-        <div class="row">
-          <div class="column aside-box">
-            <div class="row form">
-              <div class="column controls-title">
-                {{ "strely" | translate }}
-              </div>
-            </div>
-            <div class="row form">
-              <!-- <div class="column">
-                <label  class="uppercase">Zobrazit události</label>
-                <div class="buttons">
-                  <div class="btn-box">
-                    <button class="active"> Všechny </button>
-                  </div>
-                  <div class="btn-box">
-                  <button>
-                    Hráče
-                </button>
-              </div>
-                  <div class="btn-box">
-                  <button>
-                    Týmu
-                </button>
-              </div>
-                  <div class="btn-box">
-                  <button>
-                    Soupeře
-                </button>
-              </div>
-            </div>
-              </div> -->
-              <div class="column select">
-                <label  class="uppercase"   >{{ "oznacit_videa" | translate }}</label>
-                <button [class.active]="select_all" (click)="toggleSelectAll()">
-                  <span class="select-all-chk" >{{ "vse" | translate }}</span>
-                </button>
-              </div>
-            </div>
-            <div class="row videos-row">
-              <div class="video-selects">
-                <div
-                  *ngFor="let video of videos2"
-                >
-                  <div
-                  class="video-button color-{{ video.color }}"
-                  [ngClass]="{
-                    active: video.active == true,
-                    playing: video.playing == true
-                  }"
-                  (click)="toggleVideoDetail(video)"
-                  >
-
-                  <div
-                    class="checkbox"
-                    (click)="toggleActiveVideo(video.index)"
-                  ></div>
-                  <div class="desc">
-                    {{ getPlayerJersey(video.player) }}
-                    {{ getPlayerName(video.player) }}
-                    <!--{{getShotType(video)}}-->
-                  </div>
-                  <!-- <div class="download" (click)="download(video)" [ngClass]="{'active':video.downloading==true}"></div> -->
-                  <div class="play" (click)="playVideo(video)"></div>
-                  <div class="edit"></div>
-                  <div
-                    class="cropped"
-                    [ngClass]="{
-=======
   <div class="video-content">
     <div class="container">
       <div class="row">
@@ -120,76 +49,12 @@
                 <div class="play" (click)="playVideo(video)"></div>
                 <div class="edit"></div>
                 <div class="cropped" [ngClass]="{
->>>>>>> feature/develop-players-note
                       active: video.before != '-5' || video.after != '+5'
                     }">
                   <div class="tooltip">
                     {{ video.before }} {{ video.after }}
                   </div>
                 </div>
-<<<<<<< HEAD
-                <div style="border-radius: 8px;background-color: #f2f4f8; margin: -7px 0 8px 0;"   *ngIf="video.isDetailViewOpen" >
-                  <div  *ngFor="let event of  video.events ">
-                    <div class="event-row" >
-                      <span
-                      class="checkbox-white"
-                      (click)="toggleActiveVideo(video.index)"
-                    ></span>
-
-                    <span class="time" >
-                      {{ event.time | format_sesonds2 }}
-                    </span>
-
-
-                    <span class="selected-eva">
-                      KVA
-                    </span>
-
-                    <span class="gameState" >
-                      {{ event.gameState }}
-                    </span>
-
-
-                    <span class="event-type">
-                      vstup do pásma
-                    </span>
-
-                    <div class="play" (click)="playVideo(video)"></div>
-                    <div class="edit"></div>
-
-                    <div
-                    class="cropped"
-                    [ngClass]="{
-                      active: video.before != '-5' || video.after != '+5'
-                    }"
-                    >
-                      <div class="tooltip">
-                        {{ video.before }} {{ video.after }}
-                      </div>
-                    </div>
-
-
-                    <div class="desc">
-                      {{ getPlayerJersey(video.player) }}
-                      {{ getPlayerName(video.player) }}
-                      <!--{{getShotType(video)}}-->
-                    </div>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              </div>
-              <div class="video-selects-gradiant"></div>
-            </div>
-
-            <div class="row row-downloadButton">
-              <button class="bg-button" (click)="downloadAll()">
-                <span>{{ "download_selected_videos" | translate }}</span>
-                <img src="/assets/icobutton-download.svg" />
-              </button>
-=======
                 <div class="time" *ngIf="video_type != 'shift'">
                   {{ video.time | format_sesonds2 }}
                 </div>
@@ -199,7 +64,6 @@
                 </div>
                 <div class="state">{{ video.matchDate | match_date }}</div>
               </div>
->>>>>>> feature/develop-players-note
             </div>
             <div class="video-selects-gradiant"></div>
           </div>
@@ -223,30 +87,6 @@
                   [options]="options" (valueChange)="minValueChange()" (highValueChange)="maxValueChange()">
                 </ng5-slider>
               </div>
-<<<<<<< HEAD
-              <div class="video-slider">
-                <div class="custom-slider">
-                  <ng5-slider
-                    [(value)]="minValue"
-                    style="height: unset !important"
-                    [(highValue)]="maxValue"
-                    [options]="options"
-                    (valueChange)="minValueChange()"
-                    (highValueChange)="maxValueChange()"
-                  ></ng5-slider>
-                </div>
-                <div class="action-time">{{ active_video_time }}</div>
-                <div class="row">
-                  <div class="bg-group">
-                    <label>{{ "game_time" | translate }}</label>
-                    <div class="d-flex">
-                      <input [(ngModel)]="active_video_time" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                    </div>
-                    </div>
-=======
               <div class="action-time">{{ active_video_time }}</div>
               <div class="row">
                 <div class="bg-group">
@@ -255,67 +95,27 @@
                   <div class="controls">
                     <div class="control-plus" (click)="increaseVideoTime()"></div>
                     <div class="control-minus" (click)="decreaseVideoTime()"></div>
->>>>>>> feature/develop-players-note
                   </div>
                 </div>
 
-<<<<<<< HEAD
-                  <div class="bg-group">
-                    <label>{{ "cut_before" | translate }}</label>
-                    <div class="d-flex">
-                      <input  [(ngModel)]="video_before" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                      </div>
-                    </div>
-=======
                 <div class="bg-group">
                   <label>{{ "cut_before" | translate }}</label>
                   <input [(ngModel)]="video_before" />
                   <div class="controls">
                     <div class="control-plus" (click)="increaseVideoBeforeTime()"></div>
                     <div class="control-minus" (click)="decreaseVideoBeforeTime()"></div>
->>>>>>> feature/develop-players-note
                   </div>
                 </div>
 
-<<<<<<< HEAD
-                  <div class="bg-group">
-                    <label>{{ "orez_po" | translate }}</label>
-                    <div class="d-flex">
-                      <input [(ngModel)]="video_after" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                      </div>
-                    </div>
-=======
                 <div class="bg-group">
                   <label>{{ "orez_po" | translate }}</label>
                   <input [(ngModel)]="video_after" />
                   <div class="controls">
                     <div class="control-plus" (click)="increaseVideoAfterTime()"></div>
                     <div class="control-minus" (click)="decreaseVideoAfterTime()"></div>
->>>>>>> feature/develop-players-note
                   </div>
                 </div>
 
-<<<<<<< HEAD
-                  <div class="bg-group div-btn-play-selected" >
-                    <button class="btn-play-selected">
-                      <span>{{ "play_selected_section" | translate }}</span>
-                      <img src="assets/icobutton-play.svg" alt="">
-                    </button>
-                  </div>
-
-                  <div class="bg-group div-btn-players-note" >
-                    <button class="btn-players-note">
-                      <span>{{ "players_note" | translate }}</span>
-                      <img src="assets/icobutton-edit.svg" alt="">
-                    </button>
-                  </div>
-=======
                 <div class="bg-group div-btn-play-selected">
                   <button class="btn-play-selected">
                     <span>{{ "play_selected_section" | translate }}</span>
@@ -386,7 +186,6 @@
                 <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'GK'"
                   [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
                   #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
->>>>>>> feature/develop-players-note
                 </div>
               </div>
             </div>
