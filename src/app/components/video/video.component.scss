@@ -69,43 +69,41 @@
 
 
   .row-downloadButton {
-    height: 100px;
+    margin-bottom: 15px;
   }
 
-  .closeButton {
+  .closeButton{
     margin-right: -1rem !important;
   }
 
-  .uppercase {
+  .uppercase{
     text-transform: uppercase;
   }
 
   .div-btn-play-selected, .div-btn-players-note {
     flex: 0!important;
   }
-
-  .div-btn-players-note {
-    width: 25%;
-  }
-
   .video-content {
     height: 100%;
     min-height: calc(100vh - 50px);
     padding-top: 0;
 
-    .select-all-chk {
-      font-weight: bold !important;
+    .select-all-chk{
+      font-weight: bold !important ;
       font-size: 12px;
     }
 
     .video-box {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 30px;
       float: left;
       width: 63%;
       max-width: 63%;
       background: #fff;
       padding-top: 18px;
       padding-left: 6px;
-      padding-bottom: 18px;
+      // padding-bottom: 18px;
       padding-right: 18px;
       min-width: 800px;
       border-bottom-right-radius: 16px;
@@ -250,7 +248,7 @@
         display: block;
         margin-bottom: 45px;
         width: 100%;
-        max-height: 563px;
+        max-height: 590px;
         overflow: auto;
         padding-top: calc(56.25% + 276px);
         position: relative;
@@ -297,6 +295,7 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
+            color: #121619;
           }
 
           .state {
@@ -308,7 +307,8 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
-            margin-right: 10px;
+            margin-right : 10px;
+            color: #121619;
           }
 
           .time {
@@ -322,7 +322,180 @@
             line-height: 1.57;
             letter-spacing: normal;
             padding: 0px;
-            min-width: 40px;
+            min-width:40px;
+            text-align: center;
+            color: #121619;
+          }
+
+          .timeShift {
+            float: right;
+            margin: 0px 12px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+            padding: 0px;
+            min-width: 90px;
+            text-align: center;
+          }
+
+          .cropped {
+            float: right;
+            width: 12px;
+            height: 14px;
+            margin: 4px 4px;
+            position: relative;
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='12px' height='14px' viewBox='0 0 12 14' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1382.000000, -168.000000)' fill='%23D4D4D4' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 163.000000)'%3E%3Cpath d='M3.84026745,12.3385486 L0.691414337,14.9049766 C0.507884089,15.0545604 0.240078897,15.024245 0.0932546985,14.8372653 C0.0328880303,14.7603888 0,14.6648701 0,14.56642 L0,9.43356401 C0,9.19411322 0.190532213,9 0.425565609,9 C0.522199428,9 0.615956002,9.03350615 0.691414337,9.0950074 L3.84026745,11.6614354 C4.0237977,11.8110191 4.05355383,12.0838577 3.90672963,12.2708373 C3.88709754,12.2958386 3.86480756,12.3185476 3.84026745,12.3385486 Z M8.15973255,12.3385486 C8.13519244,12.3185476 8.11290246,12.2958386 8.09327037,12.2708373 C7.94644617,12.0838577 7.9762023,11.8110191 8.15973255,11.6614354 L11.3085857,9.0950074 C11.384044,9.03350615 11.4778006,9 11.5744344,9 C11.8094678,9 12,9.19411322 12,9.43356401 L12,14.56642 C12,14.6648701 11.967112,14.7603888 11.9067453,14.8372653 C11.7599211,15.024245 11.4921159,15.0545604 11.3085857,14.9049766 L8.15973255,12.3385486 Z M6,5 C6.55228475,5 7,5.44771525 7,6 L7,18 C7,18.5522847 6.55228475,19 6,19 C5.44771525,19 5,18.5522847 5,18 L5,6 C5,5.44771525 5.44771525,5 6,5 Z' id='Combined-Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+            .tooltip {
+              position: absolute;
+              left: 19px;
+              top: -5px;
+              width: 60px;
+              background: #000000c7;
+              text-align: center;
+              color: #fff;
+              border: 1px solid #000;
+              padding: 2px;
+              font-size: 14px;
+              display: none;
+              border-radius: 2px;
+            }
+
+            &:hover {
+              .tooltip {
+                display: block;
+              }
+            }
+          }
+
+          .play {
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin: 3px 0 3px 0px;
+            object-fit: contain;
+            cursor: pointer;
+            background: url("/assets/icobutton-play.svg") no-repeat;
+          }
+
+          .edit {
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin: 3px 8px;
+            object-fit: contain;
+            cursor: pointer;
+            background: url("/assets/icobutton-edit.svg") no-repeat;
+          }
+
+          .download {
+            float: right;
+            width: 24px;
+            height: 24px;
+            margin: 5px 4px;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -295.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 295.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          }
+        }
+
+        .event-row {
+          width: 100%;
+          height: 40px;
+          padding: 9px 12px;
+
+          &::after {
+            display: block;
+            content: "";
+            clear: both;
+          }
+
+          .checkbox {
+            float: left;
+            width: 39px;
+            height: 40px;
+            object-fit: contain;
+            background: url("/assets/checkbox-select-off.svg") no-repeat;
+            margin-top: -10px;
+            margin-left: -12px;
+          }
+
+          .checkbox-white {
+            width: 16px;
+            height: 16px;
+            margin: 2px 10px 0 0;
+            border-radius: 4px;
+            border: solid 2px #1d5cff;
+            float: left;
+          }
+
+          .desc {
+            float: right;
+            margin: 0 26px 0 12px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+          }
+
+          .state {
+            float: right;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+            margin-right : 10px;
+          }
+
+          .selected-eva{
+            width: 32px;
+            height: 18px;
+            margin: 8px 12px 0;
+            font-family: Inter;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: #121619;
+          }
+
+          .event-type{
+            width: 104px;
+            height: 18px;
+            margin: 8px 12px 0;
+            font-family: Inter;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: #121619;
+          }
+
+          .time {
+            float: left;
+            margin: 0px 12px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.57;
+            letter-spacing: normal;
+            padding: 0px;
+            min-width:40px;
             text-align: center;
           }
 
@@ -400,6 +573,7 @@
             background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -295.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 295.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
           }
         }
+
 
         .color-0 {
           .download.active {
@@ -912,13 +1086,16 @@
         }
       }
 
+
       .video-selects-gradiant {
         width: 100%;
         height: 24px;
-        background-image: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0),
-            #fff);
-        margin-top: -24px;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          #fff
+        );
+        margin-top: -58px;
         display: block;
         position: inherit;
       }
@@ -927,7 +1104,9 @@
 }
 
 ::ng-deep {
-  .custom-slider {}
+  .custom-slider {
+
+  }
 
   .custom-slider .ng5-slider .ng5-slider-bar {
     background: #a2a9b0;
@@ -1078,7 +1257,6 @@
   }
 
   .custom-slider * {
-
     &:hover,
     &:active,
     &:focus {
@@ -1126,10 +1304,16 @@
   position: relative;
   background: #f2f4f8;
   //border: 1px solid #ccc;
-  height: 200px;
+  height: 100%;
   padding: 0px 30px;
   padding-left: 26px;
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .row {
+    margin-left: 0!important;
+  }
   .action-time {
     position: absolute;
     bottom: 0;
@@ -1166,7 +1350,7 @@
   color: #121619;
 }
 
-.video-title>img {
+.video-title > img {
   width: 14px !important;
   height: 16px !important;
 }
@@ -1183,48 +1367,25 @@
   letter-spacing: normal;
 }
 
-.bg-button {
-  padding: 6px 16px 0px 10px;
-  border-radius: 8px;
-  border: solid 2px #1d5cff;
-  background-color: #fff;
-  display: flex;
-  bottom: 16px;
-  position: absolute;
-  width: 230px;
-}
 
-.bg-button label {
-  font-family: Inter;
-  padding: 0px 28px 0px 0px;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.57;
-  letter-spacing: normal;
-  color: #1d5cff;
-  text-align: left;
-  cursor: pointer;
-  text-transform: none;
-}
-
-.bg-button img {
-  float: right;
-  padding-top: 2px;
-  cursor: pointer;
-}
 
 .bg-group {
-  min-width: 16%;
+  // min-width: 15%;
+  flex: 1;
   margin-top: 64px;
-  margin-right: 4px;
-
+  margin-right: 16px;
+  flex-grow: 1;
+  &:last-of-type {
+    margin-right: 0;
+  }
+  .d-flex {
+    display: flex;
+  }
   label {
     height: 10px;
     font-family: Inter;
     font-size: 10px !important;
-    font-weight: bold !important;
+    font-weight: 900 !important;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.6;
@@ -1234,7 +1395,7 @@
   }
 
   input {
-    width: 100px;
+    width: 80px;
     height: 40px;
     padding: 0px 10px 2px 10px;
     border-radius: 8px;
@@ -1243,6 +1404,7 @@
     margin-right: 8px;
     vertical-align: top;
   }
+}
 
 .btn-play-selected, .btn-players-note, .bg-button {
   width: 220px;
@@ -1262,24 +1424,9 @@
   margin-top: 14px;
 }
 
-  .btn-players-note {
-    width: 100%;
-    height: 40px;
-    border-radius: 8px;
-    border: solid 2px #1d5cff;
-    color: #1d5cff;
-    font-weight: 900;
-    font-family: Inter;
-    font-size: 12px;
-    background: url("/assets/icobutton-edit.svg") no-repeat;
-    background-position: 97% 10px;
-    padding: 0px 8px;
-    text-align: left;
-    margin-top: 14px;
-    text-transform: inherit;
-    margin-left: 25px;
-  }
 
+.bg-button {
+  width: 246px;
 }
 
 .bg-group .controls {
@@ -1311,253 +1458,49 @@
 }
 
 
-:host ::ng-deep div.ng5-slider-inner-tooltip {
+:host ::ng-deep div.ng5-slider-inner-tooltip{
   border-radius: 4px !important;
 }
 
 
-.players-note-panel {
-  visibility: hidden;
-  width: 512px;
-  height: 104%;
-  margin: 0 0 0 1056px;
-  padding: 19px 16px 195px 32px;
-  box-shadow: 0 2px 6px 0 rgba(18, 22, 25, 0.1), 0 2px 16px 0 rgba(18, 22, 25, 0.25);
-  background-color: #fff;
-  position: absolute;
-  z-index: 999999;
-  top: -50px;
-  right: 0;
-  padding: 25px;
-  padding-top: 32px;
-  margin: 0px 48px;
-  border-radius: 18px;
+.buttons {
+  display: flex;
+  padding-right: 16px;
+}
 
-  .header {
-    width: 100% !important;
-    padding-right: 10px;
-
-    span {
-      width: 100% !important;
-      display: flex;
-
-      .header-left {
-        width: 50%;
-        text-align: left;
-
-        label {
-          width: 221px;
-          height: 28px;
-          font-family: Inter;
-          font-size: 20px;
-          font-weight: bold;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.4;
-          letter-spacing: normal;
-          color: #121619;
-        }
-      }
-
-      .header-right {
-        width: 50%;
-        text-align: right;
-
-        .closeButton {
-          float: right;
-          background: url(/assets/icobutton-cross_6.svg) no-repeat;
-          font-size: 14px;
-          font-weight: 500;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.29;
-          letter-spacing: normal;
-          border: 0;
-          margin: 0;
-          margin-top: 2px;
-          text-transform: none;
-          color: #121619;
-          padding-right: 0px;
-          display: flex;
-          background-position: 8px 0px;
-        }
-      }
-    }
-  }
-
-  .subject {
-    display: flex;
+.btn-box {
+  width: 25%;
+  padding-right: 8px;
+  button {
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #a2a9b0;
+    background-image: linear-gradient(to bottom, #ffffff, #f2f4f8);
+    margin: 0;
     width: 100%;
-    margin: 14px 0px;
-
-    .right {
-      width: 30%;
-
-      img {
-        margin: 6px;
-        cursor: pointer;
-      }
-
-      .label {
-        font-family: Inter;
-        font-size: 10px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.6;
-        letter-spacing: normal;
-        color: #121619;
-        text-transform: uppercase;
-      }
-
-    }
-
-    .left {
-      width: 70%;
-
-      .label {
-        font-family: Inter;
-        font-size: 10px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.6;
-        letter-spacing: normal;
-        color: #121619;
-        text-transform: uppercase;
-      }
-
-      input {
-        width: 90%;
-        height: 40px;
-        margin: 1px 6px 16px 0;
-        padding: 9px 64px 9px 12px;
-        border-radius: 8px;
-        border: solid 1px #a2a9b0;
-        background-color: #fff;
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        letter-spacing: normal;
-        color: #121619;
-      }
-    }
-  }
-
-
-  .body {
-    width: 100%;
-    margin: 14px 0px;
-    margin-bottom: 0px;
-
-    .label {
-      font-family: Inter;
-      font-size: 10px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.6;
-      letter-spacing: normal;
-      color: #121619;
-      text-transform: uppercase;
-    }
-
-    textarea {
-      width: 100%;
-      height: 120px;
-      margin: 4px 16px 16px 0;
-      padding: 12px 12px 20px;
-      border-radius: 8px;
-      border: solid 1px #a2a9b0;
-      background-color: #fff;
-      font-family: Inter;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000;
+    padding: 0;
+    text-transform: none;
+    margin-bottom: 8px;
+    &.active {
+      background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.57;
       letter-spacing: normal;
-      color: #121619;
-    }
-  }
-
-  .players {
-    width: 100%;
-
-    .title {
-      height: 24px;
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      color: #121619;
-    }
-
-    .deffenders,
-    .attackers,
-    .goal-keepers {
-      display: inline-block;
-
-
-      .title {
-        height: 16px;
-        margin: 16px 38px 4px 0;
-        font-family: Inter;
-        font-size: 10px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.6;
-        letter-spacing: normal;
-        color: #121619;
-        text-transform: uppercase;
-      }
-
-      .player {
-        height: 26px;
-        margin: 4px 4px 4px 0;
-        padding: 4px 8px;
-        border-radius: 4px;
-        background-color: #f2f4f8;
-        display: inline-block;
-      }
-
-
-      .selected-player {
-        color: #fff;
-        background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
-      }
-    }
-
-  }
-
-  .footer {
-    width: 100%;
-
-    .send-button {
-      float: right;
-      width: 232px;
-      height: 40px;
-      margin: 31px 0 0 18px;
-      padding: 9px 0;
-      border-radius: 8px;
-      border: solid 2px #1d5cff;
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.57;
-      letter-spacing: normal;
       text-align: center;
-      color: #1d5cff;
-      text-align: center;
-      cursor: pointer;
+      color: #ffffff!important;
+      border-color: #1d5cff!important;
     }
-  }
 }
+  }
+
