@@ -89,6 +89,7 @@ import { HeatmapSimpleComponent } from './components/heatmap-simple/heatmap-simp
 import { GoalsStoryComponent } from './components/goals-story/goals-story.component';
 import { ShotFlowComponent } from './components/shot-flow/shot-flow.component';
 import { ItemsToStringPipe } from './pipes/itemsToString.pipe';
+import { FilterPipe } from "./pipes/filter.pipe";
 
 
 /* import { MatFormFieldModule, MatSelectModule } from '@angular/material';
@@ -255,6 +256,7 @@ const appRoutes: Routes = [
     FormatSecondsPipe,
     FormatDatePipe,
     CheckNullPipe,
+    FilterPipe,
     RaidsComponent,
     PiechartComponent,
     VideoComponent,
