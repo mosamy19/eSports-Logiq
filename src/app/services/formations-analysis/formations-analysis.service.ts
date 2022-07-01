@@ -427,12 +427,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/" +
-          relative_to_url,
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/" +
+        relative_to_url,
         body,
         options
       )
@@ -635,11 +635,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate",
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate",
         body,
         options
       )
@@ -750,11 +750,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/index",
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/index",
         body,
         options
       )
@@ -966,12 +966,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate/" +
-          relative_to_url,
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate/" +
+        relative_to_url,
         body,
         options
       )
@@ -1181,12 +1181,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent/" +
-          relative_to_url,
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent/" +
+        relative_to_url,
         body,
         options
       )
@@ -1390,11 +1390,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/formation/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent",
+        "/api/v1/formation/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent",
         body,
         options
       )
@@ -1588,11 +1588,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -1786,11 +1786,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation/against",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation/against",
         body,
         options
       )
@@ -2005,11 +2005,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/against",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/against",
         body,
         options
       )
@@ -2203,11 +2203,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/pass/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/pass/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -2501,11 +2501,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/pass/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation/against",
+        "/api/v1/pass/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation/against",
         body,
         options
       )
@@ -2606,11 +2606,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/pass/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/against",
+        "/api/v1/pass/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/against",
         body,
         options
       )
@@ -2632,12 +2632,12 @@ export class FormationsAnalysisService {
     return this.http
       .get(
         this.api_url +
-          "/api/v1/shot?match=" +
-          match +
-          "&player=" +
-          player +
-          "&time=" +
-          time,
+        "/api/v1/shot?match=" +
+        match +
+        "&player=" +
+        player +
+        "&time=" +
+        time,
         options
       )
       .map((res) => res.json())
@@ -2750,12 +2750,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/individual/" +
-          player,
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/individual/" +
+        player,
         body,
         options
       )
@@ -2866,11 +2866,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/team",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/team",
         body,
         options
       )
@@ -2979,11 +2979,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/team/relativeToLeague",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/team/relativeToLeague",
         body,
         options
       )
@@ -3185,11 +3185,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/formation",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/formation",
         body,
         options
       )
@@ -3391,11 +3391,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/formation/relativeToTeam",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/formation/relativeToTeam",
         body,
         options
       )
@@ -3597,11 +3597,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/shot/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/heatmap/formation/relativeToLeague",
+        "/api/v1/shot/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/heatmap/formation/relativeToLeague",
         body,
         options
       )
@@ -3856,12 +3856,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/" +
-          filter_player,
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/" +
+        filter_player,
         body,
         options
       )
@@ -3973,16 +3973,16 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/" +
-          filter_player +
-          "/teammate/" +
-          type +
-          "/" +
-          spot,
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/" +
+        filter_player +
+        "/teammate/" +
+        type +
+        "/" +
+        spot,
         body,
         options
       )
@@ -4094,16 +4094,16 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/" +
-          filter_player +
-          "/opponent/" +
-          type +
-          "/" +
-          spot,
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/" +
+        filter_player +
+        "/opponent/" +
+        type +
+        "/" +
+        spot,
         body,
         options
       )
@@ -4214,14 +4214,14 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate/" +
-          type +
-          "/" +
-          spot,
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate/" +
+        type +
+        "/" +
+        spot,
         body,
         options
       )
@@ -4332,14 +4332,14 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent/" +
-          type +
-          "/" +
-          spot,
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent/" +
+        type +
+        "/" +
+        spot,
         body,
         options
       )
@@ -4609,12 +4609,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneEntry/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate" +
-          spot,
+        "/api/v1/zoneEntry/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate" +
+        spot,
         body,
         options
       )
@@ -4745,12 +4745,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneEntry/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent" +
-          spot,
+        "/api/v1/zoneEntry/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent" +
+        spot,
         body,
         options
       )
@@ -4883,12 +4883,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneEntry/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate" +
-          spot,
+        "/api/v1/zoneEntry/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate" +
+        spot,
         body,
         options
       )
@@ -5021,12 +5021,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneEntry/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent" +
-          spot,
+        "/api/v1/zoneEntry/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent" +
+        spot,
         body,
         options
       )
@@ -5225,11 +5225,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneEntry/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/zoneEntry/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -5751,11 +5751,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/dumpIn/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/dumpIn/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -5957,11 +5957,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/dumpOut/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/dumpOut/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -6158,11 +6158,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/faceOff/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent",
+        "/api/v1/faceOff/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent",
         body,
         options
       )
@@ -6361,11 +6361,11 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneExit/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/formation",
+        "/api/v1/zoneExit/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/formation",
         body,
         options
       )
@@ -6605,12 +6605,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneExit/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate" +
-          spot,
+        "/api/v1/zoneExit/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate" +
+        spot,
         body,
         options
       )
@@ -6741,12 +6741,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneExit/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent" +
-          spot,
+        "/api/v1/zoneExit/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent" +
+        spot,
         body,
         options
       )
@@ -6879,12 +6879,12 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneExit/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/teammate" +
-          spot,
+        "/api/v1/zoneExit/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/teammate" +
+        spot,
         body,
         options
       )
@@ -7017,18 +7017,64 @@ export class FormationsAnalysisService {
     return this.http
       .post(
         this.api_url +
-          "/api/v1/zoneExit/" +
-          competitions +
-          "/" +
-          teamUuid +
-          "/opponent" +
-          spot,
+        "/api/v1/zoneExit/" +
+        competitions +
+        "/" +
+        teamUuid +
+        "/opponent" +
+        spot,
         body,
         options
       )
       .map((res) => res.json())
       .catch((e) => {
         //alert(e);
+        if (e.status === 401) {
+          return Observable.throw("Unauthorized");
+        }
+      });
+  }
+
+
+
+  getCompetitionDetails(
+    uuid: string) {
+    debugger;
+    let headers = new Headers({
+      Authorization: "Bearer " + this.token["access_token"],
+    });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .get(
+        this.api_url +
+        "/api/v1/competition/" + uuid,
+        options
+      )
+      .map((res) => res.json())
+      .catch((e) => {
+        if (e.status === 401) {
+          return Observable.throw("Unauthorized");
+        }
+      });
+  }
+
+  createVideoClip(clip: any) {
+    debugger;
+    let headers = new Headers({
+      Authorization: "Bearer " + this.token["access_token"],
+    });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http
+      .post(
+        this.api_url +
+        "/api/v1/videoCoach/videoClip",
+        clip,
+        options
+      )
+      .map((res) => res.json())
+      .catch((e) => {
         if (e.status === 401) {
           return Observable.throw("Unauthorized");
         }

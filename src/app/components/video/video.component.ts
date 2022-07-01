@@ -5,12 +5,14 @@ import { TranslatePipe } from "../../pipes/translate.pipe";
 import { Options } from "ng5-slider";
 import { DomSanitizer } from "@angular/platform-browser";
 import { $ } from "protractor";
+import { FormationsAnalysisService } from "../../services/formations-analysis/formations-analysis.service";
+import { forEach } from "lodash";
 
 @Component({
   selector: "videobox",
   templateUrl: "./video.component.html",
   styleUrls: ["./video.component.scss"],
-  providers: [DefaultService, TranslatePipe],
+  providers: [DefaultService, TranslatePipe, FormationsAnalysisService],
 })
 export class VideoBoxComponent implements OnInit {
   select_all: boolean = false;
@@ -48,21 +50,25 @@ export class VideoBoxComponent implements OnInit {
   video_type: string = "";
 
   videos2: any = [];
+  NotePlayers: any = [];
+  videoClip: any = {};
+  currentVideo: any = {};
 
   constructor(
     private translate: TranslatePipe,
     private defaultService: DefaultService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    public sanitizer: DomSanitizer
-  ) {}
+    public sanitizer: DomSanitizer,
+    private formationsAnalysisService: FormationsAnalysisService
+  ) { }
 
   ngOnInit() {
     console.log(this.videos);
     this.videos.forEach((item, index) => {
       this.videos2.push(item);
     });
-    console.log("Videos", this.videos);
+    console.log("Videos", this.videos[0]);
     this.videos2.forEach((item, index) => {
       item["index"] = index;
       item["active"] = false;
@@ -696,6 +702,8 @@ export class VideoBoxComponent implements OnInit {
   }
 
   playVideo(video_data: any) {
+    this.currentVideo = video_data;
+
     if (video_data.playing == false) {
       this.videos2.forEach((item) => {
         item["playing"] = false;
@@ -729,23 +737,24 @@ export class VideoBoxComponent implements OnInit {
         this.sanitizer.bypassSecurityTrustResourceUrl(video_url);
       this.video_title =
         //this.getPlayerJersey(video_data.player) +
-        "<img src='/assets/time.svg' > &nbsp;" +
+        "<img src='/assets/time.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
         sec +
-        "&nbsp;&nbsp;&nbsp;" +
-        "<img src='/assets/player.svg' > &nbsp;" +
+        "</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+        "<img style='margin-right: 16px;' src='/assets/player.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
         this.getPlayerJersey(video_data.player) +
-        "&nbsp;" +
+        " " +
         this.getPlayerName(video_data.player) +
-        "&nbsp;&nbsp;&nbsp;" +
-        "<img src='/assets/date.svg' > &nbsp;" +
-        this.formatMatchDate(video_data.matchDate);
+        "</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+        "<img style='margin-right: 16px;' src='/assets/date.svg' > &nbsp;&nbsp; <div style='margin-right: 16px;'>" +
+        this.formatMatchDate(video_data.matchDate) +
+        "</div>"
 
       //   " - " +
 
       //   " - " +
       //   video_cas;
       // this.active_video_index = video_data.index;
-      // this.active_video_time = video_cas;
+      this.active_video_time = video_cas;
       // this.minValue = Number(video_data.before);
       // this.maxValue = Number(video_data.after);
 
@@ -878,8 +887,8 @@ export class VideoBoxComponent implements OnInit {
     return (
       (s - // take value s and subtract (will try to convert String to Number)
         (s %= 60)) / // the new value of s, now holding the remainder of s divided by 60
-        // (will also try to convert String to Number)
-        60 + // and divide the resulting Number by 60
+      // (will also try to convert String to Number)
+      60 + // and divide the resulting Number by 60
       // (can never result in a fractional value = no need for rounding)
       // to which we concatenate a String (converts the Number to String)
       // who's reference is chosen by the conditional operator:
@@ -905,5 +914,139 @@ export class VideoBoxComponent implements OnInit {
     }
 
     return team_shortcut;
+  }
+
+
+  increaseVideoAfterTime() {
+    var t = parseInt(this.video_after);
+    if (t == 30)
+      return;
+    t += 5;
+    this.video_after = t > 0 ? "+" + t : t + "";
+  }
+  decreaseVideoAfterTime() {
+    debugger;
+    var t = parseInt(this.video_after);
+    if (t <= -30)
+      return;
+    t -= 5;
+    this.video_after = t > 0 ? "+" + t : t + "";
+  }
+
+  increaseVideoBeforeTime() {
+    var t = parseInt(this.video_before);
+    if (t == 30)
+      return;
+    t += 5;
+    this.video_before = t > 0 ? "+" + t : t + "";
+  }
+  decreaseVideoBeforeTime() {
+    debugger;
+    var t = parseInt(this.video_before);
+    if (t <= -30) {
+      return;
+    }
+    t -= 5;
+    this.video_before = t > 0 ? "+" + t : t + "";
+  }
+
+  formatTime(time) {
+    let sec = this.fmtMSS(time);
+    let video_cas = "";
+    if (this.fmtMSS(sec).length == 4) {
+      video_cas = "0" + sec;
+    } else {
+      video_cas = sec;
+    }
+    return video_cas;
+  }
+
+
+  increaseVideoTime() {
+    let d;
+    d = new Date('2030-01-01 10:' + this.active_video_time);
+    d.setSeconds(d.getSeconds() + 5);
+    let seconds = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+    let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    this.active_video_time = minutes + ':' + seconds;
+  }
+
+  decreaseVideoTime() {
+    let d;
+    d = new Date('2030-01-01 10:' + this.active_video_time);
+    d.setSeconds(d.getSeconds() - 5);
+    let seconds = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+    let minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    this.active_video_time = minutes + ':' + seconds;
+  }
+
+
+  showPlayersNotePanel() {
+    this.videoClip = { players: [] };
+    this.formationsAnalysisService
+      .getCompetitionDetails('173d42cf-0ee0-444b-b9c9-7e8348dfe3ef')
+      .subscribe((loaded_data) => {
+        if (loaded_data != null) {
+          var players = loaded_data.teams[0].players;
+          this.NotePlayers = players;
+        }
+      },
+        (err) => {
+          debugger;
+        });
+
+    document.getElementById("players-note-panel").style.visibility = "visible";
+  }
+
+  hidePlayersNotePanel() {
+    document.getElementById("players-note-panel").style.visibility = "hidden";
+  }
+
+  isPlayerAlreadyOnVideoClip(p) {
+    var exists = false;
+    if (p != undefined) {
+      for (let index = 0; index < this.videoClip.players.length; index++) {
+        const element = this.videoClip.players[index];
+        if (element == p.uuid) {
+          exists = true;
+          break;
+        }
+
+      }
+    }
+    return exists;
+  }
+
+  toggleReceiptPlayerList(player) {
+    if (!this.isPlayerAlreadyOnVideoClip(player))
+      this.videoClip.players.push(player.uuid);
+    else
+      this.videoClip.players.splice(this.videoClip.players.indexOf(player.uuid), 1);
+  }
+
+  sendVideoClip() {
+    var obj = {
+      "time": this.currentVideo.time,
+      "videoTime": this.currentVideo.videoTime,
+      "endVideoTime": 4500,
+      "videoId": this.currentVideo.videoId,
+      "matchId": this.currentVideo.match,
+      "name": this.videoClip.name,
+      "description": this.videoClip.description,
+      "type": "thumbs-up",
+      "players": this.videoClip.players
+    };
+
+    this.formationsAnalysisService
+      .createVideoClip(obj)
+      .subscribe((response) => {
+        debugger;
+        this.hidePlayersNotePanel();
+      },
+        (err) => {
+          debugger;
+        });
+
+
   }
 }
