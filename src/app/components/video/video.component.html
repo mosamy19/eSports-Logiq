@@ -191,28 +191,34 @@
                 <div class="row">
                   <div class="bg-group">
                     <label>{{ "game_time" | translate }}</label>
-                    <input [(ngModel)]="active_video_time" />
-                    <div class="controls">
-                      <div class="control-plus"></div>
-                      <div class="control-minus"></div>
+                    <div class="d-flex">
+                      <input [(ngModel)]="active_video_time" />
+                      <div class="controls">
+                        <div class="control-plus"></div>
+                        <div class="control-minus"></div>
+                    </div>
                     </div>
                   </div>
 
                   <div class="bg-group">
                     <label>{{ "cut_before" | translate }}</label>
-                    <input  [(ngModel)]="video_before" />
-                    <div class="controls">
-                      <div class="control-plus"></div>
-                      <div class="control-minus"></div>
+                    <div class="d-flex">
+                      <input  [(ngModel)]="video_before" />
+                      <div class="controls">
+                        <div class="control-plus"></div>
+                        <div class="control-minus"></div>
+                      </div>
                     </div>
                   </div>
 
                   <div class="bg-group">
                     <label>{{ "orez_po" | translate }}</label>
-                    <input [(ngModel)]="video_after" />
-                    <div class="controls">
-                      <div class="control-plus"></div>
-                      <div class="control-minus"></div>
+                    <div class="d-flex">
+                      <input [(ngModel)]="video_after" />
+                      <div class="controls">
+                        <div class="control-plus"></div>
+                        <div class="control-minus"></div>
+                      </div>
                     </div>
                   </div>
 
