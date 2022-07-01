@@ -32,10 +32,15 @@
                 <span class="select-all-chk">{{ "vse" | translate }}</span>
               </button>
             </div>
-          </div>
-          <div class="row videos-row">
-            <div class="video-selects">
-              <div class="video-button color-{{ video.color }}" *ngFor="let video of videos2" [ngClass]="{
+            <div class="row videos-row">
+              <div class="video-selects">
+                <div class="selects-ctrls">
+                <div
+                  *ngFor="let video of videos2"
+                >
+                  <div
+                  class="video-button color-{{ video.color }}"
+                  [ngClass]="{
                     active: video.active == true,
                     playing: video.playing == true
                   }">
@@ -129,6 +134,9 @@
                 </div>
               </div>
             </div>
+              <!-- </div> -->
+              <div class="video-selects-gradiant"></div>
+            <!-- </div> -->
           </ng-container>
           <ng-container *ngIf="!is_playing">
             <div class="video-inner"></div>
