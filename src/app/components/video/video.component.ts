@@ -139,6 +139,15 @@ export class VideoBoxComponent implements OnInit {
   }
 
 
+
+  toggleActiveEvent(evant: any) {
+    if (evant["active"] == true) {
+      evant["active"] = false;
+    } else {
+      evant["active"] = true;
+    }
+  }
+
   
   toggleVideoDetail(video: any) {
     if(video.events.length > 0)
@@ -701,6 +710,9 @@ export class VideoBoxComponent implements OnInit {
       let videoId = video_data["videoId"];
 
       let sec = this.fmtMSS(video_data["time"]);
+      console.log(video_time)
+      console.log(sec)
+
       let video_cas = "";
       if (this.fmtMSS(sec).length == 4) {
         video_cas = "0" + sec;
@@ -751,6 +763,88 @@ export class VideoBoxComponent implements OnInit {
       this.is_playing = false;
     }
   }
+
+
+
+  playEventVideo(video_data: any , event_data : any) {
+    if (video_data.playing == false) {
+      this.videos2.forEach((item) => {
+        item["playing"] = false;
+        
+        if (video_data.index == item.index) {
+          item["playing"] = true;
+          item["active"] = true;
+        }
+      });
+
+      event_data["playing"] = true;
+      event_data["active"] = true;
+
+      //odectu 5 sekund
+      let video_time = Number(event_data["videoTime"]);
+      let videoId = video_data["videoId"];
+
+      let sec = this.fmtMSS(event_data["time"]);
+
+      console.log(video_time)
+      console.log(sec)
+
+      let video_cas = "";
+      if (this.fmtMSS(sec).length == 4) {
+        video_cas = "0" + sec;
+      } else {
+        video_cas = sec;
+      }
+
+      let video_url =
+        "http://hockeylogic.sh10w1.esports.cz/video_player/video.php?starttime=" +
+        video_time +
+        "&id=" +
+        videoId;
+      this.video_url_safe =
+        this.sanitizer.bypassSecurityTrustResourceUrl(video_url);
+      this.video_title =
+        //this.getPlayerJersey(video_data.player) +
+        "<img src='/assets/time.svg' > &nbsp;" +
+        sec +
+        "&nbsp;&nbsp;&nbsp;" +
+        "<img src='/assets/player.svg' > &nbsp;" +
+        this.getPlayerJersey(video_data.player) +
+        "&nbsp;" +
+        this.getPlayerName(video_data.player) +
+        "&nbsp;&nbsp;&nbsp;" +
+        "<img src='/assets/date.svg' > &nbsp;" +
+        this.formatMatchDate(video_data.matchDate);
+
+      //   " - " +
+
+      //   " - " +
+      //   video_cas;
+      // this.active_video_index = video_data.index;
+      // this.active_video_time = video_cas;
+      // this.minValue = Number(video_data.before);
+      // this.maxValue = Number(video_data.after);
+
+      this.is_playing = true;
+    } else {
+
+      event_data["playing"] = false;
+
+      this.videos2.forEach((item) => {
+        item["playing"] = false;
+      });
+      this.video_title = "";
+      this.active_video_index = undefined;
+      this.active_video_time = "";
+      this.minValue = -5;
+      this.maxValue = 5;
+
+      this.is_playing = false;
+    }
+  }
+
+
+
 
   formatMatchDate(value: string) {
     let date = new Date(value);

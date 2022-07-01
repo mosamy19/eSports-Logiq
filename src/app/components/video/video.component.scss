@@ -248,6 +248,7 @@
 
       .video-selects {
         display: block;
+        color : black;
         width: 100%;
         max-height: 590px;
         overflow: auto;
@@ -372,6 +373,26 @@
             background: url("/assets/icobutton-play.svg") no-repeat;
           }
 
+          .menu{
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin: 3px 0 3px 0px;
+            object-fit: contain;
+            cursor: pointer;
+            background: url("/assets/icobutton-data.svg") no-repeat;
+            margin-left: 8px;
+          }
+
+          .menu-blank{
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin: 3px 0 3px 0px;
+            object-fit: contain;
+            margin-left: 8px;
+          }
+
           .edit {
             float: right;
             width: 16px;
@@ -397,6 +418,14 @@
           height: 40px;
           padding: 9px 12px;
 
+          &.playing{
+            background-color: #dde1e6;
+
+            .play{
+              background: url("/assets/play.svg") no-repeat;
+            }
+          }
+
           &::after {
             display: block;
             content: "";
@@ -420,13 +449,17 @@
             border-radius: 4px;
             border: solid 2px #1d5cff;
             float: left;
+
+            &.active {
+              background: url("/assets/checkbox-select-white-on.svg") no-repeat;
+            }
+
           }
 
           .desc {
             float: right;
-            margin: 0 26px 0 12px;
+            margin: 0 6px 0 6px;
             font-family: Inter;
-            font-size: 14px;
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
@@ -449,7 +482,7 @@
           .selected-eva{
             width: 32px;
             height: 18px;
-            margin: 8px 12px 0;
+            margin: 8px 8px 0;
             font-family: Inter;
             font-size: 12px;
             font-weight: normal;
@@ -457,13 +490,12 @@
             font-style: normal;
             line-height: 1.5;
             letter-spacing: normal;
-            color: #121619;
           }
 
           .event-type{
             width: 104px;
             height: 18px;
-            margin: 8px 12px 0;
+            margin: 8px 8px 0;
             font-family: Inter;
             font-size: 12px;
             font-weight: normal;
@@ -471,12 +503,11 @@
             font-style: normal;
             line-height: 1.5;
             letter-spacing: normal;
-            color: #121619;
           }
 
           .time {
             float: left;
-            margin: 0px 12px;
+            margin: 0px 0px 0px 12px;
             font-family: Inter;
             font-size: 14px;
             font-weight: normal;
@@ -562,6 +593,9 @@
             cursor: pointer;
             background-image: url("data:image/svg+xml,%0A%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Úpravy' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='offcanvas-video-jeden-zápas' transform='translate(-1426.000000, -295.000000)' fill='%239C9C9C' fill-rule='nonzero'%3E%3Cg id='Stacked-Group' transform='translate(1382.000000, 295.000000)'%3E%3Cg id='arrow-circle-down' transform='translate(44.000000, 0.000000)'%3E%3Cpath d='M12,0 C18.6290323,0 24,5.37096774 24,12 C24,18.6290323 18.6290323,24 12,24 C5.37096774,24 0,18.6290323 0,12 C0,5.37096774 5.37096774,0 12,0 Z M18.2854839,11.7048387 L17.3370968,10.7564516 C17.1048387,10.5241935 16.7322581,10.5290323 16.5048387,10.766129 L13.2580645,14.1677419 L13.2580645,6.38709677 C13.2580645,6.06774194 12.9967742,5.80645161 12.6774194,5.80645161 L11.3225806,5.80645161 C11.0032258,5.80645161 10.7419355,6.06774194 10.7419355,6.38709677 L10.7419355,14.1677419 L7.49516129,10.766129 C7.26774194,10.5290323 6.89516129,10.5241935 6.66290323,10.7564516 L5.71451613,11.7048387 C5.48709677,11.9322581 5.48709677,12.3 5.71451613,12.5274194 L11.5887097,18.4016129 C11.816129,18.6290323 12.183871,18.6290323 12.4112903,18.4016129 L18.2854839,12.5274194 C18.5129032,12.3 18.5129032,11.9322581 18.2854839,11.7048387 Z' id='Shape'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
           }
+
+
+
         }
 
 
@@ -1352,14 +1386,13 @@
 }
 
 .bg-button {
-  padding: 6px 16px 0px 10px;
+  padding: 6px 6px 0px 10px;
   border-radius: 8px;
   border: solid 2px #1d5cff;
   background-color: #fff;
   display: flex;
   bottom: 16px;
   position: absolute;
-  width: 230px;
 }
 
 .bg-button label {

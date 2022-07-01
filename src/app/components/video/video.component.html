@@ -44,7 +44,6 @@
                     active: video.active == true,
                     playing: video.playing == true
                   }"
-                  (click)="toggleVideoDetail(video)"
                   >
 
                   <div
@@ -57,6 +56,8 @@
                     <!--{{getShotType(video)}}-->
                   </div>
                   <!-- <div class="download" (click)="download(video)" [ngClass]="{'active':video.downloading==true}"></div> -->
+                  <div class="menu" (click)="toggleVideoDetail(video)" *ngIf="video.events.length > 0" ></div>
+                  <div class="menu-blank" *ngIf="video.events.length == 0" ></div>
                   <div class="play" (click)="playVideo(video)"></div>
                   <div class="edit"></div>
                   <div
@@ -80,11 +81,18 @@
                 </div>
                 <div style="border-radius: 8px;background-color: #f2f4f8; margin: -7px 0 8px 0;"   *ngIf="video.isDetailViewOpen" >
                   <div  *ngFor="let event of  video.events ">
-                    <div class="event-row" >
-                      <span
+                    <div class="event-row"   [ngClass]="{ 
+                      active: event.active == true,
+                      playing: event.playing == true
+                    }"    >
+                      <div
                       class="checkbox-white"
-                      (click)="toggleActiveVideo(video.index)"
-                    ></span>
+                      [ngClass]="{ 
+                        active: event.active == true,
+                        playing: event.playing == true
+                      }"
+                      (click)="toggleActiveEvent(event)"
+                    ></div>
 
                     <span class="time" >
                       {{ event.time | format_sesonds2 }}
@@ -94,17 +102,15 @@
                     <span class="selected-eva">
                       KVA
                     </span>
-                   
                     <span class="gameState" >
                       {{ event.gameState }}
                     </span>
   
 
                     <span class="event-type">
-                      vstup do pásma
+                      {{event.eventType}}
                     </span>
-                    
-                    <div class="play" (click)="playVideo(video)"></div>
+                    <div class="play" (click)="playEventVideo(video,event)"></div>
                     <div class="edit"></div>
 
                     <div
