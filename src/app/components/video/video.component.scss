@@ -69,11 +69,7 @@
 
 
   .row-downloadButton {
-<<<<<<< HEAD
-    margin-bottom: 15px;
-=======
     height: 100px;
->>>>>>> feature/develop-players-note
   }
 
   .closeButton {
@@ -84,11 +80,6 @@
     text-transform: uppercase;
   }
 
-<<<<<<< HEAD
-  .div-btn-play-selected, .div-btn-players-note {
-    flex: 0
-  }
-=======
   .div-btn-play-selected {
     width: 25%;
   }
@@ -97,7 +88,6 @@
     width: 25%;
   }
 
->>>>>>> feature/develop-players-note
   .video-content {
     height: 100%;
     min-height: calc(100vh - 50px);
@@ -265,11 +255,6 @@
         width: 100%;
         max-height: 563px;
         overflow: auto;
-<<<<<<< HEAD
-        height : 100%;
-=======
-
->>>>>>> feature/develop-players-note
         .video-button {
           width: 100%;
           height: 40px;
@@ -318,12 +303,7 @@
             font-style: normal;
             line-height: 1.57;
             letter-spacing: normal;
-<<<<<<< HEAD
-            margin-right : 10px;
-            color: #121619;
-=======
             margin-right: 10px;
->>>>>>> feature/develop-players-note
           }
 
           .time {
@@ -1105,19 +1085,10 @@
       .video-selects-gradiant {
         width: 100%;
         height: 24px;
-<<<<<<< HEAD
-        background-image: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0),
-          #fff
-        );
-        margin-top: -58px;
-=======
         background-image: linear-gradient(to bottom,
             rgba(255, 255, 255, 0),
             #fff);
         margin-top: -24px;
->>>>>>> feature/develop-players-note
         display: block;
         position: inherit;
       }
@@ -1445,8 +1416,6 @@
   margin-top: 14px;
 }
 
-<<<<<<< HEAD
-=======
   .btn-players-note {
     width: 100%;
     height: 40px;
@@ -1464,7 +1433,6 @@
     text-transform: inherit;
     margin-left: 25px;
   }
->>>>>>> feature/develop-players-note
 
 .bg-button {
   width: 246px;
@@ -1504,36 +1472,6 @@
 }
 
 
-<<<<<<< HEAD
-.buttons {
-  display: flex;
-  padding-right: 16px;
-}
-
-.btn-box {
-  width: 25%;
-  padding-right: 8px;
-  button {
-    height: 40px;
-    border-radius: 8px;
-    border: solid 1px #a2a9b0;
-    background-image: linear-gradient(to bottom, #ffffff, #f2f4f8);
-    margin: 0;
-    width: 100%;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.57;
-    letter-spacing: normal;
-    text-align: center;
-    color: #000;
-    padding: 0;
-    text-transform: none;
-    margin-bottom: 8px;
-    &.active {
-      background-image: linear-gradient(to bottom, #4985ff, #1d5cff 100%);
-=======
 .players-note-panel {
   visibility: hidden;
   width: 512px;
@@ -1691,22 +1629,12 @@
       border: solid 1px #a2a9b0;
       background-color: #fff;
       font-family: Inter;
->>>>>>> feature/develop-players-note
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
       line-height: 1.57;
       letter-spacing: normal;
-<<<<<<< HEAD
-      text-align: center;
-      color: #ffffff!important;
-      border-color: #1d5cff!important;
-    }
-}
-  }
-
-=======
       color: #121619;
     }
   }
@@ -1789,4 +1717,3 @@
     }
   }
 }
->>>>>>> feature/develop-players-note
