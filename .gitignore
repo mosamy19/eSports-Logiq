@@ -19,11 +19,6 @@
 *.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 # misc
 /.sass-cache
@@ -45,3 +40,7 @@ Thumbs.db
 
 
 ZALOHA PRODUKCE
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
