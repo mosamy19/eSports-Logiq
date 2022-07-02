@@ -50,8 +50,8 @@
                     <!--{{getShotType(video)}}-->
                   </div>
                   <!-- <div class="download" (click)="download(video)" [ngClass]="{'active':video.downloading==true}"></div> -->
-                  <div class="menu" (click)="toggleVideoDetail(video)" *ngIf="video.events.length > 0" ></div>
-                  <div class="menu-blank" *ngIf="video.events.length == 0" ></div>
+                  <div class="menu" (click)="toggleVideoDetail(video)" *ngIf="video.events != undefined &&  video.events.length > 0" ></div>
+                  <div class="menu-blank" *ngIf="video.events != undefined && video.events.length == 0" ></div>
                   <div class="play" (click)="playVideo(video)"></div>
                   <div class="edit"></div>
                   <div class="cropped" [ngClass]="{
