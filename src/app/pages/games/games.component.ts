@@ -4072,6 +4072,15 @@ export class GamesComponent implements OnInit {
     }
   }
 
+  updateEventName(eventData : any[],eventType : string ){
+
+    const newArr = eventData.map(obj => {
+      return {...obj, eventType: this.translate.transform(eventType) };
+    });
+
+    return newArr;
+  }
+
   getVideoDataPlayer(player_uuid: string) {
     this.show_video_modal = false;
     this.video_player_selected = player_uuid;
@@ -4088,13 +4097,12 @@ export class GamesComponent implements OnInit {
         loaded_data["shifts"].forEach((item, index) => {
 
           let eventData=[];
-          eventData = eventData.concat( item.chances);
-          eventData = eventData.concat( item.dumpIns);
-          eventData = eventData.concat( item.puckWins);
-          eventData = eventData.concat( item.goals);
-          eventData = eventData.concat( item.shots);
-          eventData = eventData.concat( item.shotsOnGoal);
-
+          eventData = eventData.concat( this.updateEventName (item.dumpIns ,"nahozeni"));
+          eventData = eventData.concat( this.updateEventName (item.dumpOuts ,"vyhozeni"));
+          eventData = eventData.concat( this.updateEventName (item.puckWins,"zisk_puku"));
+          eventData = eventData.concat( this.updateEventName (item.goals,"gol"));
+          eventData = eventData.concat( this.updateEventName (item.shots,"strela"));
+          eventData = eventData.concat( this.updateEventName (item.shotsOnGoal,"strely_na_branku"));
 
           this.videos_data.push({
             index: index,

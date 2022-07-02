@@ -1,94 +1,63 @@
 <div class="fullscreen-video">
-    <div class="container">
-      <div class="row">
-        <div class="main-row">
-          <label>{{ "centrum_videa" | translate }}</label>
-          <button   class="closeButton"  (click)="closeVideo()">{{ "zavrit" | translate }}</button>
-          <a href="/downloads" target="_blank" class="download-button">{{
-            "sprava_stahovani" | translate
+  <div class="container">
+    <div class="row">
+      <div class="main-row">
+        <label>{{ "centrum_videa" | translate }}</label>
+        <button class="closeButton" (click)="closeVideo()">{{ "zavrit" | translate }}</button>
+        <a href="/downloads" target="_blank" class="download-button">{{
+          "sprava_stahovani" | translate
           }}</a>
-        </div>
       </div>
-
-      <div class="header-splitter"></div>
-
     </div>
 
+    <div class="header-splitter"></div>
+
+  </div>
 
 
-    <div class="video-content">
-      <div class="container">
-        <div class="row">
-          <div class="column aside-box">
-            <div class="row form">
-              <div class="column controls-title">
-                {{ "strely" | translate }}
-              </div>
+
+  <div class="video-content">
+    <div class="container">
+      <div class="row">
+        <div class="column aside-box">
+          <div class="row form">
+            <div class="column controls-title">
+              {{ "strely" | translate }}
             </div>
-            <div class="row form">
-              <!-- <div class="column">
-                <label  class="uppercase">Zobrazit události</label>
-                <div class="buttons">
-                  <div class="btn-box">
-                    <button class="active"> Všechny </button>
-                  </div>
-                  <div class="btn-box">
-                  <button>
-                    Hráče
-                </button>
-              </div>
-                  <div class="btn-box">
-                  <button>
-                    Týmu
-                </button>
-              </div>
-                  <div class="btn-box">
-                  <button>
-                    Soupeře
-                </button>
-              </div>
+            
+          </div>
+          <div class="row form">
+            <div class="column select">
+              <label class="uppercase">{{ "oznacit_videa" | translate }}</label>
+              <button [class.active]="select_all" (click)="toggleSelectAll()">
+                <span class="select-all-chk">{{ "vse" | translate }}</span>
+              </button>
             </div>
-              </div> -->
-              <div class="column select">
-                <label  class="uppercase"   >{{ "oznacit_videa" | translate }}</label>
-                <button [class.active]="select_all" (click)="toggleSelectAll()">
-                  <span class="select-all-chk" >{{ "vse" | translate }}</span>
-                </button>
-              </div>
-            </div>
-            <div class="row videos-row">
-              <div class="video-selects">
-                <div class="selects-ctrls">
-                <div
+          </div>
+          <div class="row videos-row">
+            <div class="video-selects">
+             <div class="selects-ctrls">
+              <div
                   *ngFor="let video of videos2"
                 >
-                  <div
-                  class="video-button color-{{ video.color }}"
-                  [ngClass]="{
-                    active: video.active == true,
-                    playing: video.playing == true
-                  }"
-                  (click)="toggleVideoDetail(video)"
-                  >
-
-                  <div
-                    class="checkbox"
-                    (click)="toggleActiveVideo(video.index)"
-                  ></div>
+                <div class="video-button color-{{ video.color }}"  [ngClass]="{
+                      active: video.active == true,
+                      playing: video.playing == true
+                    }">
+                  <div class="checkbox" (click)="toggleActiveVideo(video.index)"></div>
                   <div class="desc">
                     {{ getPlayerJersey(video.player) }}
                     {{ getPlayerName(video.player) }}
                     <!--{{getShotType(video)}}-->
                   </div>
                   <!-- <div class="download" (click)="download(video)" [ngClass]="{'active':video.downloading==true}"></div> -->
+                  <div class="menu" (click)="toggleVideoDetail(video)" *ngIf="video.events != undefined &&  video.events.length > 0" ></div>
+                  <div class="menu-blank" *ngIf="video.events != undefined && video.events.length == 0" ></div>
                   <div class="play" (click)="playVideo(video)"></div>
                   <div class="edit"></div>
-                  <div
-                    class="cropped"
-                    [ngClass]="{
-                      active: video.before != '-5' || video.after != '+5'
-                    }"
-                  >
+                  <div class="cropped" [ngClass]="{
+                        active: video.before != '-5' || video.after != '+5'
+                      }">
                     <div class="tooltip">
                       {{ video.before }} {{ video.after }}
                     </div>
@@ -96,19 +65,27 @@
                   <div class="time" *ngIf="video_type != 'shift'">
                     {{ video.time | format_sesonds2 }}
                   </div>
-                  <div  class="timeShift" *ngIf="video_type == 'shift'">
+                  <div class="timeShift" *ngIf="video_type == 'shift'">
                     {{ video.start | format_sesonds2 }} -
                     {{ video.end | format_sesonds2 }}
                   </div>
                   <div class="state">{{ video.matchDate | match_date }}</div>
                 </div>
+
                 <div style="border-radius: 8px;background-color: #f2f4f8; margin: -7px 0 8px 0;"   *ngIf="video.isDetailViewOpen" >
                   <div  *ngFor="let event of  video.events ">
-                    <div class="event-row" >
-                      <span
+                    <div class="event-row"   [ngClass]="{ 
+                      active: event.active == true,
+                      playing: event.playing == true
+                    }"    >
+                      <div
                       class="checkbox-white"
-                      (click)="toggleActiveVideo(video.index)"
-                    ></span>
+                      [ngClass]="{ 
+                        active: event.active == true,
+                        playing: event.playing == true
+                      }"
+                      (click)="toggleActiveEvent(event)"
+                    ></div>
 
                     <span class="time" >
                       {{ event.time | format_sesonds2 }}
@@ -118,17 +95,15 @@
                     <span class="selected-eva">
                       KVA
                     </span>
-
                     <span class="gameState" >
                       {{ event.gameState }}
                     </span>
-
+  
 
                     <span class="event-type">
-                      vstup do pásma
+                      {{event.eventType}}
                     </span>
-
-                    <div class="play" (click)="playVideo(video)"></div>
+                    <div class="play" (click)="playEventVideo(video,event)"></div>
                     <div class="edit"></div>
 
                     <div
@@ -151,100 +126,144 @@
 
                     </div>
                   </div>
-
-                </div>
+                </div> 
               </div>
             </div>
-              </div>
-              <div class="video-selects-gradiant"></div>
-            </div>
-
-            <div class="row row-downloadButton">
-              <button class="bg-button" (click)="downloadAll()">
-                <span>{{ "download_selected_videos" | translate }}</span>
-                <img src="/assets/icobutton-download.svg" />
-              </button>
-            </div>
+            <div class="video-selects-gradiant"></div>
           </div>
+          <div class="row row-downloadButton">
+            <button class="bg-button" (click)="downloadAll()">
+              <label>{{ "download_selected_videos" | translate }}</label>
+              <img src="/assets/icobutton-download.svg" />
+            </button>
+          </div>
+        </div>
 
-          <div class="column video-box">
-            <div class="video-title" [innerHTML]="video_title"></div>
-            <ng-container *ngIf="is_playing">
-              <div class="video-inner">
-                <iframe
-                  [src]="video_url_safe"
-                  *ngIf="video_url_safe != ''"
-                  width="100%"
-                  height="100%"
-                ></iframe>
+        <div class="column video-box">
+          <div class="video-title" [innerHTML]="video_title"></div>
+          <ng-container *ngIf="is_playing">
+            <div class="video-inner">
+              <iframe [src]="video_url_safe" *ngIf="video_url_safe != ''" width="100%" height="100%"></iframe>
+            </div>
+            <div class="video-slider">
+              <div class="custom-slider">
+                <ng5-slider [(value)]="minValue" style="height: unset !important" [(highValue)]="maxValue"
+                  [options]="options" (valueChange)="minValueChange()" (highValueChange)="maxValueChange()">
+                </ng5-slider>
               </div>
-              <div class="video-slider">
-                <div class="custom-slider">
-                  <ng5-slider
-                    [(value)]="minValue"
-                    style="height: unset !important"
-                    [(highValue)]="maxValue"
-                    [options]="options"
-                    (valueChange)="minValueChange()"
-                    (highValueChange)="maxValueChange()"
-                  ></ng5-slider>
-                </div>
-                <div class="action-time">{{ active_video_time }}</div>
-                <div class="row">
-                  <div class="bg-group">
-                    <label>{{ "game_time" | translate }}</label>
-                    <div class="d-flex">
-                      <input [(ngModel)]="active_video_time" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-group">
-                    <label>{{ "cut_before" | translate }}</label>
-                    <div class="d-flex">
-                      <input  [(ngModel)]="video_before" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-group">
-                    <label>{{ "orez_po" | translate }}</label>
-                    <div class="d-flex">
-                      <input [(ngModel)]="video_after" />
-                      <div class="controls">
-                        <div class="control-plus"></div>
-                        <div class="control-minus"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bg-group div-btn-play-selected" >
-                    <button class="btn-play-selected">
-                      <span>{{ "play_selected_section" | translate }}</span>
-                      <img src="assets/icobutton-play.svg" alt="">
-                    </button>
-                  </div>
-
-                  <div class="bg-group div-btn-players-note" >
-                    <button class="btn-players-note">
-                      <span>{{ "players_note" | translate }}</span>
-                      <img src="assets/icobutton-edit.svg" alt="">
-                    </button>
+              <div class="action-time">{{ active_video_time }}</div>
+              <div class="row">
+                <div class="bg-group">
+                  <label>{{ "game_time" | translate }}</label>
+                  <input [(ngModel)]="active_video_time" readonly />
+                  <div class="controls">
+                    <div class="control-plus" (click)="increaseVideoTime()"></div>
+                    <div class="control-minus" (click)="decreaseVideoTime()"></div>
                   </div>
                 </div>
+
+                <div class="bg-group">
+                  <label>{{ "cut_before" | translate }}</label>
+                  <input [(ngModel)]="video_before" />
+                  <div class="controls">
+                    <div class="control-plus" (click)="increaseVideoBeforeTime()"></div>
+                    <div class="control-minus" (click)="decreaseVideoBeforeTime()"></div>
+                  </div>
+                </div>
+
+                <div class="bg-group">
+                  <label>{{ "orez_po" | translate }}</label>
+                  <input [(ngModel)]="video_after" />
+                  <div class="controls">
+                    <div class="control-plus" (click)="increaseVideoAfterTime()"></div>
+                    <div class="control-minus" (click)="decreaseVideoAfterTime()"></div>
+                  </div>
+                </div>
+
+                <div class="bg-group div-btn-play-selected">
+                  <button class="btn-play-selected">
+                    <span>{{ "play_selected_section" | translate }}</span>
+                  </button>
+                </div>
+
+                <div class="bg-group div-btn-players-note">
+                  <button class="btn-players-note" (click)="showPlayersNotePanel()">
+                    <span>{{ "players_note" | translate }}</span>
+                  </button>
+                </div>
               </div>
-            </ng-container>
-            <ng-container *ngIf="!is_playing">
-              <div class="video-inner"></div>
-            </ng-container>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="!is_playing">
+            <div class="video-inner"></div>
+          </ng-container>
+          <div id="players-note-panel" class="players-note-panel">
+            <div class="header">
+              <span>
+                <div class="header-left">
+                  <label>{{"players_note_panel_header" | translate }}</label>
+                </div>
+                <div class="header-right">
+                  <button class="closeButton" (click)="hidePlayersNotePanel()">{{ "zavrit" | translate }}</button>
+                </div>
+              </span>
+            </div>
+            <div class="subject">
+              <div class="left">
+                <div class="label">{{"clip_name" | translate}}</div>
+                <input [(ngModel)]="videoClip.name" />
+              </div>
+              <div class="right">
+                <div class="label">{{"event_evaluation" | translate}}</div>
+                <div>
+                  <img src="/assets/ico-positive-default.svg">
+                  <img src="/assets/ico-neutral-default.svg">
+                  <img src="/assets/ico-negative-default.svg">
+                </div>
+              </div>
+            </div>
+
+            <div class="body">
+              <div class="label">{{"game_note_situation" | translate}}</div>
+              <textarea [(ngModel)]="videoClip.description"></textarea>
+
+            </div>
+
+            <div class="players">
+              <div class="title">{{"recipients_of_the_note" | translate}}</div>
+              <div class="deffenders">
+                <div class="title">{{"defenders" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'DE'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+              <div class="attackers">
+                <div class="title">{{"attackers" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'FO'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+              <div class="goal-keepers">
+                <div class="title">{{"goal_keepers" | translate}}</div>
+                <div class="player" *ngFor="let item of NotePlayers | filter : 'position' : 'GK'"
+                  [ngClass]="{'selected-player': isPlayerAlreadyOnVideoClip(item)}" (click)="toggleReceiptPlayerList(item)">
+                  #{{item.jersey}}, {{item.surname}} {{item.name.substring(0, 1)}}.
+                </div>
+              </div>
+            </div>
+            <div class="footer">
+              <div class="send-button" (click)="sendVideoClip()">
+                {{"send_to_players" | translate}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+
+
 </div>
